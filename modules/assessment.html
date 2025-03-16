@@ -1,0 +1,155 @@
+<div class="assessment-container">
+    <h2>Excel Skills Assessment</h2>
+    <div class="assessment-intro" id="assessment-intro">
+        <div class="level-badge" id="current-assessment-level">
+            <!-- Level badge will be inserted here -->
+        </div>
+        <div class="assessment-description">
+            <p class="level-description" id="assessment-description">
+                <!-- Assessment description will be inserted here -->
+            </p>
+            <div class="assessment-stats">
+                <div class="stat-item">
+                    <i class="fa-solid fa-question"></i>
+                    <span id="question-count">10 Questions</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <span id="time-estimate">~10 Minutes</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-award"></i>
+                    <span id="passing-score">70% to Pass</span>
+                </div>
+            </div>
+        </div>
+        <button class="primary-btn" id="start-assessment-btn">Start Assessment</button>
+    </div>
+
+    <div class="quiz-container" id="quiz-container" style="display: none;">
+        <div class="quiz-header">
+            <div class="quiz-progress">
+                <div class="progress">
+                    <div id="quiz-progress-bar" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                </div>
+                <span id="quiz-progress-text">Question 1 of 10</span>
+            </div>
+            <div class="quiz-timer" id="quiz-timer">
+                Time: <span id="time-remaining">10:00</span>
+            </div>
+        </div>
+
+        <div id="question-container" class="question-container">
+            <!-- Questions will be inserted here -->
+        </div>
+
+        <div class="quiz-navigation">
+            <button class="secondary-btn" id="prev-question-btn" disabled>Previous</button>
+            <span id="question-status">Question 1 of 10</span>
+            <button class="secondary-btn" id="next-question-btn">Next</button>
+            <button class="primary-btn" id="submit-quiz-btn" style="display: none;">Submit Answers</button>
+        </div>
+    </div>
+
+    <div class="results-container" id="results-container" style="display: none;">
+        <h3>Assessment Results</h3>
+        <div class="score-display">
+            <div class="score-circle">
+                <span id="score-percentage">0%</span>
+            </div>
+            <div class="score-details">
+                <p>You answered <span id="correct-answers">0</span> out of <span id="total-questions">10</span> questions correctly.</p>
+                <div id="pass-fail-message"></div>
+            </div>
+        </div>
+
+        <div class="results-actions">
+            <button class="secondary-btn" id="review-answers-btn">Review Answers</button>
+            <button class="primary-btn" id="return-path-btn">Return to Learning Path</button>
+        </div>
+
+        <div class="review-container" id="review-container" style="display: none;">
+            <h4>Review Questions</h4>
+            <div id="review-questions">
+                <!-- Review content will be inserted here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<template id="question-template">
+    <div class="question">
+        <h4 class="question-text"></h4>
+        <div class="question-content">
+            <!-- Content will vary based on question type -->
+        </div>
+        <div class="feedback" style="display: none;">
+            <div class="correct-feedback">
+                <i class="fa-solid fa-check-circle"></i>
+                <span>Correct!</span>
+            </div>
+            <div class="incorrect-feedback">
+                <i class="fa-solid fa-times-circle"></i>
+                <span>Incorrect.</span>
+                <p class="explanation"></p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="multiple-choice-template">
+    <div class="options-list multiple-choice">
+        <!-- Options will be inserted here -->
+    </div>
+</template>
+
+<template id="multiple-select-template">
+    <div class="options-list multiple-select">
+        <!-- Options will be inserted here -->
+    </div>
+    <p class="instruction">Select all that apply</p>
+</template>
+
+<template id="formula-input-template">
+    <div class="formula-input">
+        <div class="formula-context">
+            <!-- Formula context (e.g., cell values) will be inserted here -->
+        </div>
+        <div class="input-group">
+            <span class="input-prefix">=</span>
+            <input type="text" class="formula-text-input" placeholder="Enter your formula">
+        </div>
+        <button class="hint-btn">Need a hint?</button>
+        <div class="hint-content" style="display: none;">
+            <!-- Hint content will be inserted here -->
+        </div>
+    </div>
+</template>
+
+<template id="matching-template">
+    <div class="matching-container">
+        <div class="matching-left">
+            <!-- Left items will be inserted here -->
+        </div>
+        <div class="matching-right">
+            <!-- Right items will be inserted here -->
+        </div>
+    </div>
+</template>
+
+<template id="excel-scenario-template">
+    <div class="excel-scenario">
+        <div class="scenario-description">
+            <!-- Scenario description will be inserted here -->
+        </div>
+        <div class="excel-grid">
+            <!-- Excel-like grid will be inserted here -->
+        </div>
+        <div class="scenario-question">
+            <!-- Question will be inserted here -->
+        </div>
+        <div class="scenario-options">
+            <!-- Answer options will be inserted here -->
+        </div>
+    </div>
+</template>

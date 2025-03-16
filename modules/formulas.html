@@ -1,0 +1,217 @@
+<h2>Formulas & Functions</h2>
+<div class="section-intro">
+    <p>Unlock the true power of Excel with formulas and functions - the essential skills that transform Excel from a simple spreadsheet into a powerful analytical tool.</p>
+</div>
+
+<div class="topic-container">
+    <div class="topic-card" id="basics">
+        <h3>Formula Basics</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Every Excel formula begins with an equals sign (=) and can contain cell references, operators, values, and functions.</p>
+                <h4>Core Operators</h4>
+                <ul>
+                    <li><strong>+ (Addition):</strong> Adds values</li>
+                    <li><strong>- (Subtraction):</strong> Subtracts values</li>
+                    <li><strong>* (Multiplication):</strong> Multiplies values</li>
+                    <li><strong>/ (Division):</strong> Divides values</li>
+                    <li><strong>^ (Exponentiation):</strong> Raises a number to a power</li>
+                    <li><strong>& (Concatenation):</strong> Joins text strings</li>
+                </ul>
+                <h4>Cell References</h4>
+                <ul>
+                    <li><strong>A1:</strong> Relative reference (changes when copied)</li>
+                    <li><strong>$A$1:</strong> Absolute reference (doesn't change when copied)</li>
+                    <li><strong>$A1:</strong> Mixed reference (column absolute, row relative)</li>
+                    <li><strong>A$1:</strong> Mixed reference (column relative, row absolute)</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Simple Formulas</h4>
+                <table class="formula-example">
+                    <tr>
+                        <th>Formula</th>
+                        <th>Result (if A1=10, B1=5)</th>
+                    </tr>
+                    <tr>
+                        <td>=A1+B1</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>=A1*B1</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>=A1/B1</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>=A1^2</td>
+                        <td>100</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div class="topic-card" id="mathematical">
+        <h3>Mathematical Functions</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Excel's mathematical functions help perform calculations beyond basic arithmetic.</p>
+                <ul>
+                    <li><strong>SUM:</strong> Adds all numbers in a range</li>
+                    <li><strong>AVERAGE:</strong> Calculates the average of numbers</li>
+                    <li><strong>MIN/MAX:</strong> Finds the smallest/largest value</li>
+                    <li><strong>COUNT:</strong> Counts cells with numbers</li>
+                    <li><strong>ROUND:</strong> Rounds a number to specified digits</li>
+                    <li><strong>SUMIF:</strong> Adds numbers that meet a condition</li>
+                    <li><strong>RAND/RANDBETWEEN:</strong> Generates random numbers</li>
+                </ul>
+                <p><strong>Pro Tip:</strong> Use <code>Alt+=</code> to quickly sum a range of cells.</p>
+            </div>
+            <div class="topic-example">
+                <h4>Function Examples</h4>
+                <p>If cells A1:A5 contain [10, 20, 30, 40, 50]:</p>
+                <table class="formula-example">
+                    <tr>
+                        <th>Function</th>
+                        <th>Result</th>
+                    </tr>
+                    <tr>
+                        <td>=SUM(A1:A5)</td>
+                        <td>150</td>
+                    </tr>
+                    <tr>
+                        <td>=AVERAGE(A1:A5)</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>=MAX(A1:A5)</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>=ROUND(31.6789, 2)</td>
+                        <td>31.68</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div class="topic-card" id="logical">
+        <h3>Logical Functions</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Logical functions help make decisions based on conditions, making your spreadsheets smarter.</p>
+                <ul>
+                    <li><strong>IF:</strong> Returns one value if a condition is true, another if false</li>
+                    <li><strong>AND:</strong> Returns TRUE if all conditions are true</li>
+                    <li><strong>OR:</strong> Returns TRUE if any condition is true</li>
+                    <li><strong>NOT:</strong> Reverses the logic of an argument</li>
+                    <li><strong>IFERROR:</strong> Returns a value if there's an error</li>
+                    <li><strong>IFS:</strong> Tests multiple conditions (Excel 2016+)</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>IF Function Examples</h4>
+                <p>Basic IF statement: <code>=IF(A1>70, "Pass", "Fail")</code></p>
+                <p>Nested IF for grades:</p>
+                <pre>=IF(A1>=90, "A", 
+   IF(A1>=80, "B", 
+      IF(A1>=70, "C", 
+         IF(A1>=60, "D", "F"))))</pre>
+                <p>Using IFS (modern alternative):</p>
+                <pre>=IFS(
+   A1>=90, "A",
+   A1>=80, "B", 
+   A1>=70, "C", 
+   A1>=60, "D", 
+   TRUE, "F")</pre>
+            </div>
+        </div>
+    </div>
+    
+    <div class="topic-card" id="text">
+        <h3>Text Functions</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Text functions manipulate, extract, and format text data in Excel.</p>
+                <ul>
+                    <li><strong>CONCAT/CONCATENATE:</strong> Joins text strings together</li>
+                    <li><strong>LEFT/RIGHT/MID:</strong> Extracts characters from a string</li>
+                    <li><strong>LEN:</strong> Returns the length of a text string</li>
+                    <li><strong>FIND/SEARCH:</strong> Locates one text string within another</li>
+                    <li><strong>LOWER/UPPER/PROPER:</strong> Changes text case</li>
+                    <li><strong>TRIM:</strong> Removes extra spaces</li>
+                    <li><strong>SUBSTITUTE:</strong> Replaces text within a string</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Text Function Examples</h4>
+                <table class="formula-example">
+                    <tr>
+                        <th>Function</th>
+                        <th>Result</th>
+                    </tr>
+                    <tr>
+                        <td>=CONCAT("Hello", " ", "World")</td>
+                        <td>Hello World</td>
+                    </tr>
+                    <tr>
+                        <td>=LEFT("Excel Training", 5)</td>
+                        <td>Excel</td>
+                    </tr>
+                    <tr>
+                        <td>=PROPER("john smith")</td>
+                        <td>John Smith</td>
+                    </tr>
+                    <tr>
+                        <td>=SUBSTITUTE("Excel 2019", "2019", "365")</td>
+                        <td>Excel 365</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="lookup">
+        <h3>Lookup and Reference Functions</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>These powerful functions allow you to find and reference data across your workbook.</p>
+                <ul>
+                    <li><strong>VLOOKUP:</strong> Vertical lookup to find data in a table by row</li>
+                    <li><strong>HLOOKUP:</strong> Horizontal lookup to find data in a table by column</li>
+                    <li><strong>INDEX:</strong> Returns a value at a specific position in a range</li>
+                    <li><strong>MATCH:</strong> Returns the position of a value in a range</li>
+                    <li><strong>INDEX+MATCH:</strong> A powerful alternative to VLOOKUP</li>
+                    <li><strong>XLOOKUP:</strong> Improved lookup function (Excel 365)</li>
+                    <li><strong>INDIRECT:</strong> Returns a reference specified by a text string</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>VLOOKUP Syntax</h4>
+                <pre>=VLOOKUP(lookup_value, table_array, 
+    col_index_num, [range_lookup])</pre>
+                <p>Example: Find an employee's department based on their ID</p>
+                <pre>=VLOOKUP(A2, $D$2:$F$20, 2, FALSE)</pre>
+                <p>Where A2 contains the employee ID to look up, and columns D-F contain employee data.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="practice-exercise">
+    <h3>Practice Exercise: Sales Commission Calculator</h3>
+    <p>Create a sales commission calculator to practice formulas and functions:</p>
+    <ol>
+        <li>Set up a sales data table with columns for: Salesperson, Sales Amount, Region</li>
+        <li>Create a commission rate table (different rates by region and sales thresholds)</li>
+        <li>Use VLOOKUP or INDEX/MATCH to find the applicable commission rate</li>
+        <li>Use IF functions to apply bonus rates for sales above certain thresholds</li>
+        <li>Calculate total commission using the appropriate formulas</li>
+        <li>Create summary statistics using SUM, AVERAGE, MAX functions</li>
+    </ol>
+    <button class="resource-btn" id="download-commission-template">Download Practice Template</button>
+</div>
