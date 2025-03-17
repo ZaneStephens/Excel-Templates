@@ -8,6 +8,19 @@ const mobileNav = document.getElementById('mobile-nav');
 let currentModule = 'home';
 let currentTopic = null;
 
+// Module display names for breadcrumbs
+const moduleDisplayNames = {
+    'home': 'Home',
+    'learning-path': 'Learning Path',
+    'basics': 'Excel Basics',
+    'formulas': 'Formulas & Functions',
+    'dataanalysis': 'Data Analysis',
+    'visualization': 'Data Visualization',
+    'advanced': 'Advanced Features',
+    'resources': 'Resources',
+    'assessment': 'Assessment'
+};
+
 // Initialize the app
 document.addEventListener('DOMContentLoaded', () => {
     // Set current year in footer copyright
@@ -24,6 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Add progress tracking bar to header
     addProgressTrackingBar();
+
+    // Initialize assessment manager
+    if (typeof AssessmentManager !== 'undefined') {
+        window.assessmentManager = new AssessmentManager();
+    }
+    
+    // Initialize formula builder
+    if (typeof FormulaBuilder !== 'undefined') {
+        window.formulaBuilder = new FormulaBuilder();
+    }
 });
 
 // Add progress tracking bar to the header
@@ -101,6 +124,17 @@ async function loadModule(moduleName, topic = null) {
             });
             document.dispatchEvent(event);
         }
+
+        // Special handling for assessment module
+        if (moduleName === 'assessment' && topic && window.assessmentManager) {
+            // Initialize assessment with specified level
+            setTimeout(() => {
+                window.assessmentManager.initAssessment(topic);
+            }, 100);
+        }
+
+        // Add breadcrumb navigation
+        addBreadcrumbNavigation(moduleName, topic);
     } catch (error) {
         console.error('Error loading module:', error);
         contentContainer.innerHTML = `
@@ -111,6 +145,74 @@ async function loadModule(moduleName, topic = null) {
             </div>
         `;
     }
+}
+
+// Add breadcrumb navigation
+function addBreadcrumbNavigation(moduleName, topicId) {
+    const breadcrumbNav = document.createElement('nav');
+    breadcrumbNav.setAttribute('aria-label', 'breadcrumb');
+    breadcrumbNav.className = 'breadcrumb';
+    
+    const breadcrumbList = document.createElement('div');
+    breadcrumbList.className = 'breadcrumb-list';
+    
+    // Always add home
+    const homeItem = document.createElement('div');
+    homeItem.className = 'breadcrumb-item';
+    homeItem.innerHTML = `<a href="#" data-module="home">Home</a>`;
+    breadcrumbList.appendChild(homeItem);
+    
+    // Add current module if not home
+    if (moduleName !== 'home') {
+        const moduleItem = document.createElement('div');
+        moduleItem.className = 'breadcrumb-item';
+        
+        // If we have a topic, make the module a link
+        if (topicId) {
+            moduleItem.innerHTML = `<a href="#" data-module="${moduleName}">${moduleDisplayNames[moduleName] || moduleName}</a>`;
+        } else {
+            moduleItem.className += ' active';
+            moduleItem.textContent = moduleDisplayNames[moduleName] || moduleName;
+        }
+        
+        breadcrumbList.appendChild(moduleItem);
+    }
+    
+    // Add topic if specified
+    if (topicId) {
+        const topicItem = document.createElement('div');
+        topicItem.className = 'breadcrumb-item active';
+        
+        // Try to find the topic name from the heading
+        const topicElement = document.getElementById(topicId);
+        let topicName = topicId;
+        
+        if (topicElement) {
+            const heading = topicElement.querySelector('h3');
+            if (heading) {
+                topicName = heading.textContent;
+            }
+        }
+        
+        topicItem.textContent = topicName;
+        breadcrumbList.appendChild(topicItem);
+    }
+    
+    breadcrumbNav.appendChild(breadcrumbList);
+    
+    // Insert breadcrumb at the beginning of the content
+    const contentFirstChild = contentContainer.firstChild;
+    contentContainer.insertBefore(breadcrumbNav, contentFirstChild);
+    
+    // Set up breadcrumb link event handlers
+    const breadcrumbLinks = breadcrumbNav.querySelectorAll('a[data-module]');
+    breadcrumbLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const module = link.getAttribute('data-module');
+            loadModule(module);
+        });
+    });
 }
 
 // Add progress tracking elements to the page
@@ -325,23 +427,66 @@ function setupContentEventHandlers() {
             button.addEventListener('click', () => {
                 const level = button.getAttribute('data-level');
                 
-                // In a real implementation, this would navigate to an assessment page
-                // loadModule('assessment', level);
-                
-                // For now, simulate assessment with a random score
-                if (window.progressTracker) {
-                    // Generate random score between 70 and 100
-                    const randomScore = Math.floor(Math.random() * 31) + 70;
-                    progressTracker.saveAssessmentResult(level, randomScore);
-                    
-                    // Show simulated result
-                    alert(`Assessment completed! Your score: ${randomScore}%`);
-                } else {
-                    alert(`Assessment for ${level} level would launch here.`);
-                }
+                // Navigate to assessment page with level parameter
+                loadModule('assessment', level);
             });
         });
     }
+
+    // Formula examples - set up clickable formula examples
+    const formulaExamples = document.querySelectorAll('code, .formula-example td:first-child');
+    if (formulaExamples.length > 0 && window.formulaBuilder) {
+        formulaExamples.forEach(example => {
+            if (example.textContent.trim().startsWith('=')) {
+                example.classList.add('interactive-formula');
+                example.setAttribute('title', 'Click to open in Formula Builder');
+                
+                example.addEventListener('click', () => {
+                    window.formulaBuilder.openBuilder(example.textContent.trim());
+                });
+            }
+        });
+    }
+
+    // Make formulas interactive
+    setupInteractiveFormulas();
+}
+
+// Setup interactive formula examples
+function setupInteractiveFormulas() {
+    // Find all code elements and formula example cells
+    const codeElements = document.querySelectorAll('code');
+    const formulaCells = document.querySelectorAll('.formula-example td:first-child');
+    
+    // Process code elements
+    codeElements.forEach(codeEl => {
+        const formula = codeEl.textContent.trim();
+        if (formula.startsWith('=')) {
+            codeEl.classList.add('interactive-formula');
+            codeEl.setAttribute('title', 'Click to open in Formula Builder');
+            
+            codeEl.addEventListener('click', () => {
+                if (window.formulaBuilder) {
+                    window.formulaBuilder.openBuilder(formula);
+                }
+            });
+        }
+    });
+    
+    // Process formula table cells
+    formulaCells.forEach(cell => {
+        const formula = cell.textContent.trim();
+        if (formula.startsWith('=')) {
+            cell.classList.add('interactive-formula');
+            cell.setAttribute('title', 'Click to open in Formula Builder');
+            
+            cell.addEventListener('click', () => {
+                if (window.formulaBuilder) {
+                    window.formulaBuilder.openBuilder(formula);
+                }
+            });
+        }
+    });
 }
 
 // Add animation to topic cards
@@ -541,6 +686,42 @@ function animateTopicCards() {
             }
         `;
         document.head.appendChild(style);
+    }
+    
+    // Additional style for interactive formulas
+    if (!document.getElementById('interactive-formula-styles')) {
+        const formulaStyle = document.createElement('style');
+        formulaStyle.id = 'interactive-formula-styles';
+        formulaStyle.textContent = `
+            .interactive-formula {
+                cursor: pointer;
+                position: relative;
+                transition: background-color 0.2s;
+            }
+            
+            .interactive-formula::after {
+                content: "✏️";
+                font-size: 0.8em;
+                margin-left: 4px;
+                vertical-align: super;
+                opacity: 0.6;
+            }
+            
+            .interactive-formula:hover {
+                background-color: #e8f5e9;
+                text-decoration: underline;
+            }
+            
+            /* Additional styles for formula tables */
+            .formula-example {
+                position: relative;
+            }
+            
+            .formula-example tr td:first-child {
+                position: relative;
+            }
+        `;
+        document.head.appendChild(formulaStyle);
     }
     
     // Set up intersection observer

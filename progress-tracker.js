@@ -9,20 +9,45 @@
 // Main Progress Tracker Class
 class ProgressTracker {
     constructor() {
-        this.storageKey = 'excelMasteryProgress';
-        this.progress = this.loadProgress();
+        this.storageKey = 'excel-mastery-progress';
+        this.progress = null;
+        
+        // Initialize or load existing progress
         this.initializeIfEmpty();
+        
+        // Add custom event for progress updates
+        this.progressUpdateEvent = new CustomEvent('progressUpdated');
     }
-
-    // Load saved progress from localStorage
-    loadProgress() {
-        const savedProgress = localStorage.getItem(this.storageKey);
-        return savedProgress ? JSON.parse(savedProgress) : null;
-    }
-
-    // Initialize empty progress object if none exists
+    
+    // Initialize progress object if it doesn't exist
     initializeIfEmpty() {
-        if (!this.progress) {
+        try {
+            const storedProgress = localStorage.getItem(this.storageKey);
+            this.progress = storedProgress ? JSON.parse(storedProgress) : null;
+            
+            if (!this.progress) {
+                this.progress = {
+                    completedLessons: [],
+                    completedExercises: [],
+                    assessments: {
+                        beginner: { completed: false, score: 0 },
+                        intermediate: { completed: false, score: 0 },
+                        advanced: { completed: false, score: 0 }
+                    },
+                    lastVisited: { module: null, topic: null },
+                    visitsCount: {}
+                };
+                this.saveProgress();
+            }
+            
+            // Migration for older versions without visitsCount
+            if (!this.progress.visitsCount) {
+                this.progress.visitsCount = {};
+                this.saveProgress();
+            }
+        } catch (e) {
+            console.error('Error initializing progress:', e);
+            // Create new progress object on error
             this.progress = {
                 completedLessons: [],
                 completedExercises: [],
@@ -31,23 +56,65 @@ class ProgressTracker {
                     intermediate: { completed: false, score: 0 },
                     advanced: { completed: false, score: 0 }
                 },
-                lastVisited: null
+                lastVisited: { module: null, topic: null },
+                visitsCount: {}
             };
             this.saveProgress();
         }
     }
-
+    
     // Save progress to localStorage
     saveProgress() {
-        localStorage.setItem(this.storageKey, JSON.stringify(this.progress));
+        try {
+            localStorage.setItem(this.storageKey, JSON.stringify(this.progress));
+            document.dispatchEvent(this.progressUpdateEvent);
+        } catch (e) {
+            console.error('Error saving progress:', e);
+        }
     }
-
+    
+    // Track user visits to modules/topics
+    trackVisit(moduleId, topicId = null) {
+        // Update last visited
+        this.progress.lastVisited = {
+            module: moduleId,
+            topic: topicId
+        };
+        
+        // Track visit count
+        const key = topicId ? `${moduleId}-${topicId}` : moduleId;
+        if (!this.progress.visitsCount[key]) {
+            this.progress.visitsCount[key] = 0;
+        }
+        this.progress.visitsCount[key]++;
+        
+        this.saveProgress();
+    }
+    
+    // Get visit count for a module/topic
+    getVisitCount(moduleId, topicId = null) {
+        const key = topicId ? `${moduleId}-${topicId}` : moduleId;
+        return this.progress.visitsCount[key] || 0;
+    }
+    
+    // Check if a lesson is marked as completed
+    isLessonCompleted(moduleId, topicId) {
+        const lessonId = `${moduleId}-${topicId}`;
+        return this.progress.completedLessons.includes(lessonId);
+    }
+    
+    // Check if an exercise is marked as completed
+    isExerciseCompleted(moduleId) {
+        return this.progress.completedExercises.includes(moduleId);
+    }
+    
     // Mark a lesson as completed
     completeLesson(moduleId, topicId) {
         const lessonId = `${moduleId}-${topicId}`;
         if (!this.progress.completedLessons.includes(lessonId)) {
             this.progress.completedLessons.push(lessonId);
             this.saveProgress();
+            this.showCompletionToast('Lesson marked as complete!');
         }
         this.updateUI();
     }
@@ -57,97 +124,282 @@ class ProgressTracker {
         if (!this.progress.completedExercises.includes(moduleId)) {
             this.progress.completedExercises.push(moduleId);
             this.saveProgress();
+            this.showCompletionToast('Exercise marked as complete!');
         }
         this.updateUI();
     }
+    
+    // Show a toast notification for completion events
+    showCompletionToast(message) {
+        // Create toast container if it doesn't exist
+        let toastContainer = document.getElementById('progress-toasts');
+        if (!toastContainer) {
+            toastContainer = document.createElement('div');
+            toastContainer.id = 'progress-toasts';
+            toastContainer.className = 'toast-container';
+            document.body.appendChild(toastContainer);
+            
+            // Add toast container styles if not present
+            if (!document.getElementById('toast-styles')) {
+                const toastStyles = document.createElement('style');
+                toastStyles.id = 'toast-styles';
+                toastStyles.textContent = `
+                    .toast-container {
+                        position: fixed;
+                        bottom: 20px;
+                        right: 20px;
+                        z-index: 1000;
+                    }
+                    
+                    .toast {
+                        background-color: #4CAF50;
+                        color: white;
+                        padding: 12px 24px;
+                        border-radius: 4px;
+                        margin-top: 10px;
+                        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                        display: flex;
+                        align-items: center;
+                        animation: toast-slide-in 0.3s, toast-fade-out 0.5s 2.5s;
+                        opacity: 0;
+                        animation-fill-mode: forwards;
+                    }
+                    
+                    .toast i {
+                        margin-right: 10px;
+                        font-size: 1.2rem;
+                    }
+                    
+                    @keyframes toast-slide-in {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    
+                    @keyframes toast-fade-out {
+                        from { opacity: 1; }
+                        to { opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(toastStyles);
+            }
+        }
+        
+        // Create and add the toast
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.innerHTML = `<i class="fa-solid fa-check-circle"></i> ${message}`;
+        toastContainer.appendChild(toast);
+        
+        // Remove toast after animation completes
+        setTimeout(() => {
+            toast.remove();
+        }, 3000);
+    }
 
+    // Get assessment result for a specific level
+    getAssessmentResult(level) {
+        return this.progress.assessments[level] || { completed: false, score: 0 };
+    }
+    
     // Save assessment result
     saveAssessmentResult(level, score) {
         if (this.progress.assessments[level]) {
-            this.progress.assessments[level].completed = true;
-            this.progress.assessments[level].score = score;
-            this.saveProgress();
+            // Only update if score is higher or assessment was not previously completed
+            if (!this.progress.assessments[level].completed || score > this.progress.assessments[level].score) {
+                this.progress.assessments[level].completed = true;
+                this.progress.assessments[level].score = score;
+                this.saveProgress();
+            }
         }
         this.updateUI();
+        
+        // Check if this completed a level and issue a congratulations message
+        if (this.getLevelProgress(level) === 100) {
+            setTimeout(() => {
+                this.showCompletionToast(`You've completed the ${level} level of Excel mastery!`);
+            }, 1500);
+            
+            // Check if badge was newly earned and display an animation
+            this.animateBadgeEarned(level);
+        }
     }
-
-    // Track last visited page
-    trackVisit(moduleId, topicId = null) {
-        this.progress.lastVisited = {
-            module: moduleId,
-            topic: topicId
-        };
-        this.saveProgress();
+    
+    // Animate badge earning
+    animateBadgeEarned(level) {
+        const badgeElement = document.getElementById(`${level}-badge`);
+        if (badgeElement && badgeElement.classList.contains('badge-locked')) {
+            setTimeout(() => {
+                badgeElement.classList.remove('badge-locked');
+                badgeElement.classList.add('badge-earned');
+                
+                // Create and display confetti animation
+                this.createConfetti();
+            }, 2000);
+        }
     }
-
-    // Check if a specific lesson is completed
-    isLessonCompleted(moduleId, topicId) {
-        const lessonId = `${moduleId}-${topicId}`;
-        return this.progress.completedLessons.includes(lessonId);
-    }
-
-    // Check if an exercise is completed
-    isExerciseCompleted(moduleId) {
-        return this.progress.completedExercises.includes(moduleId);
-    }
-
-    // Get assessment result
-    getAssessmentResult(level) {
-        return this.progress.assessments[level] || { completed: false, score: 0 };
+    
+    // Create confetti celebration effect
+    createConfetti() {
+        const confettiContainer = document.createElement('div');
+        confettiContainer.className = 'confetti-container';
+        document.body.appendChild(confettiContainer);
+        
+        // Add confetti styles if not present
+        if (!document.getElementById('confetti-styles')) {
+            const confettiStyles = document.createElement('style');
+            confettiStyles.id = 'confetti-styles';
+            confettiStyles.textContent = `
+                .confetti-container {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    pointer-events: none;
+                    z-index: 9999;
+                }
+                
+                .confetti {
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    opacity: 0;
+                    animation: confetti-fall 3s ease-in-out forwards;
+                }
+                
+                @keyframes confetti-fall {
+                    0% { 
+                        transform: translateY(-100px) rotate(0deg); 
+                        opacity: 1; 
+                    }
+                    100% { 
+                        transform: translateY(calc(100vh + 100px)) rotate(720deg); 
+                        opacity: 0; 
+                    }
+                }
+            `;
+            document.head.appendChild(confettiStyles);
+        }
+        
+        // Create confetti pieces
+        const colors = ['#f94144', '#f3722c', '#f8961e', '#f9c74f', '#90be6d', '#43aa8b', '#577590'];
+        const shapes = ['square', 'circle'];
+        
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            
+            // Random position, color, size, and rotation
+            const left = Math.random() * 100;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            const size = Math.random() * 10 + 5;
+            const rotation = Math.random() * 360;
+            const shape = shapes[Math.floor(Math.random() * shapes.length)];
+            
+            // Set styles
+            confetti.style.left = `${left}%`;
+            confetti.style.backgroundColor = color;
+            confetti.style.width = `${size}px`;
+            confetti.style.height = `${size}px`;
+            confetti.style.transform = `rotate(${rotation}deg)`;
+            confetti.style.borderRadius = shape === 'circle' ? '50%' : '0';
+            
+            // Add delay for staggered effect
+            confetti.style.animationDelay = `${Math.random() * 1.5}s`;
+            
+            // Add to container
+            confettiContainer.appendChild(confetti);
+        }
+        
+        // Remove confetti after animation
+        setTimeout(() => {
+            confettiContainer.remove();
+        }, 4500);
     }
 
     // Calculate overall progress percentage
     getOverallProgress() {
-        // This is a simplified calculation - would need to be adjusted based on total lessons
-        const totalLessons = 20; // Example total number of possible lessons
-        const totalExercises = 5; // Example total number of exercises
-        const totalAssessments = 3; // Beginner, Intermediate, Advanced
+        // Count total lessons and exercises across all modules
+        const totalLessons = 15; // Update this based on your actual content
+        const totalExercises = 5; // Update this based on your actual content
+        const totalAssessments = 3;
         
-        const completedItems = this.progress.completedLessons.length + 
-                              this.progress.completedExercises.length +
-                              Object.values(this.progress.assessments)
-                                    .filter(a => a.completed).length;
-                              
-        const totalItems = totalLessons + totalExercises + totalAssessments;
+        // Count completed items
+        const completedLessons = this.progress.completedLessons.length;
+        const completedExercises = this.progress.completedExercises.length;
+        const completedAssessments = Object.values(this.progress.assessments)
+            .filter(assessment => assessment.completed).length;
         
-        return Math.round((completedItems / totalItems) * 100);
+        // Calculate overall progress
+        const total = totalLessons + totalExercises + totalAssessments;
+        const completed = completedLessons + completedExercises + completedAssessments;
+        
+        return Math.round((completed / total) * 100);
     }
 
     // Get progress for a specific level (beginner, intermediate, advanced)
     getLevelProgress(level) {
-        // Define lessons and exercises per level (example mapping)
-        const levelMapping = {
+        let totalItems = 0;
+        let completedItems = 0;
+        
+        // Define which lessons and exercises belong to each level
+        // This depends on your content structure - update as needed
+        const levelStructure = {
             beginner: {
-                lessons: ['basics-interface', 'basics-data-entry', 'basics-formatting', 'formulas-basics'],
-                exercises: ['basics']
+                modules: ['basics'],
+                assessmentRequired: true
             },
             intermediate: {
-                lessons: ['formulas-logical', 'basics-multi-sheets', 'dataanalysis-sorting', 'visualization-basics'],
-                exercises: ['dataanalysis']
+                modules: ['formulas', 'dataanalysis'],
+                assessmentRequired: true
             },
             advanced: {
-                lessons: ['dataanalysis-pivottables', 'formulas-lookup', 'advanced-validation', 'advanced-macros'],
-                exercises: ['advanced']
+                modules: ['visualization', 'advanced'],
+                assessmentRequired: true
             }
         };
         
-        if (!levelMapping[level]) return 0;
+        const levelModules = levelStructure[level]?.modules || [];
         
-        const levelLessons = levelMapping[level].lessons;
-        const levelExercises = levelMapping[level].exercises;
-        
-        const completedLevelLessons = this.progress.completedLessons.filter(lesson => 
-            levelLessons.includes(lesson));
+        // Count lessons for this level
+        levelModules.forEach(moduleId => {
+            // Count completed lessons in this module
+            this.progress.completedLessons.forEach(lessonId => {
+                if (lessonId.startsWith(`${moduleId}-`)) {
+                    completedItems++;
+                }
+            });
             
-        const completedLevelExercises = this.progress.completedExercises.filter(exercise => 
-            levelExercises.includes(exercise));
+            // Count completed exercises in this module
+            if (this.progress.completedExercises.includes(moduleId)) {
+                completedItems++;
+            }
             
-        const assessmentComplete = this.progress.assessments[level].completed ? 1 : 0;
+            // Add to total items based on your content structure
+            // This is an estimate - update with actual counts
+            if (moduleId === 'basics') {
+                totalItems += 4; // 3 lessons + 1 exercise
+            } else if (moduleId === 'formulas') {
+                totalItems += 4; // 3 lessons + 1 exercise
+            } else if (moduleId === 'dataanalysis') {
+                totalItems += 4; // 3 lessons + 1 exercise
+            } else if (moduleId === 'visualization') {
+                totalItems += 4; // 3 lessons + 1 exercise
+            } else if (moduleId === 'advanced') {
+                totalItems += 4; // 3 lessons + 1 exercise
+            }
+        });
         
-        const totalItems = levelLessons.length + levelExercises.length + 1; // +1 for assessment
-        const completedItems = completedLevelLessons.length + completedLevelExercises.length + assessmentComplete;
+        // Add assessment to total
+        if (levelStructure[level].assessmentRequired) {
+            totalItems += 1;
+            if (this.progress.assessments[level]?.completed) {
+                completedItems += 1;
+            }
+        }
         
-        return Math.round((completedItems / totalItems) * 100);
+        // Calculate percentage
+        return totalItems > 0 ? Math.round((completedItems / totalItems) * 100) : 0;
     }
 
     // Update UI elements with progress information
@@ -160,6 +412,9 @@ class ProgressTracker {
         
         // Update any completion badges
         this.updateCompletionBadges();
+        
+        // Add tooltips to progress indicators
+        this.addProgressTooltips();
     }
 
     // Update learning path UI with completion statuses
@@ -260,6 +515,41 @@ class ProgressTracker {
             }
         });
     }
+    
+    // Add tooltips to progress indicators
+    addProgressTooltips() {
+        // Add tooltips to progress bars
+        const progressContainer = document.querySelector('.progress-container');
+        if (progressContainer && !progressContainer.hasAttribute('data-tooltip')) {
+            const overallProgress = this.getOverallProgress();
+            progressContainer.setAttribute('data-tooltip', `Overall progress: ${overallProgress}% complete`);
+            progressContainer.classList.add('tooltip');
+            
+            // Add tooltip element if not present
+            if (!progressContainer.querySelector('.tooltip-text')) {
+                const tooltipText = document.createElement('span');
+                tooltipText.className = 'tooltip-text';
+                tooltipText.textContent = `Overall progress: ${overallProgress}% complete`;
+                progressContainer.appendChild(tooltipText);
+            }
+        }
+        
+        // Add tooltips to completion indicators
+        document.querySelectorAll('.completion-indicator').forEach(indicator => {
+            if (!indicator.hasAttribute('data-tooltip')) {
+                indicator.setAttribute('data-tooltip', 'Completed!');
+                indicator.classList.add('tooltip');
+                
+                // Add tooltip element if not present
+                if (!indicator.querySelector('.tooltip-text')) {
+                    const tooltipText = document.createElement('span');
+                    tooltipText.className = 'tooltip-text';
+                    tooltipText.textContent = 'Completed!';
+                    indicator.appendChild(tooltipText);
+                }
+            }
+        });
+    }
 
     // Update completion badges
     updateCompletionBadges() {
@@ -271,6 +561,35 @@ class ProgressTracker {
                 if (levelProgress === 100) {
                     badge.classList.remove('badge-locked');
                     badge.classList.add('badge-earned');
+                    
+                    // Add tooltip to badge
+                    if (!badge.hasAttribute('data-tooltip')) {
+                        badge.setAttribute('data-tooltip', `${level.charAt(0).toUpperCase() + level.slice(1)} level completed!`);
+                        badge.classList.add('tooltip');
+                        
+                        // Add tooltip element if not present
+                        if (!badge.querySelector('.tooltip-text')) {
+                            const tooltipText = document.createElement('span');
+                            tooltipText.className = 'tooltip-text';
+                            tooltipText.textContent = `${level.charAt(0).toUpperCase() + level.slice(1)} level completed!`;
+                            badge.appendChild(tooltipText);
+                        }
+                    }
+                } else {
+                    // Add tooltip showing progress
+                    if (!badge.hasAttribute('data-tooltip') || badge.getAttribute('data-tooltip').includes('%')) {
+                        badge.setAttribute('data-tooltip', `${levelProgress}% of ${level} level completed`);
+                        badge.classList.add('tooltip');
+                        
+                        // Add or update tooltip element
+                        let tooltipText = badge.querySelector('.tooltip-text');
+                        if (!tooltipText) {
+                            tooltipText = document.createElement('span');
+                            tooltipText.className = 'tooltip-text';
+                            badge.appendChild(tooltipText);
+                        }
+                        tooltipText.textContent = `${levelProgress}% of ${level} level completed`;
+                    }
                 }
             }
         });
@@ -283,7 +602,7 @@ class ProgressTracker {
             this.progress = null;
             this.initializeIfEmpty();
             this.updateUI();
-            alert('Your progress has been reset.');
+            this.showCompletionToast('Your progress has been reset.');
         }
     }
 }
@@ -298,6 +617,21 @@ document.addEventListener('DOMContentLoaded', () => {
     resetButtons.forEach(button => {
         button.addEventListener('click', () => progressTracker.resetProgress());
     });
+    
+    // Continue tracking from last location
+    const lastVisited = progressTracker.progress.lastVisited;
+    if (lastVisited && lastVisited.module) {
+        // Only auto-navigate if the user is on the home page
+        if (window.location.hash === '' || window.location.hash === '#') {
+            setTimeout(() => {
+                if (typeof loadModule === 'function') {
+                    if (confirm('Would you like to continue from where you left off?')) {
+                        loadModule(lastVisited.module, lastVisited.topic);
+                    }
+                }
+            }, 1500);
+        }
+    }
 });
 
 // Update UI whenever content is loaded
