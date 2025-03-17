@@ -1,6 +1,6 @@
 <h2>Data Visualization</h2>
 <div class="section-intro">
-    <p>Learn how to transform your Excel data into compelling visual stories using charts, graphs, and advanced visualization techniques.</p>
+    <p>Learn how to transform your Excel data into compelling visual stories using charts, graphs, and advanced visualization techniques that communicate insights effectively and drive better decision-making.</p>
 </div>
 
 <div class="topic-container">
@@ -8,7 +8,7 @@
         <h3>Chart Fundamentals</h3>
         <div class="topic-content">
             <div class="topic-text">
-                <p>Master the basics of creating effective charts and graphs in Excel.</p>
+                <p>Master the basics of creating effective charts and graphs in Excel to communicate your data visually.</p>
                 <h4>Chart Types and Their Uses</h4>
                 <ul>
                     <li><strong>Column/Bar Charts:</strong> Compare values across categories</li>
@@ -17,6 +17,8 @@
                     <li><strong>Scatter Charts:</strong> Show relationship between two variables</li>
                     <li><strong>Area Charts:</strong> Show magnitude of change over time</li>
                     <li><strong>Combo Charts:</strong> Combine multiple chart types</li>
+                    <li><strong>Radar Charts:</strong> Compare multiple variables in a circular layout</li>
+                    <li><strong>Histogram:</strong> Show frequency distribution of data</li>
                 </ul>
                 <h4>Chart Creation Process</h4>
                 <ul>
@@ -24,11 +26,70 @@
                     <li>Using the Insert Chart command</li>
                     <li>Understanding Recommended Charts feature</li>
                     <li>Quick Analysis tool for instant visualizations</li>
+                    <li>Chart positioning and sizing</li>
+                    <li>Adding chart elements (titles, legends, etc.)</li>
+                </ul>
+                <h4>Choosing the Right Chart</h4>
+                <ul>
+                    <li>Consider your data type (categorical, continuous, time series)</li>
+                    <li>Identify your purpose (comparison, composition, distribution, relationship)</li>
+                    <li>Keep your audience in mind (technical, executive, general)</li>
+                    <li>Use simplest chart type that conveys your message</li>
                 </ul>
             </div>
-            <div class="topic-image">
+            <div class="topic-example">
+                <h4>Chart Selection Guide</h4>
+                <table class="formula-example">
+                    <tr>
+                        <th>If you want to show...</th>
+                        <th>Best chart type</th>
+                        <th>Example use</th>
+                    </tr>
+                    <tr>
+                        <td>Comparison between categories</td>
+                        <td>Column or Bar chart</td>
+                        <td>Sales by region, Products by rating</td>
+                    </tr>
+                    <tr>
+                        <td>Changes over time</td>
+                        <td>Line chart</td>
+                        <td>Monthly sales, Stock prices, Temperature</td>
+                    </tr>
+                    <tr>
+                        <td>Parts of a whole</td>
+                        <td>Pie chart (few categories) or Stacked bar (many categories)</td>
+                        <td>Budget allocation, Market share</td>
+                    </tr>
+                    <tr>
+                        <td>Relationship between variables</td>
+                        <td>Scatter chart</td>
+                        <td>Price vs. quality, Height vs. weight</td>
+                    </tr>
+                    <tr>
+                        <td>Distribution of data</td>
+                        <td>Histogram or Box & Whisker</td>
+                        <td>Test scores, Age distribution</td>
+                    </tr>
+                </table>
+                
+                <div class="steps-container">
+                    <h4>Creating Your First Chart:</h4>
+                    <ol>
+                        <li>Select your data range including headers</li>
+                        <li>Go to Insert tab > Charts group</li>
+                        <li>Choose a chart type (or click Recommended Charts)</li>
+                        <li>Excel creates the chart with default settings</li>
+                        <li>Use Chart Design and Format tabs to customize</li>
+                    </ol>
+                </div>
+                
+                <div class="info-box">
+                    <h4>Best Practice:</h4>
+                    <p>Before creating a chart, organize your data with clear row and column labels. Place categories in rows and series in columns for best results. If your data isn't charting correctly, you might need to transpose it (Paste Special > Transpose).</p>
+                </div>
+                
                 <img src="https://support.content.office.net/en-us/media/0dd0fefd-b380-441b-acf6-7227f7128fca.png" alt="Excel Chart Types" class="responsive-img">
-                <p class="image-caption">Common Excel chart types</p>
+                <p class="image-caption">Common Excel chart types and their appropriate uses</p>
             </div>
         </div>
     </div>
@@ -37,72 +98,773 @@
         <h3>Chart Formatting and Customization</h3>
         <div class="topic-content">
             <div class="topic-text">
-                <p>Transform basic charts into professional, publication-ready visualizations.</p>
+                <p>Transform basic charts into professional, publication-ready visualizations that effectively communicate your message.</p>
                 <h4>Essential Chart Elements</h4>
                 <ul>
-                    <li>Titles and labels (chart, axis, data)</li>
-                    <li>Legends and data tables</li>
-                    <li>Gridlines and axes</li>
-                    <li>Trendlines and error bars</li>
+                    <li><strong>Chart Title:</strong> Clear description of data shown</li>
+                    <li><strong>Axis Titles:</strong> Labels for horizontal and vertical axes</li>
+                    <li><strong>Legend:</strong> Identifies data series with color coding</li>
+                    <li><strong>Data Labels:</strong> Values displayed directly on data points</li>
+                    <li><strong>Gridlines:</strong> Reference lines for easier reading</li>
+                    <li><strong>Axes:</strong> Scale, interval, and formatting options</li>
+                    <li><strong>Trendlines:</strong> Statistical projections of data trends</li>
+                    <li><strong>Error Bars:</strong> Show data variability and uncertainty</li>
                 </ul>
                 <h4>Formatting Options</h4>
                 <ul>
                     <li>Chart styles and color schemes</li>
                     <li>Data series formatting (colors, markers, line styles)</li>
-                    <li>3D effects and perspective</li>
-                    <li>Custom number formats in charts</li>
-                    <li>Using images in charts</li>
+                    <li>3D effects and perspective (use sparingly)</li>
+                    <li>Custom number formats in chart labels</li>
+                    <li>Text formatting for readability</li>
+                    <li>Background and border design</li>
+                    <li>Chart area sizing and positioning</li>
+                </ul>
+                <h4>Advanced Formatting Techniques</h4>
+                <ul>
+                    <li>Using brand colors and style guides</li>
+                    <li>Custom data point formatting</li>
+                    <li>Creating a consistent visual theme across charts</li>
+                    <li>Highlighting specific data points</li>
+                    <li>Annotating charts with text boxes and callouts</li>
                 </ul>
             </div>
             <div class="topic-example">
-                <h4>Chart Design Best Practices</h4>
-                <ul>
-                    <li>Use appropriate chart types for your data</li>
-                    <li>Keep it simple and focused</li>
-                    <li>Use consistent color schemes</li>
-                    <li>Label directly where possible</li>
-                    <li>Avoid 3D charts for precise data visualization</li>
-                    <li>Ensure text is readable at all sizes</li>
-                </ul>
+                <h4>Chart Formatting Example: Sales Performance</h4>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                    <div>
+                        <h5>Before Formatting</h5>
+                        <img src="https://support.content.office.net/en-us/media/e656529d-1dd8-4f5f-896f-610c7bd9b5d6/basics-default-chart.png" alt="Basic Chart Before Formatting" class="responsive-img">
+                        <p><strong>Issues:</strong> Generic title, no axis labels, default colors, grid lines make chart busy, no emphasis on key data</p>
+                    </div>
+                    <div>
+                        <h5>After Formatting</h5>
+                        <img src="https://support.content.office.net/en-us/media/e656529d-1dd8-4f5f-896f-610c7bd9b5d6/basics-chart-elements-applied.png" alt="Chart After Formatting" class="responsive-img">
+                        <p><strong>Improvements:</strong> Descriptive title, labeled axes, custom colors, reduced gridlines, highlighted Q4 data, cleaner legend</p>
+                    </div>
+                </div>
+                
+                <div class="steps-container">
+                    <h4>Essential Formatting Steps:</h4>
+                    <ol>
+                        <li>Click on chart to activate Chart Tools contextual tabs</li>
+                        <li>Use Chart Design tab to:
+                            <ul>
+                                <li>Apply chart style (Design > Chart Styles)</li>
+                                <li>Change color scheme (Design > Change Colors)</li>
+                                <li>Select/change chart layout (Design > Quick Layout)</li>
+                            </ul>
+                        </li>
+                        <li>Use Format tab to:
+                            <ul>
+                                <li>Format specific elements (click element then use Format pane)</li>
+                                <li>Add chart elements (Format > Add Chart Element)</li>
+                                <li>Adjust text styles and alignment</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>Chart Design Best Practices</h4>
+                    <ul>
+                        <li>Use appropriate chart types for your data</li>
+                        <li>Keep it simple and focused on your message</li>
+                        <li>Use consistent color schemes (preferably company colors)</li>
+                        <li>Label directly where possible instead of using legends</li>
+                        <li>Avoid 3D charts for precise data visualization</li>
+                        <li>Ensure text is readable at all sizes</li>
+                        <li>Use highlighting to draw attention to key data points</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
     
+    <div class="topic-card" id="column-bar">
+        <h3>Column and Bar Charts</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Column and bar charts are among the most versatile and commonly used charts for comparing values across categories.</p>
+                <h4>Column Chart Variations</h4>
+                <ul>
+                    <li><strong>Clustered Column:</strong> Compare values across categories and series</li>
+                    <li><strong>Stacked Column:</strong> Show both individual values and totals</li>
+                    <li><strong>100% Stacked Column:</strong> Show percentage contribution to whole</li>
+                    <li><strong>3D Column:</strong> Add depth perspective (use sparingly)</li>
+                    <li><strong>Cylinder/Cone/Pyramid:</strong> Stylized variations of column chart</li>
+                </ul>
+                <h4>Bar Chart Variations</h4>
+                <ul>
+                    <li><strong>Clustered Bar:</strong> Horizontal version of column chart</li>
+                    <li><strong>Stacked Bar:</strong> Horizontal version of stacked column</li>
+                    <li><strong>100% Stacked Bar:</strong> Horizontal percentage breakdown</li>
+                </ul>
+                <h4>When to Use Column vs. Bar</h4>
+                <ul>
+                    <li>Use column charts for time periods or fewer categories</li>
+                    <li>Use bar charts for comparing many categories</li>
+                    <li>Use bar charts for long category names</li>
+                    <li>Use column charts to emphasize height differences</li>
+                    <li>Use bar charts to emphasize ranking or ordering</li>
+                </ul>
+                <h4>Advanced Techniques</h4>
+                <ul>
+                    <li>Sorting data to improve readability</li>
+                    <li>Using data labels effectively</li>
+                    <li>Adding total labels to stacked charts</li>
+                    <li>Creating variance charts with positive/negative values</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Regional Sales Comparison</h4>
+                <p>A clustered column chart showing quarterly sales by region:</p>
+                
+                <img src="https://support.content.office.net/en-us/media/dc646301-c653-44b2-9a7d-4b62c3b24e35.png" alt="Column Chart Example" class="responsive-img">
+                <p class="image-caption">Clustered column chart comparing regional performance by quarter</p>
+                
+                <h4>Customer Satisfaction Rankings</h4>
+                <p>A sorted bar chart showing product ratings (best for many categories):</p>
+                
+                <div class="steps-container">
+                    <h4>Creating an Effective Bar Chart:</h4>
+                    <ol>
+                        <li>Organize data with categories in first column, values in second</li>
+                        <li>Select data and create a basic bar chart (Insert > Bar)</li>
+                        <li>Sort data in descending order (right-click > Sort)</li>
+                        <li>Add data labels (Chart Elements > Data Labels)</li>
+                        <li>Remove gridlines for cleaner appearance</li>
+                        <li>Add custom colors based on performance thresholds</li>
+                    </ol>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>Pro Tip: Creating In-Cell Bar Charts</h4>
+                    <p>For a simple visual in a table, use conditional formatting with data bars:</p>
+                    <ol>
+                        <li>Select your data range</li>
+                        <li>Go to Home > Conditional Formatting > Data Bars</li>
+                        <li>Choose a color scheme</li>
+                        <li>Customize as needed using "More Rules" option</li>
+                    </ol>
+                    <p>This creates mini bar charts directly in your cells without needing a separate chart object.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="line-area">
+        <h3>Line and Area Charts</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Line and area charts are ideal for showing trends over time and highlighting patterns in sequential data.</p>
+                <h4>Line Chart Variations</h4>
+                <ul>
+                    <li><strong>Simple Line:</strong> Shows trends over time for one or more series</li>
+                    <li><strong>Line with Markers:</strong> Highlights individual data points</li>
+                    <li><strong>Stacked Line:</strong> Shows cumulative values across series</li>
+                    <li><strong>100% Stacked Line:</strong> Shows percentage contribution over time</li>
+                    <li><strong>Line with Smoothing:</strong> Uses spline interpolation for smoother curves</li>
+                    <li><strong>Line with Missing Data:</strong> Options for gaps in data</li>
+                </ul>
+                <h4>Area Chart Variations</h4>
+                <ul>
+                    <li><strong>Simple Area:</strong> Emphasizes volume under the line</li>
+                    <li><strong>Stacked Area:</strong> Shows both individual and total values</li>
+                    <li><strong>100% Stacked Area:</strong> Shows percentage composition over time</li>
+                </ul>
+                <h4>Line/Area Chart Best Practices</h4>
+                <ul>
+                    <li>Limit number of lines to maintain clarity (3-5 maximum)</li>
+                    <li>Use distinct colors and/or markers to differentiate lines</li>
+                    <li>Ensure consistent interval scaling on x-axis</li>
+                    <li>Consider using area charts when showing cumulative values</li>
+                    <li>Start y-axis at zero for proper proportion (unless showing small changes)</li>
+                    <li>Add strategic data labels without overcrowding</li>
+                </ul>
+                <h4>Advanced Techniques</h4>
+                <ul>
+                    <li>Adding trendlines to project future values</li>
+                    <li>Using dual axes for different scales</li>
+                    <li>Highlighting important periods with plot area shading</li>
+                    <li>Creating high-low lines with error bars</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Monthly Sales Trend Analysis</h4>
+                
+                <img src="https://support.content.office.net/en-us/media/2976c1fd-7086-4953-80e6-32ecae59c923.png" alt="Line Chart Example" class="responsive-img">
+                <p class="image-caption">Line chart showing sales performance trends across product categories</p>
+                
+                <div class="steps-container">
+                    <h4>Creating an Effective Line Chart:</h4>
+                    <ol>
+                        <li>Organize data with time periods in rows and series in columns</li>
+                        <li>Select data and insert a line chart (Insert > Line)</li>
+                        <li>Format horizontal axis to show appropriate time intervals</li>
+                        <li>Add markers to show actual data points (right-click line > Format Data Series > Marker Options)</li>
+                        <li>Consider adding a trendline to show overall direction (right-click line > Add Trendline)</li>
+                        <li>Highlight important points with data labels (select specific points only)</li>
+                    </ol>
+                </div>
+                
+                <div class="info-box">
+                    <h4>When to Use Area vs. Line Charts</h4>
+                    <p><strong>Use Line Charts when:</strong></p>
+                    <ul>
+                        <li>Exact values and precision are most important</li>
+                        <li>Showing multiple series that might overlap</li>
+                        <li>Comparing rate of change between series</li>
+                    </ul>
+                    <p><strong>Use Area Charts when:</strong></p>
+                    <ul>
+                        <li>Showing volume or magnitude is important</li>
+                        <li>Visualizing part-to-whole relationships over time</li>
+                        <li>Comparing cumulative totals across categories</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>Pro Tip: Sparklines - Mini Line Charts</h4>
+                    <p>For compact trend visualization in tables, use Sparklines:</p>
+                    <ol>
+                        <li>Select the cell where you want the sparkline</li>
+                        <li>Go to Insert > Sparklines > Line</li>
+                        <li>Select the data range for the sparkline</li>
+                        <li>Customize using Sparkline Tools tab</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="pie-doughnut">
+        <h3>Pie and Doughnut Charts</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Pie and doughnut charts show parts of a whole, making them ideal for displaying proportional or percentage data.</p>
+                <h4>Pie Chart Variations</h4>
+                <ul>
+                    <li><strong>Simple Pie:</strong> Basic breakdown of categorical data</li>
+                    <li><strong>Exploded Pie:</strong> One or more slices separated for emphasis</li>
+                    <li><strong>Pie of Pie:</strong> Breaks out smaller slices into secondary pie</li>
+                    <li><strong>Bar of Pie:</strong> Shows smaller slices as a bar chart</li>
+                    <li><strong>3D Pie:</strong> Adds depth perspective (use with caution)</li>
+                </ul>
+                <h4>Doughnut Chart Variations</h4>
+                <ul>
+                    <li><strong>Single Doughnut:</strong> Similar to pie with center hole</li>
+                    <li><strong>Multi-level Doughnut:</strong> Concentric rings showing related data</li>
+                    <li><strong>Exploded Doughnut:</strong> Separated segments for emphasis</li>
+                </ul>
+                <h4>Pie/Doughnut Chart Best Practices</h4>
+                <ul>
+                    <li>Limit to 5-7 slices maximum for readability</li>
+                    <li>Sort slices by size (usually largest to smallest)</li>
+                    <li>Keep slice colors distinct but related</li>
+                    <li>Use clear, direct labels with percentages</li>
+                    <li>Consider alternatives (bar chart) for many categories</li>
+                    <li>Ensure all slices add up to 100% of the whole</li>
+                </ul>
+                <h4>Common Mistakes to Avoid</h4>
+                <ul>
+                    <li>Using too many slices (creating tiny, unreadable segments)</li>
+                    <li>3D effects that distort proportions</li>
+                    <li>Poor color choices that make segments indistinguishable</li>
+                    <li>Missing or unclear labels</li>
+                    <li>Using pie charts for data that doesn't represent parts of a whole</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Budget Allocation Visualization</h4>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                    <div>
+                        <h5>Standard Pie Chart</h5>
+                        <img src="https://support.content.office.net/en-us/media/e656529d-1dd8-4f5f-896f-610c7bd9b5d6/basics-pie-chart-before.png" alt="Basic Pie Chart" class="responsive-img">
+                        <p><strong>Basic version:</strong> Shows proportions but needs formatting improvements</p>
+                    </div>
+                    <div>
+                        <h5>Enhanced Pie Chart</h5>
+                        <img src="https://support.content.office.net/en-us/media/e656529d-1dd8-4f5f-896f-610c7bd9b5d6/basics-pie-chart-after.png" alt="Enhanced Pie Chart" class="responsive-img">
+                        <p><strong>Improved version:</strong> Clear percentage labels, exploded key slice, consistent color theme</p>
+                    </div>
+                </div>
+                
+                <div class="steps-container">
+                    <h4>Creating an Effective Pie Chart:</h4>
+                    <ol>
+                        <li>Organize data with categories and single value column</li>
+                        <li>Select data and insert a pie chart (Insert > Pie)</li>
+                        <li>Add data labels (Chart Elements > Data Labels > More Options)</li>
+                        <li>Format labels to show category name and percentage</li>
+                        <li>Consider exploding important slices (right-click slice > Format Data Point > Position)</li>
+                        <li>Sort data before creating chart for better organization</li>
+                    </ol>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>Pro Tip: Handling Small Slices</h4>
+                    <p>When dealing with many small categories:</p>
+                    <ol>
+                        <li>Group small categories into an "Other" category</li>
+                        <li>Use a "Pie of Pie" chart to break out small slices</li>
+                        <li>Or better yet, consider using a bar chart instead for many categories</li>
+                    </ol>
+                    <p>For multi-level categorization, doughnut charts allow you to show hierarchical relationships that pie charts cannot.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="scatter-bubble">
+        <h3>Scatter and Bubble Charts</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Scatter and bubble charts reveal relationships between variables and identify patterns, correlations, and outliers in your data.</p>
+                <h4>Scatter Chart Variations</h4>
+                <ul>
+                    <li><strong>Simple Scatter:</strong> Shows relationship between two variables</li>
+                    <li><strong>Scatter with Smooth Lines:</strong> Connects points with curves</li>
+                    <li><strong>Scatter with Straight Lines:</strong> Connects points sequentially</li>
+                    <li><strong>Scatter with Trendline:</strong> Shows statistical pattern</li>
+                </ul>
+                <h4>Bubble Chart Features</h4>
+                <ul>
+                    <li><strong>Three-Variable Display:</strong> X-axis, Y-axis, and bubble size</li>
+                    <li><strong>Proportional Sizing:</strong> Bubble area represents value</li>
+                    <li><strong>Color Coding:</strong> Can add fourth dimension via color</li>
+                    <li><strong>3D Bubble Charts:</strong> Add z-axis for three coordinates plus size</li>
+                </ul>
+                <h4>Best Practices</h4>
+                <ul>
+                    <li>Ensure axes scales properly represent your data</li>
+                    <li>Consider using logarithmic scale for wide ranges</li>
+                    <li>Add gridlines to help with data point reading</li>
+                    <li>Include trendlines to visualize correlations</li>
+                    <li>Label key data points selectively</li>
+                    <li>For bubble charts, explain what bubble size represents</li>
+                </ul>
+                <h4>Business Applications</h4>
+                <ul>
+                    <li>Analyzing product price vs. quality ratings</li>
+                    <li>Exploring marketing spend vs. conversion rate</li>
+                    <li>Evaluating employee performance metrics</li>
+                    <li>Comparing countries by multiple economic indicators</li>
+                    <li>Identifying outliers in any two-variable relationship</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Product Portfolio Analysis</h4>
+                
+                <img src="https://support.content.office.net/en-us/media/b8c83765-6a03-4a44-973a-a94f941f1e5b.png" alt="Bubble Chart Example" class="responsive-img">
+                <p class="image-caption">Bubble chart showing product performance: X-axis = Market Share, Y-axis = Profit Margin, Bubble Size = Revenue</p>
+                
+                <div class="steps-container">
+                    <h4>Creating an Effective Scatter Chart:</h4>
+                    <ol>
+                        <li>Organize data with X values in one column and Y values in another</li>
+                        <li>Select data and insert a scatter chart (Insert > Scatter)</li>
+                        <li>Add a trendline to show correlation (right-click > Add Trendline)</li>
+                        <li>Display R-squared value to show correlation strength</li>
+                        <li>Format markers for visibility (size, color, shape)</li>
+                        <li>Consider adding data labels for key points only</li>
+                    </ol>
+                </div>
+                
+                <div class="info-box">
+                    <h4>Correlation Analysis with Scatter Charts</h4>
+                    <p>Scatter charts help identify four types of relationships:</p>
+                    <ul>
+                        <li><strong>Positive correlation:</strong> Both variables increase together</li>
+                        <li><strong>Negative correlation:</strong> One variable increases as the other decreases</li>
+                        <li><strong>No correlation:</strong> No discernible pattern between variables</li>
+                        <li><strong>Non-linear correlation:</strong> Variables related but not in straight line</li>
+                    </ul>
+                    <p>Add statistical trendlines (linear, exponential, logarithmic, polynomial) to quantify these relationships.</p>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>Bubble Chart Data Structure</h4>
+                    <p>For bubble charts, organize your data in three columns:</p>
+                    <ol>
+                        <li>Column 1: X-axis values (horizontal position)</li>
+                        <li>Column 2: Y-axis values (vertical position)</li>
+                        <li>Column 3: Size values (bubble area)</li>
+                    </ol>
+                    <p>Excel automatically scales bubble sizes, but you can customize this in the Format Data Series panel.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="topic-card" id="advanced">
         <h3>Advanced Visualization Techniques</h3>
         <div class="topic-content">
             <div class="topic-text">
-                <p>Take your Excel visualizations to the next level with these advanced techniques.</p>
+                <p>Take your Excel visualizations to the next level with these advanced techniques for more sophisticated data presentation.</p>
                 <h4>Advanced Chart Types</h4>
                 <ul>
-                    <li>Waterfall charts for financial data</li>
-                    <li>Funnel charts for process visualization</li>
-                    <li>Box and whisker plots for statistical distribution</li>
-                    <li>Sunburst and treemap charts for hierarchical data (Excel 2016+)</li>
+                    <li><strong>Waterfall Charts:</strong> Show cumulative effect of sequential data</li>
+                    <li><strong>Funnel Charts:</strong> Show stages in a process and conversion rates</li>
+                    <li><strong>Box and Whisker:</strong> Show statistical distribution</li>
+                    <li><strong>Sunburst:</strong> Show hierarchical data relationships</li>
+                    <li><strong>Treemap:</strong> Display hierarchical data as nested rectangles</li>
+                    <li><strong>Histogram:</strong> Show frequency distribution of data</li>
+                    <li><strong>Pareto Chart:</strong> Combine column and line for 80/20 analysis</li>
                 </ul>
                 <h4>Interactive Visualization Features</h4>
                 <ul>
                     <li>Dynamic charts with form controls</li>
                     <li>Data visualization with conditional formatting</li>
                     <li>Interactive dashboards with slicers</li>
+                    <li>Creating chart templates for consistent visuals</li>
                     <li>Sparklines for compact trend visualization</li>
+                    <li>Camera tool for live data snapshots</li>
+                </ul>
+                <h4>Custom Visualization Techniques</h4>
+                <ul>
+                    <li>Creating combination charts with multiple chart types</li>
+                    <li>Building dynamic chart titles linked to data</li>
+                    <li>Using picture fills for creative charts</li>
+                    <li>Adding custom data labels with formulas</li>
+                    <li>Creating interactive elements with VBA</li>
+                    <li>Using icon sets and data bars in tables</li>
                 </ul>
             </div>
-            <div class="topic-image">
+            <div class="topic-example">
+                <h4>Waterfall Chart Example: Profit Analysis</h4>
+                
                 <img src="https://support.content.office.net/en-us/media/dc646301-c653-44b2-9a7d-4b62c3b24e35.png" alt="Advanced Excel Charts" class="responsive-img">
-                <p class="image-caption">Examples of advanced Excel chart types</p>
+                <p class="image-caption">Waterfall chart showing how various factors contribute to final profit</p>
+                
+                <div class="steps-container">
+                    <h4>Creating a Waterfall Chart:</h4>
+                    <ol>
+                        <li>Organize data with categories and values</li>
+                        <li>Include total columns if needed (Starting Value, Final Total)</li>
+                        <li>Go to Insert > Waterfall chart</li>
+                        <li>Right-click total columns > Set as Total</li>
+                        <li>Format with colors for increases (green) and decreases (red)</li>
+                        <li>Add data labels to show values clearly</li>
+                    </ol>
+                </div>
+                
+                <h4>Dynamic Chart with Form Controls</h4>
+                <div class="info-box">
+                    <h4>Creating Interactive Charts</h4>
+                    <p>Make your visualizations interactive with these steps:</p>
+                    <ol>
+                        <li>Create a cell for your control to reference (e.g., cell A1)</li>
+                        <li>Insert a form control (Developer tab > Insert > Form Controls > Drop-down)</li>
+                        <li>Right-click the control > Format Control > link to your reference cell</li>
+                        <li>Set up your data with CHOOSE, INDEX, or OFFSET functions to change based on the control value</li>
+                        <li>Create your chart using the dynamic data range</li>
+                    </ol>
+                    <p>Now users can interact with your visualization by selecting different options from the dropdown!</p>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>Pro Tip: Creating Small Multiples</h4>
+                    <p>Small multiples (multiple charts with the same scale) are powerful for comparisons:</p>
+                    <ol>
+                        <li>Create one perfectly formatted chart</li>
+                        <li>Copy and paste to create duplicates</li>
+                        <li>Modify each chart's data source to show different series</li>
+                        <li>Arrange in a grid pattern for easy comparison</li>
+                        <li>Ensure all charts use the same scale for accurate comparison</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="dashboards">
+        <h3>Creating Excel Dashboards</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Combine multiple visualizations into cohesive, interactive dashboards that provide comprehensive insights at a glance.</p>
+                <h4>Dashboard Planning</h4>
+                <ul>
+                    <li>Identifying key metrics and KPIs</li>
+                    <li>Determining appropriate visualization types</li>
+                    <li>Creating a logical layout and flow</li>
+                    <li>Designing for your target audience</li>
+                    <li>Balancing detail and overview information</li>
+                </ul>
+                <h4>Dashboard Structure</h4>
+                <ul>
+                    <li>Data storage and calculation sheets (hidden)</li>
+                    <li>Dashboard presentation sheet</li>
+                    <li>Consistent layout with clear sections</li>
+                    <li>Logical progression of information</li>
+                    <li>Focus on key insights and actions</li>
+                </ul>
+                <h4>Interactive Elements</h4>
+                <ul>
+                    <li>Slicers for filtering multiple charts simultaneously</li>
+                    <li>Form controls for parameter selection</li>
+                    <li>Dropdown menus for changing views</li>
+                    <li>Timelines for date-based filtering</li>
+                    <li>Hyperlinks for navigation between sections</li>
+                </ul>
+                <h4>Advanced Dashboard Techniques</h4>
+                <ul>
+                    <li>Dynamic titles and headers that update with selections</li>
+                    <li>Conditional formatting for status indicators</li>
+                    <li>Custom chart templates for consistent visuals</li>
+                    <li>Data validation for user input</li>
+                    <li>Camera tool for live snapshots of data</li>
+                    <li>VBA for enhanced interactivity (optional)</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Sales Performance Dashboard</h4>
+                
+                <img src="https://support.content.office.net/en-us/media/1a66d903-f259-46ae-9067-6642ccd78999.png" alt="Excel Dashboard Example" class="responsive-img">
+                <p class="image-caption">Interactive sales dashboard with multiple visualizations and slicers</p>
+                
+                <div class="steps-container">
+                    <h4>Building an Interactive Dashboard:</h4>
+                    <ol>
+                        <li>Set up your data structure
+                            <ul>
+                                <li>Raw data sheet: Complete, clean dataset</li>
+                                <li>Calculation sheet: Summary tables, PivotTables</li>
+                                <li>Dashboard sheet: Visual presentation layer</li>
+                            </ul>
+                        </li>
+                        <li>Create core visualizations
+                            <ul>
+                                <li>KPI summary with metrics and indicators</li>
+                                <li>Trend charts for time-based analysis</li>
+                                <li>Comparison charts for categories</li>
+                                <li>Detail tables for specific information</li>
+                            </ul>
+                        </li>
+                        <li>Add interactive elements
+                            <ul>
+                                <li>Insert slicers (PivotTable Tools > Analyze > Insert Slicer)</li>
+                                <li>Connect slicers to multiple PivotTables and PivotCharts</li>
+                                <li>Add form controls for additional parameters</li>
+                            </ul>
+                        </li>
+                        <li>Finalize design and layout
+                            <ul>
+                                <li>Arrange elements in logical groups</li>
+                                <li>Apply consistent formatting and color scheme</li>
+                                <li>Add titles, instructions, and context</li>
+                                <li>Test with different data selections</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>Dashboard Best Practices</h4>
+                    <ul>
+                        <li><strong>Focus on action:</strong> Make clear what decisions the dashboard should inform</li>
+                        <li><strong>Minimize scrolling:</strong> Keep key information visible on one screen</li>
+                        <li><strong>Provide context:</strong> Include benchmarks, targets, or historical comparisons</li>
+                        <li><strong>Be consistent:</strong> Use same colors, formatting, and scales throughout</li>
+                        <li><strong>Limit detail:</strong> Provide drill-down options rather than overwhelming with details</li>
+                        <li><strong>Test with users:</strong> Ensure the dashboard answers their key questions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="best-practices">
+        <h3>Data Visualization Best Practices</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Apply proven design principles to create clear, accurate, and impactful data visualizations that effectively communicate your message.</p>
+                <h4>Core Principles</h4>
+                <ul>
+                    <li><strong>Accuracy:</strong> Represent data truthfully without distortion</li>
+                    <li><strong>Clarity:</strong> Make visualizations easy to understand</li>
+                    <li><strong>Efficiency:</strong> Communicate maximum information with minimum ink</li>
+                    <li><strong>Focus:</strong> Emphasize the most important insights</li>
+                    <li><strong>Context:</strong> Provide reference points for interpretation</li>
+                </ul>
+                <h4>Design Guidelines</h4>
+                <ul>
+                    <li>Start Y-axis at zero for fair comparisons (bar/column charts)</li>
+                    <li>Use consistent scales across related charts</li>
+                    <li>Choose appropriate chart types for your data</li>
+                    <li>Limit color use to what serves a purpose</li>
+                    <li>Use whitespace effectively for readability</li>
+                    <li>Apply text hierarchy (titles, labels, notes)</li>
+                    <li>Provide clear titles that state the key message</li>
+                </ul>
+                <h4>Common Mistakes to Avoid</h4>
+                <ul>
+                    <li>3D effects that distort data perception</li>
+                    <li>Excessive decorative elements (chart junk)</li>
+                    <li>Too many colors or inconsistent color use</li>
+                    <li>Overloading charts with too much information</li>
+                    <li>Using pie charts for more than 5-7 categories</li>
+                    <li>Truncated axes that exaggerate differences</li>
+                    <li>Misleading scales or proportions</li>
+                </ul>
+                <h4>Accessibility Considerations</h4>
+                <ul>
+                    <li>Use colorblind-friendly palettes</li>
+                    <li>Include alternative text descriptions</li>
+                    <li>Use patterns in addition to colors</li>
+                    <li>Ensure sufficient contrast in text and elements</li>
+                    <li>Use direct labeling instead of relying on legends</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Before and After: Visualization Improvement</h4>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                    <div>
+                        <h5>Poor Visualization</h5>
+                        <img src="https://support.content.office.net/en-us/media/e656529d-1dd8-4f5f-896f-610c7bd9b5d6/basics-3d-pie-chart.png" alt="Poor Visualization Example" class="responsive-img">
+                        <p><strong>Issues:</strong> 3D distortion, too many categories, unclear labels, no focus on key insights, distracting effects</p>
+                    </div>
+                    <div>
+                        <h5>Improved Visualization</h5>
+                        <img src="https://support.content.office.net/en-us/media/e656529d-1dd8-4f5f-896f-610c7bd9b5d6/basics-bar-chart.png" alt="Improved Visualization Example" class="responsive-img">
+                        <p><strong>Improvements:</strong> Bar chart for many categories, sorted by value, direct labels, highlighted top categories, clear title with insight</p>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h4>Color Selection Guide</h4>
+                    <p>Choose colors strategically for your visualizations:</p>
+                    <ul>
+                        <li><strong>Sequential schemes:</strong> For ordered data (light to dark variations of one color)</li>
+                        <li><strong>Diverging schemes:</strong> For data with a meaningful midpoint (two colors diverging from neutral)</li>
+                        <li><strong>Categorical schemes:</strong> For unordered categories (distinct colors)</li>
+                        <li><strong>Highlight colors:</strong> Draw attention to key data points</li>
+                    </ul>
+                    <p>Consider using your organization's brand colors as a starting point, but ensure they provide sufficient contrast.</p>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>Chart Evaluation Checklist</h4>
+                    <p>Before finalizing your visualization, ask these questions:</p>
+                    <ol>
+                        <li>Does it answer the intended question clearly?</li>
+                        <li>Is the chart type appropriate for this data?</li>
+                        <li>Are axes and scales properly set and labeled?</li>
+                        <li>Is the most important information visually prominent?</li>
+                        <li>Have I removed all unnecessary elements?</li>
+                        <li>Would this make sense to someone seeing it for the first time?</li>
+                        <li>Does the title communicate the key insight?</li>
+                        <li>Are all elements accessible to all users?</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
     
-    <div class="coming-soon">
-        <h3>More Topics Coming Soon</h3>
-        <ul>
-            <li>Map Charts for Geographical Data</li>
-            <li>Custom Chart Templates</li>
-            <li>Dynamic Charts with Named Ranges</li>
-            <li>Power BI Integration</li>
-        </ul>
+    <div class="topic-card" id="export-sharing">
+        <h3>Exporting and Sharing Visualizations</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Learn how to effectively share your Excel visualizations with others through various formats and methods.</p>
+                <h4>Export Options</h4>
+                <ul>
+                    <li><strong>Static Images:</strong> PNG, JPG, SVG formats</li>
+                    <li><strong>PDF:</strong> Preserves formatting for printing and sharing</li>
+                    <li><strong>PowerPoint:</strong> For presentation integration</li>
+                    <li><strong>Interactive Files:</strong> Excel workbooks with active features</li>
+                    <li><strong>Web Elements:</strong> Online embedding options</li>
+                </ul>
+                <h4>Preparing Charts for Export</h4>
+                <ul>
+                    <li>Finalizing formatting and layout</li>
+                    <li>Adding necessary context and explanations</li>
+                    <li>Checking sizing and proportions</li>
+                    <li>Testing interactive elements (if applicable)</li>
+                    <li>Considering audience requirements (file size, format)</li>
+                </ul>
+                <h4>Export Methods</h4>
+                <ul>
+                    <li>Chart-only selection and copying</li>
+                    <li>Save as image (right-click > Save as Picture)</li>
+                    <li>Print to PDF functionality</li>
+                    <li>Office integration (Send to PowerPoint, Word)</li>
+                    <li>Excel Online and SharePoint embedding</li>
+                </ul>
+                <h4>Sharing Considerations</h4>
+                <ul>
+                    <li>File size optimization</li>
+                    <li>Data privacy and sensitivity</li>
+                    <li>Maintaining data connections</li>
+                    <li>Version compatibility</li>
+                    <li>Accessibility requirements</li>
+                    <li>Mobile viewing optimization</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Chart Export Methods</h4>
+                
+                <div class="steps-container">
+                    <h4>Exporting as an Image:</h4>
+                    <ol>
+                        <li>Select the chart or visualization</li>
+                        <li>Right-click and select "Save as Picture"</li>
+                        <li>Choose format (PNG recommended for quality)</li>
+                        <li>Select location and filename</li>
+                        <li>Click Save</li>
+                    </ol>
+                    
+                    <h4>Copying to PowerPoint:</h4>
+                    <ol>
+                        <li>Select the chart</li>
+                        <li>Copy (Ctrl+C)</li>
+                        <li>Paste in PowerPoint using:
+                            <ul>
+                                <li>"Use Destination Theme" to match PowerPoint styling</li>
+                                <li>"Keep Source Formatting" to preserve Excel styling</li>
+                                <li>"Paste as Picture" for a static image</li>
+                                <li>"Paste Link" to maintain connection to Excel data</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+                    <h4>Creating a PDF of Visualizations:</h4>
+                    <ol>
+                        <li>Arrange charts on a worksheet for presentation</li>
+                        <li>Go to File > Export > Create PDF/XPS</li>
+                        <li>Choose options (page range, quality)</li>
+                        <li>Click Publish</li>
+                    </ol>
+                </div>
+                
+                <div class="info-box">
+                    <h4>Sharing Interactive Dashboards</h4>
+                    <p>To share fully interactive dashboards:</p>
+                    <ul>
+                        <li><strong>Excel File:</strong> Share the workbook with users who have Excel</li>
+                        <li><strong>Excel Online:</strong> Upload to OneDrive or SharePoint for browser access</li>
+                        <li><strong>Microsoft Teams:</strong> Share in a tab for collaborative viewing</li>
+                        <li><strong>Power BI:</strong> For more advanced interactive features, consider migrating to Power BI</li>
+                    </ul>
+                    <p>Remember to protect any sensitive data and provide clear instructions for interactive elements.</p>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>Pro Tip: Camera Tool for Visualization Export</h4>
+                    <p>Excel's Camera tool creates a linked picture of any range that updates automatically:</p>
+                    <ol>
+                        <li>Add the Camera tool to Quick Access Toolbar (customize ribbon)</li>
+                        <li>Select the range containing your visualization</li>
+                        <li>Click the Camera tool</li>
+                        <li>Click where you want to place the linked picture</li>
+                        <li>Now you can move and resize while maintaining live updates</li>
+                    </ol>
+                    <p>This is excellent for creating report pages that update automatically when source data changes.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -114,8 +876,12 @@
         <li>Add a pie chart displaying sales by product category</li>
         <li>Create a bar chart comparing sales by region</li>
         <li>Implement a combo chart with sales and profit margin</li>
+        <li>Add a scatter chart showing product price vs. units sold</li>
+        <li>Include a KPI section with summary metrics</li>
         <li>Add slicers to make the dashboard interactive</li>
         <li>Apply consistent formatting and branding to all charts</li>
+        <li>Create dynamic titles that update with slicer selections</li>
+        <li>Organize all elements in a clean, logical layout</li>
     </ol>
     <button class="resource-btn" id="download-dashboard-template">Download Practice Template</button>
 </div>

@@ -1,5 +1,5 @@
 <style>
-    /* Static styling for data analysis module */
+    /* Additional styling for data analysis module */
     .function-list code {
         background-color: #f5f5f5;
         padding: 2px 5px;
@@ -35,497 +35,1012 @@
         background-color: #f2f2f2;
     }
     
-    .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 15px;
-        margin-top: 15px;
+    .info-box {
+        background-color: #f0f8ff;
+        padding: 10px;
+        border-left: 4px solid #4682b4;
+        margin-top: 10px;
     }
     
-    .feature {
-        background-color: #f8f8f8;
-        border-radius: 5px;
-        padding: 15px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    .tip-box {
+        background-color: #f3f9f3;
+        padding: 10px;
+        border-left: 4px solid var(--accent-color);
+        margin-top: 10px;
     }
 </style>
 
-<h2>Data Analysis in Excel</h2>
+<h2>Data Analysis</h2>
 <div class="section-intro">
-    <p>Learn how to transform raw data into meaningful insights using Excel's powerful data analysis tools and techniques. Master the art of extracting valuable information from datasets to support better decision making.</p>
+    <p>Transform raw data into meaningful insights with Excel's powerful data analysis tools and techniques.</p>
 </div>
 
 <div class="topic-container">
-    <div class="topic-card" id="introduction">
-        <h3>Introduction to Data Analysis</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>Data analysis in Excel enables you to uncover patterns, trends, and insights from raw data. This foundational skill helps businesses make informed decisions and solve complex problems efficiently.</p>
-                <div class="info-box">
-                    <div class="info-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <div class="info-content">
-                        <h4>Why Data Analysis Matters</h4>
-                        <p>Effective data analysis drives strategic decisions, improves operational efficiency, and provides competitive advantages by revealing actionable insights from complex datasets.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="topic-card" id="sorting-filtering">
-        <h3>Data Sorting and Filtering</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <h4>Basic Sorting</h4>
-                <p>Sorting organizes data in ascending or descending order based on one or more columns, making it easier to analyze and interpret.</p>
-                <div class="steps-container">
-                    <h4>How to Sort Data:</h4>
-                    <ol>
-                        <li>Select any cell within your data range</li>
-                        <li>Go to the Data tab and click Sort</li>
-                        <li>Choose the column to sort by and the order</li>
-                        <li>Click OK to apply the sort</li>
-                    </ol>
-                </div>
-            </div>
-            <div class="topic-example">
-                <h4>Example: Multi-level Sorting</h4>
-                <p>Sort sales data first by Region, then by Sales Amount to analyze regional performance.</p>
-                <div class="image-placeholder">
-                    <p>[Image: Multi-level Sort Dialog Box]</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="topic-card" id="data-filtering">
-        <h3>Data Filtering</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>Filtering displays only the data that meets specific criteria, helping you focus on relevant information.</p>
-                <div class="steps-container">
-                    <h4>How to Apply Filters:</h4>
-                    <ol>
-                        <li>Select your data range</li>
-                        <li>Click Data > Filter</li>
-                        <li>Use dropdown arrows in headers to set criteria</li>
-                        <li>Apply multiple filters as needed</li>
-                    </ol>
-                </div>
-                <div class="tip-box">
-                    <h4>Pro Tip</h4>
-                    <p>Use custom filters to show values above or below a threshold (e.g., sales > $1000).</p>
-                </div>
-            </div>
-            <div class="topic-example">
-                <div class="practice-task">
-                    <h4>Practice Task</h4>
-                    <p>Filter a dataset to show only sales from Q1 with values exceeding $5000.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="topic-card" id="pivottables">
-        <h3>Understanding PivotTables</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>PivotTables summarize and analyze large datasets by allowing dynamic rearrangement of data into meaningful reports.</p>
-                <div class="info-box">
-                    <div class="info-icon">
-                        <i class="fas fa-info-circle"></i>
-                    </div>
-                    <div class="info-content">
-                        <p>PivotTables save time by eliminating manual calculations and enabling quick data exploration.</p>
-                    </div>
-                </div>
-                <div class="steps-container">
-                    <h4>Creating a Basic PivotTable:</h4>
-                    <ol>
-                        <li>Select your data range</li>
-                        <li>Go to Insert > PivotTable</li>
-                        <li>Choose location (new or existing sheet)</li>
-                        <li>Drag fields to Rows, Columns, and Values areas</li>
-                    </ol>
-                </div>
-            </div>
-            <div class="topic-image">
-                <div class="image-placeholder">
-                    <p>[Image: PivotTable Layout]</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="topic-card" id="pivottable-calculations">
-        <h3>PivotTable Calculations</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>Perform calculations within PivotTables to analyze data without altering the source dataset.</p>
-            </div>
-            <div class="topic-example">
-                <h4>Available Calculations:</h4>
-                <ul>
-                    <li><strong>Sum</strong>: Adds all values</li>
-                    <li><strong>Count</strong>: Counts numeric entries</li>
-                    <li><strong>Average</strong>: Calculates mean value</li>
-                    <li><strong>Max/Min</strong>: Finds highest/lowest values</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="topic-card" id="pivotcharts">
-        <h3>PivotCharts</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>PivotCharts provide visual representations of PivotTable data, making trends easier to spot.</p>
-                <div class="steps-container">
-                    <h4>Creating a PivotChart:</h4>
-                    <ol>
-                        <li>Create a PivotTable</li>
-                        <li>Go to Insert > PivotChart</li>
-                        <li>Select chart type (e.g., Column, Line)</li>
-                        <li>Customize with filters and formatting</li>
-                    </ol>
-                </div>
-            </div>
-            <div class="topic-example">
-                <div class="practice-task">
-                    <h4>Practice Task</h4>
-                    <p>Create a PivotChart showing monthly sales trends by product category.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="topic-card" id="one-variable-tables">
-        <h3>One-Variable Data Tables</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>One-variable data tables test how changing one input affects formula outputs, useful for sensitivity analysis.</p>
-                <div class="steps-container">
-                    <h4>Creating a One-Variable Data Table:</h4>
-                    <ol>
-                        <li>Set up your base formula</li>
-                        <li>List input values in a column</li>
-                        <li>Select range including formula and inputs</li>
-                        <li>Go to Data > What-If Analysis > Data Table</li>
-                    </ol>
-                </div>
-            </div>
-            <div class="topic-example">
-                <h4>Example: Loan Payment Calculator</h4>
-                <p>Test monthly payments for different interest rates on a $10,000 loan.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="topic-card" id="two-variable-tables">
-        <h3>Two-Variable Data Tables</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>Two-variable tables analyze outcomes by varying two inputs simultaneously, such as rate and term.</p>
-                <div class="steps-container">
-                    <h4>Creating a Two-Variable Data Table:</h4>
-                    <ol>
-                        <li>Create a formula with two variables</li>
-                        <li>List row and column input values</li>
-                        <li>Select entire table range</li>
-                        <li>Go to Data > What-If Analysis > Data Table</li>
-                        <li>Specify row and column input cells</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="topic-card" id="goal-seek">
-        <h3>Goal Seek</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>Goal Seek finds the input value needed to achieve a specific formula result.</p>
-                <div class="steps-container">
-                    <h4>Using Goal Seek:</h4>
-                    <ol>
-                        <li>Go to Data > What-If Analysis > Goal Seek</li>
-                        <li>Set the cell to target value</li>
-                        <li>Specify the target value</li>
-                        <li>Choose the cell to change</li>
-                    </ol>
-                </div>
-            </div>
-            <div class="topic-example">
-                <h4>Example: Break-Even Analysis</h4>
-                <p>Find the sales volume needed to achieve zero profit.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="topic-card" id="scenario-manager">
-        <h3>Scenario Manager</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>Scenario Manager compares multiple sets of input values to see their impact on results.</p>
-                <div class="steps-container">
-                    <h4>Creating Scenarios:</h4>
-                    <ol>
-                        <li>Go to Data > What-If Analysis > Scenario Manager</li>
-                        <li>Click Add to create a new scenario</li>
-                        <li>Specify changing cells and values</li>
-                        <li>Create multiple scenarios to compare</li>
-                    </ol>
-                </div>
-                <div class="tip-box">
-                    <h4>Pro Tip</h4>
-                    <p>Use descriptive names for scenarios (e.g., "Best Case").</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="topic-card" id="analysis-toolpak">
-        <h3>Enabling the Analysis ToolPak</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>The Analysis ToolPak is an Excel add-in providing advanced statistical and analytical tools.</p>
-                <div class="steps-container">
-                    <h4>How to Enable the Analysis ToolPak:</h4>
-                    <ol>
-                        <li>Go to File > Options > Add-ins</li>
-                        <li>Select Excel Add-ins and click Go</li>
-                        <li>Check Analysis ToolPak</li>
-                        <li>Click OK to enable</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="topic-card" id="toolpak-features">
-        <h3>Key Analysis ToolPak Features</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>Unlock powerful analytical capabilities with these ToolPak features.</p>
-                <div class="feature-grid">
-                    <div class="feature">
-                        <h4>Descriptive Statistics</h4>
-                        <p>Generates summary statistics like mean, median, and standard deviation.</p>
-                    </div>
-                    <div class="feature">
-                        <h4>Regression Analysis</h4>
-                        <p>Analyzes relationships between variables with detailed outputs.</p>
-                    </div>
-                    <div class="feature">
-                        <h4>Histogram</h4>
-                        <p>Creates frequency distributions and charts.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="topic-example">
-                <h4>Example: Descriptive Statistics Analysis</h4>
-                <p>Analyze sales data to find average sales and variability across regions.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="topic-card" id="power-query-intro">
-        <h3>Introduction to Power Query</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>Power Query is Excel's data transformation tool for importing and reshaping data from various sources.</p>
-                <div class="info-box">
-                    <div class="info-icon">
-                        <i class="fas fa-info-circle"></i>
-                    </div>
-                    <div class="info-content">
-                        <p>Power Query automates data cleaning and preparation, saving hours of manual work.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="topic-card" id="data-transformations">
-        <h3>Basic Data Transformations</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>Transform data to make it analysis-ready with these common operations.</p>
-                <ul>
-                    <li><strong>Filtering rows</strong>: Remove irrelevant data</li>
-                    <li><strong>Splitting columns</strong>: Separate combined data</li>
-                    <li><strong>Changing data types</strong>: Ensure correct formats</li>
-                </ul>
-            </div>
-            <div class="topic-example">
-                <h4>Example Workflow:</h4>
-                <ol>
-                    <li>Import sales data</li>
-                    <li>Filter out incomplete records</li>
-                    <li>Split "Name" into "First" and "Last"</li>
-                    <li>Convert dates to proper format</li>
-                </ol>
-            </div>
-        </div>
-    </div>
-
-    <div class="topic-card" id="combining-data">
-        <h3>Combining Multiple Data Sources</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>Integrate data from multiple sources for comprehensive analysis.</p>
-                <div class="steps-container">
-                    <h4>Appending Tables (Adding Rows):</h4>
-                    <ol>
-                        <li>Select Queries > Append</li>
-                        <li>Choose tables to combine</li>
-                        <li>Load the combined data</li>
-                    </ol>
-                    <h4>Merging Tables (Joining Data):</h4>
-                    <ol>
-                        <li>Select Queries > Merge</li>
-                        <li>Choose tables and key columns</li>
-                        <li>Select join type (e.g., Inner, Left)</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="topic-card" id="data-problems">
-        <h3>Identifying Common Data Problems</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>Recognize and address these frequent data quality issues.</p>
-                <ul>
-                    <li>Missing values</li>
-                    <li>Duplicate entries</li>
-                    <li>Inconsistent formatting</li>
-                    <li>Outliers</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="topic-card" id="cleaning-functions">
-        <h3>Excel Functions for Data Cleaning</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>Use these functions to clean and standardize your data.</p>
-                <div class="function-list">
-                    <div class="function">
-                        <h4>TRIM()</h4>
-                        <p>Removes extra spaces from text.</p>
-                        <code>=TRIM(A2)</code>
-                    </div>
-                    <div class="function">
-                        <h4>PROPER(), UPPER(), LOWER()</h4>
-                        <p>Standardize capitalization in text.</p>
-                        <code>=PROPER(A2)</code>
-                    </div>
-                    <div class="function">
-                        <h4>SUBSTITUTE()</h4>
-                        <p>Replaces specific text in a string.</p>
-                        <code>=SUBSTITUTE(A2,"-","")</code>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="topic-card" id="duplicates">
-        <h3>Finding and Removing Duplicates</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>Eliminate redundant data to ensure analysis accuracy.</p>
-                <div class="steps-container">
-                    <h4>Highlighting Duplicates:</h4>
-                    <ol>
-                        <li>Select data range</li>
-                        <li>Go to Home > Conditional Formatting</li>
-                        <li>Choose Highlight Duplicates</li>
-                        <li>Remove using Data > Remove Duplicates</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="topic-card" id="descriptive-stats">
-        <h3>Descriptive Statistics</h3>
-        <div class="topic-content">
-            <div class="topic-text">
-                <p>Summarize dataset characteristics with these statistical measures.</p>
-                <div class="feature-grid">
-                    <div class="feature">
-                        <h4>Central Tendency Measures</h4>
-                        <ul>
-                            <li><strong>AVERAGE</strong>: Arithmetic mean</li>
-                            <li><strong>MEDIAN</strong>: Middle value</li>
-                            <li><strong>MODE</strong>: Most frequent value</li>
-                        </ul>
-                    </div>
-                    <div class="feature">
-                        <h4>Dispersion Measures</h4>
-                        <ul>
-                            <li><strong>STDEV</strong>: Standard deviation</li>
-                            <li><strong>VAR</strong>: Variance</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <!-- Correlation Analysis Section -->
     <div class="topic-card" id="correlation">
         <h3>Correlation Analysis</h3>
         <div class="topic-content">
             <div class="topic-text">
-                <p>Measure the relationship strength between two variables.</p>
+                <p>Correlation analysis helps you measure the relationship between variables and identify patterns in your data.</p>
+                <h4>Understanding Correlation</h4>
+                <ul>
+                    <li>Correlation measures the strength of relationship between two variables</li>
+                    <li>Correlation coefficient ranges from -1 to +1</li>
+                    <li>+1 indicates a perfect positive correlation</li>
+                    <li>-1 indicates a perfect negative correlation</li>
+                    <li>0 indicates no correlation</li>
+                </ul>
+                <h4>Using Correlation Functions</h4>
+                <ul>
+                    <li><strong>CORREL</strong>: Calculates correlation coefficient between two data sets</li>
+                    <li><strong>Analysis ToolPak</strong>: Performs multiple correlations at once</li>
+                    <li><strong>Scatter plots</strong>: Visualize correlation between variables</li>
+                </ul>
+                <h4>Business Applications</h4>
+                <ul>
+                    <li>Identifying which factors impact sales performance</li>
+                    <li>Analyzing relationships between marketing channels and revenue</li>
+                    <li>Understanding customer behavior patterns</li>
+                    <li>Optimizing resource allocation based on impact</li>
+                </ul>
+                <p><strong>Important:</strong> Remember that correlation does not imply causation. Always combine statistical analysis with business context.</p>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Marketing Channel Effectiveness</h4>
+                <p>A marketing team wants to determine which advertising channels have the strongest relationship with sales performance.</p>
+                
+                <table class="formula-example">
+                    <tr>
+                        <th>Month</th>
+                        <th>TV Ads ($)</th>
+                        <th>Social Media ($)</th>
+                        <th>Email ($)</th>
+                        <th>Sales ($)</th>
+                    </tr>
+                    <tr>
+                        <td>January</td>
+                        <td>15,000</td>
+                        <td>5,000</td>
+                        <td>2,000</td>
+                        <td>120,000</td>
+                    </tr>
+                    <tr>
+                        <td>February</td>
+                        <td>10,000</td>
+                        <td>7,500</td>
+                        <td>3,000</td>
+                        <td>105,000</td>
+                    </tr>
+                    <tr>
+                        <td>March</td>
+                        <td>12,000</td>
+                        <td>10,000</td>
+                        <td>2,500</td>
+                        <td>125,000</td>
+                    </tr>
+                    <tr>
+                        <td>April</td>
+                        <td>8,000</td>
+                        <td>12,500</td>
+                        <td>4,000</td>
+                        <td>140,000</td>
+                    </tr>
+                    <tr>
+                        <td>May</td>
+                        <td>6,000</td>
+                        <td>15,000</td>
+                        <td>5,000</td>
+                        <td>160,000</td>
+                    </tr>
+                </table>
+                
+                <div class="tip-box">
+                    <h4>Correlation Results</h4>
+                    <table class="formula-example">
+                        <tr>
+                            <th>Channel</th>
+                            <th>Correlation with Sales</th>
+                            <th>Interpretation</th>
+                        </tr>
+                        <tr>
+                            <td>TV Ads</td>
+                            <td>-0.92</td>
+                            <td>Strong negative correlation</td>
+                        </tr>
+                        <tr>
+                            <td>Social Media</td>
+                            <td>0.97</td>
+                            <td>Strong positive correlation</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>0.89</td>
+                            <td>Strong positive correlation</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <p><strong>Analysis Insight:</strong> The data reveals a strong positive correlation between Social Media spending and sales (0.97), suggesting this channel may be most effective. Meanwhile, TV Ad spending shows a negative correlation (-0.92), indicating that as the company reduced TV spend and increased Social Media investment, sales actually improved.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Regression Analysis Section -->
+    <div class="topic-card" id="regression">
+        <h3>Regression Analysis</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Regression analysis helps you understand how one variable impacts another, allowing you to build predictive models based on your data.</p>
+                <h4>Types of Regression</h4>
+                <ul>
+                    <li><strong>Linear Regression</strong>: Models the relationship between a dependent variable and one or more independent variables</li>
+                    <li><strong>Multiple Regression</strong>: Uses multiple independent variables to predict an outcome</li>
+                </ul>
+                <h4>Key Regression Concepts</h4>
+                <ul>
+                    <li><strong>R-squared</strong>: How well the model explains the variation in the data (0-1)</li>
+                    <li><strong>Coefficients</strong>: The impact of each independent variable</li>
+                    <li><strong>P-values</strong>: Statistical significance of each variable</li>
+                    <li><strong>Standard Error</strong>: Accuracy of predictions</li>
+                </ul>
+                <h4>Using Excel for Regression</h4>
+                <ul>
+                    <li>Analysis ToolPak's Regression tool</li>
+                    <li>LINEST function for linear regression calculations</li>
+                    <li>FORECAST function for simple predictions</li>
+                    <li>Scatter plots with trendlines</li>
+                </ul>
+                <h4>Business Applications</h4>
+                <ul>
+                    <li>Sales forecasting based on historical data</li>
+                    <li>Budget planning and resource allocation</li>
+                    <li>Pricing optimization</li>
+                    <li>Understanding factors that drive performance</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Sales Prediction Model</h4>
+                <p>Building on our correlation analysis, let's create a regression model to predict sales based on marketing spend.</p>
+                
+                <div class="info-box">
+                    <h4>Business Scenario:</h4>
+                    <p>The marketing team wants to develop a predictive model to estimate sales based on planned advertising budgets for future months.</p>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>Key Regression Statistics</h4>
+                    <ul>
+                        <li><strong>R Square:</strong> 0.98 (The model explains 98% of sales variation)</li>
+                        <li><strong>Coefficients:</strong>
+                            <ul>
+                                <li>Intercept: 75,235</li>
+                                <li>TV Ads: -1.56 (Negative impact)</li>
+                                <li>Social Media: 4.83 (Strong positive impact)</li>
+                                <li>Email: 3.24 (Positive impact)</li>
+                            </ul>
+                        </li>
+                        <li><strong>P-values:</strong> Social Media is statistically significant (p < 0.05)</li>
+                    </ul>
+                </div>
+                
+                <p><strong>Prediction Formula:</strong> <code>Sales = 75,235 - 1.56*[TV] + 4.83*[Social] + 3.24*[Email]</code></p>
+                
+                <div class="example-case">
+                    <h4>Model Application:</h4>
+                    <p>For a planned budget of $5,000 TV, $20,000 Social Media, and $6,000 Email:</p>
+                    <p><code>Sales = 75,235 - 1.56*5,000 + 4.83*20,000 + 3.24*6,000 = $182,755</code></p>
+                </div>
+                
+                <p><strong>Business Application:</strong> This regression model becomes a powerful planning tool for marketing budget allocation. The team can now estimate ROI for different spending scenarios and optimize their channel mix before committing real dollars.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PivotTables Section -->
+    <div class="topic-card" id="pivottables">
+        <h3>PivotTables and PivotCharts</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Master Excel's most powerful data analysis tool to summarize, analyze, and explore data in flexible ways.</p>
+                <h4>PivotTable Basics</h4>
+                <ul>
+                    <li>Creating your first PivotTable</li>
+                    <li>Understanding the PivotTable field list</li>
+                    <li>Rows, columns, values, and filters areas</li>
+                    <li>Refreshing PivotTable data</li>
+                    <li>Sorting and filtering within PivotTables</li>
+                    <li>Grouping data by date, number, or text</li>
+                </ul>
+                <h4>Advanced PivotTable Features</h4>
+                <ul>
+                    <li>Calculated fields and calculated items</li>
+                    <li>Custom calculations (% of total, difference from, etc.)</li>
+                    <li>Value field settings and display options</li>
+                    <li>Slicers and Timelines for interactive filtering</li>
+                    <li>PivotCharts for visual data analysis</li>
+                    <li>Multiple value fields and report layouts</li>
+                </ul>
+                <h4>Business Applications</h4>
+                <ul>
+                    <li>Sales analysis by region, product, and time period</li>
+                    <li>Budget vs. actual reporting</li>
+                    <li>Customer segmentation analysis</li>
+                    <li>Interactive dashboards with slicers</li>
+                    <li>Trend analysis with dynamic charts</li>
+                </ul>
+                <p><strong>Pro Tip:</strong> Right-click on PivotTable data fields to access additional options like value field settings, grouping, and formatting.</p>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Profit Analysis by Region</h4>
+                <p>In this example, we'll create a PivotTable with calculated fields to analyze profitability metrics across regions.</p>
+                
+                <table class="formula-example">
+                    <tr>
+                        <th>Region</th>
+                        <th>Sales</th>
+                        <th>Cost</th>
+                        <th>Profit</th>
+                        <th>Profit Margin</th>
+                    </tr>
+                    <tr>
+                        <td>North</td>
+                        <td>$125,000</td>
+                        <td>$87,500</td>
+                        <td>$37,500</td>
+                        <td>30.0%</td>
+                    </tr>
+                    <tr>
+                        <td>South</td>
+                        <td>$98,500</td>
+                        <td>$75,300</td>
+                        <td>$23,200</td>
+                        <td>23.6%</td>
+                    </tr>
+                    <tr>
+                        <td>East</td>
+                        <td>$145,000</td>
+                        <td>$92,800</td>
+                        <td>$52,200</td>
+                        <td>36.0%</td>
+                    </tr>
+                    <tr>
+                        <td>West</td>
+                        <td>$112,300</td>
+                        <td>$78,610</td>
+                        <td>$33,690</td>
+                        <td>30.0%</td>
+                    </tr>
+                </table>
+                
                 <div class="steps-container">
-                    <h4>Using the CORREL Function:</h4>
-                    <code>=CORREL(array1, array2)</code>
-                    <p>Returns a value between -1 (negative correlation) and 1 (positive correlation); 0 indicates no correlation.</p>
+                    <h4>Steps to Create This Example:</h4>
+                    <ol>
+                        <li>Set up your data with columns for Region, Sales, and Cost</li>
+                        <li>Create a PivotTable with Region in Rows, Sales and Cost in Values area</li>
+                        <li>Go to PivotTable Analyze tab > Fields, Items & Sets > Calculated Field</li>
+                        <li>Name it "Profit" and enter formula: <code>= Sales - Cost</code></li>
+                        <li>Add another calculated field "Profit Margin" with: <code>= (Sales - Cost) / Sales</code></li>
+                        <li>Format the Profit Margin field as Percentage</li>
+                    </ol>
+                </div>
+                
+                <div class="info-box">
+                    <p><strong>Analysis insight:</strong> The East region has the highest profit margin (36%), suggesting better operational efficiency or higher-value product mix compared to other regions. This insight would drive further investigation into the East region's sales strategies and product mix.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PivotCharts Section -->
+    <div class="topic-card" id="pivotcharts">
+        <h3>Interactive PivotCharts</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Transform your PivotTables into dynamic, interactive visualizations that make data trends immediately apparent.</p>
+                <h4>PivotChart Fundamentals</h4>
+                <ul>
+                    <li>Creating PivotCharts from existing PivotTables</li>
+                    <li>Selecting appropriate chart types for your data</li>
+                    <li>Understanding the relationship between PivotTable and PivotChart</li>
+                    <li>Formatting and layout options</li>
+                    <li>Adding titles, legends, and data labels</li>
+                </ul>
+                <h4>Interactive Elements</h4>
+                <ul>
+                    <li>Adding slicers for visual filtering</li>
+                    <li>Using timelines for date-based filtering</li>
+                    <li>Connecting multiple PivotCharts to the same slicers</li>
+                    <li>Field buttons and filtering options</li>
+                    <li>Drill-down capabilities</li>
+                </ul>
+                <h4>Advanced Techniques</h4>
+                <ul>
+                    <li>Creating dashboards with multiple PivotCharts</li>
+                    <li>Custom chart formatting for professional presentations</li>
+                    <li>Adding trendlines and forecasts</li>
+                    <li>Using combo charts to show multiple data series</li>
+                    <li>Synchronizing filters across multiple reports</li>
+                </ul>
+                <p><strong>Best Practice:</strong> Use consistent colors and formatting for your PivotCharts to create a cohesive dashboard experience for your audience.</p>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Monthly Sales Trends by Category</h4>
+                <p>Create an interactive PivotChart to visualize monthly sales trends across product categories with slicer filtering.</p>
+                
+                <div class="info-box">
+                    <h4>Business Scenario:</h4>
+                    <p>A retail company needs to analyze monthly sales patterns across different product categories. The management team wants to be able to filter by region to identify location-specific trends.</p>
+                    <p><strong>Data Structure:</strong> A sales table with columns for Date, Region, Product Category, and Sales Amount.</p>
+                </div>
+                
+                <table class="formula-example">
+                    <tr>
+                        <th>Month</th>
+                        <th>Electronics</th>
+                        <th>Furniture</th>
+                        <th>Clothing</th>
+                    </tr>
+                    <tr>
+                        <td>January</td>
+                        <td>$45,200</td>
+                        <td>$22,300</td>
+                        <td>$31,500</td>
+                    </tr>
+                    <tr>
+                        <td>February</td>
+                        <td>$42,100</td>
+                        <td>$19,800</td>
+                        <td>$29,700</td>
+                    </tr>
+                    <tr>
+                        <td>March</td>
+                        <td>$48,600</td>
+                        <td>$24,500</td>
+                        <td>$32,900</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"><em>(When West region is selected in slicer)</em></td>
+                    </tr>
+                </table>
+                
+                <div class="steps-container">
+                    <h4>Implementation Steps:</h4>
+                    <ol>
+                        <li>Create a PivotTable with these fields:
+                            <ul>
+                                <li>Rows: Date (grouped by month)</li>
+                                <li>Columns: Product Category</li>
+                                <li>Values: Sum of Sales</li>
+                            </ul>
+                        </li>
+                        <li>With the PivotTable selected, go to Insert tab > PivotChart > Line Chart</li>
+                        <li>Add a slicer for the Region field:
+                            <ul>
+                                <li>PivotTable Tools > Analyze tab > Insert Slicer > Region</li>
+                                <li>Position the slicer next to the chart for easy access</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>Analysis Finding:</h4>
+                    <p>When filtering by the Western region, the Electronics category shows a 40% higher sales spike during November-December compared to other seasons, while the Clothing category maintains more consistent sales throughout the year.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Power Query Section -->
+    <div class="topic-card" id="power-query">
+        <h3>Power Query for Data Transformation</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Transform and clean your data efficiently with Excel's powerful Power Query tool (Get & Transform).</p>
+                <h4>Power Query Basics</h4>
+                <ul>
+                    <li>Importing data from various sources (files, databases, web)</li>
+                    <li>Understanding the Power Query Editor interface</li>
+                    <li>Applying basic transformations</li>
+                    <li>Creating queries that can be refreshed</li>
+                    <li>Loading results to worksheets or the data model</li>
+                </ul>
+                <h4>Common Transformations</h4>
+                <ul>
+                    <li>Removing or keeping columns</li>
+                    <li>Filtering rows based on criteria</li>
+                    <li>Changing data types</li>
+                    <li>Splitting and merging columns</li>
+                    <li>Unpivoting and pivoting data</li>
+                    <li>Grouping and aggregating</li>
+                    <li>Creating custom columns with formulas</li>
+                </ul>
+                <h4>Advanced Features</h4>
+                <ul>
+                    <li>Combining data from multiple sources</li>
+                    <li>Merging and appending queries</li>
+                    <li>Creating parameters for flexible queries</li>
+                    <li>Using M language for custom transformations</li>
+                    <li>Managing query dependencies</li>
+                    <li>Creating reusable functions</li>
+                </ul>
+                <p><strong>Key Benefit:</strong> Once set up, Power Query transformations are repeatable with a single click, saving hours of manual data cleaning each time new data arrives.</p>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Automated Sales Data Transformation</h4>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div>
+                        <h5>Before Power Query</h5>
+                        <table class="formula-example">
+                            <tr>
+                                <th colspan="2">Sales Data - March</th>
+                                <th></th>
+                                <th>Notes</th>
+                            </tr>
+                            <tr>
+                                <td>Date</td>
+                                <td>product</td>
+                                <td>Sales</td>
+                                <td>Check with Jim</td>
+                            </tr>
+                            <tr>
+                                <td>3/1/2023</td>
+                                <td>Widget A</td>
+                                <td>1,234.00</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>3-2-23</td>
+                                <td>widget b</td>
+                                <td>N/A</td>
+                                <td>Pending</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>03/04/2023</td>
+                                <td>Widget A</td>
+                                <td>945.50</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p><strong>Issues:</strong> Inconsistent dates, mixed case, blanks, text in numeric fields, extra columns</p>
+                    </div>
+                    <div>
+                        <h5>After Power Query</h5>
+                        <table class="formula-example">
+                            <tr>
+                                <th>Date</th>
+                                <th>Product</th>
+                                <th>Sales</th>
+                            </tr>
+                            <tr>
+                                <td>3/1/2023</td>
+                                <td>Widget A</td>
+                                <td>1,234.00</td>
+                            </tr>
+                            <tr>
+                                <td>3/2/2023</td>
+                                <td>Widget B</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>3/4/2023</td>
+                                <td>Widget A</td>
+                                <td>945.50</td>
+                            </tr>
+                        </table>
+                        <p><strong>Fixed:</strong> Standardized dates, proper case products, blank instead of N/A, removed empty rows, removed notes column</p>
+                    </div>
+                </div>
+                
+                <div class="steps-container">
+                    <h4>Power Query Transformation Steps:</h4>
+                    <ol>
+                        <li>Go to Data tab > Get Data > From File > From Text/CSV</li>
+                        <li>Select your file and click Import</li>
+                        <li>In Power Query Editor:
+                            <ol>
+                                <li>Remove the Notes column: Right-click column header > Remove</li>
+                                <li>Standardize dates: Select Date column > Transform tab > Date > From Text</li>
+                                <li>Fix product names: Select Product column > Transform tab > Format > Capitalize Each Word</li>
+                                <li>Convert Sales to numbers: Select Sales column > right-click > Replace Values > replace "N/A" with null</li>
+                                <li>Remove empty rows: Home tab > Remove Rows > Remove Empty Rows</li>
+                            </ol>
+                        </li>
+                        <li>Click Close & Load to send clean data to Excel</li>
+                    </ol>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>Power Query Advantage</h4>
+                    <p>Once configured, this transformation process can be repeated with a single click whenever new data arrives. Just right-click the query in the Queries pane and select "Refresh" - all the cleaning steps will run automatically.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Cleaning Section -->
+    <div class="topic-card" id="data-cleaning">
+        <h3>Data Cleaning Techniques</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Learn essential data cleaning methods to ensure your analysis is based on accurate, consistent information.</p>
+                <h4>Common Data Quality Issues</h4>
+                <ul>
+                    <li>Inconsistent formatting (dates, text, numbers)</li>
+                    <li>Missing or incomplete data</li>
+                    <li>Duplicate records</li>
+                    <li>Extra spaces and special characters</li>
+                    <li>Misspellings and case inconsistencies</li>
+                    <li>Structural issues (merged cells, headers)</li>
+                </ul>
+                <h4>Excel Cleaning Functions</h4>
+                <ul>
+                    <li><strong>TRIM</strong>: Remove extra spaces</li>
+                    <li><strong>PROPER, UPPER, LOWER</strong>: Standardize text case</li>
+                    <li><strong>LEFT, RIGHT, MID</strong>: Extract portions of text</li>
+                    <li><strong>SUBSTITUTE</strong>: Replace specific characters</li>
+                    <li><strong>CONCATENATE</strong> or <strong>&</strong>: Combine text</li>
+                    <li><strong>VALUE</strong>: Convert text to numbers</li>
+                    <li><strong>TEXT</strong>: Format numbers as text</li>
+                </ul>
+                <h4>Advanced Cleaning Tools</h4>
+                <ul>
+                    <li>Remove Duplicates feature</li>
+                    <li>Find and Replace with wildcards</li>
+                    <li>Text to Columns for splitting data</li>
+                    <li>Flash Fill for pattern recognition</li>
+                    <li>Conditional formatting to identify inconsistencies</li>
+                    <li>Power Query for complex transformations</li>
+                </ul>
+                <p><strong>Best Practice:</strong> Always work with a copy of your original data and document your cleaning steps for reproducibility.</p>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Customer Data Standardization</h4>
+                
+                <div class="info-box">
+                    <h4>Business Scenario:</h4>
+                    <p>A company's customer database has accumulated inconsistencies due to manual data entry from different sales representatives. Before analysis, the data needs cleaning to standardize formats, fix capitalization, and remove errors.</p>
+                </div>
+                
+                <table class="formula-example">
+                    <tr>
+                        <th>Data Cleaning Function</th>
+                        <th>Before</th>
+                        <th>Formula</th>
+                        <th>After</th>
+                    </tr>
+                    <tr>
+                        <td>TRIM</td>
+                        <td>" John Smith "</td>
+                        <td><code>=TRIM(A2)</code></td>
+                        <td>"John Smith"</td>
+                    </tr>
+                    <tr>
+                        <td>PROPER</td>
+                        <td>"john SMITH"</td>
+                        <td><code>=PROPER(A2)</code></td>
+                        <td>"John Smith"</td>
+                    </tr>
+                    <tr>
+                        <td>SUBSTITUTE</td>
+                        <td>"555-123-4567"</td>
+                        <td><code>=SUBSTITUTE(A2,"-","")</code></td>
+                        <td>"5551234567"</td>
+                    </tr>
+                    <tr>
+                        <td>LEFT, MID, RIGHT</td>
+                        <td>"US-NY-Buffalo"</td>
+                        <td><code>=RIGHT(A2,LEN(A2)-FIND("-",A2,4))</code></td>
+                        <td>"Buffalo"</td>
+                    </tr>
+                    <tr>
+                        <td>Combined Functions</td>
+                        <td>" ACME corp. "</td>
+                        <td><code>=PROPER(TRIM(SUBSTITUTE(A2,"."," ")))</code></td>
+                        <td>"Acme Corp"</td>
+                    </tr>
+                </table>
+                
+                <div class="tip-box">
+                    <h4>Flash Fill Alternative</h4>
+                    <p>For simple data cleaning, try Excel's Flash Fill feature. Enter a few examples of the desired format in a column next to your data, then press Ctrl+E. Excel will recognize the pattern and apply it to the rest of the column.</p>
+                </div>
+                
+                <p><strong>Data Quality Impact:</strong> After cleaning, the company discovered they had 12% fewer unique customers than previously thought due to duplicate entries with slight variations in names and contact information. This corrected their customer lifetime value calculations significantly.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- What-If Analysis Section -->
+    <div class="topic-card" id="what-if">
+        <h3>What-If Analysis Tools</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Excel's What-If Analysis tools allow you to experiment with different scenarios and find optimal solutions for business decisions.</p>
+                <h4>Data Tables</h4>
+                <ul>
+                    <li>One-variable data tables for single-input analysis</li>
+                    <li>Two-variable data tables for multiple inputs</li>
+                    <li>Sensitivity analysis for business decisions</li>
+                    <li>Visualizing results with charts</li>
+                </ul>
+                <h4>Goal Seek</h4>
+                <ul>
+                    <li>Finding input values for desired results</li>
+                    <li>Setting targets and letting Excel find solutions</li>
+                    <li>Determining break-even points</li>
+                    <li>Calculating required inputs for specific outcomes</li>
+                </ul>
+                <h4>Scenario Manager</h4>
+                <ul>
+                    <li>Creating and saving multiple what-if scenarios</li>
+                    <li>Comparing outcomes side by side</li>
+                    <li>Generating scenario summary reports</li>
+                    <li>Combining scenarios from different workbooks</li>
+                </ul>
+                <h4>Business Applications</h4>
+                <ul>
+                    <li>Financial modeling and projection</li>
+                    <li>Budget planning under different conditions</li>
+                    <li>Investment analysis and loan calculations</li>
+                    <li>Sales forecasting with variable factors</li>
+                    <li>Production optimization</li>
+                </ul>
+                <p><strong>Pro Tip:</strong> Create charts from your data tables to visualize trends and identify optimal points more easily.</p>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Break-Even Analysis with Goal Seek</h4>
+                <p>Using Goal Seek to determine exactly how many units must be sold to break even, given fixed and variable costs.</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div>
+                        <h5>Initial Model</h5>
+                        <table class="formula-example">
+                            <tr>
+                                <td>Unit Price</td>
+                                <td>$75</td>
+                            </tr>
+                            <tr>
+                                <td>Variable Cost/Unit</td>
+                                <td>$45</td>
+                            </tr>
+                            <tr>
+                                <td>Fixed Costs</td>
+                                <td>$3,000</td>
+                            </tr>
+                            <tr>
+                                <td>Units Sold</td>
+                                <td>80</td>
+                            </tr>
+                            <tr>
+                                <td>Total Revenue</td>
+                                <td>$6,000</td>
+                            </tr>
+                            <tr>
+                                <td>Total Costs</td>
+                                <td>$6,600</td>
+                            </tr>
+                            <tr>
+                                <td>Profit</td>
+                                <td>-$600</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <h5>After Goal Seek</h5>
+                        <table class="formula-example">
+                            <tr>
+                                <td>Unit Price</td>
+                                <td>$75</td>
+                            </tr>
+                            <tr>
+                                <td>Variable Cost/Unit</td>
+                                <td>$45</td>
+                            </tr>
+                            <tr>
+                                <td>Fixed Costs</td>
+                                <td>$3,000</td>
+                            </tr>
+                            <tr>
+                                <td>Units Sold</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Total Revenue</td>
+                                <td>$7,500</td>
+                            </tr>
+                            <tr>
+                                <td>Total Costs</td>
+                                <td>$7,500</td>
+                            </tr>
+                            <tr>
+                                <td>Profit</td>
+                                <td>$0</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="steps-container">
+                    <h4>Step-by-Step Implementation:</h4>
+                    <ol>
+                        <li>Set up your break-even model:
+                            <ul>
+                                <li>A1: Unit Price = $75</li>
+                                <li>A2: Variable Cost/Unit = $45</li>
+                                <li>A3: Fixed Costs = $3,000</li>
+                                <li>A4: Units Sold = 80 (our variable cell)</li>
+                                <li>A5: Total Revenue = <code>=A1*A4</code></li>
+                                <li>A6: Total Costs = <code>=A3+(A2*A4)</code></li>
+                                <li>A7: Profit = <code>=A5-A6</code></li>
+                            </ul>
+                        </li>
+                        <li>Run Goal Seek:
+                            <ul>
+                                <li>Select cell A7 (Profit)</li>
+                                <li>Go to Data tab > What-If Analysis > Goal Seek</li>
+                                <li>In "Set cell:" field, confirm A7 is selected</li>
+                                <li>In "To value:" field, enter 0 (break-even)</li>
+                                <li>In "By changing cell:" field, select A4 (Units Sold)</li>
+                                <li>Click OK</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>Result Analysis:</h4>
+                    <p>The company needs to sell exactly 100 units to break even, where total revenue equals total costs ($7,500). At the current sales level of 80 units, the company is losing $600.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Tables Example -->
+    <div class="topic-card" id="data-tables">
+        <h3>Data Tables for Sensitivity Analysis</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Data Tables are powerful tools for understanding how changing one or two variables affects your outcome, allowing you to make informed decisions.</p>
+                <h4>One-Variable Data Tables</h4>
+                <ul>
+                    <li>Testing multiple values for a single input</li>
+                    <li>Seeing how one factor impacts your result</li>
+                    <li>Creating sensitivity analyses quickly</li>
+                    <li>Evaluating a range of scenarios efficiently</li>
+                </ul>
+                <h4>Two-Variable Data Tables</h4>
+                <ul>
+                    <li>Testing combinations of two different inputs</li>
+                    <li>Creating matrix analysis for complex decisions</li>
+                    <li>Comparing multiple scenarios simultaneously</li>
+                    <li>Identifying optimal combinations of factors</li>
+                </ul>
+                <h4>Creating Data Tables</h4>
+                <ul>
+                    <li>Setting up the data table structure</li>
+                    <li>Linking to your calculation formulas</li>
+                    <li>Using the Data > What-If Analysis > Data Table command</li>
+                    <li>Specifying row and column input cells</li>
+                    <li>Interpreting and formatting results</li>
+                </ul>
+                <h4>Business Applications</h4>
+                <ul>
+                    <li>Loan payment calculations with different rates and terms</li>
+                    <li>Sales projections with varying growth and price points</li>
+                    <li>Investment returns under different scenarios</li>
+                    <li>Production planning with variable costs and volumes</li>
+                </ul>
+                <p><strong>Important:</strong> Data tables recalculate every time your workbook calculates, which can slow down large workbooks. Consider using manual calculation mode for complex models.</p>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Marketing Budget Scenarios</h4>
+                <p>A two-variable data table analyzing how different growth rates and price increases affect projected annual sales revenue for a business currently generating $100,000 in annual sales.</p>
+                
+                <table class="formula-example">
+                    <tr>
+                        <th>Sales Forecast</th>
+                        <th>2% Price Increase</th>
+                        <th>4% Price Increase</th>
+                        <th>6% Price Increase</th>
+                        <th>8% Price Increase</th>
+                    </tr>
+                    <tr>
+                        <td><strong>5% Volume Growth</strong></td>
+                        <td>$107,100</td>
+                        <td>$109,200</td>
+                        <td>$111,300</td>
+                        <td>$113,400</td>
+                    </tr>
+                    <tr>
+                        <td><strong>10% Volume Growth</strong></td>
+                        <td>$112,200</td>
+                        <td>$114,400</td>
+                        <td>$116,600</td>
+                        <td>$118,800</td>
+                    </tr>
+                    <tr>
+                        <td><strong>15% Volume Growth</strong></td>
+                        <td>$117,300</td>
+                        <td>$119,600</td>
+                        <td>$121,900</td>
+                        <td>$124,200</td>
+                    </tr>
+                </table>
+                
+                <div class="info-box">
+                    <h4>Business Context:</h4>
+                    <p>A company with current annual sales of $100,000 needs to forecast next year's revenue under different scenarios for its annual planning process. Management wants to see the combined effect of two factors: volume growth (driven by marketing) and price increases (to counter inflation).</p>
+                </div>
+                
+                <div class="steps-container">
+                    <h4>Implementation Steps:</h4>
+                    <ol>
+                        <li>Set up your variables:
+                            <ul>
+                                <li>Cell A1: Current Sales = $100,000</li>
+                                <li>Cell B1: Volume Growth Rate = 10% (variable 1)</li>
+                                <li>Cell C1: Price Increase = 4% (variable 2)</li>
+                                <li>Cell D1 (formula): <code>=A1 * (1 + B1) * (1 + C1)</code></li>
+                            </ul>
+                        </li>
+                        <li>Create the data table framework</li>
+                        <li>Select the entire table range (A3:E6)</li>
+                        <li>Go to Data tab > What-If Analysis > Data Table</li>
+                        <li>Set "Row input cell" to C1 (Price Increase)</li>
+                        <li>Set "Column input cell" to B1 (Volume Growth)</li>
+                    </ol>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>Key Finding:</h4>
+                    <p>The difference between the best scenario (15% growth, 8% price increase) and worst scenario (5% growth, 2% price increase) is $17,100 in annual revenue, representing a 17.1% swing in projected outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scenario Manager Example -->
+    <div class="topic-card" id="scenario-manager">
+        <h3>Scenario Manager for Decision Making</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Excel's Scenario Manager allows you to create, save, and compare multiple sets of input values for your models, making complex decision analysis easier.</p>
+                <h4>Scenario Manager Basics</h4>
+                <ul>
+                    <li>Creating named scenarios with different input values</li>
+                    <li>Quickly switching between scenarios</li>
+                    <li>Comparing multiple scenarios side by side</li>
+                    <li>Generating scenario summary reports</li>
+                    <li>Merging scenarios from different workbooks</li>
+                </ul>
+                <h4>Working with Scenarios</h4>
+                <ul>
+                    <li>Identifying changing cells for your scenarios</li>
+                    <li>Setting up result cells to track outcomes</li>
+                    <li>Adding, modifying, and deleting scenarios</li>
+                    <li>Protecting scenarios from changes</li>
+                    <li>Creating PivotTable reports from scenarios</li>
+                </ul>
+                <h4>Business Applications</h4>
+                <ul>
+                    <li>Budget planning with best/worst/likely cases</li>
+                    <li>Investment analysis under different market conditions</li>
+                    <li>Project planning with variable timelines and costs</li>
+                    <li>Sales forecasting with multiple growth models</li>
+                    <li>Strategic decision support with alternative options</li>
+                </ul>
+                <p><strong>Best Practice:</strong> Include descriptive comments for each scenario to document your assumptions and help others understand your analysis.</p>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Marketing Budget Planning Scenarios</h4>
+                <p>A detailed analysis using Scenario Manager to model different financial outcomes for a marketing department's annual plan.</p>
+                
+                <table class="formula-example">
+                    <tr>
+                        <th>Scenario Summary</th>
+                        <th>Conservative</th>
+                        <th>Base Case</th>
+                        <th>Aggressive</th>
+                    </tr>
+                    <tr>
+                        <td>Revenue</td>
+                        <td>$350,000</td>
+                        <td>$400,000</td>
+                        <td>$475,000</td>
+                    </tr>
+                    <tr>
+                        <td>Marketing Budget</td>
+                        <td>$35,000</td>
+                        <td>$60,000</td>
+                        <td>$95,000</td>
+                    </tr>
+                    <tr>
+                        <td>Conversion Rate</td>
+                        <td>2.5%</td>
+                        <td>3.2%</td>
+                        <td>4.0%</td>
+                    </tr>
+                    <tr>
+                        <td>New Customers</td>
+                        <td>113</td>
+                        <td>192</td>
+                        <td>380</td>
+                    </tr>
+                    <tr>
+                        <td>Cost Per Acquisition</td>
+                        <td>$310</td>
+                        <td>$313</td>
+                        <td>$250</td>
+                    </tr>
+                    <tr>
+                        <td>Marketing ROI</td>
+                        <td>234%</</td>
+                        <td>267%</td>
+                        <td>321%</td>
+                    </tr>
+                </table>
+                
+                <div class="info-box">
+                    <h4>Business Context:</h4>
+                    <p>A marketing director needs to present different budgeting scenarios to the executive team, showing how various investment levels might affect customer acquisition and ROI. The objective is to make a case for increasing the marketing budget based on projected performance.</p>
+                </div>
+                
+                <div class="steps-container">
+                    <h4>Implementation Steps:</h4>
+                    <ol>
+                        <li>Create a model with these variables:
+                            <ul>
+                                <li>A1: Revenue</li>
+                                <li>A2: Marketing Budget</li> 
+                                <li>A3: Conversion Rate</li>
+                            </ul>
+                        </li>
+                        <li>Add calculated fields:
+                            <ul>
+                                <li>A4: New Customers = <code>=A2/(A1*A3)*100</code></li>
+                                <li>A5: Cost Per Acquisition = <code>=A2/A4</code></li>
+                                <li>A6: Marketing ROI = <code>=(A1-A2)/A2</code></li>
+                            </ul>
+                        </li>
+                        <li>Create three scenarios:
+                            <ul>
+                                <li>"Conservative": Revenue $350,000, Budget $35,000, Conv. Rate 2.5%</li>
+                                <li>"Base Case": Revenue $400,000, Budget $60,000, Conv. Rate 3.2%</li>
+                                <li>"Aggressive": Revenue $475,000, Budget $95,000, Conv. Rate 4.0%</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>Analysis Insight:</h4>
+                    <p>The Aggressive scenario shows the best marketing ROI (321%) despite having the highest budget ($95,000). This is due to the significantly higher conversion rate (4.0%) reducing the cost per acquisition to $250, which is 20% lower than the conservative approach.</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="practice-exercise">
-    <h3>Practice Exercise: Sales Data Analysis</h3>
-    <p>Apply what you've learned by analyzing a sample sales dataset:</p>
+<div class="practice-exercise" id="practice">
+    <h3>Practice Exercise: Comprehensive Sales Data Analysis</h3>
+    <p>Put your skills to the test with this real-world sales analysis project.</p>
     <ol>
-        <li>Download the sample sales data file</li>
-        <li>Clean the data using appropriate functions</li>
-        <li>Create a PivotTable showing sales by region and product</li>
-        <li>Add calculated fields for profit margin analysis</li>
-        <li>Create a What-If analysis to project sales growth scenarios</li>
-        <li>Use the Analysis ToolPak to generate descriptive statistics</li>
-        <li>Identify the top-performing products and regions</li>
-        <li>Create visualizations to communicate your findings</li>
+        <li>Download "Sales_Data.xlsx" from the button below.</li>
+        <li>Clean data: Remove duplicates with Data > Remove Duplicates, fix names with <code>=TRIM(PROPER(A1))</code>.</li>
+        <li>Create a PivotTable: Sales by region and category.</li>
+        <li>Add a calculated field: Profit margin as <code>= (Sales - Cost) / Sales</code>.</li>
+        <li>Build a Two-Variable Data Table: Test growth (5-15%) and price increases (2-6%).</li>
+        <li>Run Descriptive Statistics: Use Analysis ToolPak to summarize sales.</li>
+        <li>Find top performers: Filter and sort for top regions and products.</li>
+        <li>Create a Line PivotChart: Show monthly sales trends.</li>
     </ol>
     <button class="resource-btn" id="download-analysis-template">Download Practice Dataset</button>
-</div>
-
-<div class="module-completion" id="module-completion">
-    <div class="completion-card">
-        <div class="completion-icon">
-            <i class="fas fa-trophy"></i>
-        </div>
-        <div class="completion-content">
-            <h3>Congratulations!</h3>
-            <p>You've completed the Data Analysis module. You now understand how to use Excel's powerful tools to analyze data effectively.</p>
-            <div class="next-steps">
-                <h4>Next Steps:</h4>
-                <ul>
-                    <li>Take the <a href="#" class="module-link">Data Analysis Assessment</a> to test your knowledge</li>
-                    <li>Move on to <a href="#" class="module-link">Data Visualization</a> to learn how to present your findings</li>
-                    <li>Explore <a href="#" class="module-link">Advanced Excel Features</a> for more powerful analysis techniques</li>
-                </ul>
-            </div>
-        </div>
-    </div>
 </div>

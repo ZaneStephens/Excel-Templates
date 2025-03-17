@@ -1,0 +1,658 @@
+<style>
+    /* Static styling for data analysis module */
+    .function-list code {
+        background-color: #f5f5f5;
+        padding: 2px 5px;
+        border-radius: 3px;
+        border: 1px solid #ddd;
+        font-family: "Consolas", monospace;
+        font-size: 0.9em;
+    }
+    
+    pre {
+        background-color: #f5f5f5;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        overflow: auto;
+        font-family: "Consolas", monospace;
+        font-size: 0.9em;
+    }
+    
+    .formula-example {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    .formula-example th,
+    .formula-example td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    
+    .formula-example th {
+        background-color: #f2f2f2;
+    }
+    
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+    }
+    
+    .feature {
+        background-color: #f8f8f8;
+        border-radius: 5px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .topic-card {
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    .steps-container ol {
+        margin-left: 20px;
+    }
+
+    .tip-box, .info-box {
+        background-color: #f0f8ff;
+        padding: 10px;
+        border-left: 4px solid #4682b4;
+        margin-top: 10px;
+    }
+
+    .full-width {
+        width: 100%;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="topic-container">
+    <div class="topic-card" id="pivottable-calculations">
+        <h3>PivotTable Calculations</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>PivotTables allow custom calculations to enhance your data analysis without changing the source data. This includes adding calculated fields and using "Show Values As" options for relative comparisons.</p>
+                <h4>Calculated Fields</h4>
+                <p>Create new metrics, like profit, by defining a formula based on existing fields.</p>
+                <div class="steps-container">
+                    <h4>Steps to Add a Calculated Field:</h4>
+                    <ol>
+                        <li>Click inside your PivotTable.</li>
+                        <li>Go to PivotTable Analyze > Fields, Items & Sets > Calculated Field.</li>
+                        <li>Name the field (e.g., "Profit").</li>
+                        <li>Enter a formula (e.g., <code>= 'Sales' - 'Cost'</code>).</li>
+                        <li>Click Add, then OK.</li>
+                    </ol>
+                </div>
+                <h4>"Show Values As" Options</h4>
+                <p>Display values as percentages or differences for quick insights.</p>
+                <div class="steps-container">
+                    <h4>Steps:</h4>
+                    <ol>
+                        <li>Click a value in the PivotTable.</li>
+                        <li>Go to PivotTable Analyze > Active Field > Field Settings.</li>
+                        <li>Select "Show Values As" and choose an option (e.g., "% of Grand Total").</li>
+                        <li>Click OK.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Combine calculated fields with "Show Values As" to analyze both absolute and relative metrics in one PivotTable.</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Profit Analysis</h4>
+                <p>In a sales PivotTable, add a "Profit Margin" calculated field with <code>= ('Sales' - 'Cost') / 'Sales'</code>, then use "Show Values As" to display sales as a percentage of the grand total.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="pivotcharts">
+        <h3>PivotCharts</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>PivotCharts visualize PivotTable data interactively, updating as you adjust filters or slicers, making trends and patterns easier to identify.</p>
+                <div class="steps-container">
+                    <h4>Steps to Create a PivotChart:</h4>
+                    <ol>
+                        <li>Build a PivotTable.</li>
+                        <li>Click inside the PivotTable.</li>
+                        <li>Go to Insert > PivotChart.</li>
+                        <li>Select a chart type (e.g., Column, Line, Pie).</li>
+                        <li>Add filters or slicers for interactivity.</li>
+                    </ol>
+                </div>
+                <h4>Chart Type Guide</h4>
+                <ul>
+                    <li>Column: Compare categories.</li>
+                    <li>Line: Show trends over time.</li>
+                    <li>Pie: Display proportions.</li>
+                </ul>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Use consistent colors across multiple PivotCharts for a cohesive dashboard effect.</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Sales Trends</h4>
+                <p>Create a Line PivotChart from a PivotTable showing monthly sales by product category, then add a region slicer to filter dynamically.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="one-variable-tables">
+        <h3>One-Variable Data Tables</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>One-variable data tables test how changing one input affects a formula, ideal for sensitivity analysis like evaluating loan payments under different interest rates.</p>
+                <div class="steps-container">
+                    <h4>Steps to Create:</h4>
+                    <ol>
+                        <li>Set up a formula (e.g., <code>=PMT(A1/12, B1*12, C1)</code> for loan payment).</li>
+                        <li>List input values in a column (e.g., rates: 3%, 4%, 5%).</li>
+                        <li>Place the formula above and to the right of the list.</li>
+                        <li>Select the range including the formula and inputs.</li>
+                        <li>Go to Data > What-If Analysis > Data Table.</li>
+                        <li>Set "Column input cell" to the formula’s variable (e.g., A1).</li>
+                        <li>Click OK.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Label your input list clearly (e.g., "Interest Rates") to keep the table intuitive.</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Loan Payment Sensitivity</h4>
+                <p>For a $15,000 loan over 5 years, list interest rates from 2% to 6% in D2:D6, place <code>=PMT(A1/12, 60, 15000)</code> in E1, and create a data table to see payment changes.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="two-variable-tables">
+        <h3>Two-Variable Data Tables</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Two-variable data tables analyze how two inputs affect a formula, useful for scenarios like forecasting sales with varying growth rates and price changes.</p>
+                <div class="steps-container">
+                    <h4>Steps to Create:</h4>
+                    <ol>
+                        <li>Set up a formula (e.g., <code>=A1 * (1 + B1) * (1 + C1)</code> for sales projection).</li>
+                        <li>List one variable in a column (e.g., growth: 5%, 10%).</li>
+                        <li>List the other in a row (e.g., price increase: 2%, 4%).</li>
+                        <li>Place the formula at the intersection.</li>
+                        <li>Select the table range.</li>
+                        <li>Go to Data > What-If Analysis > Data Table.</li>
+                        <li>Set "Row input cell" (e.g., C1) and "Column input cell" (e.g., B1).</li>
+                        <li>Click OK.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Use cell references outside the table to keep the formula flexible for updates.</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Sales Forecast</h4>
+                <p>Project sales starting at $10,000, testing growth rates (5%, 10%) in D2:D3 and price increases (2%, 4%) in C1:E1, with the formula in C2.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="goal-seek">
+        <h3>Goal Seek</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Goal Seek finds the input needed for a specific formula result, great for scenarios like finding the sales needed to hit a profit target.</p>
+                <div class="steps-container">
+                    <h4>Steps:</h4>
+                    <ol>
+                        <li>Create a formula (e.g., <code>=A1 - B1</code> for profit).</li>
+                        <li>Go to Data > What-If Analysis > Goal Seek.</li>
+                        <li>Set "Set Cell" to the formula cell, "To Value" to your target (e.g., 0), and "By Changing Cell" to the input (e.g., A1).</li>
+                        <li>Click OK.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Use Goal Seek for quick, single-variable adjustments; switch to Solver for multi-variable optimization.</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Break-Even Point</h4>
+                <p>With costs at $3000 and profit as <code>=Sales - 3000</code>, use Goal Seek to find the sales amount where profit equals $0.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="scenario-manager">
+        <h3>Scenario Manager</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Scenario Manager compares multiple what-if scenarios by adjusting several inputs, perfect for planning under different conditions.</p>
+                <div class="steps-container">
+                    <h4>Steps:</h4>
+                    <ol>
+                        <li>Build a model with inputs and a formula (e.g., sales, costs, profit).</li>
+                        <li>Go to Data > What-If Analysis > Scenario Manager.</li>
+                        <li>Click Add, name the scenario (e.g., "Best Case"), and select input cells.</li>
+                        <li>Enter values, click OK, and repeat for other scenarios.</li>
+                        <li>Click Summary for a comparison report.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Use clear scenario names like "High Growth" to make comparisons intuitive.</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Budget Planning</h4>
+                <p>Set up sales and costs, then create "Optimistic" (sales $50k, costs $20k) and "Pessimistic" (sales $30k, costs $25k) scenarios to compare profits.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="solver">
+        <h3>Solver</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Solver optimizes complex problems by adjusting multiple variables under constraints, such as maximizing profit within a budget.</p>
+                <div class="steps-container">
+                    <h4>Steps:</h4>
+                    <ol>
+                        <li>Enable Solver via File > Options > Add-ins > Solver Add-in, then click OK.</li>
+                        <li>Set up a model with a target (e.g., profit), variables, and constraints.</li>
+                        <li>Go to Data > Solver.</li>
+                        <li>Define the objective, variables, and constraints, then click Solve.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Test Solver with a simple model first to understand its behavior before tackling larger problems.</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Resource Allocation</h4>
+                <p>Maximize profit from two products with a $10,000 budget constraint, using Solver to adjust production quantities.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="data-validation">
+        <h3>Data Validation</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Data Validation restricts inputs to valid values, reducing errors in data entry.</p>
+                <div class="steps-container">
+                    <h4>Steps:</h4>
+                    <ol>
+                        <li>Select cells for validation.</li>
+                        <li>Go to Data > Data Validation.</li>
+                        <li>Choose "Allow" type (e.g., List), set criteria, and click OK.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Add an error message to guide users when they enter invalid data.</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Product List</h4>
+                <p>Create a dropdown with "Item A, Item B, Item C" to ensure only valid products are entered.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="analysis-toolpak">
+        <h3>Enabling the Analysis ToolPak</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>The Analysis ToolPak add-in provides advanced statistical tools for deeper data analysis.</p>
+                <div class="steps-container">
+                    <h4>Steps:</h4>
+                    <ol>
+                        <li>Go to File > Options > Add-ins.</li>
+                        <li>Select Excel Add-ins, click Go, check Analysis ToolPak, and click OK.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Verify it’s enabled by checking for Data > Data Analysis in the ribbon.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="toolpak-features">
+        <h3>Key Analysis ToolPak Features</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Unlock statistical capabilities with the Analysis ToolPak for detailed insights.</p>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <h4>Descriptive Statistics</h4>
+                        <p>Summarizes data with mean, median, and more.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Regression</h4>
+                        <p>Analyzes variable relationships.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Histogram</h4>
+                        <p>Visualizes data distribution.</p>
+                    </div>
+                </div>
+                <div class="steps-container">
+                    <h4>Steps for Descriptive Statistics:</h4>
+                    <ol>
+                        <li>Go to Data > Data Analysis > Descriptive Statistics.</li>
+                        <li>Select range and output, then click OK.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Use histograms to quickly spot data patterns.</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Sales Distribution</h4>
+                <p>Generate a histogram of sales data to see frequency across price ranges.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="power-query-intro">
+        <h3>Introduction to Power Query</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Power Query transforms and cleans data from various sources efficiently.</p>
+                <div class="steps-container">
+                    <h4>Steps:</h4>
+                    <ol>
+                        <li>Go to Data > Get Data.</li>
+                        <li>Select a source, load into the Editor, transform, and click Close & Load.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Save queries for reusable data workflows.</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Import Sales</h4>
+                <p>Load a CSV of sales data and remove blank rows using Power Query.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="data-transformations">
+        <h3>Basic Data Transformations</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Use Power Query to clean data with simple transformations.</p>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <h4>Filter Rows</h4>
+                        <p>Remove unwanted data.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Split Columns</h4>
+                        <p>Separate text fields.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Change Types</h4>
+                        <p>Fix data formats.</p>
+                    </div>
+                </div>
+                <div class="steps-container">
+                    <h4>Steps:</h4>
+                    <ol>
+                        <li>Load data into Power Query.</li>
+                        <li>Filter, split, or adjust types as needed, then load back to Excel.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Check applied steps to undo mistakes easily.</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Clean Customer Data</h4>
+                <p>Split "Full Name" into "First" and "Last," filter out old records.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="combining-data">
+        <h3>Combining Multiple Data Sources</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Power Query combines data using append and merge operations.</p>
+                <div class="steps-container">
+                    <h4>Append Steps:</h4>
+                    <ol>
+                        <li>Load tables into Power Query.</li>
+                        <li>Go to Home > Append Queries and combine.</li>
+                    </ol>
+                    <h4>Merge Steps:</h4>
+                    <ol>
+                        <li>Go to Home > Merge Queries, select tables and keys, then expand results.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Match data types in key columns for smooth merges.</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Sales Merge</h4>
+                <p>Merge sales and customer data on "Customer ID" to analyze purchase patterns.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="data-problems">
+        <h3>Identifying Common Data Problems</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Spot and fix data issues to ensure accurate analysis.</p>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <h4>Missing Values</h4>
+                        <p>Blank cells.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Duplicates</h4>
+                        <p>Repeated entries.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Inconsistent Formats</h4>
+                        <p>Mixed styles.</p>
+                    </div>
+                </div>
+                <div class="steps-container">
+                    <h4>Steps:</h4>
+                    <ol>
+                        <li>Use <code>=ISBLANK()</code> for blanks.</li>
+                        <li>Highlight duplicates with Conditional Formatting.</li>
+                        <li>Sort to check formats.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Review data visually with charts to catch outliers.</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Data Audit</h4>
+                <p>Check a sales list for blanks and duplicates before analysis.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="cleaning-functions">
+        <h3>Excel Functions for Data Cleaning</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Clean data with Excel functions for consistency.</p>
+                <div class="function-list">
+                    <div class="function">
+                        <h4>TRIM()</h4>
+                        <p>Removes extra spaces: <code>=TRIM(A1)</code>.</p>
+                    </div>
+                    <div class="function">
+                        <h4>PROPER()</h4>
+                        <p>Capitalizes words: <code>=PROPER(A1)</code>.</p>
+                    </div>
+                    <div class="function">
+                        <h4>SUBSTITUTE()</h4>
+                        <p>Replaces text: <code>=SUBSTITUTE(A1, "-", "")</code>.</p>
+                    </div>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Nest functions like <code>=TRIM(PROPER(A1))</code> for efficiency.</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Name Cleanup</h4>
+                <p>Fix " john doe " to "John Doe" with <code>=TRIM(PROPER(A1))</code>.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="duplicates">
+        <h3>Finding and Removing Duplicates</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Eliminate duplicates to maintain data accuracy.</p>
+                <div class="steps-container">
+                    <h4>Steps:</h4>
+                    <ol>
+                        <li>Select data.</li>
+                        <li>Go to Data > Remove Duplicates and choose columns.</li>
+                        <li>For highlighting, use Home > Conditional Formatting > Duplicate Values.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Backup data before removing duplicates.</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Order Cleanup</h4>
+                <p>Remove duplicate "Order 123" entries from a sales log.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="descriptive-stats">
+        <h3>Descriptive Statistics</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Summarize data with measures of central tendency and dispersion.</p>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <h4>AVERAGE</h4>
+                        <p>Mean: <code>=AVERAGE(range)</code>.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>STDEV</h4>
+                        <p>Standard deviation: <code>=STDEV.S(range)</code>.</p>
+                    </div>
+                </div>
+                <div class="steps-container">
+                    <h4>Steps with ToolPak:</h4>
+                    <ol>
+                        <li>Go to Data > Data Analysis > Descriptive Statistics.</li>
+                        <li>Select range and output, then click OK.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Use median over average if data has outliers.</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Sales Stats</h4>
+                <p>Find average and variability of quarterly sales data.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="correlation">
+        <h3>Correlation Analysis</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Measure relationships between variables with correlation.</p>
+                <div class="steps-container">
+                    <h4>Steps:</h4>
+                    <ol>
+                        <li>Use <code>=CORREL(range1, range2)</code> for a coefficient.</li>
+                        <li>Or go to Data > Data Analysis > Correlation for multiple variables.</li>
+                    </ol>
+                </div>
+                <h4>Interpretation</h4>
+                <p>1 = strong positive, 0 = none, -1 = strong negative.</p>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Visualize with a scatter plot for clarity.</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Ad Impact</h4>
+                <p>Check if ad spend correlates with sales using <code>=CORREL(B2:B10, C2:C10)</code>.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="full-width practice-exercise">
+    <h3>Practice Exercise: Comprehensive Sales Data Analysis</h3>
+    <p>Put your skills to the test with this real-world sales analysis project.</p>
+    <div class="steps-container">
+        <h4>Steps:</h4>
+        <ol>
+            <li>Download "Sales_Data.xlsx" from the button below.</li>
+            <li>Clean data: Remove duplicates with Data > Remove Duplicates, fix names with <code>=TRIM(PROPER(A1))</code>.</li>
+            <li>Create a PivotTable: Sales by region and category.</li>
+            <li>Add a calculated field: Profit margin as <code>= (Sales - Cost) / Sales</code>.</li>
+            <li>Build a Two-Variable Data Table: Test growth (5-15%) and price increases (2-6%).</li>
+            <li>Run Descriptive Statistics: Use Analysis ToolPak to summarize sales.</li>
+            <li>Find top performers: Filter and sort for top regions and products.</li>
+            <li>Create a Line PivotChart: Show monthly sales trends.</li>
+        </ol>
+    </div>
+    <button class="resource-btn" id="download-analysis-template">Download Practice Dataset</button>
+</div>
+
+<div class="full-width module-completion" id="module-completion">
+    <div class="completion-card">
+        <div class="completion-icon">
+            <i class="fas fa-trophy"></i>
+        </div>
+        <div class="completion-content">
+            <h3>Congratulations!</h3>
+            <p>You’ve completed the Data Analysis in Excel module! You can now transform raw data into insights using sorting, PivotTables, statistical tools, and more.</p>
+            <div class="next-steps">
+                <h4>Next Steps:</h4>
+                <ul>
+                    <li>Take the <a href="#" class="module-link">Data Analysis Assessment</a>.</li>
+                    <li>Explore <a href="#" class="module-link">Data Visualization</a>.</li>
+                    <li>Advance with <a href="#" class="module-link">Advanced Excel Features</a>.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

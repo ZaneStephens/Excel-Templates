@@ -306,7 +306,6 @@ kbd {
 .topic-example ol li,
 .topic-image ol li,
 .practice-exercise ol li {
-    display: flex;
     margin-bottom: 0.75rem;
     line-height: 1.5;
     position: relative;
@@ -391,6 +390,47 @@ kbd {
     border-radius: 50%;
 }
 
+/* Fix for duplicate markers */
+.example ol li::marker, 
+.topic-image ol li::marker, 
+.practice-exercise ol li::marker {
+    content: none; /* Remove the default marker */
+}
+
+/* Add custom numbering if needed */
+.example ol, .topic-image ol, .practice-exercise ol {
+    counter-reset: item;
+}
+
+.example ol > li, .topic-image ol > li, .practice-exercise ol > li {
+    counter-increment: item;
+}
+
+/* Only apply custom numbering to top-level list items when using flex */
+.example ol > li:before, 
+.topic-image ol > li:before, 
+.practice-exercise ol > li:before {
+    content: counter(item) ".";
+    margin-right: 0.75rem;
+    min-width: 1.5rem; /* Give the numbering some fixed width */
+}
+::marker {
+    content: none;
+}
+
+/* Ensure nested lists have appropriate indentation but not excessive */
+.example ol li ul, 
+.topic-image ol li ul, 
+.practice-exercise ol li ul,
+.example ol li ol, 
+.topic-image ol li ol, 
+.practice-exercise ol li ol {
+    padding-left: 1.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
 /* Spacing for text elements */
 strong, b {
     margin-right: 0.1rem;
@@ -445,4 +485,32 @@ code {
 .formula-example th {
     background-color: var(--light-bg-color);
     font-weight: 600;
+}
+
+.example ol li, .topic-image ol li, .practice-exercise ol li {
+    display: flex;
+}
+
+/* Target nested lists specifically to override flex display */
+.example ol li ul, 
+.topic-image ol li ul, 
+.practice-exercise ol li ul,
+.example ol li ol, 
+.topic-image ol li ol, 
+.practice-exercise ol li ol {
+    display: block;
+    padding-left: 1.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+/* Ensure nested list items aren't using flex */
+.example ol li ul li, 
+.topic-image ol li ul li, 
+.practice-exercise ol li ul li,
+.example ol li ol li, 
+.topic-image ol li ol li, 
+.practice-exercise ol li ol li {
+    display: list-item;
 }

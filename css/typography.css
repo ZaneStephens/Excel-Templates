@@ -97,6 +97,21 @@ ol li:last-child, ul li:last-child {
     margin-bottom: 0;
 }
 
+/* Nested list styling */
+ol li ul,
+ul li ol,
+ol li ol,
+ul li ul {
+  padding-left: 1.5rem; /* Reduced padding for nested lists */
+  margin-top: 0.5rem;   /* Small gap between parent list item and nested list */
+  margin-bottom: 0.5rem; /* Space after the nested list */
+}
+
+/* Specifically target the steps container for your example */
+.steps-container ol li ul {
+  padding-left: 1.25rem; /* Even more compact for the steps container */
+}
+
 /* Improve heading spacing in step sections */
 .step h4 {
     margin-bottom: 0.75rem;
