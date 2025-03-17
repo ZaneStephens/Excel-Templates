@@ -43,10 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
         window.assessmentManager = new AssessmentManager();
     }
     
-    // Initialize formula builder
-    if (typeof FormulaBuilder !== 'undefined') {
-        window.formulaBuilder = new FormulaBuilder();
-    }
+    // Remove reference to FormulaBuilder
+    // The initialization of formula builder has been removed
 });
 
 // Add progress tracking bar to the header
@@ -433,60 +431,7 @@ function setupContentEventHandlers() {
         });
     }
 
-    // Formula examples - set up clickable formula examples
-    const formulaExamples = document.querySelectorAll('code, .formula-example td:first-child');
-    if (formulaExamples.length > 0 && window.formulaBuilder) {
-        formulaExamples.forEach(example => {
-            if (example.textContent.trim().startsWith('=')) {
-                example.classList.add('interactive-formula');
-                example.setAttribute('title', 'Click to open in Formula Builder');
-                
-                example.addEventListener('click', () => {
-                    window.formulaBuilder.openBuilder(example.textContent.trim());
-                });
-            }
-        });
-    }
-
-    // Make formulas interactive
-    setupInteractiveFormulas();
-}
-
-// Setup interactive formula examples
-function setupInteractiveFormulas() {
-    // Find all code elements and formula example cells
-    const codeElements = document.querySelectorAll('code');
-    const formulaCells = document.querySelectorAll('.formula-example td:first-child');
-    
-    // Process code elements
-    codeElements.forEach(codeEl => {
-        const formula = codeEl.textContent.trim();
-        if (formula.startsWith('=')) {
-            codeEl.classList.add('interactive-formula');
-            codeEl.setAttribute('title', 'Click to open in Formula Builder');
-            
-            codeEl.addEventListener('click', () => {
-                if (window.formulaBuilder) {
-                    window.formulaBuilder.openBuilder(formula);
-                }
-            });
-        }
-    });
-    
-    // Process formula table cells
-    formulaCells.forEach(cell => {
-        const formula = cell.textContent.trim();
-        if (formula.startsWith('=')) {
-            cell.classList.add('interactive-formula');
-            cell.setAttribute('title', 'Click to open in Formula Builder');
-            
-            cell.addEventListener('click', () => {
-                if (window.formulaBuilder) {
-                    window.formulaBuilder.openBuilder(formula);
-                }
-            });
-        }
-    });
+    // Formula examples section has been removed
 }
 
 // Add animation to topic cards
@@ -688,41 +633,7 @@ function animateTopicCards() {
         document.head.appendChild(style);
     }
     
-    // Additional style for interactive formulas
-    if (!document.getElementById('interactive-formula-styles')) {
-        const formulaStyle = document.createElement('style');
-        formulaStyle.id = 'interactive-formula-styles';
-        formulaStyle.textContent = `
-            .interactive-formula {
-                cursor: pointer;
-                position: relative;
-                transition: background-color 0.2s;
-            }
-            
-            .interactive-formula::after {
-                content: "✏️";
-                font-size: 0.8em;
-                margin-left: 4px;
-                vertical-align: super;
-                opacity: 0.6;
-            }
-            
-            .interactive-formula:hover {
-                background-color: #e8f5e9;
-                text-decoration: underline;
-            }
-            
-            /* Additional styles for formula tables */
-            .formula-example {
-                position: relative;
-            }
-            
-            .formula-example tr td:first-child {
-                position: relative;
-            }
-        `;
-        document.head.appendChild(formulaStyle);
-    }
+    // Interactive formula styles have been removed
     
     // Set up intersection observer
     const observer = new IntersectionObserver((entries) => {

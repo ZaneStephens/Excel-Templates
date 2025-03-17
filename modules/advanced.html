@@ -1,6 +1,6 @@
 <h2>Advanced Excel Features</h2>
 <div class="section-intro">
-    <p>Take your Excel skills to expert level with these advanced features and techniques that will transform your productivity and analytical capabilities.</p>
+    <p>Take your Excel skills to expert level with these advanced features and techniques that will transform your productivity and analytical capabilities. These tools represent Excel at its most powerful and can turn spreadsheets into sophisticated business solutions.</p>
 </div>
 
 <div class="topic-container">
@@ -17,12 +17,21 @@
                     <li>Input and error messages</li>
                     <li>Finding and circling invalid data</li>
                 </ul>
+                <h4>Advanced Validation Techniques</h4>
+                <ul>
+                    <li>Cascading dropdown lists (dependent lists)</li>
+                    <li>Data validation with named ranges</li>
+                    <li>Dynamic validation ranges that expand automatically</li>
+                    <li>Custom validation formulas using complex logic</li>
+                </ul>
                 <h4>Worksheet and Workbook Protection</h4>
                 <ul>
                     <li>Protecting specific cells while allowing edits to others</li>
                     <li>Password protection for worksheets and workbooks</li>
                     <li>Protecting workbook structure</li>
                     <li>Hidden and very hidden worksheets</li>
+                    <li>Digital signatures and document encryption</li>
+                    <li>Information Rights Management (in enterprise environments)</li>
                 </ul>
             </div>
             <div class="topic-example">
@@ -35,6 +44,11 @@
                     <li>Enter values in "Source" (e.g., "Red,Green,Blue")</li>
                     <li>Click OK</li>
                 </ol>
+                
+                <h4>Custom Formula Validation</h4>
+                <p>Advanced data validation with formula:</p>
+                <pre>=AND(LEN(A1)>=5, ISNUMBER(SEARCH("XYZ",A1)))</pre>
+                <p>This validates that cell A1 contains at least 5 characters and includes "XYZ" somewhere in the text.</p>
             </div>
         </div>
     </div>
@@ -51,6 +65,7 @@
                     <li>Recording simple macros</li>
                     <li>Running macros (shortcuts, buttons, ribbon)</li>
                     <li>Saving workbooks with macros (.xlsm format)</li>
+                    <li>Personal Macro Workbook for global accessibility</li>
                 </ul>
                 <h4>Introduction to VBA</h4>
                 <ul>
@@ -59,11 +74,38 @@
                     <li>Basic VBA syntax and concepts</li>
                     <li>Editing recorded macros</li>
                     <li>Simple VBA procedures and functions</li>
+                    <li>Variables, data types, and operators</li>
+                    <li>Conditional statements (If-Then-Else, Select Case)</li>
+                    <li>Loops (For-Next, Do-While, For-Each)</li>
+                </ul>
+                <h4>VBA Object Model</h4>
+                <ul>
+                    <li>Understanding Excel's object hierarchy</li>
+                    <li>Working with workbooks and worksheets</li>
+                    <li>Manipulating ranges and cells</li>
+                    <li>Interacting with charts and shapes</li>
+                    <li>Responding to events</li>
                 </ul>
             </div>
-            <div class="topic-image">
-                <img src="https://support.content.office.net/en-us/media/59861e95-96d9-4c47-9062-ffdd3a992439.png" alt="VBA Editor" class="responsive-img">
-                <p class="image-caption">The VBA Editor interface</p>
+            <div class="topic-example">
+                <h4>Simple VBA Example</h4>
+                <pre>Sub FormatSalesData()
+    ' Select the data range
+    Range("A1:E20").Select
+    
+    ' Apply formatting
+    With Selection
+        .Font.Bold = True
+        .Interior.Color = RGB(220, 230, 241)
+        .Borders.LineStyle = xlContinuous
+    End With
+    
+    ' Sort by sales column descending
+    Range("A1:E20").Sort Key1:=Range("C1"), _
+        Order1:=xlDescending, Header:=xlYes
+End Sub</pre>
+
+                <p>This macro selects a range, applies formatting, and sorts data by the sales column.</p>
             </div>
         </div>
     </div>
@@ -75,11 +117,14 @@
                 <p>Discover Excel's advanced data transformation and analytical tools that come with modern versions.</p>
                 <h4>Power Query (Get & Transform)</h4>
                 <ul>
-                    <li>Importing data from various sources</li>
+                    <li>Importing data from various sources (files, databases, web)</li>
                     <li>Cleaning and transforming data</li>
                     <li>Combining data from multiple sources</li>
                     <li>Creating reusable queries</li>
                     <li>Refreshing data connections</li>
+                    <li>M language basics for custom transformations</li>
+                    <li>Handling irregular data formats</li>
+                    <li>Creating parameters for flexible queries</li>
                 </ul>
                 <h4>Power Pivot</h4>
                 <ul>
@@ -87,18 +132,37 @@
                     <li>Building relationships between tables</li>
                     <li>DAX formula basics</li>
                     <li>Creating calculated columns and measures</li>
+                    <li>Time intelligence functions</li>
+                    <li>Advanced DAX calculations and patterns</li>
                     <li>Analyzing large datasets efficiently</li>
+                    <li>Creating hierarchies and KPIs</li>
+                </ul>
+                <h4>Power BI Integration</h4>
+                <ul>
+                    <li>Understanding the Power BI ecosystem</li>
+                    <li>Exporting Excel data models to Power BI</li>
+                    <li>Creating interactive reports with Excel data</li>
+                    <li>Publishing Excel insights to Power BI</li>
                 </ul>
             </div>
             <div class="topic-example">
-                <h4>When to Use Power Tools</h4>
-                <ul>
-                    <li>Working with large datasets (millions of rows)</li>
-                    <li>Needing to combine data from multiple sources</li>
-                    <li>Performing complex data transformations</li>
-                    <li>Creating sophisticated business intelligence solutions</li>
-                    <li>Building interactive dashboards with complex calculations</li>
-                </ul>
+                <h4>DAX Measure Example</h4>
+                <pre>Total Sales = SUM(Sales[Amount])
+
+Sales YTD = 
+CALCULATE(
+    [Total Sales],
+    DATESYTD(Calendar[Date])
+)
+
+Sales % Growth = 
+DIVIDE(
+    [Total Sales] - [Total Sales LY],
+    [Total Sales LY],
+    0
+)</pre>
+
+                <p>These DAX measures calculate total sales, year-to-date sales, and percentage growth in Power Pivot.</p>
             </div>
         </div>
     </div>
@@ -113,36 +177,255 @@
                     <li>Creating and naming scenarios</li>
                     <li>Switching between different scenarios</li>
                     <li>Generating scenario reports</li>
+                    <li>Merging scenarios from different workbooks</li>
                 </ul>
                 <h4>Goal Seek</h4>
                 <ul>
                     <li>Finding input values for desired results</li>
                     <li>Backsolving formulas</li>
+                    <li>Determining break-even points</li>
+                    <li>Testing multiple variables</li>
                 </ul>
                 <h4>Data Tables</h4>
                 <ul>
-                    <li>One-variable data tables</li>
-                    <li>Two-variable data tables</li>
-                    <li>Sensitivity analysis</li>
+                    <li>One-variable data tables for single-input analysis</li>
+                    <li>Two-variable data tables for multiple inputs</li>
+                    <li>Sensitivity analysis for business decisions</li>
+                    <li>Visualizing data table results with charts</li>
                 </ul>
                 <h4>Solver Add-in</h4>
                 <ul>
                     <li>Setting up optimization problems</li>
-                    <li>Defining constraints</li>
+                    <li>Defining constraints and objectives</li>
                     <li>Finding optimal solutions</li>
+                    <li>Solver modeling techniques for complex problems</li>
+                    <li>Linear vs. non-linear solving methods</li>
+                    <li>Using multiple answer reports</li>
+                </ul>
+                <h4>Forecasting Tools</h4>
+                <ul>
+                    <li>Forecast sheets for time series data</li>
+                    <li>Exponential smoothing and seasonality</li>
+                    <li>Confidence intervals in forecasts</li>
+                    <li>Handling outliers in prediction models</li>
                 </ul>
             </div>
-            <div class="topic-shortcut">
-                <h4>Quick Example: Goal Seek</h4>
-                <p>To determine what sales value is needed to reach a specific profit:</p>
-                <ol>
-                    <li>Set up a profit formula (e.g., =Sales-Expenses)</li>
-                    <li>Go to Data > What-If Analysis > Goal Seek</li>
-                    <li>Set cell: Select the profit cell</li>
-                    <li>To value: Enter target profit (e.g., 50000)</li>
-                    <li>By changing cell: Select the sales cell</li>
-                    <li>Click OK to see what sales are needed</li>
-                </ol>
+            <div class="topic-example">
+                <h4>Two-Variable Data Table Example</h4>
+                <table class="formula-example">
+                    <tr>
+                        <th></th>
+                        <th>5%</th>
+                        <th>7%</th>
+                        <th>9%</th>
+                    </tr>
+                    <tr>
+                        <td>10 years</td>
+                        <td>$16,289</td>
+                        <td>$19,672</td>
+                        <td>$23,674</td>
+                    </tr>
+                    <tr>
+                        <td>20 years</td>
+                        <td>$26,533</td>
+                        <td>$38,697</td>
+                        <td>$56,044</td>
+                    </tr>
+                    <tr>
+                        <td>30 years</td>
+                        <td>$43,219</td>
+                        <td>$76,123</td>
+                        <td>$132,677</td>
+                    </tr>
+                </table>
+                <p>This data table shows future values of $10,000 at different interest rates (columns) and time periods (rows).</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="topic-card" id="advanced-formatting">
+        <h3>Advanced Formatting Techniques</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Transform your spreadsheets from plain data grids to professional, insightful documents with advanced formatting.</p>
+                <h4>Custom Number Formats</h4>
+                <ul>
+                    <li>Creating multi-section formats (positive, negative, zero, text)</li>
+                    <li>Custom date and time formats</li>
+                    <li>Building formats with color coding</li>
+                    <li>Using special characters and symbols in formats</li>
+                    <li>Formatting for specific industries (accounting, engineering)</li>
+                </ul>
+                <h4>Advanced Conditional Formatting</h4>
+                <ul>
+                    <li>Formula-based conditional formatting</li>
+                    <li>Multiple conditions with layered rules</li>
+                    <li>Using icon sets and data bars effectively</li>
+                    <li>Heat maps for data visualization</li>
+                    <li>Highlighting trends, outliers, and exceptions</li>
+                    <li>Managing and troubleshooting conditional formatting</li>
+                </ul>
+                <h4>Dynamic Formatting with Formulas</h4>
+                <ul>
+                    <li>Using INDIRECT for dynamic range references</li>
+                    <li>Formula-driven formatting changes</li>
+                    <li>Interactive dashboards with format-based feedback</li>
+                    <li>Format painting and styles for consistency</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Custom Number Format Examples</h4>
+                <table class="formula-example">
+                    <tr>
+                        <th>Format Code</th>
+                        <th>Description</th>
+                        <th>Example (1234.56)</th>
+                    </tr>
+                    <tr>
+                        <td>[Green]#,##0.00;[Red]-#,##0.00;0.00;"Text"</td>
+                        <td>Green for positive, red for negative</td>
+                        <td><span style="color:green">1,234.56</span></td>
+                    </tr>
+                    <tr>
+                        <td>#,##0.00 "units"</td>
+                        <td>Adds text after number</td>
+                        <td>1,234.56 units</td>
+                    </tr>
+                    <tr>
+                        <td>00000</td>
+                        <td>Leading zeros (5 digits)</td>
+                        <td>01235</td>
+                    </tr>
+                    <tr>
+                        <td>[$€-407]#,##0.00</td>
+                        <td>Euro currency format</td>
+                        <td>€1,234.56</td>
+                    </tr>
+                </table>
+                
+                <h4>Advanced Conditional Format Formula</h4>
+                <pre>=AND($B2>AVERAGE($B$2:$B$100), $C2="Complete")</pre>
+                <p>This highlights rows where value in column B is above average and status in column C is "Complete".</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="topic-card" id="advanced-charts">
+        <h3>Advanced Charting Techniques</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Go beyond basic charts to create compelling, interactive data visualizations that communicate complex insights clearly.</p>
+                <h4>Combination Charts</h4>
+                <ul>
+                    <li>Mixing multiple chart types (e.g., column with line)</li>
+                    <li>Creating charts with dual axes</li>
+                    <li>Synchronizing multiple chart scales</li>
+                    <li>Adding trendlines and moving averages</li>
+                </ul>
+                <h4>Dynamic Charts</h4>
+                <ul>
+                    <li>Creating charts with dynamic ranges</li>
+                    <li>Chart data that updates automatically</li>
+                    <li>Using OFFSET and INDIRECT for flexible chart ranges</li>
+                    <li>Building interactive charts with form controls</li>
+                    <li>Drop-down selectors for different data series</li>
+                </ul>
+                <h4>Custom Chart Elements</h4>
+                <ul>
+                    <li>Adding custom data labels with formulas</li>
+                    <li>Error bars and custom markers</li>
+                    <li>Annotations and callouts</li>
+                    <li>Creating waterfall and Gantt charts</li>
+                    <li>Using shapes and images in charts</li>
+                </ul>
+                <h4>Advanced Visualization Techniques</h4>
+                <ul>
+                    <li>Building bullet graphs and sparklines</li>
+                    <li>Creating heatmaps and calendar charts</li>
+                    <li>Box plots and statistical distributions</li>
+                    <li>Small multiples (panel charts)</li>
+                    <li>Custom dashboards with linked charts</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Dynamic Chart Range Formula</h4>
+                <pre>=OFFSET(Sheet1!$A$1,0,0,COUNTA(Sheet1!$A:$A),3)</pre>
+                <p>This formula creates a dynamic range that automatically expands as data is added, perfect for charts that need to update when new data arrives.</p>
+                
+                <h4>Custom Data Label Formula</h4>
+                <pre>=IF(Sheet1!$C2>100,CONCATENATE(Sheet1!$B2," (",TEXT(Sheet1!$C2,"0.0%"),")"),"Below Target")</pre>
+                <p>This creates conditional data labels that show the name and percentage for values over 100, or "Below Target" for others.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="topic-card" id="performance">
+        <h3>Excel Performance Optimization</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Learn how to build efficient spreadsheets that remain responsive even with large datasets and complex calculations.</p>
+                <h4>Calculation Management</h4>
+                <ul>
+                    <li>Understanding Excel's calculation modes</li>
+                    <li>Optimizing calculation settings</li>
+                    <li>Using manual calculation for large models</li>
+                    <li>Structured references vs. cell references</li>
+                    <li>Minimizing volatile functions</li>
+                </ul>
+                <h4>Formula Optimization</h4>
+                <ul>
+                    <li>Replacing slow formulas with faster alternatives</li>
+                    <li>Array formulas vs. helper columns</li>
+                    <li>Using SUMIFS instead of multiple SUMIFs</li>
+                    <li>INDEX/MATCH vs. VLOOKUP for performance</li>
+                    <li>Modern dynamic array functions for speed</li>
+                </ul>
+                <h4>Workbook Structure</h4>
+                <ul>
+                    <li>Organizing worksheets efficiently</li>
+                    <li>Avoiding excessive formatting</li>
+                    <li>Cleaning unused cells and ranges</li>
+                    <li>Managing named ranges effectively</li>
+                    <li>Optimizing external references</li>
+                </ul>
+                <h4>Advanced Techniques</h4>
+                <ul>
+                    <li>Converting formulas to values where appropriate</li>
+                    <li>Using Power Query for data processing</li>
+                    <li>Leveraging Power Pivot for large datasets</li>
+                    <li>Memory management for large workbooks</li>
+                    <li>Using VBA sparingly and efficiently</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Performance Comparison</h4>
+                <table class="formula-example">
+                    <tr>
+                        <th>Slower Approach</th>
+                        <th>Faster Alternative</th>
+                    </tr>
+                    <tr>
+                        <td>=SUMIF(A1:A1000,">0")+SUMIF(B1:B1000,">0")</td>
+                        <td>=SUMPRODUCT((A1:A1000>0)*A1:A1000+(B1:B1000>0)*B1:B1000)</td>
+                    </tr>
+                    <tr>
+                        <td>=IF(ISNA(VLOOKUP(A1,C:D,2,FALSE)),"Not Found",VLOOKUP(A1,C:D,2,FALSE))</td>
+                        <td>=IFERROR(VLOOKUP(A1,C:D,2,FALSE),"Not Found")</td>
+                    </tr>
+                    <tr>
+                        <td>Multiple helper columns with formulas</td>
+                        <td>Single column with XLOOKUP or INDEX/MATCH</td>
+                    </tr>
+                </table>
+                
+                <h4>Best Practices for Large Workbooks</h4>
+                <ul>
+                    <li>Limit data to used ranges only</li>
+                    <li>Remove unused formatting and styles</li>
+                    <li>Break complex formulas into smaller steps</li>
+                    <li>Use tables for structured data management</li>
+                    <li>Move data processing to Power Query</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -156,8 +439,12 @@
         <li>Import and transform data using Power Query</li>
         <li>Build a data model with relationships between tables</li>
         <li>Create interactive dashboard elements with form controls</li>
-        <li>Add a scenario manager to simulate different business outcomes</li>
+        <li>Add dynamic charts that update automatically</li>
+        <li>Implement what-if analysis tools for business scenarios</li>
+        <li>Add custom conditional formatting to highlight key metrics</li>
         <li>Create a simple macro to automate dashboard refresh</li>
+        <li>Optimize the workbook for performance</li>
+        <li>Add documentation and user instructions</li>
     </ol>
     <button class="resource-btn" id="download-advanced-template">Download Project Template</button>
 </div>

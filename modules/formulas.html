@@ -1,6 +1,46 @@
+<style>
+    /* Static formula styling - no interaction */
+    .formula-list code {
+        background-color: #f5f5f5;
+        padding: 2px 5px;
+        border-radius: 3px;
+        border: 1px solid #ddd;
+        font-family: "Consolas", monospace;
+        font-size: 0.9em;
+    }
+    
+    /* Better code block styling */
+    pre {
+        background-color: #f5f5f5;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        overflow: auto;
+        font-family: "Consolas", monospace;
+        font-size: 0.9em;
+    }
+    
+    /* Table styling improvements */
+    .formula-example {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    .formula-example th,
+    .formula-example td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    
+    .formula-example th {
+        background-color: #f2f2f2;
+    }
+</style>
+
 <h2>Formulas & Functions</h2>
 <div class="section-intro">
-    <p>Unlock the true power of Excel with formulas and functions - the essential skills that transform Excel from a simple spreadsheet into a powerful analytical tool.</p>
+    <p>Unlock the true power of Excel with formulas and functions - the essential skills that transform Excel from a simple spreadsheet into a powerful analytical tool. This comprehensive guide will take you from basic calculations to complex formula mastery.</p>
 </div>
 
 <div class="topic-container">
@@ -17,6 +57,7 @@
                     <li><strong>/ (Division):</strong> Divides values</li>
                     <li><strong>^ (Exponentiation):</strong> Raises a number to a power</li>
                     <li><strong>& (Concatenation):</strong> Joins text strings</li>
+                    <li><strong>= < > <= >= <> (Comparison):</strong> Compare values</li>
                 </ul>
                 <h4>Cell References</h4>
                 <ul>
@@ -24,7 +65,17 @@
                     <li><strong>$A$1:</strong> Absolute reference (doesn't change when copied)</li>
                     <li><strong>$A1:</strong> Mixed reference (column absolute, row relative)</li>
                     <li><strong>A$1:</strong> Mixed reference (column relative, row absolute)</li>
+                    <li><strong>Sheet1!A1:</strong> Reference to cell in another worksheet</li>
+                    <li><strong>[Book1]Sheet1!A1:</strong> Reference to cell in another workbook</li>
                 </ul>
+                <h4>Order of Operations</h4>
+                <p>Excel follows the standard mathematical order of operations:</p>
+                <ol>
+                    <li>Parentheses</li>
+                    <li>Exponents</li>
+                    <li>Multiplication and Division (from left to right)</li>
+                    <li>Addition and Subtraction (from left to right)</li>
+                </ol>
             </div>
             <div class="topic-example">
                 <h4>Simple Formulas</h4>
@@ -49,7 +100,98 @@
                         <td>=A1^2</td>
                         <td>100</td>
                     </tr>
+                    <tr>
+                        <td>=(A1+B1)*2</td>
+                        <td>30</td>
+                    </tr>
                 </table>
+                <h4>Reference Examples</h4>
+                <p>Copying the formula <code>=A1+B1</code> from cell C1 to cell C2:</p>
+                <ul>
+                    <li>Relative: <code>=A2+B2</code> (both references change)</li>
+                    <li>Absolute: <code>=$A$1+$B$1</code> (no references change)</li>
+                    <li>Mixed: <code>=$A1+B$1</code> (column A is fixed, row 1 in B is fixed)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="topic-card" id="formula-errors">
+        <h3>Understanding Formula Errors</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Excel displays error values when a formula cannot be calculated properly. Understanding these errors is crucial for troubleshooting your spreadsheets.</p>
+                <h4>Common Error Values</h4>
+                <ul>
+                    <li><strong>#VALUE!:</strong> Formula uses wrong type of argument (e.g., text in math operation)</li>
+                    <li><strong>#DIV/0!:</strong> Division by zero attempted</li>
+                    <li><strong>#NAME?:</strong> Excel doesn't recognize text in formula (misspelled function name)</li>
+                    <li><strong>#REF!:</strong> Formula refers to cells that aren't valid (often deleted cells)</li>
+                    <li><strong>#NUM!:</strong> Invalid numeric values in a formula</li>
+                    <li><strong>#N/A:</strong> Value not available (often in lookup functions)</li>
+                    <li><strong>#NULL!:</strong> Formula uses an intersection of two ranges that don't intersect</li>
+                    <li><strong>####:</strong> Not an error, but column isn't wide enough to display result</li>
+                </ul>
+                <h4>Error Handling Functions</h4>
+                <ul>
+                    <li><strong>IFERROR():</strong> Replace error values with specified value</li>
+                    <li><strong>IFNA():</strong> Replace #N/A errors with specified value</li>
+                    <li><strong>ERROR.TYPE():</strong> Returns a number corresponding to error type</li>
+                    <li><strong>ISERROR():</strong> Returns TRUE if value is any error</li>
+                    <li><strong>ISNA():</strong> Returns TRUE if value is #N/A</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Error Handling Examples</h4>
+                <table class="formula-example">
+                    <tr>
+                        <th>Problematic Formula</th>
+                        <th>Error-Handled Version</th>
+                    </tr>
+                    <tr>
+                        <td>=A1/B1</td>
+                        <td>=IFERROR(A1/B1,"Cannot divide")</td>
+                    </tr>
+                    <tr>
+                        <td>=VLOOKUP(A1,C1:D10,2,FALSE)</td>
+                        <td>=IFNA(VLOOKUP(A1,C1:D10,2,FALSE),"Not found")</td>
+                    </tr>
+                    <tr>
+                        <td>=A1+B1</td>
+                        <td>=IF(ISERROR(A1+B1),"Check values",A1+B1)</td>
+                    </tr>
+                </table>
+                <p><strong>Pro Tip:</strong> Use error handling to create user-friendly spreadsheets that display helpful messages instead of cryptic error values.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="topic-card" id="formula-debugging">
+        <h3>Formula Debugging and Auditing</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Excel provides powerful tools to help you trace, evaluate, and debug formulas in your worksheets.</p>
+                <h4>Formula Auditing Tools</h4>
+                <ul>
+                    <li><strong>Trace Precedents:</strong> Show which cells affect the selected formula</li>
+                    <li><strong>Trace Dependents:</strong> Show which cells are affected by the selected cell</li>
+                    <li><strong>Show Formulas (Ctrl+`):</strong> Display all formulas instead of results</li>
+                    <li><strong>Error Checking:</strong> Identify potential issues in formulas</li>
+                    <li><strong>Evaluate Formula:</strong> Step through formula calculation process</li>
+                    <li><strong>Watch Window:</strong> Monitor values in specific cells as you work</li>
+                </ul>
+                <h4>Debugging Techniques</h4>
+                <ul>
+                    <li>Breaking complex formulas into smaller parts</li>
+                    <li>Using F9 to evaluate selected portions of a formula</li>
+                    <li>Testing with simplified data</li>
+                    <li>Adding comments to document complex formulas</li>
+                    <li>Using descriptive named ranges for clarity</li>
+                </ul>
+            </div>
+            <div class="topic-image">
+                <img src="https://support.content.office.net/en-us/media/21c9a0ff-8e3c-4efb-baeb-c5911a4c91ef.png" alt="Formula Auditing Tools" class="responsive-img">
+                <p class="image-caption">Formula Auditing tools in the Formulas tab showing trace arrows</p>
             </div>
         </div>
     </div>
@@ -59,6 +201,7 @@
         <div class="topic-content">
             <div class="topic-text">
                 <p>Excel's mathematical functions help perform calculations beyond basic arithmetic.</p>
+                <h4>Basic Math Functions</h4>
                 <ul>
                     <li><strong>SUM:</strong> Adds all numbers in a range</li>
                     <li><strong>AVERAGE:</strong> Calculates the average of numbers</li>
@@ -67,6 +210,16 @@
                     <li><strong>ROUND:</strong> Rounds a number to specified digits</li>
                     <li><strong>SUMIF:</strong> Adds numbers that meet a condition</li>
                     <li><strong>RAND/RANDBETWEEN:</strong> Generates random numbers</li>
+                </ul>
+                <h4>Advanced Math Functions</h4>
+                <ul>
+                    <li><strong>SUMIFS:</strong> Sum with multiple conditions</li>
+                    <li><strong>AVERAGEIF/AVERAGEIFS:</strong> Average with conditions</li>
+                    <li><strong>ROUND/ROUNDUP/ROUNDDOWN:</strong> Different rounding options</li>
+                    <li><strong>INT/TRUNC:</strong> Extract integer portion of a number</li>
+                    <li><strong>MOD:</strong> Get remainder after division</li>
+                    <li><strong>POWER/SQRT:</strong> Exponents and square roots</li>
+                    <li><strong>ABS:</strong> Absolute value</li>
                 </ul>
                 <p><strong>Pro Tip:</strong> Use <code>Alt+=</code> to quickly sum a range of cells.</p>
             </div>
@@ -94,6 +247,69 @@
                         <td>=ROUND(31.6789, 2)</td>
                         <td>31.68</td>
                     </tr>
+                    <tr>
+                        <td>=SUMIF(A1:A5,">30")</td>
+                        <td>90</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div class="topic-card" id="statistical">
+        <h3>Statistical Functions</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Excel includes powerful statistical functions to analyze data distributions and patterns.</p>
+                <h4>Descriptive Statistics</h4>
+                <ul>
+                    <li><strong>AVERAGE:</strong> Arithmetic mean of values</li>
+                    <li><strong>MEDIAN:</strong> Middle value in a set of numbers</li>
+                    <li><strong>MODE.SNGL:</strong> Most frequently occurring value</li>
+                    <li><strong>STDEV.P/STDEV.S:</strong> Standard deviation (population/sample)</li>
+                    <li><strong>VAR.P/VAR.S:</strong> Variance (population/sample)</li>
+                    <li><strong>PERCENTILE.INC:</strong> Returns the k-th percentile</li>
+                    <li><strong>QUARTILE.INC:</strong> Returns quartile value</li>
+                </ul>
+                <h4>Counting and Frequency</h4>
+                <ul>
+                    <li><strong>COUNT:</strong> Count cells containing numbers</li>
+                    <li><strong>COUNTA:</strong> Count non-empty cells</li>
+                    <li><strong>COUNTBLANK:</strong> Count empty cells</li>
+                    <li><strong>COUNTIF/COUNTIFS:</strong> Count cells that meet conditions</li>
+                    <li><strong>FREQUENCY:</strong> Count frequency of values in ranges</li>
+                    <li><strong>RANK.EQ:</strong> Returns the rank of a number in a list</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Statistical Function Examples</h4>
+                <p>For data set [2, 5, 8, 8, 10, 12, 15, 18]:</p>
+                <table class="formula-example">
+                    <tr>
+                        <th>Function</th>
+                        <th>Result</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>=AVERAGE(data)</td>
+                        <td>9.75</td>
+                        <td>Mean value</td>
+                    </tr>
+                    <tr>
+                        <td>=MEDIAN(data)</td>
+                        <td>9</td>
+                        <td>Median value</td>
+                    </tr>
+                    <tr>
+                        <td>=MODE.SNGL(data)</td>
+                        <td>8</td>
+                        <td>Most frequent value</td>
+                    </tr>
+                    <tr>
+                        <td>=STDEV.S(data)</td>
+                        <td>5.23</td>
+                        <td>Sample standard deviation</td>
+                    </tr>
                 </table>
             </div>
         </div>
@@ -104,6 +320,7 @@
         <div class="topic-content">
             <div class="topic-text">
                 <p>Logical functions help make decisions based on conditions, making your spreadsheets smarter.</p>
+                <h4>Core Logical Functions</h4>
                 <ul>
                     <li><strong>IF:</strong> Returns one value if a condition is true, another if false</li>
                     <li><strong>AND:</strong> Returns TRUE if all conditions are true</li>
@@ -111,6 +328,13 @@
                     <li><strong>NOT:</strong> Reverses the logic of an argument</li>
                     <li><strong>IFERROR:</strong> Returns a value if there's an error</li>
                     <li><strong>IFS:</strong> Tests multiple conditions (Excel 2016+)</li>
+                </ul>
+                <h4>Specialized Logical Functions</h4>
+                <ul>
+                    <li><strong>SWITCH:</strong> Evaluates expression against list of values (Excel 2016+)</li>
+                    <li><strong>XOR:</strong> Returns TRUE if an odd number of conditions is TRUE</li>
+                    <li><strong>IFNA:</strong> Handles specifically #N/A errors</li>
+                    <li><strong>TRUE/FALSE:</strong> Return logical values TRUE and FALSE</li>
                 </ul>
             </div>
             <div class="topic-example">
@@ -128,6 +352,8 @@
    A1>=70, "C", 
    A1>=60, "D", 
    TRUE, "F")</pre>
+                <p>Combining logical functions:</p>
+                <pre>=IF(AND(A1>=60, B1="Complete"), "Passed", "Review Required")</pre>
             </div>
         </div>
     </div>
@@ -137,14 +363,23 @@
         <div class="topic-content">
             <div class="topic-text">
                 <p>Text functions manipulate, extract, and format text data in Excel.</p>
+                <h4>Text Manipulation</h4>
                 <ul>
                     <li><strong>CONCAT/CONCATENATE:</strong> Joins text strings together</li>
+                    <li><strong>TEXTJOIN:</strong> Joins text with delimiter (Excel 2016+)</li>
                     <li><strong>LEFT/RIGHT/MID:</strong> Extracts characters from a string</li>
                     <li><strong>LEN:</strong> Returns the length of a text string</li>
                     <li><strong>FIND/SEARCH:</strong> Locates one text string within another</li>
+                    <li><strong>REPLACE/SUBSTITUTE:</strong> Replaces text within a string</li>
+                </ul>
+                <h4>Text Formatting</h4>
+                <ul>
                     <li><strong>LOWER/UPPER/PROPER:</strong> Changes text case</li>
                     <li><strong>TRIM:</strong> Removes extra spaces</li>
-                    <li><strong>SUBSTITUTE:</strong> Replaces text within a string</li>
+                    <li><strong>TEXT:</strong> Formats numbers as text with specified format</li>
+                    <li><strong>DOLLAR:</strong> Converts number to text with currency format</li>
+                    <li><strong>NUMBERVALUE:</strong> Converts text to number, with locale settings</li>
+                    <li><strong>CLEAN:</strong> Removes non-printable characters</li>
                 </ul>
             </div>
             <div class="topic-example">
@@ -163,6 +398,14 @@
                         <td>Excel</td>
                     </tr>
                     <tr>
+                        <td>=RIGHT("Excel 2019", 4)</td>
+                        <td>2019</td>
+                    </tr>
+                    <tr>
+                        <td>=MID("Excel Training", 7, 8)</td>
+                        <td>Training</td>
+                    </tr>
+                    <tr>
                         <td>=PROPER("john smith")</td>
                         <td>John Smith</td>
                     </tr>
@@ -170,7 +413,73 @@
                         <td>=SUBSTITUTE("Excel 2019", "2019", "365")</td>
                         <td>Excel 365</td>
                     </tr>
+                    <tr>
+                        <td>=TEXT(1234.567,"$#,##0.00")</td>
+                        <td>$1,234.57</td>
+                    </tr>
                 </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="date-time">
+        <h3>Date & Time Functions</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Excel's date and time functions allow you to work with dates and perform calculations with temporal data.</p>
+                <h4>Date Creation & Extraction</h4>
+                <ul>
+                    <li><strong>TODAY():</strong> Returns the current date</li>
+                    <li><strong>NOW():</strong> Returns the current date and time</li>
+                    <li><strong>DATE(year,month,day):</strong> Creates a date from components</li>
+                    <li><strong>TIME(hour,minute,second):</strong> Creates a time from components</li>
+                    <li><strong>YEAR/MONTH/DAY:</strong> Extract components from a date</li>
+                    <li><strong>HOUR/MINUTE/SECOND:</strong> Extract components from a time</li>
+                </ul>
+                <h4>Date Calculations</h4>
+                <ul>
+                    <li><strong>DATEDIF:</strong> Calculate difference between dates in various units</li>
+                    <li><strong>NETWORKDAYS:</strong> Count working days between dates</li>
+                    <li><strong>WORKDAY:</strong> Calculate workday end date</li>
+                    <li><strong>EDATE:</strong> Return date n months in past/future</li>
+                    <li><strong>EOMONTH:</strong> Return last day of month n months away</li>
+                    <li><strong>WEEKDAY:</strong> Return day of week (1-7)</li>
+                    <li><strong>WEEKNUM:</strong> Return week number in year</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Date Function Examples</h4>
+                <table class="formula-example">
+                    <tr>
+                        <th>Function</th>
+                        <th>Result (example)</th>
+                    </tr>
+                    <tr>
+                        <td>=TODAY()</td>
+                        <td>3/17/2025</td>
+                    </tr>
+                    <tr>
+                        <td>=DATE(2025,3,15)</td>
+                        <td>3/15/2025</td>
+                    </tr>
+                    <tr>
+                        <td>=YEAR(TODAY())</td>
+                        <td>2025</td>
+                    </tr>
+                    <tr>
+                        <td>=DATEDIF("1/1/2025","3/15/2025","D")</td>
+                        <td>73</td>
+                    </tr>
+                    <tr>
+                        <td>=NETWORKDAYS("3/1/2025","3/15/2025")</td>
+                        <td>11</td>
+                    </tr>
+                    <tr>
+                        <td>=TEXT(TODAY(),"mmmm d, yyyy")</td>
+                        <td>March 17, 2025</td>
+                    </tr>
+                </table>
+                <p><strong>Pro Tip:</strong> Excel stores dates as sequential numbers, with January 1, 1900 as day 1. Time is stored as a fraction of a day, so 12:00 PM is 0.5.</p>
             </div>
         </div>
     </div>
@@ -180,14 +489,22 @@
         <div class="topic-content">
             <div class="topic-text">
                 <p>These powerful functions allow you to find and reference data across your workbook.</p>
+                <h4>Vertical and Horizontal Lookups</h4>
                 <ul>
                     <li><strong>VLOOKUP:</strong> Vertical lookup to find data in a table by row</li>
                     <li><strong>HLOOKUP:</strong> Horizontal lookup to find data in a table by column</li>
+                    <li><strong>XLOOKUP:</strong> Improved lookup function (Excel 365)</li>
+                    <li><strong>LOOKUP:</strong> Simplified lookup in one-row/one-column range</li>
+                </ul>
+                <h4>Advanced Reference Functions</h4>
+                <ul>
                     <li><strong>INDEX:</strong> Returns a value at a specific position in a range</li>
                     <li><strong>MATCH:</strong> Returns the position of a value in a range</li>
                     <li><strong>INDEX+MATCH:</strong> A powerful alternative to VLOOKUP</li>
-                    <li><strong>XLOOKUP:</strong> Improved lookup function (Excel 365)</li>
                     <li><strong>INDIRECT:</strong> Returns a reference specified by a text string</li>
+                    <li><strong>OFFSET:</strong> Returns a reference offset from a starting reference</li>
+                    <li><strong>ADDRESS:</strong> Creates a cell address as text</li>
+                    <li><strong>CHOOSE:</strong> Returns a value from a list based on position</li>
                 </ul>
             </div>
             <div class="topic-example">
@@ -197,15 +514,109 @@
                 <p>Example: Find an employee's department based on their ID</p>
                 <pre>=VLOOKUP(A2, $D$2:$F$20, 2, FALSE)</pre>
                 <p>Where A2 contains the employee ID to look up, and columns D-F contain employee data.</p>
+                
+                <h4>INDEX-MATCH Alternative</h4>
+                <pre>=INDEX(result_range, MATCH(lookup_value, lookup_range, 0))</pre>
+                <p>Example: Same lookup as above with INDEX-MATCH</p>
+                <pre>=INDEX($E$2:$E$20, MATCH(A2, $D$2:$D$20, 0))</pre>
+                
+                <h4>XLOOKUP (Modern)</h4>
+                <pre>=XLOOKUP(lookup_value, lookup_array, return_array, [not_found], [match_mode], [search_mode])</pre>
+                <p>Example: Same lookup with XLOOKUP</p>
+                <pre>=XLOOKUP(A2, $D$2:$D$20, $E$2:$E$20, "Not Found")</pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="financial">
+        <h3>Financial Functions</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Excel includes sophisticated financial functions for investments, loans, and business analysis.</p>
+                <h4>Investment Functions</h4>
+                <ul>
+                    <li><strong>FV:</strong> Future value of an investment</li>
+                    <li><strong>PV:</strong> Present value of an investment</li>
+                    <li><strong>NPV:</strong> Net present value of an investment</li>
+                    <li><strong>IRR:</strong> Internal rate of return</li>
+                    <li><strong>XIRR:</strong> Internal rate of return for irregular cash flows</li>
+                    <li><strong>RATE:</strong> Interest rate per period of an annuity</li>
+                </ul>
+                <h4>Loan and Depreciation Functions</h4>
+                <ul></ul>
+                    <li><strong>PMT:</strong> Payment for a loan based on constant payments and interest</li>
+                    <li><strong>IPMT:</strong> Interest payment for a given period</li>
+                    <li><strong>PPMT:</strong> Principal payment for a given period</li>
+                    <li><strong>CUMIPMT:</strong> Cumulative interest paid between periods</li>
+                    <li><strong>SLN:</strong> Straight-line depreciation</li>
+                    <li><strong>DB/DDB:</strong> Declining balance depreciation</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Loan Payment Example</h4>
+                <p>Calculate monthly payment on a $250,000 mortgage at 4.5% annual interest over 30 years:</p>
+                <pre>=PMT(4.5%/12, 30*12, 250000)</pre>
+                <p>Result: -$1,266.71 (negative indicates payment outflow)</p>
+                
+                <h4>Investment Example</h4>
+                <p>Calculate future value of $5,000 invested for 10 years at 7% annual return:</p>
+                <pre>=FV(7%/12, 10*12, 0, -5000)</pre>
+                <p>Result: $9,835.76 (positive indicates investment growth)</p>
+                
+                <p><strong>Note:</strong> In financial functions, money you pay out (like an investment) is represented by negative numbers, and money you receive is positive.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="array-functions">
+        <h3>Array Formulas and Dynamic Arrays</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Array formulas perform multiple calculations in a single formula and can return multiple results simultaneously.</p>
+                <h4>Traditional Array Formulas</h4>
+                <ul>
+                    <li>Entered with Ctrl+Shift+Enter in older Excel versions</li>
+                    <li>Operate on arrays (ranges) of values at once</li>
+                    <li>Can perform row-by-row or column-by-column calculations</li>
+                    <li>Useful for complex calculations across ranges</li>
+                </ul>
+                <h4>Dynamic Array Functions (Excel 365)</h4>
+                <ul>
+                    <li><strong>FILTER:</strong> Extract rows meeting specified criteria</li>
+                    <li><strong>SORT:</strong> Sort range by specified values</li>
+                    <li><strong>SORTBY:</strong> Sort range based on corresponding values</li>
+                    <li><strong>UNIQUE:</strong> Extract unique values from a range</li>
+                    <li><strong>SEQUENCE:</strong> Generate a sequence of numbers</li>
+                    <li><strong>RANDARRAY:</strong> Generate array of random numbers</li>
+                    <li><strong>XLOOKUP:</strong> Look up values with advanced options</li>
+                </ul>
+                <h4>Spill Behavior</h4>
+                <p>In modern Excel, array results "spill" into adjacent cells automatically. Reference the entire result range with a # symbol (e.g., A1#).</p>
+            </div>
+            <div class="topic-example">
+                <h4>Dynamic Array Examples</h4>
+                <p>Extract all Sales above $1000:</p>
+                <pre>=FILTER(B2:B20, C2:C20>1000, "No matches")</pre>
+                
+                <p>Extract unique product categories:</p>
+                <pre>=UNIQUE(D2:D100)</pre>
+                
+                <p>Sort products by price (high to low):</p>
+                <pre>=SORT(A2:B20, 2, -1)</pre>
+                
+                <p>Generate sequence 5, 10, 15, ...50:</p>
+                <pre>=SEQUENCE(10, 1, 5, 5)</pre>
+                
+                <p><strong>Note:</strong> Dynamic array functions are available in Excel 365 and Excel 2021, but not in older versions.</p>
             </div>
         </div>
     </div>
 
     <div class="topic-card" id="interactive">
-        <h3>Interactive Formula Examples</h3>
+        <h3>Excel Formula Examples</h3>
         <div class="topic-content">
             <div class="topic-text">
-                <p>Click on any of the formulas below to open them in our interactive Formula Builder where you can explore how they work and modify them for your needs.</p>
+                <p>Review these common formula examples that you can use as reference for your Excel work.</p>
                 <h4>Mathematical Functions</h4>
                 <ul class="formula-list">
                     <li><code>=SUM(A1:A10)</code> - Add values in range A1:A10</li>
@@ -227,6 +638,14 @@
                 <ul class="formula-list">
                     <li><code>=VLOOKUP(A1,B1:D10,2,FALSE)</code> - Exact match lookup</li>
                     <li><code>=INDEX(B2:D10,MATCH(A1,A2:A10,0),2)</code> - INDEX/MATCH combination</li>
+                    <li><code>=XLOOKUP(E1,A2:A10,C2:C10,"Not Found")</code> - Modern lookup</li>
+                </ul>
+                
+                <h4>Date Functions</h4>
+                <ul class="formula-list">
+                    <li><code>=TODAY()</code> - Current date</li>
+                    <li><code>=DATEDIF(A1,TODAY(),"Y")</code> - Years between dates</li>
+                    <li><code>=NETWORKDAYS(A1,A2)</code> - Working days between dates</li>
                 </ul>
             </div>
             <div class="topic-example">
@@ -240,7 +659,65 @@
                     <li>Pays 5% commission for sales between $10,001 and $25,000</li>
                     <li>Pays no commission for sales of $10,000 or less</li>
                 </ul>
-                <p><strong>Click on the formula to open in the Formula Builder and explore!</strong></p>
+                
+                <h4>Dynamic Array Example</h4>
+                <pre>=LET(sales,B2:B20,
+    products,A2:A20,
+    topSales,FILTER(products,sales>1000,"None"),
+    SORT(topSales,1,1))</pre>
+                <p>This formula uses LET to name ranges, filters products with sales over $1000, then sorts the results alphabetically.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="nesting">
+        <h3>Nesting and Combining Functions</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Create powerful solutions by nesting functions within each other or combining multiple functions.</p>
+                <h4>Nesting Functions</h4>
+                <ul>
+                    <li>Placing one function as an argument inside another</li>
+                    <li>Solving complex problems step by step</li>
+                    <li>Using parentheses to ensure correct execution order</li>
+                    <li>Breaking down complex formulas for better readability</li>
+                    <li>Using temporary cell calculations for very complex formulas</li>
+                </ul>
+                <h4>Common Function Combinations</h4>
+                <ul>
+                    <li><strong>IF + Logical Functions:</strong> Complex decision-making</li>
+                    <li><strong>INDEX + MATCH:</strong> Flexible lookups beyond VLOOKUP</li>
+                    <li><strong>Text Functions:</strong> Parsing and cleaning data</li>
+                    <li><strong>Date + Math Functions:</strong> Date difference calculations</li>
+                    <li><strong>SUM + IF:</strong> Conditional summations</li>
+                    <li><strong>LET:</strong> Creating named subexpressions (Excel 365)</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Nested Formula Examples</h4>
+                <table class="formula-example">
+                    <tr>
+                        <th>Formula</th>
+                        <th>Purpose</th>
+                    </tr>
+                    <tr>
+                        <td>=IF(ISNA(VLOOKUP(A1,C1:D10,2,FALSE)),"Not Found",VLOOKUP(A1,C1:D10,2,FALSE))</td>
+                        <td>VLOOKUP with custom error handling</td>
+                    </tr>
+                    <tr>
+                        <td>=SUM(IF(A1:A10="Complete",B1:B10,0))</td>
+                        <td>Sum values only where status is "Complete"</td>
+                    </tr>
+                    <tr>
+                        <td>=TEXT(TODAY(),"yyyy")&"-"&TEXT(MAX(B1:B100),"000#")</td>
+                        <td>Create ID combining current year and highest number</td>
+                    </tr>
+                    <tr>
+                        <td>=INDEX(C1:E10,MATCH(A1,B1:B10,0),MATCH(A2,C1:E1,0))</td>
+                        <td>Two-way lookup (like a dynamic VLOOKUP+HLOOKUP)</td>
+                    </tr>
+                </table>
+                <p><strong>Pro Tip:</strong> Use Excel's Formula Bar to color-code nested functions, making them easier to read and debug.</p>
             </div>
         </div>
     </div>
@@ -256,6 +733,10 @@
         <li>Use IF functions to apply bonus rates for sales above certain thresholds</li>
         <li>Calculate total commission using the appropriate formulas</li>
         <li>Create summary statistics using SUM, AVERAGE, MAX functions</li>
+        <li>Add conditional formatting to highlight top performers</li>
+        <li>Create a formula to calculate monthly targets based on previous performance</li>
+        <li>Add date functions to track commission by quarter</li>
+        <li>Build a dynamic dashboard using array formulas (if using Excel 365)</li>
     </ol>
     <button class="resource-btn" id="download-commission-template">Download Practice Template</button>
 </div>
