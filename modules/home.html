@@ -29,3 +29,206 @@
         <p>Strengthen your skills with hands-on exercises and downloadable practice files</p>
     </div>
 </div>
+
+<div class="learning-paths-section">
+    <h2>Choose Your Learning Path</h2>
+    <p class="section-intro">Focus on the Excel skills that matter most to you with our specialized learning paths</p>
+    
+    <div class="path-cards">
+        <div class="path-card">
+            <div class="path-icon">
+                <i class="fa-solid fa-seedling"></i>
+            </div>
+            <div class="path-info">
+                <h3>Excel Fundamentals</h3>
+                <p>Perfect for beginners: master the basics of Excel and build a solid foundation</p>
+                <button class="path-link-btn" data-module="learning-path">Start Fundamentals</button>
+            </div>
+        </div>
+        
+        <div class="path-card">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+            <div class="path-info">
+                <h3>Data Analysis</h3>
+                <p>Learn to clean, transform, and analyze data using Excel's powerful tools</p>
+                <button class="path-link-btn" data-module="learning-path">Explore Data Analysis</button>
+            </div>
+        </div>
+        
+        <div class="path-card">
+            <i class="fa-solid fa-chart-pie"></i>
+            <div class="path-info">
+                <h3>Data Visualization</h3>
+                <p>Create compelling charts and dashboards that bring your data to life</p>
+                <button class="path-link-btn" data-module="learning-path">Discover Visualization</button>
+            </div>
+        </div>
+        
+        <div class="path-card">
+            <i class="fa-solid fa-trophy"></i>
+            <div class="path-info">
+                <h3>Advanced Excel</h3>
+                <p>Master advanced features for experienced users looking to become Excel experts</p>
+                <button class="path-link-btn" data-module="learning-path">Go Advanced</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="quick-links-section">
+    <h2>Popular Resources</h2>
+    <div class="quick-links">
+        <a href="#" class="quick-link" data-module="formulas" data-topic="logical">
+            <i class="fa-solid fa-code-branch"></i>
+            <span>Logical Functions</span>
+        </a>
+        <a href="#" class="quick-link" data-module="dataanalysis" data-topic="pivottables">
+            <i class="fa-solid fa-table-pivot"></i>
+            <span>PivotTables</span>
+        </a>
+        <a href="#" class="quick-link" data-module="visualization" data-topic="dashboards">
+            <i class="fa-solid fa-gauge-high"></i>
+            <span>Dashboards</span>
+        </a>
+        <a href="#" class="quick-link" data-module="advanced" data-topic="macros">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>Macros & VBA</span>
+        </a>
+        <a href="#" class="quick-link" data-module="dataanalysis" data-topic="what-if">
+            <i class="fa-solid fa-lightbulb"></i>
+            <span>What-If Analysis</span>
+        </a>
+        <a href="#" class="quick-link" data-module="resources">
+            <i class="fa-solid fa-download"></i>
+            <span>Templates</span>
+        </a>
+    </div>
+</div>
+
+<style>
+/* Additional styling for the home page */
+.learning-paths-section, 
+.quick-links-section {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.section-intro {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.path-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.path-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.path-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.path-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    min-width: 50px;
+    text-align: center;
+}
+
+.path-info {
+    flex: 1;
+}
+
+.path-info h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.path-info p {
+    color: var(--light-text);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.path-link-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.path-link-btn:hover {
+    color: var(--hover-color);
+}
+
+.path-link-btn::after {
+    content: "→";
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+}
+
+.path-link-btn:hover::after {
+    transform: translateX(3px);
+}
+
+.quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quick-link {
+    background: var(--light-bg-color);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.quick-link:hover {
+    background-color: rgba(46, 125, 50, 0.1);
+    transform: translateY(-3px);
+    text-decoration: none;
+}
+
+.quick-link i {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+    .path-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-links {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+</style>

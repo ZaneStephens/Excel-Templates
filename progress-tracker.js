@@ -32,12 +32,22 @@ class ProgressTracker {
                     assessments: {
                         beginner: { completed: false, score: 0 },
                         intermediate: { completed: false, score: 0 },
+                        analyst: { completed: false, score: 0 },
+                        visualizer: { completed: false, score: 0 },
                         advanced: { completed: false, score: 0 }
                     },
                     lastVisited: { module: null, topic: null },
                     visitsCount: {}
                 };
                 this.saveProgress();
+            }
+            
+            // Migration for older versions without newer assessment types
+            if (!this.progress.assessments.analyst) {
+                this.progress.assessments.analyst = { completed: false, score: 0 };
+            }
+            if (!this.progress.assessments.visualizer) {
+                this.progress.assessments.visualizer = { completed: false, score: 0 };
             }
             
             // Migration for older versions without visitsCount
@@ -54,6 +64,8 @@ class ProgressTracker {
                 assessments: {
                     beginner: { completed: false, score: 0 },
                     intermediate: { completed: false, score: 0 },
+                    analyst: { completed: false, score: 0 },
+                    visualizer: { completed: false, score: 0 },
                     advanced: { completed: false, score: 0 }
                 },
                 lastVisited: { module: null, topic: null },
@@ -320,9 +332,9 @@ class ProgressTracker {
     // Calculate overall progress percentage
     getOverallProgress() {
         // Count total lessons and exercises across all modules
-        const totalLessons = 15; // Update this based on your actual content
+        const totalLessons = 20; // Update this based on your actual content
         const totalExercises = 5; // Update this based on your actual content
-        const totalAssessments = 3;
+        const totalAssessments = 5; // Now includes analyst and visualizer
         
         // Count completed items
         const completedLessons = this.progress.completedLessons.length;
@@ -337,7 +349,7 @@ class ProgressTracker {
         return Math.round((completed / total) * 100);
     }
 
-    // Get progress for a specific level (beginner, intermediate, advanced)
+    // Get progress for a specific level (beginner, intermediate, analyst, visualizer, advanced)
     getLevelProgress(level) {
         let totalItems = 0;
         let completedItems = 0;
@@ -350,11 +362,19 @@ class ProgressTracker {
                 assessmentRequired: true
             },
             intermediate: {
-                modules: ['formulas', 'dataanalysis'],
+                modules: ['formulas', 'basics'],
+                assessmentRequired: true
+            },
+            analyst: {
+                modules: ['dataanalysis', 'formulas'],
+                assessmentRequired: true
+            },
+            visualizer: {
+                modules: ['visualization'],
                 assessmentRequired: true
             },
             advanced: {
-                modules: ['visualization', 'advanced'],
+                modules: ['advanced', 'visualization', 'dataanalysis'],
                 assessmentRequired: true
             }
         };
@@ -378,15 +398,15 @@ class ProgressTracker {
             // Add to total items based on your content structure
             // This is an estimate - update with actual counts
             if (moduleId === 'basics') {
-                totalItems += 4; // 3 lessons + 1 exercise
+                totalItems += 5; // 4 lessons + 1 exercise
             } else if (moduleId === 'formulas') {
-                totalItems += 4; // 3 lessons + 1 exercise
+                totalItems += 5; // 4 lessons + 1 exercise
             } else if (moduleId === 'dataanalysis') {
-                totalItems += 4; // 3 lessons + 1 exercise
+                totalItems += 5; // 4 lessons + 1 exercise
             } else if (moduleId === 'visualization') {
-                totalItems += 4; // 3 lessons + 1 exercise
+                totalItems += 5; // 4 lessons + 1 exercise
             } else if (moduleId === 'advanced') {
-                totalItems += 4; // 3 lessons + 1 exercise
+                totalItems += 5; // 4 lessons + 1 exercise
             }
         });
         
@@ -501,7 +521,7 @@ class ProgressTracker {
         }
         
         // Level-specific progress bars on learning path
-        ['beginner', 'intermediate', 'advanced'].forEach(level => {
+        ['beginner', 'intermediate', 'analyst', 'visualizer', 'advanced'].forEach(level => {
             const levelProgress = document.getElementById(`${level}-progress`);
             if (levelProgress) {
                 const percentage = this.getLevelProgress(level);
@@ -551,92 +571,99 @@ class ProgressTracker {
         });
     }
 
-    // Update completion badges
-    updateCompletionBadges() {
-        // Check for earned badges
-        ['beginner', 'intermediate', 'advanced'].forEach(level => {
-            const badge = document.getElementById(`${level}-badge`);
-            if (badge) {
-                const levelProgress = this.getLevelProgress(level);
-                if (levelProgress === 100) {
-                    badge.classList.remove('badge-locked');
-                    badge.classList.add('badge-earned');
+// Update completion badges
+updateCompletionBadges() {
+    // Check for earned badges
+    ['beginner', 'intermediate', 'analyst', 'visualizer', 'advanced'].forEach(level => {
+        const badge = document.getElementById(`${level}-badge`);
+        if (badge) {
+            const levelProgress = this.getLevelProgress(level);
+            if (levelProgress === 100) {
+                badge.classList.remove('badge-locked');
+                badge.classList.add('badge-earned');
+                
+                // Add tooltip to badge
+                if (!badge.hasAttribute('data-tooltip')) {
+                    badge.setAttribute('data-tooltip', `${this.formatLevelName(level)} level completed!`);
+                    badge.classList.add('tooltip');
                     
-                    // Add tooltip to badge
-                    if (!badge.hasAttribute('data-tooltip')) {
-                        badge.setAttribute('data-tooltip', `${level.charAt(0).toUpperCase() + level.slice(1)} level completed!`);
-                        badge.classList.add('tooltip');
-                        
-                        // Add tooltip element if not present
-                        if (!badge.querySelector('.tooltip-text')) {
-                            const tooltipText = document.createElement('span');
-                            tooltipText.className = 'tooltip-text';
-                            tooltipText.textContent = `${level.charAt(0).toUpperCase() + level.slice(1)} level completed!`;
-                            badge.appendChild(tooltipText);
-                        }
-                    }
-                } else {
-                    // Add tooltip showing progress
-                    if (!badge.hasAttribute('data-tooltip') || badge.getAttribute('data-tooltip').includes('%')) {
-                        badge.setAttribute('data-tooltip', `${levelProgress}% of ${level} level completed`);
-                        badge.classList.add('tooltip');
-                        
-                        // Add or update tooltip element
-                        let tooltipText = badge.querySelector('.tooltip-text');
-                        if (!tooltipText) {
-                            tooltipText = document.createElement('span');
-                            tooltipText.className = 'tooltip-text';
-                            badge.appendChild(tooltipText);
-                        }
-                        tooltipText.textContent = `${levelProgress}% of ${level} level completed`;
+                    // Add tooltip element if not present
+                    if (!badge.querySelector('.tooltip-text')) {
+                        const tooltipText = document.createElement('span');
+                        tooltipText.className = 'tooltip-text';
+                        tooltipText.textContent = `${this.formatLevelName(level)} level completed!`;
+                        badge.appendChild(tooltipText);
                     }
                 }
+            } else {
+                // Add tooltip showing progress
+                if (!badge.hasAttribute('data-tooltip') || badge.getAttribute('data-tooltip').includes('%')) {
+                    badge.setAttribute('data-tooltip', `${levelProgress}% of ${this.formatLevelName(level)} level completed`);
+                    badge.classList.add('tooltip');
+                    
+                    // Add or update tooltip element
+                    let tooltipText = badge.querySelector('.tooltip-text');
+                    if (!tooltipText) {
+                        tooltipText = document.createElement('span');
+                        tooltipText.className = 'tooltip-text';
+                        badge.appendChild(tooltipText);
+                    }
+                    tooltipText.textContent = `${levelProgress}% of ${this.formatLevelName(level)} level completed`;
+                }
             }
-        });
-    }
-
-    // Reset all progress
-    resetProgress() {
-        if (confirm('Are you sure you want to reset all your progress? This cannot be undone.')) {
-            localStorage.removeItem(this.storageKey);
-            this.progress = null;
-            this.initializeIfEmpty();
-            this.updateUI();
-            this.showCompletionToast('Your progress has been reset.');
         }
+    });
+}
+
+// Format level name for display (capitalize first letter, handle special cases)
+formatLevelName(level) {
+    if (level === 'visualizer') return 'Data Visualizer';
+    if (level === 'analyst') return 'Data Analyst';
+    return level.charAt(0).toUpperCase() + level.slice(1);
+}
+
+// Reset all progress
+resetProgress() {
+    if (confirm('Are you sure you want to reset all your progress? This cannot be undone.')) {
+        localStorage.removeItem(this.storageKey);
+        this.progress = null;
+        this.initializeIfEmpty();
+        this.updateUI();
+        this.showCompletionToast('Your progress has been reset.');
     }
+}
 }
 
 // Initialize the Progress Tracker
 let progressTracker;
 document.addEventListener('DOMContentLoaded', () => {
-    progressTracker = new ProgressTracker();
-    
-    // Add reset progress button listeners
-    const resetButtons = document.querySelectorAll('.reset-progress-btn');
-    resetButtons.forEach(button => {
-        button.addEventListener('click', () => progressTracker.resetProgress());
-    });
-    
-    // Continue tracking from last location
-    const lastVisited = progressTracker.progress.lastVisited;
-    if (lastVisited && lastVisited.module) {
-        // Only auto-navigate if the user is on the home page
-        if (window.location.hash === '' || window.location.hash === '#') {
-            setTimeout(() => {
-                if (typeof loadModule === 'function') {
-                    if (confirm('Would you like to continue from where you left off?')) {
-                        loadModule(lastVisited.module, lastVisited.topic);
-                    }
+progressTracker = new ProgressTracker();
+
+// Add reset progress button listeners
+const resetButtons = document.querySelectorAll('.reset-progress-btn');
+resetButtons.forEach(button => {
+    button.addEventListener('click', () => progressTracker.resetProgress());
+});
+
+// Continue tracking from last location
+const lastVisited = progressTracker.progress.lastVisited;
+if (lastVisited && lastVisited.module) {
+    // Only auto-navigate if the user is on the home page
+    if (window.location.hash === '' || window.location.hash === '#') {
+        setTimeout(() => {
+            if (typeof loadModule === 'function') {
+                if (confirm('Would you like to continue from where you left off?')) {
+                    loadModule(lastVisited.module, lastVisited.topic);
                 }
-            }, 1500);
-        }
+            }
+        }, 1500);
     }
+}
 });
 
 // Update UI whenever content is loaded
 document.addEventListener('contentLoaded', () => {
-    progressTracker.updateUI();
+progressTracker.updateUI();
 });
 
 // Export the progress tracker for use in other scripts
