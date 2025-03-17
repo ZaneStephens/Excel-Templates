@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Formula Reference Cheat Sheet</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2E7D32;
+            border-bottom: 2px solid #2E7D32;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #2E7D32;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        th {
+            background-color: #f3f9f3;
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        td {
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 0.9em;
+            border: 1px solid #ddd;
+        }
+        .note {
+            background-color: #e8f5e9;
+            padding: 10px 15px;
+            border-left: 4px solid #2E7D32;
+            margin: 20px 0;
+        }
+        .tip {
+            background-color: #e3f2fd;
+            padding: 10px 15px;
+            border-left: 4px solid #1565c0;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        /* Add print-specific styles */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .footer {
+                position: fixed;
+                bottom: 0;
+            }
+            
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+            
+            .print-button {
+                display: none;
+            }
+        }
+        
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #2E7D32;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .print-button:hover {
+            background-color: #1B5E20;
+        }
+    </style>
+</head>
+<body>
+    <h1>Excel Formula Reference Cheat Sheet</h1>
+    
+    <button class="print-button" onclick="window.print();">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1"/>
+            <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+        </svg>
+        Save as PDF
+    </button>
+    
+    <div class="note">
+        <strong>Note:</strong> This cheat sheet provides a quick reference for commonly used Excel formulas and functions. Functions are organized by category for easy reference.
+    </div>
+
+    <h2>Math & Trigonometry Functions</h2>
+    <table>
+        <tr>
+            <th>Function</th>
+            <th>Syntax</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>SUM</td>
+            <td><code>=SUM(number1, [number2], ...)</code></td>
+            <td>Adds all the numbers in a range of cells</td>
+            <td><code>=SUM(A1:A10)</code></td>
+        </tr>
+        <tr>
+            <td>AVERAGE</td>
+            <td><code>=AVERAGE(number1, [number2], ...)</code></td>
+            <td>Returns the average of the arguments</td>
+            <td><code>=AVERAGE(B1:B20)</code></td>
+        </tr>
+        <tr>
+            <td>MIN</td>
+            <td><code>=MIN(number1, [number2], ...)</code></td>
+            <td>Returns the smallest number in a set of values</td>
+            <td><code>=MIN(C1:C100)</code></td>
+        </tr>
+        <tr>
+            <td>MAX</td>
+            <td><code>=MAX(number1, [number2], ...)</code></td>
+            <td>Returns the largest number in a set of values</td>
+            <td><code>=MAX(C1:C100)</code></td>
+        </tr>
+        <tr>
+            <td>ROUND</td>
+            <td><code>=ROUND(number, num_digits)</code></td>
+            <td>Rounds a number to a specified number of digits</td>
+            <td><code>=ROUND(A1, 2)</code></td>
+        </tr>
+        <tr>
+            <td>ROUNDUP</td>
+            <td><code>=ROUNDUP(number, num_digits)</code></td>
+            <td>Rounds a number up to a specified number of digits</td>
+            <td><code>=ROUNDUP(A1, 0)</code></td>
+        </tr>
+        <tr>
+            <td>ROUNDDOWN</td>
+            <td><code>=ROUNDDOWN(number, num_digits)</code></td>
+            <td>Rounds a number down to a specified number of digits</td>
+            <td><code>=ROUNDDOWN(A1, 0)</code></td>
+        </tr>
+        <tr>
+            <td>PRODUCT</td>
+            <td><code>=PRODUCT(number1, [number2], ...)</code></td>
+            <td>Multiplies all the numbers given as arguments</td>
+            <td><code>=PRODUCT(A1:A5)</code></td>
+        </tr>
+        <tr>
+            <td>POWER</td>
+            <td><code>=POWER(number, power)</code></td>
+            <td>Returns the result of a number raised to a power</td>
+            <td><code>=POWER(5, 2)</code></td>
+        </tr>
+        <tr>
+            <td>SQRT</td>
+            <td><code>=SQRT(number)</code></td>
+            <td>Returns the square root of a number</td>
+            <td><code>=SQRT(16)</code></td>
+        </tr>
+        <tr>
+            <td>ABS</td>
+            <td><code>=ABS(number)</code></td>
+            <td>Returns the absolute value of a number</td>
+            <td><code>=ABS(-10)</code></td>
+        </tr>
+        <tr>
+            <td>MOD</td>
+            <td><code>=MOD(number, divisor)</code></td>
+            <td>Returns the remainder after a number is divided by a divisor</td>
+            <td><code>=MOD(10, 3)</code></td>
+        </tr>
+    </table>
+
+    <h2>Lookup & Reference Functions</h2>
+    <table>
+        <tr>
+            <th>Function</th>
+            <th>Syntax</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>VLOOKUP</td>
+            <td><code>=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])</code></td>
+            <td>Looks for a value in the leftmost column of a table and returns a value in the same row from a column you specify</td>
+            <td><code>=VLOOKUP("Smith", A1:C20, 3, FALSE)</code></td>
+        </tr>
+        <tr>
+            <td>HLOOKUP</td>
+            <td><code>=HLOOKUP(lookup_value, table_array, row_index_num, [range_lookup])</code></td>
+            <td>Looks for a value in the top row of a table and returns a value in the same column from a row you specify</td>
+            <td><code>=HLOOKUP("Sales", A1:G3, 3, FALSE)</code></td>
+        </tr>
+        <tr>
+            <td>XLOOKUP</td>
+            <td><code>=XLOOKUP(lookup_value, lookup_array, return_array, [not_found], [match_mode], [search_mode])</code></td>
+            <td>Searches a range or array and returns a corresponding item from a second range or array</td>
+            <td><code>=XLOOKUP(A2, B2:B10, C2:C10, "Not found")</code></td>
+        </tr>
+        <tr>
+            <td>INDEX</td>
+            <td><code>=INDEX(array, row_num, [column_num])</code></td>
+            <td>Returns a value at a given position in a range or array</td>
+            <td><code>=INDEX(A1:C10, 5, 3)</code></td>
+        </tr>
+        <tr>
+            <td>MATCH</td>
+            <td><code>=MATCH(lookup_value, lookup_array, [match_type])</code></td>
+            <td>Returns the position of a value in a range or array</td>
+            <td><code>=MATCH("Smith", A1:A20, 0)</code></td>
+        </tr>
+        <tr>
+            <td>INDEX+MATCH</td>
+            <td><code>=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))</code></td>
+            <td>Combines INDEX and MATCH for powerful lookups</td>
+            <td><code>=INDEX(C1:C20, MATCH("Smith", A1:A20, 0))</code></td>
+        </tr>
+        <tr>
+            <td>OFFSET</td>
+            <td><code>=OFFSET(reference, rows, cols, [height], [width])</code></td>
+            <td>Returns a reference offset from a given reference</td>
+            <td><code>=OFFSET(A1, 2, 3, 1, 1)</code></td>
+        </tr>
+        <tr>
+            <td>INDIRECT</td>
+            <td><code>=INDIRECT(ref_text, [a1])</code></td>
+            <td>Returns a reference specified by a text string</td>
+            <td><code>=INDIRECT("A" & B1)</code></td>
+        </tr>
+    </table>
+
+    <h2>Text Functions</h2>
+    <table>
+        <tr>
+            <th>Function</th>
+            <th>Syntax</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>CONCAT</td>
+            <td><code>=CONCAT(text1, [text2], ...)</code></td>
+            <td>Joins text strings without using the & operator</td>
+            <td><code>=CONCAT("Hello ", "World")</code></td>
+        </tr>
+        <tr>
+            <td>TEXTJOIN</td>
+            <td><code>=TEXTJOIN(delimiter, ignore_empty, text1, [text2], ...)</code></td>
+            <td>Combines text from multiple ranges with a delimiter</td>
+            <td><code>=TEXTJOIN(", ", TRUE, A1:A5)</code></td>
+        </tr>
+        <tr>
+            <td>LEFT</td>
+            <td><code>=LEFT(text, [num_chars])</code></td>
+            <td>Returns the first characters from a text string</td>
+            <td><code>=LEFT(A1, 3)</code></td>
+        </tr>
+        <tr>
+            <td>RIGHT</td>
+            <td><code>=RIGHT(text, [num_chars])</code></td>
+            <td>Returns the last characters from a text string</td>
+            <td><code>=RIGHT(A1, 4)</code></td>
+        </tr>
+        <tr>
+            <td>MID</td>
+            <td><code>=MID(text, start_num, num_chars)</code></td>
+            <td>Returns characters from the middle of a text string</td>
+            <td><code>=MID(A1, 3, 5)</code></td>
+        </tr>
+        <tr>
+            <td>LEN</td>
+            <td><code>=LEN(text)</code></td>
+            <td>Returns the number of characters in a text string</td>
+            <td><code>=LEN(A1)</code></td>
+        </tr>
+        <tr>
+            <td>FIND</td>
+            <td><code>=FIND(find_text, within_text, [start_num])</code></td>
+            <td>Returns the position of one text string within another (case-sensitive)</td>
+            <td><code>=FIND("o", A1, 1)</code></td>
+        </tr>
+        <tr>
+            <td>SEARCH</td>
+            <td><code>=SEARCH(find_text, within_text, [start_num])</code></td>
+            <td>Returns the position of one text string within another (not case-sensitive)</td>
+            <td><code>=SEARCH("o", A1, 1)</code></td>
+        </tr>
+        <tr>
+            <td>SUBSTITUTE</td>
+            <td><code>=SUBSTITUTE(text, old_text, new_text, [instance_num])</code></td>
+            <td>Replaces old text with new text in a text string</td>
+            <td><code>=SUBSTITUTE(A1, "World", "Excel")</code></td>
+        </tr>
+        <tr>
+            <td>TRIM</td>
+            <td><code>=TRIM(text)</code></td>
+            <td>Removes extra spaces from text</td>
+            <td><code>=TRIM(" Hello World ")</code></td>
+        </tr>
+        <tr>
+            <td>UPPER</td>
+            <td><code>=UPPER(text)</code></td>
+            <td>Converts text to uppercase</td>
+            <td><code>=UPPER(A1)</code></td>
+        </tr>
+        <tr>
+            <td>LOWER</td>
+            <td><code>=LOWER(text)</code></td>
+            <td>Converts text to lowercase</td>
+            <td><code>=LOWER(A1)</code></td>
+        </tr>
+        <tr>
+            <td>PROPER</td>
+            <td><code>=PROPER(text)</code></td>
+            <td>Capitalizes the first letter in each word</td>
+            <td><code>=PROPER("john smith")</code></td>
+        </tr>
+    </table>
+
+    <h2>Date & Time Functions</h2>
+    <table>
+        <tr>
+            <th>Function</th>
+            <th>Syntax</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>TODAY</td>
+            <td><code>=TODAY()</code></td>
+            <td>Returns the current date</td>
+            <td><code>=TODAY()</code></td>
+        </tr>
+        <tr>
+            <td>NOW</td>
+            <td><code>=NOW()</code></td>
+            <td>Returns the current date and time</td>
+            <td><code>=NOW()</code></td>
+        </tr>
+        <tr>
+            <td>DATE</td>
+            <td><code>=DATE(year, month, day)</code></td>
+            <td>Returns the serial number of a date</td>
+            <td><code>=DATE(2025, 3, 15)</code></td>
+        </tr>
+        <tr>
+            <td>DAY</td>
+            <td><code>=DAY(serial_number)</code></td>
+            <td>Returns the day of the month (1-31)</td>
+            <td><code>=DAY(TODAY())</code></td>
+        </tr>
+        <tr>
+            <td>MONTH</td>
+            <td><code>=MONTH(serial_number)</code></td>
+            <td>Returns the month (1-12)</td>
+            <td><code>=MONTH(TODAY())</code></td>
+        </tr>
+        <tr>
+            <td>YEAR</td>
+            <td><code>=YEAR(serial_number)</code></td>
+            <td>Returns the year</td>
+            <td><code>=YEAR(TODAY())</code></td>
+        </tr>
+        <tr>
+            <td>WEEKDAY</td>
+            <td><code>=WEEKDAY(serial_number, [return_type])</code></td>
+            <td>Returns the day of the week (1-7)</td>
+            <td><code>=WEEKDAY(TODAY(), 1)</code></td>
+        </tr>
+        <tr>
+            <td>DATEDIF</td>
+            <td><code>=DATEDIF(start_date, end_date, unit)</code></td>
+            <td>Calculates difference between dates in various units (Y, M, D, etc.)</td>
+            <td><code>=DATEDIF("1/1/2023", TODAY(), "M")</code></td>
+        </tr>
+        <tr>
+            <td>EDATE</td>
+            <td><code>=EDATE(start_date, months)</code></td>
+            <td>Returns date that is the indicated number of months before/after start date</td>
+            <td><code>=EDATE(TODAY(), 3)</code></td>
+        </tr>
+        <tr>
+            <td>NETWORKDAYS</td>
+            <td><code>=NETWORKDAYS(start_date, end_date, [holidays])</code></td>
+            <td>Returns the number of working days between two dates</td>
+            <td><code>=NETWORKDAYS("3/1/2025", "3/31/2025")</code></td>
+        </tr>
+        <tr>
+            <td>WORKDAY</td>
+            <td><code>=WORKDAY(start_date, days, [holidays])</code></td>
+            <td>Returns a date that is a specified number of working days in the future</td>
+            <td><code>=WORKDAY(TODAY(), 10)</code></td>
+        </tr>
+    </table>
+
+    <h2>Financial Functions</h2>
+    <table>
+        <tr>
+            <th>Function</th>
+            <th>Syntax</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>PMT</td>
+            <td><code>=PMT(rate, nper, pv, [fv], [type])</code></td>
+            <td>Calculates the payment for a loan based on constant payments and interest rate</td>
+            <td><code>=PMT(5%/12, 5*12, 10000)</code></td>
+        </tr>
+        <tr>
+            <td>FV</td>
+            <td><code>=FV(rate, nper, pmt, [pv], [type])</code></td>
+            <td>Returns the future value of an investment</td>
+            <td><code>=FV(6%/12, 10*12, -100, -1000)</code></td>
+        </tr>
+        <tr>
+            <td>PV</td>
+            <td><code>=PV(rate, nper, pmt, [fv], [type])</code></td>
+            <td>Returns the present value of an investment</td>
+            <td><code>=PV(8%/12, 20*12, -500)</code></td>
+        </tr>
+        <tr>
+            <td>RATE</td>
+            <td><code>=RATE(nper, pmt, pv, [fv], [type], [guess])</code></td>
+            <td>Returns the interest rate per period of a loan or investment</td>
+            <td><code>=RATE(36, -300, 10000)</code></td>
+        </tr>
+        <tr>
+            <td>NPER</td>
+            <td><code>=NPER(rate, pmt, pv, [fv], [type])</code></td>
+            <td>Returns the number of periods for an investment</td>
+            <td><code>=NPER(6%/12, -200, 10000)</code></td>
+        </tr>
+        <tr>
+            <td>IPMT</td>
+            <td><code>=IPMT(rate, per, nper, pv, [fv], [type])</code></td>
+            <td>Returns the interest payment for a given period of an investment</td>
+            <td><code>=IPMT(6%/12, 1, 36, 10000)</code></td>
+        </tr>
+        <tr>
+            <td>PPMT</td>
+            <td><code>=PPMT(rate, per, nper, pv, [fv], [type])</code></td>
+            <td>Returns the principal payment for a given period of an investment</td>
+            <td><code>=PPMT(6%/12, 1, 36, 10000)</code></td>
+        </tr>
+        <tr>
+            <td>IRR</td>
+            <td><code>=IRR(values, [guess])</code></td>
+            <td>Returns the internal rate of return for a series of cash flows</td>
+            <td><code>=IRR(A1:A10)</code></td>
+        </tr>
+        <tr>
+            <td>NPV</td>
+            <td><code>=NPV(rate, value1, [value2], ...)</code></td>
+            <td>Returns the net present value of an investment based on cash flows</td>
+            <td><code>=NPV(10%, B1:B10)</code></td>
+        </tr>
+    </table>
+
+    <div class="tip">
+        <strong>Pro Tip:</strong> Use absolute cell references (with $ sign) in formulas when you want to prevent them from changing when copied to other cells. Example: <code>=A$1</code> will keep row 1 fixed when copying down.
+    </div>
+
+    <h2>Array Functions (Excel 365)</h2>
+    <table>
+        <tr>
+            <th>Function</th>
+            <th>Syntax</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>FILTER</td>
+            <td><code>=FILTER(array, include, [if_empty])</code></td>
+            <td>Filters a range of data based on criteria you define</td>
+            <td><code>=FILTER(A1:C20, B1:B20>100, "No results")</code></td>
+        </tr>
+        <tr>
+            <td>SORT</td>
+            <td><code>=SORT(array, [sort_index], [sort_order], [by_col])</code></td>
+            <td>Sorts the contents of a range or array</td>
+            <td><code>=SORT(A1:C20, 2, -1)</code></td>
+        </tr>
+        <tr>
+            <td>SORTBY</td>
+            <td><code>=SORTBY(array, by_array1, [sort_order1], ...)</code></td>
+            <td>Sorts array based on corresponding values in by_array</td>
+            <td><code>=SORTBY(A1:C20, D1:D20, 1)</code></td>
+        </tr>
+        <tr>
+            <td>UNIQUE</td>
+            <td><code>=UNIQUE(array, [by_col], [exactly_once])</code></td>
+            <td>Returns a list of unique values from a range or array</td>
+            <td><code>=UNIQUE(A1:A20)</code></td>
+        </tr>
+        <tr>
+            <td>SEQUENCE</td>
+            <td><code>=SEQUENCE(rows, [cols], [start], [step])</code></td>
+            <td>Generates a sequence of numbers</td>
+            <td><code>=SEQUENCE(10, 1, 5, 5)</code></td>
+        </tr>
+        <tr>
+            <td>RANDARRAY</td>
+            <td><code>=RANDARRAY([rows], [columns], [min], [max], [integer])</code></td>
+            <td>Returns an array of random numbers</td>
+            <td><code>=RANDARRAY(5, 3, 1, 100, TRUE)</code></td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        <p>Excel Mastery | Formula Reference Cheat Sheet | Page 1 of 1</p>
+    </div>
+
+    <!-- Add script to improve PDF generation -->
+    <script>
+        // Set document title for better PDF file naming
+        document.title = "Excel_Formula_Reference";
+        
+        // Add event listener for print dialog
+        window.addEventListener('beforeprint', function() {
+            // Any preparations before printing
+        });
+    </script>
+
+</body>
+</html>

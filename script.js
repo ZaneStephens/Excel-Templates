@@ -403,20 +403,7 @@ function setupContentEventHandlers() {
         });
     }
     
-    // Resource download buttons
-    const resourceButtons = document.querySelectorAll('.resource-btn');
-    if (resourceButtons.length > 0) {
-        resourceButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const resourceId = button.getAttribute('data-resource');
-                if (resourceId) {
-                    alert(`Download functionality would be implemented here for resource: ${resourceId}`);
-                    // In a real implementation, this would trigger a download
-                    // window.location.href = `downloads/${resourceId}.xlsx`;
-                }
-            });
-        });
-    }
+    // Remove duplicate resource button handlers - they're now handled by resource-handler.js
     
     // Assessment buttons
     const assessmentButtons = document.querySelectorAll('.assessment-btn');

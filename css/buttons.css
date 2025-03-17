@@ -123,3 +123,143 @@
     transform: translateY(-2px);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
+/* Coming Soon Label Styling */
+.coming-soon-label {
+    background-color: rgba(255, 152, 0, 0.15);
+    color: #e65100;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: 600;
+    display: inline-block;
+    border: 1px solid rgba(255, 152, 0, 0.3);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+/* Resource buttons with coming soon status */
+.resource-btn .coming-soon-label {
+    margin: 0;
+    pointer-events: none;
+}
+
+/* Disabled resource button styling */
+.resource-btn[disabled] {
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+/* Download notification styling */
+.download-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #323232;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    font-size: 0.95rem;
+}
+
+/* Enhanced download notification styling */
+.download-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #323232;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    font-size: 0.95rem;
+    min-width: 300px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.download-notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.notification-icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+    color: #64b5f6;
+}
+
+.notification-message {
+    flex: 1;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0 0 0 10px;
+    margin-left: 10px;
+}
+
+.notification-close:hover {
+    color: #fff;
+}
+
+.resource-btn[data-resource$="-html"] {
+    background-color: #1565c0;
+}
+
+.resource-btn[data-resource$="-html"]:hover {
+    background-color: #0d47a1;
+}
+
+/* Secondary resource button for "View Online" */
+.resource-btn-secondary {
+    background-color: #607d8b !important;
+    margin-left: 5px;
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.85rem;
+}
+
+.resource-btn-secondary:hover {
+    background-color: #455a64 !important;
+}
+
+/* Resource buttons container for multiple actions */
+.resource-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+/* Responsive styling for resource buttons */
+@media (max-width: 768px) {
+    .resource-buttons {
+        flex-direction: column;
+    }
+    
+    .resource-btn-secondary {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Keyboard Shortcuts Cheat Sheet</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2E7D32;
+            border-bottom: 2px solid #2E7D32;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #2E7D32;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        th {
+            background-color: #f3f9f3;
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        td {
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+        kbd {
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+            color: #333;
+            display: inline-block;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 0.85em;
+            padding: 0.2rem 0.5rem;
+            white-space: nowrap;
+        }
+        .note {
+            background-color: #e8f5e9;
+            padding: 10px;
+            border-left: 4px solid #2E7D32;
+            margin: 20px 0;
+        }
+        .shortcuts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .shortcut-category {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: #fff;
+        }
+        .shortcut-category h3 {
+            margin-top: 0;
+            color: #2E7D32;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        /* Add print-specific styles */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .footer {
+                position: fixed;
+                bottom: 0;
+            }
+            
+            kbd {
+                /* Ensure kbd elements print correctly */
+                border: 1px solid #999;
+                box-shadow: none;
+                background-color: #f5f5f5 !important;
+                color: #333 !important;
+            }
+        }
+        
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #2E7D32;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .print-button:hover {
+            background-color: #1B5E20;
+        }
+        
+        @media print {
+            .print-button {
+                display: none;
+            }
+            
+            /* ...existing print styles... */
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print();">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1"/>
+            <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+        </svg>
+        Save as PDF
+    </button>
+    
+    <h1>Excel Keyboard Shortcuts Cheat Sheet</h1>
+    
+    <div class="note">
+        <strong>Note:</strong> This cheat sheet contains the most commonly used keyboard shortcuts in Microsoft Excel. Memorizing these shortcuts will significantly improve your productivity and efficiency.
+    </div>
+
+    <h2>Navigation Shortcuts</h2>
+    <table>
+        <tr>
+            <th>Shortcut</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Home</kbd></td>
+            <td>Go to cell A1</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>End</kbd></td>
+            <td>Go to the last used cell</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Arrow Keys</kbd></td>
+            <td>Move to the edge of current data region</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Page Up</kbd> / <kbd>Page Down</kbd></td>
+            <td>Move to previous/next worksheet</td>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>Page Up</kbd> / <kbd>Page Down</kbd></td>
+            <td>Move one screen to the left/right</td>
+        </tr>
+        <tr>
+            <td><kbd>F5</kbd></td>
+            <td>Open Go To dialog box</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>G</kbd></td>
+            <td>Open Go To dialog box</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>F</kbd></td>
+            <td>Find</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>H</kbd></td>
+            <td>Replace</td>
+        </tr>
+    </table>
+
+    <h2>Selection Shortcuts</h2>
+    <table>
+        <tr>
+            <th>Shortcut</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Space</kbd></td>
+            <td>Select entire column</td>
+        </tr>
+        <tr>
+            <td><kbd>Shift</kbd> + <kbd>Space</kbd></td>
+            <td>Select entire row</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>A</kbd></td>
+            <td>Select all data in the current region (press again for entire worksheet)</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Arrow Keys</kbd></td>
+            <td>Extend selection to the last cell with data in that direction</td>
+        </tr>
+        <tr>
+            <td><kbd>Shift</kbd> + <kbd>Arrow Keys</kbd></td>
+            <td>Extend selection by one cell</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>*</kbd></td>
+            <td>Select current region (data surrounded by blank cells)</td>
+        </tr>
+        <tr>
+            <td><kbd>F8</kbd></td>
+            <td>Toggle extend mode (use arrow keys to extend selection)</td>
+        </tr>
+        <tr>
+            <td><kbd>Shift</kbd> + <kbd>Click</kbd></td>
+            <td>Extend selection to clicked cell</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Click</kbd></td>
+            <td>Add clicked cell/range to selection</td>
+        </tr>
+    </table>
+
+    <h2>Editing Shortcuts</h2>
+    <table>
+        <tr>
+            <th>Shortcut</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><kbd>F2</kbd></td>
+            <td>Edit active cell</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Z</kbd></td>
+            <td>Undo</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Y</kbd></td>
+            <td>Redo</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>X</kbd></td>
+            <td>Cut</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>C</kbd></td>
+            <td>Copy</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>V</kbd></td>
+            <td>Paste</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>V</kbd></td>
+            <td>Paste Special dialog</td>
+        </tr>
+        <tr>
+            <td><kbd>Delete</kbd></td>
+            <td>Delete cell content</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Delete</kbd></td>
+            <td>Delete text to the end of the line</td>
+        </tr>
+        <tr>
+            <td><kbd>F4</kbd></td>
+            <td>Repeat last action or toggle absolute/relative references in formula</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>D</kbd></td>
+            <td>Fill down (copy content of top cell to selection)</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>R</kbd></td>
+            <td>Fill right (copy content of leftmost cell to selection)</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>;</kbd></td>
+            <td>Insert current date</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>:</kbd></td>
+            <td>Insert current time</td>
+        </tr>
+    </table>
+
+    <h2>Formatting Shortcuts</h2>
+    <table>
+        <tr>
+            <th>Shortcut</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>B</kbd></td>
+            <td>Bold</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>I</kbd></td>
+            <td>Italic</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>U</kbd></td>
+            <td>Underline</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>1</kbd></td>
+            <td>Format Cells dialog</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>~</kbd></td>
+            <td>Apply General format</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>$</kbd></td>
+            <td>Apply Currency format</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>%</kbd></td>
+            <td>Apply Percentage format</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>#</kbd></td>
+            <td>Apply Date format</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>@</kbd></td>
+            <td>Apply Time format</td>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>H</kbd> + <kbd>O</kbd> + <kbd>R</kbd></td>
+            <td>Adjust row height</td>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>H</kbd> + <kbd>O</kbd> + <kbd>C</kbd></td>
+            <td>Adjust column width</td>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>H</kbd> + <kbd>O</kbd> + <kbd>I</kbd></td>
+            <td>AutoFit row height</td>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>H</kbd> + <kbd>O</kbd> + <kbd>A</kbd></td>
+            <td>AutoFit column width</td>
+        </tr>
+    </table>
+
+    <h2>Formula Shortcuts</h2>
+    <table>
+        <tr>
+            <th>Shortcut</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>=</kbd></td>
+            <td>AutoSum (SUM function)</td>
+        </tr>
+        <tr>
+            <td><kbd>Shift</kbd> + <kbd>F3</kbd></td>
+            <td>Insert function (Function Wizard)</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>`</kbd> (backtick)</td>
+            <td>Toggle between showing formulas and their values</td>
+        </tr>
+        <tr>
+            <td><kbd>F4</kbd> (in formula)</td>
+            <td>Toggle absolute/relative reference</td>
+        </tr>
+        <tr>
+            <td><kbd>F9</kbd> (in formula)</td>
+            <td>Calculate all workbooks</td>
+        </tr>
+        <tr>
+            <td><kbd>Shift</kbd> + <kbd>F9</kbd></td>
+            <td>Calculate active worksheet</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F9</kbd></td>
+            <td>Recalculate all workbooks</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd></td>
+            <td>Enter array formula</td>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>Down Arrow</kbd></td>
+            <td>Display AutoComplete list/dropdown list</td>
+        </tr>
+    </table>
+
+    <h2>Data and PivotTable Shortcuts</h2>
+    <table>
+        <tr>
+            <th>Shortcut</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd></td>
+            <td>Toggle filter</td>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>Down Arrow</kbd></td>
+            <td>Open filter dropdown on filtered column</td>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>A</kbd> + <kbd>S</kbd> + <kbd>S</kbd></td>
+            <td>Sort A to Z</td>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>A</kbd> + <kbd>S</kbd> + <kbd>D</kbd></td>
+            <td>Sort Z to A</td>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>A</kbd> + <kbd>T</kbd></td>
+            <td>Create PivotTable</td>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>D</kbd> + <kbd>P</kbd></td>
+            <td>Open Data Form</td>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>D</kbd> + <kbd>R</kbd></td>
+            <td>Data Validation</td>
+        </tr>
+    </table>
+
+    <h2>File Operation Shortcuts</h2>
+    <table>
+        <tr>
+            <th>Shortcut</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>N</kbd></td>
+            <td>New workbook</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>O</kbd></td>
+            <td>Open workbook</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>S</kbd></td>
+            <td>Save workbook</td>
+        </tr>
+        <tr>
+            <td><kbd>F12</kbd></td>
+            <td>Save As</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>W</kbd></td>
+            <td>Close workbook</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>P</kbd></td>
+            <td>Print dialog</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>F2</kbd></td>
+            <td>Print preview</td>
+        </tr>
+    </table>
+
+    <h2>View Shortcuts</h2>
+    <table>
+        <tr>
+            <th>Shortcut</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>F1</kbd></td>
+            <td>Show/hide ribbon</td>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>W</kbd> + <kbd>F</kbd> + <kbd>F</kbd></td>
+            <td>Freeze/unfreeze panes</td>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>W</kbd> + <kbd>V</kbd> + <kbd>G</kbd></td>
+            <td>Show/hide gridlines</td>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>W</kbd> + <kbd>V</kbd> + <kbd>H</kbd></td>
+            <td>Show/hide headings</td>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>W</kbd> + <kbd>Q</kbd></td>
+            <td>Zoom dialog</td>
+        </tr>
+        <tr>
+            <td><kbd>Alt</kbd> + <kbd>Tab</kbd></td>
+            <td>Switch between open applications</td>
+        </tr>
+        <tr>
+            <td><kbd>Ctrl</kbd> + <kbd>Tab</kbd></td>
+            <td>Switch between open workbooks</td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        <p>Excel Mastery | Keyboard Shortcuts Cheat Sheet | Page 1 of 1</p>
+    </div>
+
+    <!-- Add script to improve PDF generation -->
+    <script>
+        // Set document title for better PDF file naming
+        document.title = "Excel_Keyboard_Shortcuts";
+        
+        // Add event listener for print dialog
+        window.addEventListener('beforeprint', function() {
+            // Any preparations before printing
+        });
+    </script>
+</body>
+</html>
