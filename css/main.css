@@ -1,0 +1,18 @@
+/* Main CSS file - imports all modules */
+
+@import 'variables.css';
+@import 'base.css';
+@import 'typography.css';
+@import 'layout.css';
+@import 'header.css';
+@import 'buttons.css';
+@import 'cards.css';
+@import 'topics.css';
+@import 'learning-path.css';
+@import 'resources.css';
+@import 'assessment.css';
+@import 'formula.css';
+@import 'footer.css';
+@import 'responsive.css';
+@import 'animations.css';
+@import 'utilities.css';

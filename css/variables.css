@@ -1,0 +1,23 @@
+/* Variables CSS */
+:root {
+    --primary-color: #2E7D32;
+    --secondary-color: #4CAF50;
+    --accent-color: #8BC34A;
+    --text-color: #333;
+    --light-text: #666;
+    --bg-color: #f9f9f9;
+    --card-bg: #fff;
+    --border-color: #e0e0e0;
+    --hover-color: #1B5E20;
+    
+    /* Learning Path Colors */
+    --beginner-color: #4CAF50;
+    --intermediate-color: #2196F3;
+    --advanced-color: #9C27B0;
+
+    /* New animation variables */
+    --transition-speed: 0.3s;
+    --hover-lift: -5px;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --card-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.15);
+}

@@ -1,88 +1,531 @@
-<h2>Data Analysis</h2>
+<style>
+    /* Static styling for data analysis module */
+    .function-list code {
+        background-color: #f5f5f5;
+        padding: 2px 5px;
+        border-radius: 3px;
+        border: 1px solid #ddd;
+        font-family: "Consolas", monospace;
+        font-size: 0.9em;
+    }
+    
+    pre {
+        background-color: #f5f5f5;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        overflow: auto;
+        font-family: "Consolas", monospace;
+        font-size: 0.9em;
+    }
+    
+    .formula-example {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    .formula-example th,
+    .formula-example td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    
+    .formula-example th {
+        background-color: #f2f2f2;
+    }
+    
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+    }
+    
+    .feature {
+        background-color: #f8f8f8;
+        border-radius: 5px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+</style>
+
+<h2>Data Analysis in Excel</h2>
 <div class="section-intro">
-    <p>Transform raw data into meaningful insights with Excel's powerful data analysis tools and techniques.</p>
+    <p>Learn how to transform raw data into meaningful insights using Excel's powerful data analysis tools and techniques. Master the art of extracting valuable information from datasets to support better decision making.</p>
 </div>
 
 <div class="topic-container">
-    <div class="topic-card" id="sorting">
-        <h3>Data Sorting and Filtering</h3>
+    <div class="topic-card" id="introduction">
+        <h3>Introduction to Data Analysis</h3>
         <div class="topic-content">
             <div class="topic-text">
-                <p>Learn how to organize, find, and analyze specific data points efficiently.</p>
-                <h4>Sorting Data</h4>
-                <ul>
-                    <li>Quick sort using column headers</li>
-                    <li>Multi-level sorts (by multiple columns)</li>
-                    <li>Custom sort orders</li>
-                    <li>Sort by color or icon</li>
-                </ul>
-                <h4>Filtering Data</h4>
-                <ul>
-                    <li>AutoFilter basics</li>
-                    <li>Text, number, and date filters</li>
-                    <li>Custom filters with multiple criteria</li>
-                    <li>Advanced Filter feature</li>
-                </ul>
-            </div>
-            <div class="topic-shortcut">
-                <h4>Sorting & Filtering Shortcuts</h4>
-                <ul>
-                    <li>Ctrl+Shift+L: Toggle AutoFilter</li>
-                    <li>Alt+↓: Open filter dropdown for selected cell</li>
-                    <li>Alt+A+S+S: Open Sort dialog</li>
-                    <li>Alt+A+C: Clear all filters</li>
-                </ul>
+                <p>Data analysis in Excel enables you to uncover patterns, trends, and insights from raw data. This foundational skill helps businesses make informed decisions and solve complex problems efficiently.</p>
+                <div class="info-box">
+                    <div class="info-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="info-content">
+                        <h4>Why Data Analysis Matters</h4>
+                        <p>Effective data analysis drives strategic decisions, improves operational efficiency, and provides competitive advantages by revealing actionable insights from complex datasets.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="topic-card" id="pivottables">
-        <h3>PivotTables and PivotCharts</h3>
+    <div class="topic-card" id="sorting-filtering">
+        <h3>Data Sorting and Filtering</h3>
         <div class="topic-content">
             <div class="topic-text">
-                <p>Master Excel's most powerful data analysis tool to summarize, analyze, and explore data in flexible ways.</p>
-                <h4>PivotTable Basics</h4>
-                <ul>
-                    <li>Creating your first PivotTable</li>
-                    <li>Understanding the PivotTable field list</li>
-                    <li>Rows, columns, values, and filters areas</li>
-                    <li>Refreshing PivotTable data</li>
-                </ul>
-                <h4>Advanced PivotTable Features</h4>
-                <ul>
-                    <li>Calculated fields and items</li>
-                    <li>Grouping data (dates, numbers, text)</li>
-                    <li>Slicers and Timelines for interactive filtering</li>
-                    <li>PivotCharts for visual data analysis</li>
-                </ul>
+                <h4>Basic Sorting</h4>
+                <p>Sorting organizes data in ascending or descending order based on one or more columns, making it easier to analyze and interpret.</p>
+                <div class="steps-container">
+                    <h4>How to Sort Data:</h4>
+                    <ol>
+                        <li>Select any cell within your data range</li>
+                        <li>Go to the Data tab and click Sort</li>
+                        <li>Choose the column to sort by and the order</li>
+                        <li>Click OK to apply the sort</li>
+                    </ol>
+                </div>
             </div>
-            <div class="topic-image">
-                <img src="https://support.content.office.net/en-us/media/e9574102-9480-42d3-8d53-730aa2264e06.png" alt="PivotTable Layout" class="responsive-img">
-                <p class="image-caption">PivotTable layout and field list</p>
+            <div class="topic-example">
+                <h4>Example: Multi-level Sorting</h4>
+                <p>Sort sales data first by Region, then by Sales Amount to analyze regional performance.</p>
+                <div class="image-placeholder">
+                    <p>[Image: Multi-level Sort Dialog Box]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="data-filtering">
+        <h3>Data Filtering</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Filtering displays only the data that meets specific criteria, helping you focus on relevant information.</p>
+                <div class="steps-container">
+                    <h4>How to Apply Filters:</h4>
+                    <ol>
+                        <li>Select your data range</li>
+                        <li>Click Data > Filter</li>
+                        <li>Use dropdown arrows in headers to set criteria</li>
+                        <li>Apply multiple filters as needed</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Use custom filters to show values above or below a threshold (e.g., sales > $1000).</p>
+                </div>
+            </div>
+            <div class="topic-example">
+                <div class="practice-task">
+                    <h4>Practice Task</h4>
+                    <p>Filter a dataset to show only sales from Q1 with values exceeding $5000.</p>
+                </div>
             </div>
         </div>
     </div>
     
-    <div class="coming-soon">
-        <h3>More Topics Coming Soon</h3>
-        <ul>
-            <li>Data Tables and What-If Analysis</li>
-            <li>Power Query for Data Transformation</li>
-            <li>Statistical Analysis Tools</li>
-            <li>Regression Analysis</li>
-        </ul>
+    <div class="topic-card" id="pivottables">
+        <h3>Understanding PivotTables</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>PivotTables summarize and analyze large datasets by allowing dynamic rearrangement of data into meaningful reports.</p>
+                <div class="info-box">
+                    <div class="info-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="info-content">
+                        <p>PivotTables save time by eliminating manual calculations and enabling quick data exploration.</p>
+                    </div>
+                </div>
+                <div class="steps-container">
+                    <h4>Creating a Basic PivotTable:</h4>
+                    <ol>
+                        <li>Select your data range</li>
+                        <li>Go to Insert > PivotTable</li>
+                        <li>Choose location (new or existing sheet)</li>
+                        <li>Drag fields to Rows, Columns, and Values areas</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="topic-image">
+                <div class="image-placeholder">
+                    <p>[Image: PivotTable Layout]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="pivottable-calculations">
+        <h3>PivotTable Calculations</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Perform calculations within PivotTables to analyze data without altering the source dataset.</p>
+            </div>
+            <div class="topic-example">
+                <h4>Available Calculations:</h4>
+                <ul>
+                    <li><strong>Sum</strong>: Adds all values</li>
+                    <li><strong>Count</strong>: Counts numeric entries</li>
+                    <li><strong>Average</strong>: Calculates mean value</li>
+                    <li><strong>Max/Min</strong>: Finds highest/lowest values</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="pivotcharts">
+        <h3>PivotCharts</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>PivotCharts provide visual representations of PivotTable data, making trends easier to spot.</p>
+                <div class="steps-container">
+                    <h4>Creating a PivotChart:</h4>
+                    <ol>
+                        <li>Create a PivotTable</li>
+                        <li>Go to Insert > PivotChart</li>
+                        <li>Select chart type (e.g., Column, Line)</li>
+                        <li>Customize with filters and formatting</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="topic-example">
+                <div class="practice-task">
+                    <h4>Practice Task</h4>
+                    <p>Create a PivotChart showing monthly sales trends by product category.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="one-variable-tables">
+        <h3>One-Variable Data Tables</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>One-variable data tables test how changing one input affects formula outputs, useful for sensitivity analysis.</p>
+                <div class="steps-container">
+                    <h4>Creating a One-Variable Data Table:</h4>
+                    <ol>
+                        <li>Set up your base formula</li>
+                        <li>List input values in a column</li>
+                        <li>Select range including formula and inputs</li>
+                        <li>Go to Data > What-If Analysis > Data Table</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Loan Payment Calculator</h4>
+                <p>Test monthly payments for different interest rates on a $10,000 loan.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="two-variable-tables">
+        <h3>Two-Variable Data Tables</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Two-variable tables analyze outcomes by varying two inputs simultaneously, such as rate and term.</p>
+                <div class="steps-container">
+                    <h4>Creating a Two-Variable Data Table:</h4>
+                    <ol>
+                        <li>Create a formula with two variables</li>
+                        <li>List row and column input values</li>
+                        <li>Select entire table range</li>
+                        <li>Go to Data > What-If Analysis > Data Table</li>
+                        <li>Specify row and column input cells</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="goal-seek">
+        <h3>Goal Seek</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Goal Seek finds the input value needed to achieve a specific formula result.</p>
+                <div class="steps-container">
+                    <h4>Using Goal Seek:</h4>
+                    <ol>
+                        <li>Go to Data > What-If Analysis > Goal Seek</li>
+                        <li>Set the cell to target value</li>
+                        <li>Specify the target value</li>
+                        <li>Choose the cell to change</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Break-Even Analysis</h4>
+                <p>Find the sales volume needed to achieve zero profit.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="scenario-manager">
+        <h3>Scenario Manager</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Scenario Manager compares multiple sets of input values to see their impact on results.</p>
+                <div class="steps-container">
+                    <h4>Creating Scenarios:</h4>
+                    <ol>
+                        <li>Go to Data > What-If Analysis > Scenario Manager</li>
+                        <li>Click Add to create a new scenario</li>
+                        <li>Specify changing cells and values</li>
+                        <li>Create multiple scenarios to compare</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <h4>Pro Tip</h4>
+                    <p>Use descriptive names for scenarios (e.g., "Best Case").</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="analysis-toolpak">
+        <h3>Enabling the Analysis ToolPak</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>The Analysis ToolPak is an Excel add-in providing advanced statistical and analytical tools.</p>
+                <div class="steps-container">
+                    <h4>How to Enable the Analysis ToolPak:</h4>
+                    <ol>
+                        <li>Go to File > Options > Add-ins</li>
+                        <li>Select Excel Add-ins and click Go</li>
+                        <li>Check Analysis ToolPak</li>
+                        <li>Click OK to enable</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="toolpak-features">
+        <h3>Key Analysis ToolPak Features</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Unlock powerful analytical capabilities with these ToolPak features.</p>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <h4>Descriptive Statistics</h4>
+                        <p>Generates summary statistics like mean, median, and standard deviation.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Regression Analysis</h4>
+                        <p>Analyzes relationships between variables with detailed outputs.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Histogram</h4>
+                        <p>Creates frequency distributions and charts.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="topic-example">
+                <h4>Example: Descriptive Statistics Analysis</h4>
+                <p>Analyze sales data to find average sales and variability across regions.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="power-query-intro">
+        <h3>Introduction to Power Query</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Power Query is Excel's data transformation tool for importing and reshaping data from various sources.</p>
+                <div class="info-box">
+                    <div class="info-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="info-content">
+                        <p>Power Query automates data cleaning and preparation, saving hours of manual work.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="data-transformations">
+        <h3>Basic Data Transformations</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Transform data to make it analysis-ready with these common operations.</p>
+                <ul>
+                    <li><strong>Filtering rows</strong>: Remove irrelevant data</li>
+                    <li><strong>Splitting columns</strong>: Separate combined data</li>
+                    <li><strong>Changing data types</strong>: Ensure correct formats</li>
+                </ul>
+            </div>
+            <div class="topic-example">
+                <h4>Example Workflow:</h4>
+                <ol>
+                    <li>Import sales data</li>
+                    <li>Filter out incomplete records</li>
+                    <li>Split "Name" into "First" and "Last"</li>
+                    <li>Convert dates to proper format</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="combining-data">
+        <h3>Combining Multiple Data Sources</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Integrate data from multiple sources for comprehensive analysis.</p>
+                <div class="steps-container">
+                    <h4>Appending Tables (Adding Rows):</h4>
+                    <ol>
+                        <li>Select Queries > Append</li>
+                        <li>Choose tables to combine</li>
+                        <li>Load the combined data</li>
+                    </ol>
+                    <h4>Merging Tables (Joining Data):</h4>
+                    <ol>
+                        <li>Select Queries > Merge</li>
+                        <li>Choose tables and key columns</li>
+                        <li>Select join type (e.g., Inner, Left)</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="data-problems">
+        <h3>Identifying Common Data Problems</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Recognize and address these frequent data quality issues.</p>
+                <ul>
+                    <li>Missing values</li>
+                    <li>Duplicate entries</li>
+                    <li>Inconsistent formatting</li>
+                    <li>Outliers</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="cleaning-functions">
+        <h3>Excel Functions for Data Cleaning</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Use these functions to clean and standardize your data.</p>
+                <div class="function-list">
+                    <div class="function">
+                        <h4>TRIM()</h4>
+                        <p>Removes extra spaces from text.</p>
+                        <code>=TRIM(A2)</code>
+                    </div>
+                    <div class="function">
+                        <h4>PROPER(), UPPER(), LOWER()</h4>
+                        <p>Standardize capitalization in text.</p>
+                        <code>=PROPER(A2)</code>
+                    </div>
+                    <div class="function">
+                        <h4>SUBSTITUTE()</h4>
+                        <p>Replaces specific text in a string.</p>
+                        <code>=SUBSTITUTE(A2,"-","")</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="duplicates">
+        <h3>Finding and Removing Duplicates</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Eliminate redundant data to ensure analysis accuracy.</p>
+                <div class="steps-container">
+                    <h4>Highlighting Duplicates:</h4>
+                    <ol>
+                        <li>Select data range</li>
+                        <li>Go to Home > Conditional Formatting</li>
+                        <li>Choose Highlight Duplicates</li>
+                        <li>Remove using Data > Remove Duplicates</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="descriptive-stats">
+        <h3>Descriptive Statistics</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Summarize dataset characteristics with these statistical measures.</p>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <h4>Central Tendency Measures</h4>
+                        <ul>
+                            <li><strong>AVERAGE</strong>: Arithmetic mean</li>
+                            <li><strong>MEDIAN</strong>: Middle value</li>
+                            <li><strong>MODE</strong>: Most frequent value</li>
+                        </ul>
+                    </div>
+                    <div class="feature">
+                        <h4>Dispersion Measures</h4>
+                        <ul>
+                            <li><strong>STDEV</strong>: Standard deviation</li>
+                            <li><strong>VAR</strong>: Variance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic-card" id="correlation">
+        <h3>Correlation Analysis</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Measure the relationship strength between two variables.</p>
+                <div class="steps-container">
+                    <h4>Using the CORREL Function:</h4>
+                    <code>=CORREL(array1, array2)</code>
+                    <p>Returns a value between -1 (negative correlation) and 1 (positive correlation); 0 indicates no correlation.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="practice-exercise" id="practice">
+<div class="practice-exercise">
     <h3>Practice Exercise: Sales Data Analysis</h3>
-    <p>Analyze a sample sales dataset to uncover trends and insights:</p>
+    <p>Apply what you've learned by analyzing a sample sales dataset:</p>
     <ol>
-        <li>Sort and filter sales data to identify top-performing products</li>
-        <li>Create a PivotTable to analyze sales by region and product category</li>
-        <li>Add calculated fields to determine profit margins</li>
-        <li>Create slicers to make the analysis interactive</li>
-        <li>Generate a PivotChart to visualize the findings</li>
+        <li>Download the sample sales data file</li>
+        <li>Clean the data using appropriate functions</li>
+        <li>Create a PivotTable showing sales by region and product</li>
+        <li>Add calculated fields for profit margin analysis</li>
+        <li>Create a What-If analysis to project sales growth scenarios</li>
+        <li>Use the Analysis ToolPak to generate descriptive statistics</li>
+        <li>Identify the top-performing products and regions</li>
+        <li>Create visualizations to communicate your findings</li>
     </ol>
-    <button class="resource-btn" id="download-sales-analysis-template">Download Practice Template</button>
+    <button class="resource-btn" id="download-analysis-template">Download Practice Dataset</button>
+</div>
+
+<div class="module-completion" id="module-completion">
+    <div class="completion-card">
+        <div class="completion-icon">
+            <i class="fas fa-trophy"></i>
+        </div>
+        <div class="completion-content">
+            <h3>Congratulations!</h3>
+            <p>You've completed the Data Analysis module. You now understand how to use Excel's powerful tools to analyze data effectively.</p>
+            <div class="next-steps">
+                <h4>Next Steps:</h4>
+                <ul>
+                    <li>Take the <a href="#" class="module-link">Data Analysis Assessment</a> to test your knowledge</li>
+                    <li>Move on to <a href="#" class="module-link">Data Visualization</a> to learn how to present your findings</li>
+                    <li>Explore <a href="#" class="module-link">Advanced Excel Features</a> for more powerful analysis techniques</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>

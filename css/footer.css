@@ -1,0 +1,63 @@
+/* Footer Styles */
+footer {
+    background: #333;
+    color: white;
+    padding: 3rem 0 1rem;
+    margin-top: 2rem;
+}
+
+footer .container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.footer-content p {
+    color: #bbb;
+    max-width: 300px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.footer-logo i {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-right: 0.5rem;
+}
+
+.footer-logo h2 {
+    color: white;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.footer-links h3 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links ul li a {
+    color: #bbb;
+}
+
+.footer-links ul li a:hover {
+    color: var(--accent-color);
+}
+
+.copyright {
+    border-top: 1px solid #444;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+}

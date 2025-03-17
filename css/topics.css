@@ -1,0 +1,448 @@
+/* Topic Section Styles */
+.topic-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.topic-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+}
+
+.topic-card:hover {
+    transform: translateY(var(--hover-lift));
+    box-shadow: var(--card-shadow-hover);
+}
+
+.topic-card h3 {
+    padding: 1.5rem;
+    background: var(--primary-color);
+    color: white;
+}
+
+.topic-content {
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .topic-content {
+        grid-template-columns: 3fr 2fr;
+    }
+}
+
+.topic-text {
+    padding-right: 1rem;
+}
+
+.topic-text h4 {
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.topic-text h4:first-child {
+    margin-top: 0;
+}
+
+.topic-text ul {
+    padding-left: 1.5rem;
+    list-style-type: disc;
+    margin-bottom: 1rem;
+}
+
+.topic-text ul li {
+    margin-bottom: 0.5rem;
+}
+
+.topic-image {
+    text-align: center;
+}
+
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.image-caption {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    margin-top: 0.5rem;
+}
+
+.topic-example, .topic-shortcut {
+    background: #f3f9f3;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.topic-example {
+    background-color: var(--light-bg-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+}
+
+.practice-exercise {
+    padding: 1.5rem;
+    background-color: var(--light-bg-color);
+    border-radius: var(--border-radius);
+    margin: 2rem 0;
+    box-shadow: var(--card-shadow);
+}
+
+.practice-exercise h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.practice-exercise:hover {
+    box-shadow: var(--card-shadow-hover);
+}
+
+.practice-exercise ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Navigation tabs for topics */
+.topic-nav {
+    margin: 2rem 0;
+}
+
+.topic-nav-list {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.topic-nav-list li {
+    list-style: none;
+}
+
+.topic-nav-list a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px 4px 0 0;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.topic-nav-list a:hover {
+    background-color: #f0f0f0;
+}
+
+.topic-nav-list a.active {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+    font-weight: 600;
+}
+
+/* Tip boxes */
+.tip-box {
+    background-color: var(--light-bg-color);
+    border-left: 4px solid var(--accent-color);
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.tip-box p {
+    margin: 0;
+}
+
+/* Interactive elements */
+.interactive-element {
+    background-color: #e3f2fd;
+    border-left: 4px solid #1565c0;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0 4px 4px 0;
+}
+
+/* Example images */
+.example-image {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+/* Keyboard shortcuts */
+kbd {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+    padding: 0.1em 0.4em;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.9em;
+}
+
+/* Step-by-step exercise layout */
+.exercise-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.step {
+    background-color: white;
+    padding: 1.25rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--light-shadow);
+}
+
+.step ul {
+    padding-left: 1.5rem;
+    margin-bottom: 0;
+}
+
+.step ul li {
+    margin-bottom: 0.5rem;
+}
+
+.step ul li:last-child {
+    margin-bottom: 0;
+}
+
+.step h4 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.resources-box {
+    margin-top: 2rem;
+    padding: 1.25rem;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--light-shadow);
+}
+
+.resources-box h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.resource-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Related topics section */
+.related-topics {
+    margin-top: 3rem;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.related-card {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+}
+
+.related-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-decoration: none;
+}
+
+.related-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.related-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.related-card p {
+    color: var(--light-text);
+    margin-bottom: 0;
+}
+
+/* Ordered and unordered list styling */
+.topic-text ol,
+.topic-example ol,
+.topic-image ol,
+.practice-exercise ol {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+    counter-reset: item;
+    list-style-position: outside;
+}
+
+.topic-text ol li,
+.topic-example ol li,
+.topic-image ol li,
+.practice-exercise ol li {
+    display: flex;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 0.5rem;
+}
+
+.topic-text ol li::before,
+.topic-example ol li::before,
+.topic-image ol li::before,
+.practice-exercise ol li::before {
+    content: counter(item) ".";
+    counter-increment: item;
+    font-weight: 600;
+    min-width: 1.5rem;
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* Nested lists */
+.topic-text ol ol,
+.topic-example ol ol,
+.topic-image ol ol,
+.practice-exercise ol ol {
+    margin: 0.5rem 0 0.5rem 1rem;
+}
+
+.topic-text ol ol li::before,
+.topic-example ol ol li::before,
+.topic-image ol ol li::before,
+.practice-exercise ol ol li::before {
+    content: counter(item, lower-alpha) ".";
+}
+
+/* Ordered lists containing complex elements like code blocks */
+.topic-text ol li pre,
+.topic-example ol li pre,
+.practice-exercise ol li pre {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+/* Ordered lists in specific containers */
+.step-by-step ol {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.steps-list {
+    list-style-type: decimal; /* Ensure numbers are displayed */
+    padding-left: 20px; /* Add some indentation for the numbers */
+}
+
+.steps-list li {
+    margin-bottom: 10px; /* Add some spacing between list items */
+    line-height: 1.5; /* Improve readability */
+}
+
+.step-by-step ol li {
+    background-color: #f5f5f5;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.step-by-step ol li::before {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+}
+
+/* Spacing for text elements */
+strong, b {
+    margin-right: 0.1rem;
+}
+
+strong + span, b + span, 
+strong + text, b + text {
+    margin-left: 0.1rem;
+}
+
+/* Ensuring proper spacing in list items */
+li strong, li b {
+    margin-right: 0.15rem;
+}
+
+/* Improved heading and text spacing */
+h4 + p, h4 + ul, h4 + ol {
+    margin-top: 0.5rem;
+}
+
+p + h4 {
+    margin-top: 1.25rem;
+}
+
+/* Code elements inside lists */
+li code {
+    margin: 0 0.2rem;
+}
+
+code {
+    background-color: var(--light-bg-color);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.9em;
+}
+
+/* Fix table styling in example sections */
+.formula-example {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.formula-example th,
+.formula-example td {
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+
+.formula-example th {
+    background-color: var(--light-bg-color);
+    font-weight: 600;
+}

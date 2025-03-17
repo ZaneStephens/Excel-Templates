@@ -1,0 +1,153 @@
+/* Typography styles */
+h1, h2, h3, h4 {
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+p strong, li strong {
+    margin: 0;
+}
+
+/* Fix for inline bold text spacing */
+strong {
+    margin: 0 0.2rem;
+    font-weight: 600;
+}
+
+/* Prevent double spacing when strong elements are adjacent to other inline elements */
+strong + i, i + strong, 
+strong + kbd, kbd + strong,
+strong + a, a + strong {
+    margin-left: 0;
+}
+
+/* First strong element in a paragraph or list item doesn't need left margin */
+p strong:first-child,
+li strong:first-child {
+    margin-left: 0;
+}
+
+/* Last strong element in a paragraph or list item doesn't need right margin */
+p strong:last-child,
+li strong:last-child {
+    margin-right: 0;
+}
+
+/* Improve spacing for keyboard shortcuts */
+kbd {
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+    color: #333;
+    display: inline-block;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.85em;
+    margin: 0 0.2rem;
+    padding: 0.2rem 0.5rem;
+    white-space: nowrap;
+}
+
+/* Improve icon spacing in text */
+p i, li i, h4 i, h3 i {
+    margin: 0 0.2rem;
+    vertical-align: middle;
+}
+
+/* First inline icon doesn't need left margin */
+p i:first-child, 
+li i:first-child, 
+h4 i:first-child, 
+h3 i:first-child {
+    margin-left: 0;
+}
+
+/* Improve spacing in ordered and unordered lists */
+ol, ul {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+ol li, ul li {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+ol li:last-child, ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* Improve heading spacing in step sections */
+.step h4 {
+    margin-bottom: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.step:first-child h4 {
+    margin-top: 0;
+}
+
+/* Pre and Code blocks */
+pre, code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+code {
+    padding: 0.1em 0.3em;
+    font-size: 0.9em;
+}
+
+pre {
+    padding: 1rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    white-space: pre-wrap;
+}
+
+/* Make interactive examples stand out more */
+pre {
+    position: relative;
+    cursor: pointer;
+}
+
+pre::after {
+    content: "Click to edit";
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    background-color: #e8f5e9;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+pre:hover::after {
+    opacity: 1;
+}

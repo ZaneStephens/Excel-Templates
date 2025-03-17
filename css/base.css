@@ -1,0 +1,40 @@
+/* Base CSS Reset and basic elements */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--hover-color);
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}

@@ -1,0 +1,125 @@
+/* Button Styles */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.primary-btn, .secondary-btn, .resource-btn, .path-btn, .assessment-btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background: var(--primary-color);
+    border: none;
+    color: white;
+}
+
+.primary-btn:hover {
+    background: var(--hover-color);
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.secondary-btn:hover {
+    background: rgba(46, 125, 50, 0.1);
+}
+
+/* Resource button styling */
+.resource-btn {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    text-align: center;
+}
+
+.resource-btn:hover {
+    background-color: var(--secondary-dark-color);
+    transform: translateY(-2px);
+}
+
+.resource-btn:active {
+    transform: translateY(0);
+}
+
+.path-btn {
+    background: var(--accent-color);
+    border: none;
+    color: white;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.path-btn:hover {
+    background: #7CB342;
+}
+
+.path-btn.path-exercise {
+    background: #FF9800;
+}
+
+.path-btn.path-exercise:hover {
+    background: #F57C00;
+}
+
+.assessment-btn {
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.assessment-btn:hover {
+    background: var(--hover-color);
+    transform: scale(1.05);
+}
+
+#start-assessment-btn {
+    transition: transform 0.3s ease;
+}
+
+#start-assessment-btn:hover {
+    transform: scale(1.05);
+}
+
+.hint-btn {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: var(--light-text);
+}
+
+.component-btn {
+    background-color: #f1f8e9;
+    border: 1px solid #c5e1a5;
+    border-radius: 4px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.component-btn:hover {
+    background-color: #dcedc8;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}

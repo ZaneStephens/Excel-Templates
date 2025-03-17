@@ -1,0 +1,122 @@
+/* Learning Path Styles */
+.learning-path-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.learning-path-level {
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.learning-path-level:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.level-header {
+    padding: 1.5rem;
+    color: white;
+    position: relative;
+}
+
+.level-header.beginner {
+    background-color: var(--beginner-color);
+}
+
+.level-header.intermediate {
+    background-color: var(--intermediate-color);
+}
+
+.level-header.advanced {
+    background-color: var(--advanced-color);
+}
+
+.level-header h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.level-indicator {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.path-content {
+    padding: 1.5rem;
+}
+
+.path-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.path-step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    transition: transform 0.2s ease;
+}
+
+.path-step:hover {
+    transform: translateX(5px);
+}
+
+.step-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--accent-color);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.path-completion {
+    margin-top: 2rem;
+    background-color: #f3f9f3;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+/* Progress indicator dots */
+.progress-dots {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.progress-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+}
+
+.progress-dot.active {
+    background-color: var(--primary-color);
+}
+
+.progress-dot.completed {
+    background-color: var(--accent-color);
+}
