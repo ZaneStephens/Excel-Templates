@@ -1,3 +1,145 @@
+<style>
+    /* Exercise steps styling */
+    .practice-exercise {
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        padding: 25px;
+        margin: 30px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .practice-exercise h3 {
+        color: var(--accent-color);
+        margin-top: 0;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #eaeaea;
+        margin-bottom: 20px;
+        font-size: 1.4em;
+    }
+
+    .exercise-steps {
+        margin: 25px 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .step-group {
+        background-color: white;
+        border-radius: 6px;
+        padding: 15px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        position: relative;
+        padding-top: 40px;
+    }
+
+    .step-number {
+        background-color: var(--accent-color);
+        color: white;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.1em;
+        position: absolute;
+        top: -18px;
+        left: 15px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .step-content {
+        flex: 1;
+    }
+
+    .step-content p:first-child {
+        font-weight: bold;
+        color: #333;
+        margin-top: 0;
+        margin-bottom: 12px;
+        font-size: 1.05em;
+    }
+
+    .step-content p {
+        margin-top: 0;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+
+    .step-content ul {
+        margin-top: 8px;
+        padding-left: 20px;
+    }
+
+    .step-content li {
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+
+    .tip-box {
+        background-color: #f3f9f3;
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 4px solid var(--accent-color);
+        margin: 25px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .tip-box h4 {
+        margin-top: 0;
+        color: var(--accent-color);
+        font-size: 1.1em;
+    }
+
+    .csv-import-tips {
+        background-color: #fff8e1;
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 4px solid #ffc107;
+        margin: 25px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .csv-import-tips h4 {
+        margin-top: 0;
+        color: #ff8f00;
+        font-size: 1.1em;
+    }
+
+    .resource-btn {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 15px;
+        transition: background-color 0.2s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .resource-btn:hover {
+        background-color: var(--accent-hover-color, #2e7d32);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+
+    @media (max-width: 768px) {
+        .exercise-steps {
+            grid-template-columns: 1fr;
+        }
+
+        .practice-exercise {
+            padding: 20px 15px;
+        }
+    }
+</style>
+
 <h2>Advanced Excel Features</h2>
 <div class="section-intro">
     <p>Take your Excel skills to expert level with these advanced features and techniques that will transform your productivity and analytical capabilities. These tools represent Excel at its most powerful and can turn spreadsheets into sophisticated business solutions.</p>
@@ -44,7 +186,7 @@
                     <li>Enter values in "Source" (e.g., "Red,Green,Blue")</li>
                     <li>Click OK</li>
                 </ol>
-                
+
                 <h4>Custom Formula Validation</h4>
                 <p>Advanced data validation with formula:</p>
                 <pre>=AND(LEN(A1)>=5, ISNUMBER(SEARCH("XYZ",A1)))</pre>
@@ -92,14 +234,14 @@
                 <pre>Sub FormatSalesData()
     ' Select the data range
     Range("A1:E20").Select
-    
+
     ' Apply formatting
     With Selection
         .Font.Bold = True
         .Interior.Color = RGB(220, 230, 241)
         .Borders.LineStyle = xlContinuous
     End With
-    
+
     ' Sort by sales column descending
     Range("A1:E20").Sort Key1:=Range("C1"), _
         Order1:=xlDescending, Header:=xlYes
@@ -109,7 +251,7 @@ End Sub</pre>
             </div>
         </div>
     </div>
-    
+
     <div class="topic-card" id="powertools">
         <h3>Power Tools for Excel</h3>
         <div class="topic-content">
@@ -149,13 +291,13 @@ End Sub</pre>
                 <h4>DAX Measure Example</h4>
                 <pre>Total Sales = SUM(Sales[Amount])
 
-Sales YTD = 
+Sales YTD =
 CALCULATE(
     [Total Sales],
     DATESYTD(Calendar[Date])
 )
 
-Sales % Growth = 
+Sales % Growth =
 DIVIDE(
     [Total Sales] - [Total Sales LY],
     [Total Sales LY],
@@ -166,7 +308,7 @@ DIVIDE(
             </div>
         </div>
     </div>
-    
+
     <div class="topic-card" id="whatif">
         <h3>What-If Analysis Tools</h3>
         <div class="topic-content">
@@ -242,7 +384,7 @@ DIVIDE(
             </div>
         </div>
     </div>
-    
+
     <div class="topic-card" id="advanced-formatting">
         <h3>Advanced Formatting Techniques</h3>
         <div class="topic-content">
@@ -302,14 +444,14 @@ DIVIDE(
                         <td>€1,234.56</td>
                     </tr>
                 </table>
-                
+
                 <h4>Advanced Conditional Format Formula</h4>
                 <pre>=AND($B2>AVERAGE($B$2:$B$100), $C2="Complete")</pre>
                 <p>This highlights rows where value in column B is above average and status in column C is "Complete".</p>
             </div>
         </div>
     </div>
-    
+
     <div class="topic-card" id="advanced-charts">
         <h3>Advanced Charting Techniques</h3>
         <div class="topic-content">
@@ -351,14 +493,14 @@ DIVIDE(
                 <h4>Dynamic Chart Range Formula</h4>
                 <pre>=OFFSET(Sheet1!$A$1,0,0,COUNTA(Sheet1!$A:$A),3)</pre>
                 <p>This formula creates a dynamic range that automatically expands as data is added, perfect for charts that need to update when new data arrives.</p>
-                
+
                 <h4>Custom Data Label Formula</h4>
                 <pre>=IF(Sheet1!$C2>100,CONCATENATE(Sheet1!$B2," (",TEXT(Sheet1!$C2,"0.0%"),")"),"Below Target")</pre>
                 <p>This creates conditional data labels that show the name and percentage for values over 100, or "Below Target" for others.</p>
             </div>
         </div>
     </div>
-    
+
     <div class="topic-card" id="performance">
         <h3>Excel Performance Optimization</h3>
         <div class="topic-content">
@@ -417,7 +559,7 @@ DIVIDE(
                         <td>Single column with XLOOKUP or INDEX/MATCH</td>
                     </tr>
                 </table>
-                
+
                 <h4>Best Practices for Large Workbooks</h4>
                 <ul>
                     <li>Limit data to used ranges only</li>
@@ -433,18 +575,152 @@ DIVIDE(
 
 <div class="practice-exercise" id="practice">
     <h3>Practice Exercise: Business Dashboard Project</h3>
-    <p>Build a comprehensive business dashboard with advanced Excel features:</p>
-    <ol>
-        <li>Create a data entry form with validation and dropdown lists</li>
-        <li>Import and transform data using Power Query</li>
-        <li>Build a data model with relationships between tables</li>
-        <li>Create interactive dashboard elements with form controls</li>
-        <li>Add dynamic charts that update automatically</li>
-        <li>Implement what-if analysis tools for business scenarios</li>
-        <li>Add custom conditional formatting to highlight key metrics</li>
-        <li>Create a simple macro to automate dashboard refresh</li>
-        <li>Optimize the workbook for performance</li>
-        <li>Add documentation and user instructions</li>
-    </ol>
-    <button class="resource-btn" id="download-advanced-template">Download Project Template</button>
+    <p>Build a comprehensive business dashboard with advanced Excel features using the provided CSV file:</p>
+
+    <div class="exercise-steps">
+        <div class="step-group">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <p>Download the CSV file</p>
+                <p>Download the "dashboard_project.csv" file from the button below to get started with this exercise.</p>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <p>Import and transform the data with Power Query</p>
+                <ul>
+                    <li>Go to Data tab > Get Data > From File > From Text/CSV</li>
+                    <li>Select the downloaded CSV file</li>
+                    <li>Click "Transform Data" instead of "Load" to open Power Query Editor</li>
+                    <li>Clean the data: ensure proper data types, remove any errors</li>
+                    <li>Create calculated columns for Year and Month from the Date column</li>
+                    <li>Add a Profit Margin column (Profit/Sales Amount)</li>
+                    <li>Load the transformed data to your workbook</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <p>Create a data entry form with validation</p>
+                <ul>
+                    <li>Create a new worksheet named "Data Entry"</li>
+                    <li>Design a form with fields matching your data structure</li>
+                    <li>Add dropdown lists for Region, Product Category, and Sales Rep</li>
+                    <li>Set up data validation rules for numeric fields</li>
+                    <li>Create a simple macro to add the form data to your main dataset</li>
+                    <li>Add a clear form button with VBA</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">4</div>
+            <div class="step-content">
+                <p>Build a data model with relationships</p>
+                <ul>
+                    <li>Create additional tables for Products, Regions, and Sales Reps</li>
+                    <li>Go to Power Pivot tab > Manage</li>
+                    <li>Add these tables to the data model</li>
+                    <li>Create relationships between tables</li>
+                    <li>Add calculated columns and measures using DAX formulas</li>
+                    <li>Create a calendar table for time intelligence functions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">5</div>
+            <div class="step-content">
+                <p>Create a dashboard worksheet</p>
+                <ul>
+                    <li>Design a layout with sections for KPIs, charts, and tables</li>
+                    <li>Add PivotTables connected to your data model</li>
+                    <li>Create dynamic charts that update with the data</li>
+                    <li>Add form controls (dropdown lists, option buttons) for filtering</li>
+                    <li>Link the controls to your PivotTables using VBA or INDIRECT functions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">6</div>
+            <div class="step-content">
+                <p>Implement what-if analysis tools</p>
+                <ul>
+                    <li>Create a scenario manager for different business projections</li>
+                    <li>Add a data table to analyze variable impacts</li>
+                    <li>Set up Goal Seek for target-based calculations</li>
+                    <li>Create input cells for user-adjustable parameters</li>
+                    <li>Link these tools to your dashboard visualizations</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">7</div>
+            <div class="step-content">
+                <p>Add advanced conditional formatting</p>
+                <ul>
+                    <li>Create custom conditional formatting rules using formulas</li>
+                    <li>Add data bars and color scales to numeric values</li>
+                    <li>Use icon sets for KPI indicators</li>
+                    <li>Highlight exceptions and outliers automatically</li>
+                    <li>Create a dynamic heat map for performance metrics</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">8</div>
+            <div class="step-content">
+                <p>Create automation macros</p>
+                <ul>
+                    <li>Record a macro to refresh all data connections</li>
+                    <li>Write a VBA procedure to export the dashboard as PDF</li>
+                    <li>Create a macro to reset all filters to default values</li>
+                    <li>Add buttons to run these macros</li>
+                    <li>Set up keyboard shortcuts for common actions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">9</div>
+            <div class="step-content">
+                <p>Optimize for performance</p>
+                <ul>
+                    <li>Review and optimize formulas for efficiency</li>
+                    <li>Minimize volatile functions (NOW, TODAY, OFFSET, etc.)</li>
+                    <li>Convert formulas to values where appropriate</li>
+                    <li>Set calculation options to Manual for large workbooks</li>
+                    <li>Remove unnecessary formatting and styles</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">10</div>
+            <div class="step-content">
+                <p>Add documentation and protection</p>
+                <ul>
+                    <li>Create a "ReadMe" worksheet with instructions</li>
+                    <li>Add comments to complex formulas and macros</li>
+                    <li>Protect worksheets and VBA code</li>
+                    <li>Create a change log to track modifications</li>
+                    <li>Test the dashboard with sample scenarios</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="csv-import-tips">
+        <h4>Advanced Excel Tips</h4>
+        <p>When working with large datasets, use Power Query to perform data transformations instead of formulas in the worksheet. This approach is more efficient and creates a repeatable process that can be refreshed when data changes.</p>
+    </div>
+
+    <a href="../resources/templates/dashboard_project.csv" class="resource-btn" download>Download CSV Dataset</a>
 </div>

@@ -1,3 +1,145 @@
+<style>
+    /* Exercise steps styling */
+    .practice-exercise {
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        padding: 25px;
+        margin: 30px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .practice-exercise h3 {
+        color: var(--accent-color);
+        margin-top: 0;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #eaeaea;
+        margin-bottom: 20px;
+        font-size: 1.4em;
+    }
+
+    .exercise-steps {
+        margin: 25px 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .step-group {
+        background-color: white;
+        border-radius: 6px;
+        padding: 15px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        position: relative;
+        padding-top: 40px;
+    }
+
+    .step-number {
+        background-color: var(--accent-color);
+        color: white;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.1em;
+        position: absolute;
+        top: -18px;
+        left: 15px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .step-content {
+        flex: 1;
+    }
+
+    .step-content p:first-child {
+        font-weight: bold;
+        color: #333;
+        margin-top: 0;
+        margin-bottom: 12px;
+        font-size: 1.05em;
+    }
+
+    .step-content p {
+        margin-top: 0;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+
+    .step-content ul {
+        margin-top: 8px;
+        padding-left: 20px;
+    }
+
+    .step-content li {
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+
+    .tip-box {
+        background-color: #f3f9f3;
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 4px solid var(--accent-color);
+        margin: 25px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .tip-box h4 {
+        margin-top: 0;
+        color: var(--accent-color);
+        font-size: 1.1em;
+    }
+
+    .csv-import-tips {
+        background-color: #fff8e1;
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 4px solid #ffc107;
+        margin: 25px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .csv-import-tips h4 {
+        margin-top: 0;
+        color: #ff8f00;
+        font-size: 1.1em;
+    }
+
+    .resource-btn {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 15px;
+        transition: background-color 0.2s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .resource-btn:hover {
+        background-color: var(--accent-hover-color, #2e7d32);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+
+    @media (max-width: 768px) {
+        .exercise-steps {
+            grid-template-columns: 1fr;
+        }
+
+        .practice-exercise {
+            padding: 20px 15px;
+        }
+    }
+</style>
+
 <h2>Data Visualization</h2>
 <div class="section-intro">
     <p>Learn how to transform your Excel data into compelling visual stories using charts, graphs, and advanced visualization techniques that communicate insights effectively and drive better decision-making.</p>
@@ -71,7 +213,7 @@
                         <td>Test scores, Age distribution</td>
                     </tr>
                 </table>
-                
+
                 <div class="steps-container">
                     <h4>Creating Your First Chart:</h4>
                     <ol>
@@ -82,12 +224,12 @@
                         <li>Use Chart Design and Format tabs to customize</li>
                     </ol>
                 </div>
-                
+
                 <div class="info-box">
                     <h4>Best Practice:</h4>
                     <p>Before creating a chart, organize your data with clear row and column labels. Place categories in rows and series in columns for best results. If your data isn't charting correctly, you might need to transpose it (Paste Special > Transpose).</p>
                 </div>
-                
+
                 <img src="https://support.content.office.net/en-us/media/0dd0fefd-b380-441b-acf6-7227f7128fca.png" alt="Excel Chart Types" class="responsive-img">
                 <p class="image-caption">Common Excel chart types and their appropriate uses</p>
             </div>
@@ -131,7 +273,7 @@
             </div>
             <div class="topic-example">
                 <h4>Chart Formatting Example: Sales Performance</h4>
-                
+
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
                     <div>
                         <h5>Before Formatting</h5>
@@ -144,7 +286,7 @@
                         <p><strong>Improvements:</strong> Descriptive title, labeled axes, custom colors, reduced gridlines, highlighted Q4 data, cleaner legend</p>
                     </div>
                 </div>
-                
+
                 <div class="steps-container">
                     <h4>Essential Formatting Steps:</h4>
                     <ol>
@@ -165,7 +307,7 @@
                         </li>
                     </ol>
                 </div>
-                
+
                 <div class="tip-box">
                     <h4>Chart Design Best Practices</h4>
                     <ul>
@@ -181,7 +323,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="topic-card" id="column-bar">
         <h3>Column and Bar Charts</h3>
         <div class="topic-content">
@@ -220,13 +362,13 @@
             <div class="topic-example">
                 <h4>Regional Sales Comparison</h4>
                 <p>A clustered column chart showing quarterly sales by region:</p>
-                
+
                 <img src="https://support.content.office.net/en-us/media/dc646301-c653-44b2-9a7d-4b62c3b24e35.png" alt="Column Chart Example" class="responsive-img">
                 <p class="image-caption">Clustered column chart comparing regional performance by quarter</p>
-                
+
                 <h4>Customer Satisfaction Rankings</h4>
                 <p>A sorted bar chart showing product ratings (best for many categories):</p>
-                
+
                 <div class="steps-container">
                     <h4>Creating an Effective Bar Chart:</h4>
                     <ol>
@@ -238,7 +380,7 @@
                         <li>Add custom colors based on performance thresholds</li>
                     </ol>
                 </div>
-                
+
                 <div class="tip-box">
                     <h4>Pro Tip: Creating In-Cell Bar Charts</h4>
                     <p>For a simple visual in a table, use conditional formatting with data bars:</p>
@@ -293,10 +435,10 @@
             </div>
             <div class="topic-example">
                 <h4>Monthly Sales Trend Analysis</h4>
-                
+
                 <img src="https://support.content.office.net/en-us/media/2976c1fd-7086-4953-80e6-32ecae59c923.png" alt="Line Chart Example" class="responsive-img">
                 <p class="image-caption">Line chart showing sales performance trends across product categories</p>
-                
+
                 <div class="steps-container">
                     <h4>Creating an Effective Line Chart:</h4>
                     <ol>
@@ -308,7 +450,7 @@
                         <li>Highlight important points with data labels (select specific points only)</li>
                     </ol>
                 </div>
-                
+
                 <div class="info-box">
                     <h4>When to Use Area vs. Line Charts</h4>
                     <p><strong>Use Line Charts when:</strong></p>
@@ -324,7 +466,7 @@
                         <li>Comparing cumulative totals across categories</li>
                     </ul>
                 </div>
-                
+
                 <div class="tip-box">
                     <h4>Pro Tip: Sparklines - Mini Line Charts</h4>
                     <p>For compact trend visualization in tables, use Sparklines:</p>
@@ -378,7 +520,7 @@
             </div>
             <div class="topic-example">
                 <h4>Budget Allocation Visualization</h4>
-                
+
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
                     <div>
                         <h5>Standard Pie Chart</h5>
@@ -391,7 +533,7 @@
                         <p><strong>Improved version:</strong> Clear percentage labels, exploded key slice, consistent color theme</p>
                     </div>
                 </div>
-                
+
                 <div class="steps-container">
                     <h4>Creating an Effective Pie Chart:</h4>
                     <ol>
@@ -403,7 +545,7 @@
                         <li>Sort data before creating chart for better organization</li>
                     </ol>
                 </div>
-                
+
                 <div class="tip-box">
                     <h4>Pro Tip: Handling Small Slices</h4>
                     <p>When dealing with many small categories:</p>
@@ -457,10 +599,10 @@
             </div>
             <div class="topic-example">
                 <h4>Product Portfolio Analysis</h4>
-                
+
                 <img src="https://support.content.office.net/en-us/media/b8c83765-6a03-4a44-973a-a94f941f1e5b.png" alt="Bubble Chart Example" class="responsive-img">
                 <p class="image-caption">Bubble chart showing product performance: X-axis = Market Share, Y-axis = Profit Margin, Bubble Size = Revenue</p>
-                
+
                 <div class="steps-container">
                     <h4>Creating an Effective Scatter Chart:</h4>
                     <ol>
@@ -472,7 +614,7 @@
                         <li>Consider adding data labels for key points only</li>
                     </ol>
                 </div>
-                
+
                 <div class="info-box">
                     <h4>Correlation Analysis with Scatter Charts</h4>
                     <p>Scatter charts help identify four types of relationships:</p>
@@ -484,7 +626,7 @@
                     </ul>
                     <p>Add statistical trendlines (linear, exponential, logarithmic, polynomial) to quantify these relationships.</p>
                 </div>
-                
+
                 <div class="tip-box">
                     <h4>Bubble Chart Data Structure</h4>
                     <p>For bubble charts, organize your data in three columns:</p>
@@ -535,10 +677,10 @@
             </div>
             <div class="topic-example">
                 <h4>Waterfall Chart Example: Profit Analysis</h4>
-                
+
                 <img src="https://support.content.office.net/en-us/media/dc646301-c653-44b2-9a7d-4b62c3b24e35.png" alt="Advanced Excel Charts" class="responsive-img">
                 <p class="image-caption">Waterfall chart showing how various factors contribute to final profit</p>
-                
+
                 <div class="steps-container">
                     <h4>Creating a Waterfall Chart:</h4>
                     <ol>
@@ -550,7 +692,7 @@
                         <li>Add data labels to show values clearly</li>
                     </ol>
                 </div>
-                
+
                 <h4>Dynamic Chart with Form Controls</h4>
                 <div class="info-box">
                     <h4>Creating Interactive Charts</h4>
@@ -564,7 +706,7 @@
                     </ol>
                     <p>Now users can interact with your visualization by selecting different options from the dropdown!</p>
                 </div>
-                
+
                 <div class="tip-box">
                     <h4>Pro Tip: Creating Small Multiples</h4>
                     <p>Small multiples (multiple charts with the same scale) are powerful for comparisons:</p>
@@ -621,10 +763,10 @@
             </div>
             <div class="topic-example">
                 <h4>Sales Performance Dashboard</h4>
-                
+
                 <img src="https://support.content.office.net/en-us/media/1a66d903-f259-46ae-9067-6642ccd78999.png" alt="Excel Dashboard Example" class="responsive-img">
                 <p class="image-caption">Interactive sales dashboard with multiple visualizations and slicers</p>
-                
+
                 <div class="steps-container">
                     <h4>Building an Interactive Dashboard:</h4>
                     <ol>
@@ -660,7 +802,7 @@
                         </li>
                     </ol>
                 </div>
-                
+
                 <div class="tip-box">
                     <h4>Dashboard Best Practices</h4>
                     <ul>
@@ -720,7 +862,7 @@
             </div>
             <div class="topic-example">
                 <h4>Before and After: Visualization Improvement</h4>
-                
+
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
                     <div>
                         <h5>Poor Visualization</h5>
@@ -733,7 +875,7 @@
                         <p><strong>Improvements:</strong> Bar chart for many categories, sorted by value, direct labels, highlighted top categories, clear title with insight</p>
                     </div>
                 </div>
-                
+
                 <div class="info-box">
                     <h4>Color Selection Guide</h4>
                     <p>Choose colors strategically for your visualizations:</p>
@@ -745,7 +887,7 @@
                     </ul>
                     <p>Consider using your organization's brand colors as a starting point, but ensure they provide sufficient contrast.</p>
                 </div>
-                
+
                 <div class="tip-box">
                     <h4>Chart Evaluation Checklist</h4>
                     <p>Before finalizing your visualization, ask these questions:</p>
@@ -763,7 +905,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="topic-card" id="export-sharing">
         <h3>Exporting and Sharing Visualizations</h3>
         <div class="topic-content">
@@ -805,7 +947,7 @@
             </div>
             <div class="topic-example">
                 <h4>Chart Export Methods</h4>
-                
+
                 <div class="steps-container">
                     <h4>Exporting as an Image:</h4>
                     <ol>
@@ -815,7 +957,7 @@
                         <li>Select location and filename</li>
                         <li>Click Save</li>
                     </ol>
-                    
+
                     <h4>Copying to PowerPoint:</h4>
                     <ol>
                         <li>Select the chart</li>
@@ -829,7 +971,7 @@
                             </ul>
                         </li>
                     </ol>
-                    
+
                     <h4>Creating a PDF of Visualizations:</h4>
                     <ol>
                         <li>Arrange charts on a worksheet for presentation</li>
@@ -838,7 +980,7 @@
                         <li>Click Publish</li>
                     </ol>
                 </div>
-                
+
                 <div class="info-box">
                     <h4>Sharing Interactive Dashboards</h4>
                     <p>To share fully interactive dashboards:</p>
@@ -850,7 +992,7 @@
                     </ul>
                     <p>Remember to protect any sensitive data and provide clear instructions for interactive elements.</p>
                 </div>
-                
+
                 <div class="tip-box">
                     <h4>Pro Tip: Camera Tool for Visualization Export</h4>
                     <p>Excel's Camera tool creates a linked picture of any range that updates automatically:</p>
@@ -870,18 +1012,148 @@
 
 <div class="practice-exercise" id="practice">
     <h3>Practice Exercise: Sales Dashboard</h3>
-    <p>Create a comprehensive sales dashboard with multiple visualizations:</p>
-    <ol>
-        <li>Design a column chart showing monthly sales trends</li>
-        <li>Add a pie chart displaying sales by product category</li>
-        <li>Create a bar chart comparing sales by region</li>
-        <li>Implement a combo chart with sales and profit margin</li>
-        <li>Add a scatter chart showing product price vs. units sold</li>
-        <li>Include a KPI section with summary metrics</li>
-        <li>Add slicers to make the dashboard interactive</li>
-        <li>Apply consistent formatting and branding to all charts</li>
-        <li>Create dynamic titles that update with slicer selections</li>
-        <li>Organize all elements in a clean, logical layout</li>
-    </ol>
-    <button class="resource-btn" id="download-dashboard-template">Download Practice Template</button>
+    <p>Create a comprehensive sales dashboard with multiple visualizations using the provided CSV file:</p>
+
+    <div class="exercise-steps">
+        <div class="step-group">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <p>Download the CSV file</p>
+                <p>Download the "dashboard_project.csv" file from the button below to get started with this exercise.</p>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <p>Import the CSV file into Excel</p>
+                <ul>
+                    <li>Open Excel and create a new workbook</li>
+                    <li>Go to Data tab > Get Data > From File > From Text/CSV</li>
+                    <li>Browse to the downloaded CSV file and select it</li>
+                    <li>In the preview window, ensure data types are detected correctly</li>
+                    <li>Click "Load" to import the data</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <p>Prepare the data</p>
+                <ul>
+                    <li>Convert the data to an Excel Table (Ctrl+T)</li>
+                    <li>Format the Date column as a date</li>
+                    <li>Format the Sales Amount, Profit, Target, and Previous Year Sales columns as currency</li>
+                    <li>Create a new sheet named "Dashboard" where you'll build your visualizations</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">4</div>
+            <div class="step-content">
+                <p>Create a monthly sales trend chart</p>
+                <ul>
+                    <li>Insert a PivotTable based on your data table</li>
+                    <li>Add Date to Rows (group by Month)</li>
+                    <li>Add Sales Amount to Values</li>
+                    <li>Create a column chart from this PivotTable</li>
+                    <li>Add a trendline to show the overall direction</li>
+                    <li>Format the chart with appropriate titles and labels</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">5</div>
+            <div class="step-content">
+                <p>Create a product category breakdown</p>
+                <ul>
+                    <li>Insert another PivotTable</li>
+                    <li>Add Product Category to Rows</li>
+                    <li>Add Sales Amount to Values</li>
+                    <li>Create a pie or doughnut chart</li>
+                    <li>Add data labels showing category name and percentage</li>
+                    <li>Format with appropriate colors and legend</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">6</div>
+            <div class="step-content">
+                <p>Create a regional comparison chart</p>
+                <ul>
+                    <li>Create a PivotTable with Region in Rows</li>
+                    <li>Add Sales Amount and Target to Values</li>
+                    <li>Create a bar chart comparing actual sales to targets by region</li>
+                    <li>Sort the chart from highest to lowest sales</li>
+                    <li>Add data labels and appropriate formatting</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">7</div>
+            <div class="step-content">
+                <p>Create a performance analysis chart</p>
+                <ul>
+                    <li>Create a PivotTable with Product Category in Rows</li>
+                    <li>Add Sales Amount and Profit to Values</li>
+                    <li>Calculate profit margin as a calculated field (Profit/Sales Amount)</li>
+                    <li>Create a combo chart with columns for sales and line for profit margin</li>
+                    <li>Add a secondary axis for the profit margin</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">8</div>
+            <div class="step-content">
+                <p>Create a scatter chart for product analysis</p>
+                <ul>
+                    <li>Create a PivotTable with Product in Rows</li>
+                    <li>Add Sales Amount and Units Sold to Values</li>
+                    <li>Create a scatter chart showing the relationship between units sold and sales amount</li>
+                    <li>Format the markers by product category (if possible)</li>
+                    <li>Add a trendline to show the correlation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">9</div>
+            <div class="step-content">
+                <p>Add KPI summary cards</p>
+                <ul>
+                    <li>Create a section at the top of your dashboard for key metrics</li>
+                    <li>Add total sales, total profit, average profit margin, and sales vs. target</li>
+                    <li>Use formulas to calculate these metrics from your data</li>
+                    <li>Format with appropriate icons or conditional formatting</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">10</div>
+            <div class="step-content">
+                <p>Make the dashboard interactive</p>
+                <ul>
+                    <li>Add slicers for Region, Product Category, and Sales Rep</li>
+                    <li>Connect all PivotTables to these slicers</li>
+                    <li>Create dynamic titles that update based on slicer selections</li>
+                    <li>Arrange all elements in a clean, logical layout</li>
+                    <li>Apply consistent formatting and colors to all charts</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="csv-import-tips">
+        <h4>Dashboard Design Tips</h4>
+        <p>Place your most important KPIs and charts at the top left of the dashboard, as this is where users look first. Use a consistent color scheme throughout, and limit your palette to 3-5 colors for a professional look.</p>
+    </div>
+
+    <a href="../resources/templates/dashboard_project.csv" class="resource-btn" download>Download CSV Dataset</a>
 </div>

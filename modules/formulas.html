@@ -8,7 +8,7 @@
         font-family: "Consolas", monospace;
         font-size: 0.9em;
     }
-    
+
     /* Better code block styling */
     pre {
         background-color: #f5f5f5;
@@ -19,22 +19,162 @@
         font-family: "Consolas", monospace;
         font-size: 0.9em;
     }
-    
+
     /* Table styling improvements */
     .formula-example {
         border-collapse: collapse;
         width: 100%;
     }
-    
+
     .formula-example th,
     .formula-example td {
         border: 1px solid #ddd;
         padding: 8px;
         text-align: left;
     }
-    
+
     .formula-example th {
         background-color: #f2f2f2;
+    }
+
+    /* Exercise steps styling */
+    .practice-exercise {
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        padding: 25px;
+        margin: 30px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .practice-exercise h3 {
+        color: var(--accent-color);
+        margin-top: 0;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #eaeaea;
+        margin-bottom: 20px;
+        font-size: 1.4em;
+    }
+
+    .exercise-steps {
+        margin: 25px 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .step-group {
+        background-color: white;
+        border-radius: 6px;
+        padding: 15px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        position: relative;
+        padding-top: 40px;
+    }
+
+    .step-number {
+        background-color: var(--accent-color);
+        color: white;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.1em;
+        position: absolute;
+        top: -18px;
+        left: 15px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .step-content {
+        flex: 1;
+    }
+
+    .step-content p:first-child {
+        font-weight: bold;
+        color: #333;
+        margin-top: 0;
+        margin-bottom: 12px;
+        font-size: 1.05em;
+    }
+
+    .step-content p {
+        margin-top: 0;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+
+    .step-content ul {
+        margin-top: 8px;
+        padding-left: 20px;
+    }
+
+    .step-content li {
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+
+    .tip-box {
+        background-color: #f3f9f3;
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 4px solid var(--accent-color);
+        margin: 25px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .tip-box h4 {
+        margin-top: 0;
+        color: var(--accent-color);
+        font-size: 1.1em;
+    }
+
+    .csv-import-tips {
+        background-color: #fff8e1;
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 4px solid #ffc107;
+        margin: 25px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .csv-import-tips h4 {
+        margin-top: 0;
+        color: #ff8f00;
+        font-size: 1.1em;
+    }
+
+    .resource-btn {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 15px;
+        transition: background-color 0.2s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .resource-btn:hover {
+        background-color: var(--accent-hover-color, #2e7d32);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+
+    @media (max-width: 768px) {
+        .exercise-steps {
+            grid-template-columns: 1fr;
+        }
+
+        .practice-exercise {
+            padding: 20px 15px;
+        }
     }
 </style>
 
@@ -115,7 +255,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="topic-card" id="formula-errors">
         <h3>Understanding Formula Errors</h3>
         <div class="topic-content">
@@ -165,7 +305,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="topic-card" id="formula-debugging">
         <h3>Formula Debugging and Auditing</h3>
         <div class="topic-content">
@@ -195,7 +335,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="topic-card" id="mathematical">
         <h3>Mathematical Functions</h3>
         <div class="topic-content">
@@ -255,7 +395,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="topic-card" id="statistical">
         <h3>Statistical Functions</h3>
         <div class="topic-content">
@@ -314,7 +454,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="topic-card" id="logical">
         <h3>Logical Functions</h3>
         <div class="topic-content">
@@ -341,23 +481,23 @@
                 <h4>IF Function Examples</h4>
                 <p>Basic IF statement: <code>=IF(A1>70, "Pass", "Fail")</code></p>
                 <p>Nested IF for grades:</p>
-                <pre>=IF(A1>=90, "A", 
-   IF(A1>=80, "B", 
-      IF(A1>=70, "C", 
+                <pre>=IF(A1>=90, "A",
+   IF(A1>=80, "B",
+      IF(A1>=70, "C",
          IF(A1>=60, "D", "F"))))</pre>
                 <p>Using IFS (modern alternative):</p>
                 <pre>=IFS(
    A1>=90, "A",
-   A1>=80, "B", 
-   A1>=70, "C", 
-   A1>=60, "D", 
+   A1>=80, "B",
+   A1>=70, "C",
+   A1>=60, "D",
    TRUE, "F")</pre>
                 <p>Combining logical functions:</p>
                 <pre>=IF(AND(A1>=60, B1="Complete"), "Passed", "Review Required")</pre>
             </div>
         </div>
     </div>
-    
+
     <div class="topic-card" id="text">
         <h3>Text Functions</h3>
         <div class="topic-content">
@@ -509,17 +649,17 @@
             </div>
             <div class="topic-example">
                 <h4>VLOOKUP Syntax</h4>
-                <pre>=VLOOKUP(lookup_value, table_array, 
+                <pre>=VLOOKUP(lookup_value, table_array,
     col_index_num, [range_lookup])</pre>
                 <p>Example: Find an employee's department based on their ID</p>
                 <pre>=VLOOKUP(A2, $D$2:$F$20, 2, FALSE)</pre>
                 <p>Where A2 contains the employee ID to look up, and columns D-F contain employee data.</p>
-                
+
                 <h4>INDEX-MATCH Alternative</h4>
                 <pre>=INDEX(result_range, MATCH(lookup_value, lookup_range, 0))</pre>
                 <p>Example: Same lookup as above with INDEX-MATCH</p>
                 <pre>=INDEX($E$2:$E$20, MATCH(A2, $D$2:$D$20, 0))</pre>
-                
+
                 <h4>XLOOKUP (Modern)</h4>
                 <pre>=XLOOKUP(lookup_value, lookup_array, return_array, [not_found], [match_mode], [search_mode])</pre>
                 <p>Example: Same lookup with XLOOKUP</p>
@@ -557,12 +697,12 @@
                 <p>Calculate monthly payment on a $250,000 mortgage at 4.5% annual interest over 30 years:</p>
                 <pre>=PMT(4.5%/12, 30*12, 250000)</pre>
                 <p>Result: -$1,266.71 (negative indicates payment outflow)</p>
-                
+
                 <h4>Investment Example</h4>
                 <p>Calculate future value of $5,000 invested for 10 years at 7% annual return:</p>
                 <pre>=FV(7%/12, 10*12, 0, -5000)</pre>
                 <p>Result: $9,835.76 (positive indicates investment growth)</p>
-                
+
                 <p><strong>Note:</strong> In financial functions, money you pay out (like an investment) is represented by negative numbers, and money you receive is positive.</p>
             </div>
         </div>
@@ -597,16 +737,16 @@
                 <h4>Dynamic Array Examples</h4>
                 <p>Extract all Sales above $1000:</p>
                 <pre>=FILTER(B2:B20, C2:C20>1000, "No matches")</pre>
-                
+
                 <p>Extract unique product categories:</p>
                 <pre>=UNIQUE(D2:D100)</pre>
-                
+
                 <p>Sort products by price (high to low):</p>
                 <pre>=SORT(A2:B20, 2, -1)</pre>
-                
+
                 <p>Generate sequence 5, 10, 15, ...50:</p>
                 <pre>=SEQUENCE(10, 1, 5, 5)</pre>
-                
+
                 <p><strong>Note:</strong> Dynamic array functions are available in Excel 365 and Excel 2021, but not in older versions.</p>
             </div>
         </div>
@@ -625,7 +765,7 @@
                     <li><code>=MIN(C1:C10)</code> - Find minimum value</li>
                     <li><code>=ROUND(A1,2)</code> - Round to 2 decimal places</li>
                 </ul>
-                
+
                 <h4>Logical Functions</h4>
                 <ul class="formula-list">
                     <li><code>=IF(A1>10,"High","Low")</code> - Simple IF statement</li>
@@ -633,14 +773,14 @@
                     <li><code>=OR(A1=10,A2=10)</code> - Check if any condition is true</li>
                     <li><code>=IF(AND(A1>0,A1<100),"Valid","Invalid")</code> - Combined functions</li>
                 </ul>
-                
+
                 <h4>Lookup Functions</h4>
                 <ul class="formula-list">
                     <li><code>=VLOOKUP(A1,B1:D10,2,FALSE)</code> - Exact match lookup</li>
                     <li><code>=INDEX(B2:D10,MATCH(A1,A2:A10,0),2)</code> - INDEX/MATCH combination</li>
                     <li><code>=XLOOKUP(E1,A2:A10,C2:C10,"Not Found")</code> - Modern lookup</li>
                 </ul>
-                
+
                 <h4>Date Functions</h4>
                 <ul class="formula-list">
                     <li><code>=TODAY()</code> - Current date</li>
@@ -659,7 +799,7 @@
                     <li>Pays 5% commission for sales between $10,001 and $25,000</li>
                     <li>Pays no commission for sales of $10,000 or less</li>
                 </ul>
-                
+
                 <h4>Dynamic Array Example</h4>
                 <pre>=LET(sales,B2:B20,
     products,A2:A20,
@@ -725,18 +865,125 @@
 
 <div class="practice-exercise">
     <h3>Practice Exercise: Sales Commission Calculator</h3>
-    <p>Create a sales commission calculator to practice formulas and functions:</p>
-    <ol>
-        <li>Set up a sales data table with columns for: Salesperson, Sales Amount, Region</li>
-        <li>Create a commission rate table (different rates by region and sales thresholds)</li>
-        <li>Use VLOOKUP or INDEX/MATCH to find the applicable commission rate</li>
-        <li>Use IF functions to apply bonus rates for sales above certain thresholds</li>
-        <li>Calculate total commission using the appropriate formulas</li>
-        <li>Create summary statistics using SUM, AVERAGE, MAX functions</li>
-        <li>Add conditional formatting to highlight top performers</li>
-        <li>Create a formula to calculate monthly targets based on previous performance</li>
-        <li>Add date functions to track commission by quarter</li>
-        <li>Build a dynamic dashboard using array formulas (if using Excel 365)</li>
-    </ol>
-    <button class="resource-btn" id="download-commission-template">Download Practice Template</button>
+    <p>Create a sales commission calculator using the provided CSV file to practice formulas and functions:</p>
+
+    <div class="exercise-steps">
+        <div class="step-group">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <p>Download the CSV file</p>
+                <p>Download the "sales_commission_calculator.csv" file from the button below to get started with this exercise.</p>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <p>Import the CSV file into Excel</p>
+                <ul>
+                    <li>Open Excel and create a new workbook</li>
+                    <li>Go to Data tab > Get Data > From File > From Text/CSV</li>
+                    <li>Browse to the downloaded CSV file and select it</li>
+                    <li>In the preview window, ensure data types are detected correctly</li>
+                    <li>Click "Load" to import the data</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <p>Prepare the data</p>
+                <ul>
+                    <li>Convert the data to an Excel Table (Ctrl+T)</li>
+                    <li>Format the Sale Date column as a date</li>
+                    <li>Format the Sale Amount and Commission Earned columns as currency</li>
+                    <li>Format the Commission Rate column as percentage</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">4</div>
+            <div class="step-content">
+                <p>Create a commission rate lookup table</p>
+                <ul>
+                    <li>Use the Commission Tiers data at the bottom of the CSV file</li>
+                    <li>Format it as a proper table with headers</li>
+                    <li>Name the table "CommissionRates" using the Table Design tab</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">5</div>
+            <div class="step-content">
+                <p>Add calculated columns to the main table</p>
+                <ul>
+                    <li>Add a "Tier" column using VLOOKUP or INDEX/MATCH to find the appropriate tier based on Sale Amount</li>
+                    <li>Add a "Calculated Commission" column using the formula: <code>=[@[Sale Amount]]*[@[Commission Rate]]</code></li>
+                    <li>Add a "Bonus Amount" column that adds 10% extra commission for "Bonus Eligible" sales</li>
+                    <li>Add a "Verification" column that checks if the Commission Earned matches your calculation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">6</div>
+            <div class="step-content">
+                <p>Create a summary section</p>
+                <ul>
+                    <li>Calculate total sales and commissions by department using SUMIFS</li>
+                    <li>Find the top-performing sales rep using MAXIFS and INDEX/MATCH</li>
+                    <li>Calculate average commission rates by product category</li>
+                    <li>Create a formula to show commission as percentage of base salary</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">7</div>
+            <div class="step-content">
+                <p>Add date-based analysis</p>
+                <ul>
+                    <li>Extract the month from Sale Date using the MONTH function</li>
+                    <li>Group sales by week using the WEEKNUM function</li>
+                    <li>Calculate running totals of sales using SUMIFS with date criteria</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">8</div>
+            <div class="step-content">
+                <p>Create a what-if analysis section</p>
+                <ul>
+                    <li>Create input cells for modified commission rates</li>
+                    <li>Use formulas to recalculate commissions based on new rates</li>
+                    <li>Calculate the difference between actual and projected commissions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">9</div>
+            <div class="step-content">
+                <p>Add conditional formatting</p>
+                <ul>
+                    <li>Highlight sales above $15,000 in green</li>
+                    <li>Use data bars to visualize sales amounts</li>
+                    <li>Create a color scale for commission percentages</li>
+                    <li>Add icon sets to indicate performance levels</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="csv-import-tips">
+        <h4>Formula Tips</h4>
+        <p>For the tier lookup, try using this INDEX/MATCH formula: <code>=INDEX(CommissionRates[Rate],MATCH([@[Sale Amount]],CommissionRates[Max Sale],1))</code></p>
+        <p>This will find the appropriate commission rate based on the sale amount.</p>
+    </div>
+
+    <a href="../resources/templates/sales_commission_calculator.csv" class="resource-btn" download>Download CSV Dataset</a>
 </div>

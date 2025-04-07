@@ -1,3 +1,145 @@
+<style>
+    /* Exercise steps styling */
+    .practice-exercise {
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        padding: 25px;
+        margin: 30px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .practice-exercise h3 {
+        color: var(--accent-color);
+        margin-top: 0;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #eaeaea;
+        margin-bottom: 20px;
+        font-size: 1.4em;
+    }
+
+    .exercise-steps {
+        margin: 25px 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .step-group {
+        background-color: white;
+        border-radius: 6px;
+        padding: 15px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        position: relative;
+        padding-top: 40px;
+    }
+
+    .step-number {
+        background-color: var(--accent-color);
+        color: white;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.1em;
+        position: absolute;
+        top: -18px;
+        left: 15px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .step-content {
+        flex: 1;
+    }
+
+    .step-content p:first-child {
+        font-weight: bold;
+        color: #333;
+        margin-top: 0;
+        margin-bottom: 12px;
+        font-size: 1.05em;
+    }
+
+    .step-content p {
+        margin-top: 0;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+
+    .step-content ul {
+        margin-top: 8px;
+        padding-left: 20px;
+    }
+
+    .step-content li {
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+
+    .tip-box {
+        background-color: #f3f9f3;
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 4px solid var(--accent-color);
+        margin: 25px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .tip-box h4 {
+        margin-top: 0;
+        color: var(--accent-color);
+        font-size: 1.1em;
+    }
+
+    .csv-import-tips {
+        background-color: #fff8e1;
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 4px solid #ffc107;
+        margin: 25px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .csv-import-tips h4 {
+        margin-top: 0;
+        color: #ff8f00;
+        font-size: 1.1em;
+    }
+
+    .resource-btn {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 15px;
+        transition: background-color 0.2s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .resource-btn:hover {
+        background-color: var(--accent-hover-color, #2e7d32);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+
+    @media (max-width: 768px) {
+        .exercise-steps {
+            grid-template-columns: 1fr;
+        }
+
+        .practice-exercise {
+            padding: 20px 15px;
+        }
+    }
+</style>
+
 <h2>Excel Basics</h2>
 <div class="section-intro">
     <p>Master the fundamental concepts and interface elements of Microsoft Excel to build a solid foundation for your Excel skills. Understanding these basics is essential before diving into more advanced features.</p>
@@ -149,7 +291,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="topic-card" id="rows-columns">
         <h3>Managing Rows and Columns</h3>
         <div class="topic-content">
@@ -178,7 +320,7 @@
                    1. Select the column(s) you want to adjust<br>
                    2. Double-click the right edge of the column header<br>
                    3. The column will adjust to fit the widest content</p>
-                   
+
                 <p><strong>Freezing Panes:</strong><br>
                    1. Select the cell below and to the right of where you want to freeze<br>
                    2. Go to View tab → Freeze Panes → Freeze Panes<br>
@@ -222,7 +364,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="topic-card" id="multi-sheets">
         <h3>Working with Multiple Worksheets</h3>
         <div class="topic-content">
@@ -410,18 +552,131 @@
 </div>
 
 <div class="practice-exercise" id="practice">
-    <h3>Practice Exercise: Create Your First Spreadsheet</h3>
-    <p>Create a simple monthly budget spreadsheet to practice the basics:</p>
-    <ol>
-        <li>Set up column headers for categories and months</li>
-        <li>Enter sample data for income and expenses</li>
-        <li>Format numbers as currency</li>
-        <li>Add borders and apply cell colors</li>
-        <li>Resize columns to fit content</li>
-        <li>Create simple SUM formulas for totals</li>
-        <li>Add conditional formatting to highlight negative balances</li>
-        <li>Set up the page for printing with appropriate headers</li>
-        <li>Save your work as both a regular workbook and a template</li>
-    </ol>
-    <button class="resource-btn" id="download-practice-template">Download Practice Template</button>
+    <h3>Practice Exercise: Create Your First Budget Spreadsheet</h3>
+    <p>Create a simple monthly budget spreadsheet using the provided CSV file to practice Excel basics:</p>
+
+    <div class="exercise-steps">
+        <div class="step-group">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <p>Download the CSV file</p>
+                <p>Download the "monthly_budget_template.csv" file from the button below to get started with this exercise.</p>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <p>Import the CSV file into Excel</p>
+                <ul>
+                    <li>Open Excel and create a new workbook</li>
+                    <li>Go to Data tab > Get Data > From File > From Text/CSV</li>
+                    <li>Browse to the downloaded CSV file and select it</li>
+                    <li>In the preview window, ensure data types are detected correctly</li>
+                    <li>Click "Load" to import the data</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <p>Format the data</p>
+                <ul>
+                    <li>Select all data and convert it to an Excel Table (Ctrl+T)</li>
+                    <li>Format the Budgeted Amount, Actual Amount, and Difference columns as currency</li>
+                    <li>Apply a table style that you like from the Table Design tab</li>
+                    <li>Resize columns to fit the content (double-click between column headers)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">4</div>
+            <div class="step-content">
+                <p>Add summary calculations</p>
+                <ul>
+                    <li>Create a summary section below the table</li>
+                    <li>Add labels for Total Income, Total Expenses, and Net Balance</li>
+                    <li>Use SUMIF formulas to calculate totals (e.g., <code>=SUMIF(Category,"Income",Budgeted Amount)</code>)</li>
+                    <li>Calculate the difference between income and expenses</li>
+                    <li>Format these summary cells as currency with bold text</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">5</div>
+            <div class="step-content">
+                <p>Add conditional formatting</p>
+                <ul>
+                    <li>Select the Difference column in your table</li>
+                    <li>Go to Home tab > Conditional Formatting > Highlight Cell Rules > Less Than</li>
+                    <li>Set it to highlight negative values in light red</li>
+                    <li>Add another rule to highlight positive values in light green</li>
+                    <li>Apply data bars to the Budgeted Amount column to visualize relative values</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">6</div>
+            <div class="step-content">
+                <p>Create a second month</p>
+                <ul>
+                    <li>Copy the January data to create a February budget</li>
+                    <li>Modify some of the values for February to make it different</li>
+                    <li>Update your summary calculations to include both months</li>
+                    <li>Create a month-to-month comparison of key categories</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">7</div>
+            <div class="step-content">
+                <p>Add a simple chart</p>
+                <ul>
+                    <li>Select your income and expense summary data</li>
+                    <li>Go to Insert tab > Recommended Charts</li>
+                    <li>Choose a column or bar chart to compare budget vs. actual</li>
+                    <li>Add appropriate titles and labels to the chart</li>
+                    <li>Position the chart in a visible area of your worksheet</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">8</div>
+            <div class="step-content">
+                <p>Set up the page for printing</p>
+                <ul>
+                    <li>Go to Page Layout tab</li>
+                    <li>Set appropriate margins and orientation</li>
+                    <li>Add a header with the title "Monthly Budget"</li>
+                    <li>Add a footer with your name and the date</li>
+                    <li>Use Print Preview to check how it will look when printed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">9</div>
+            <div class="step-content">
+                <p>Save your work</p>
+                <ul>
+                    <li>Save as a regular Excel workbook (.xlsx)</li>
+                    <li>Save another copy as an Excel template (.xltx) for future use</li>
+                    <li>Add worksheet protection to prevent accidental changes to formulas</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="csv-import-tips">
+        <h4>Excel Basics Tips</h4>
+        <p>Remember to use keyboard shortcuts to speed up your work: Ctrl+S to save, Ctrl+C to copy, Ctrl+V to paste, and Ctrl+Z to undo. When entering formulas, use F4 after selecting a cell reference to toggle between relative, absolute, and mixed references.</p>
+    </div>
+
+    <a href="../resources/templates/monthly_budget_template.csv" class="resource-btn" download>Download CSV Dataset</a>
 </div>

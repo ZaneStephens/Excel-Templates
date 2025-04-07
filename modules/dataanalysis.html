@@ -48,6 +48,146 @@
         border-left: 4px solid var(--accent-color);
         margin-top: 10px;
     }
+
+    /* Exercise steps styling */
+    .practice-exercise {
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        padding: 25px;
+        margin: 30px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .practice-exercise h3 {
+        color: var(--accent-color);
+        margin-top: 0;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #eaeaea;
+        margin-bottom: 20px;
+        font-size: 1.4em;
+    }
+
+    .exercise-steps {
+        margin: 25px 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .step-group {
+        background-color: white;
+        border-radius: 6px;
+        padding: 15px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        position: relative;
+        padding-top: 40px;
+    }
+
+    .step-number {
+        background-color: var(--accent-color);
+        color: white;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.1em;
+        position: absolute;
+        top: -18px;
+        left: 15px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .step-content {
+        flex: 1;
+    }
+
+    .step-content p:first-child {
+        font-weight: bold;
+        color: #333;
+        margin-top: 0;
+        margin-bottom: 12px;
+        font-size: 1.05em;
+    }
+
+    .step-content p {
+        margin-top: 0;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+
+    .step-content ul {
+        margin-top: 8px;
+        padding-left: 20px;
+    }
+
+    .step-content li {
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+
+    .tip-box {
+        background-color: #f3f9f3;
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 4px solid var(--accent-color);
+        margin: 25px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .tip-box h4 {
+        margin-top: 0;
+        color: var(--accent-color);
+        font-size: 1.1em;
+    }
+
+    .csv-import-tips {
+        background-color: #fff8e1;
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 4px solid #ffc107;
+        margin: 25px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .csv-import-tips h4 {
+        margin-top: 0;
+        color: #ff8f00;
+        font-size: 1.1em;
+    }
+
+    .resource-btn {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 15px;
+        transition: background-color 0.2s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .resource-btn:hover {
+        background-color: var(--accent-hover-color, #2e7d32);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+
+    @media (max-width: 768px) {
+        .exercise-steps {
+            grid-template-columns: 1fr;
+        }
+
+        .practice-exercise {
+            padding: 20px 15px;
+        }
+    }
 </style>
 
 <h2>Data Analysis</h2>
@@ -165,14 +305,15 @@
                     </tr>
                 </table>
 
-                <h4>Analysis Steps:</h4>
+                <h4>Analysis Steps with the CSV File:</h4>
                 <ol>
-                    <li>Convert the data range to a Table (Ctrl+T)</li>
-                    <li>Add a calculated column for Performance: <code>=[@Revenue]/[@Target]</code></li>
-                    <li>Apply conditional formatting to highlight values below 90% and above 110%</li>
-                    <li>Sort by Revenue (largest to smallest) to identify top revenue generators</li>
-                    <li>Filter to show only regions not meeting targets (Performance < 1)</li>
-                    <li>Create a multi-level sort by Region, then by Performance (descending)</li>
+                    <li>Import the sales_data_analysis.csv file (Data tab > Get Data > From File > From Text/CSV)</li>
+                    <li>Convert the data to a Table (Ctrl+T) after importing</li>
+                    <li>Add a calculated column for Performance: <code>=[@Sales]/100000</code> (using 100,000 as an example target)</li>
+                    <li>Apply conditional formatting to highlight values below 0.9 and above 1.1</li>
+                    <li>Sort by Sales (largest to smallest) to identify top revenue generators</li>
+                    <li>Filter to show only products in the "Furniture" category</li>
+                    <li>Create a multi-level sort by Region, then by Profit (descending)</li>
                 </ol>
 
                 <div class="info-box">
@@ -1158,16 +1299,127 @@
 
 <div class="practice-exercise" id="practice">
     <h3>Practice Exercise: Comprehensive Sales Data Analysis</h3>
-    <p>Put your skills to the test with this real-world sales analysis project.</p>
-    <ol>
-        <li>Download "Sales_Data.xlsx" from the button below.</li>
-        <li>Clean data: Remove duplicates with Data > Remove Duplicates, fix names with <code>=TRIM(PROPER(A1))</code>.</li>
-        <li>Create a PivotTable: Sales by region and category.</li>
-        <li>Add a calculated field: Profit margin as <code>= (Sales - Cost) / Sales</code>.</li>
-        <li>Build a Two-Variable Data Table: Test growth (5-15%) and price increases (2-6%).</li>
-        <li>Run Descriptive Statistics: Use Analysis ToolPak to summarize sales.</li>
-        <li>Find top performers: Filter and sort for top regions and products.</li>
-        <li>Create a Line PivotChart: Show monthly sales trends.</li>
-    </ol>
-    <button class="resource-btn" id="download-analysis-template">Download Practice Dataset</button>
+    <p>Put your skills to the test with this real-world sales analysis project using the provided CSV file.</p>
+
+    <div class="exercise-steps">
+        <div class="step-group">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <p>Download the CSV file</p>
+                <p>Download the "sales_data_analysis.csv" file from the button below to get started with this exercise.</p>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <p>Import the CSV file into Excel</p>
+                <ul>
+                    <li>Open Excel and create a new workbook</li>
+                    <li>Go to Data tab > Get Data > From File > From Text/CSV</li>
+                    <li>Browse to the downloaded CSV file and select it</li>
+                    <li>In the preview window, ensure data types are detected correctly</li>
+                    <li>Click "Load" to import the data</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <p>Clean and prepare the data</p>
+                <ul>
+                    <li>Select all data and convert it to an Excel Table (Ctrl+T)</li>
+                    <li>Check for and remove any duplicate rows using Data > Remove Duplicates</li>
+                    <li>Format the Order Date and Ship Date columns as dates</li>
+                    <li>Format the Sales and Profit columns as currency</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">4</div>
+            <div class="step-content">
+                <p>Create a PivotTable for regional analysis</p>
+                <ul>
+                    <li>Insert > PivotTable</li>
+                    <li>Rows: Region</li>
+                    <li>Columns: Category</li>
+                    <li>Values: Sum of Sales, Sum of Profit</li>
+                    <li>Add a calculated field for Profit Margin: <code>= 'Profit'/'Sales'</code></li>
+                    <li>Format the Profit Margin as percentage</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">5</div>
+            <div class="step-content">
+                <p>Apply sorting and filtering techniques</p>
+                <ul>
+                    <li>In the original data table, add filters to all columns (if not already present)</li>
+                    <li>Filter to show only high-profit items (Profit > $100)</li>
+                    <li>Sort the data by Sales (largest to smallest) to identify top revenue generators</li>
+                    <li>Create a multi-level sort: first by Region, then by Category, then by Sales (descending)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">6</div>
+            <div class="step-content">
+                <p>Create a time-based analysis</p>
+                <ul>
+                    <li>Create a new PivotTable with Order Date (grouped by month) in rows</li>
+                    <li>Add Category to columns</li>
+                    <li>Add Sum of Sales to values</li>
+                    <li>Create a Line PivotChart to visualize monthly sales trends by category</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">7</div>
+            <div class="step-content">
+                <p>Build a customer segment analysis</p>
+                <ul>
+                    <li>Create another PivotTable with Segment in rows</li>
+                    <li>Add Sum of Sales, Count of Order ID (for order count), and Sum of Profit to values</li>
+                    <li>Calculate average order value by adding a calculated field: <code>= 'Sales'/'Order ID'</code></li>
+                    <li>Create a column or bar chart to compare performance across segments</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">8</div>
+            <div class="step-content">
+                <p>Perform what-if analysis</p>
+                <ul>
+                    <li>In a new worksheet, create a simple model with current total sales and profit</li>
+                    <li>Add variables for potential growth (5%, 10%, 15%) and cost reduction (2%, 5%, 8%)</li>
+                    <li>Build a two-variable data table to see potential future outcomes</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-group">
+            <div class="step-number">9</div>
+            <div class="step-content">
+                <p>Create a dashboard</p>
+                <ul>
+                    <li>In a new worksheet, combine your key charts and PivotTables</li>
+                    <li>Add slicers for Region, Category, and Segment to make the dashboard interactive</li>
+                    <li>Include KPI cards showing total sales, profit, profit margin, and order count</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="csv-import-tips">
+        <h4>CSV Import Tips</h4>
+        <p>If you encounter issues with date formatting during import, you may need to select the date columns in the Power Query Editor (which appears when you first import the CSV) and change their data type to Date before loading the data.</p>
+    </div>
+
+    <a href="../resources/templates/sales_data_analysis.csv" class="resource-btn" download>Download CSV Dataset</a>
 </div>
