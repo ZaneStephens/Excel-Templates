@@ -1,6 +1,6 @@
 /**
  * Excel Mastery - Assessment Manager
- * 
+ *
  * This module handles the assessment functionality including:
  * - Level-specific assessments (beginner, intermediate, advanced, analyst, visualizer)
  * - Question rendering and scoring
@@ -16,7 +16,7 @@ class AssessmentManager {
         this.quizContainer = null;
         this.resultsContainer = null;
         this.reviewContainer = null;
-        
+
         // Assessment state
         this.currentAssessment = null;
         this.currentLevel = null;
@@ -25,7 +25,7 @@ class AssessmentManager {
         this.currentQuestionIndex = 0;
         this.timeRemaining = 0;
         this.timerInterval = null;
-        
+
         // Level descriptions and metadata
         this.levelData = {
             beginner: {
@@ -69,7 +69,7 @@ class AssessmentManager {
                 passingScore: 70 // percentage
             }
         };
-        
+
         // Set up event listeners when document is ready
         document.addEventListener('DOMContentLoaded', () => {
             this.setupUI();
@@ -82,10 +82,10 @@ class AssessmentManager {
      */
     initAssessment(level) {
         this.currentLevel = level;
-        
+
         // Initialize DOM references here to ensure they're current
         this.initDomReferences();
-        
+
         // Load question set
         this.questions = this.getQuestionsForLevel(level);
         this.userAnswers = new Array(this.questions.length).fill(null);
@@ -93,7 +93,7 @@ class AssessmentManager {
         this.updateLevelUI();
         this.setupEventListeners();
     }
-    
+
     /**
      * Initialize DOM references
      */
@@ -102,28 +102,28 @@ class AssessmentManager {
         this.quizContainer = document.getElementById('quiz-container');
         this.resultsContainer = document.getElementById('results-container');
         this.reviewContainer = document.getElementById('review-container');
-        
+
         // If elements aren't found, log error but don't crash
         if (!this.assessmentIntro) console.error('Element #assessment-intro not found');
         if (!this.quizContainer) console.error('Element #quiz-container not found');
         if (!this.resultsContainer) console.error('Element #results-container not found');
         if (!this.reviewContainer) console.error('Element #review-container not found');
     }
-    
+
     /**
      * Set up the UI for assessment
      */
     setupUI() {
         // Initialize DOM references
         this.initDomReferences();
-        
+
         // Check if we're on the assessment page
         if (!this.assessmentIntro) return;
-        
+
         // Get the level from URL if present
         const urlParams = new URLSearchParams(window.location.search);
         const level = urlParams.get('level');
-        
+
         if (level && Object.keys(this.levelData).includes(level)) {
             this.initAssessment(level);
         } else {
@@ -141,13 +141,13 @@ class AssessmentManager {
         this.userAnswers = [];
         this.currentQuestionIndex = 0;
         this.timeRemaining = 0;
-        
+
         // Clear timer
         if (this.timerInterval) {
             clearInterval(this.timerInterval);
             this.timerInterval = null;
         }
-        
+
         // Reset UI (only if elements exist)
         if (this.assessmentIntro) this.assessmentIntro.style.display = 'block';
         if (this.quizContainer) this.quizContainer.style.display = 'none';
@@ -161,32 +161,32 @@ class AssessmentManager {
     updateLevelUI() {
         const levelInfo = this.levelData[this.currentLevel];
         if (!levelInfo) return;
-        
+
         // Update level badge
         const levelBadge = document.getElementById('current-assessment-level');
         if (levelBadge) {
             levelBadge.innerHTML = `<i class="${levelInfo.icon}"></i> ${levelInfo.title}`;
         }
-        
+
         // Update description
         const description = document.getElementById('assessment-description');
         if (description) {
             description.textContent = levelInfo.description;
         }
-        
+
         // Update stats
         const questionCount = document.getElementById('question-count');
         const timeEstimate = document.getElementById('time-estimate');
         const passingScore = document.getElementById('passing-score');
-        
+
         if (questionCount) {
             questionCount.textContent = `${levelInfo.questionCount} Questions`;
         }
-        
+
         if (timeEstimate) {
             timeEstimate.textContent = `~${levelInfo.timeLimit} Minutes`;
         }
-        
+
         if (passingScore) {
             passingScore.textContent = `${levelInfo.passingScore}% to Pass`;
         }
@@ -201,13 +201,13 @@ class AssessmentManager {
         if (startButton) {
             // Remove existing listener to avoid duplicates
             startButton.replaceWith(startButton.cloneNode(true));
-            
+
             // Add new listener
             document.getElementById('start-assessment-btn').addEventListener('click', () => {
                 this.startAssessment();
             });
         }
-        
+
         // Review answers button
         const reviewBtn = document.getElementById('review-answers-btn');
         if (reviewBtn) {
@@ -217,12 +217,18 @@ class AssessmentManager {
                 }
             });
         }
-        
+
         // Return to path button
         const returnBtn = document.getElementById('return-path-btn');
         if (returnBtn) {
             returnBtn.addEventListener('click', () => {
-                window.location.href = '?module=learning-path';
+                // Use loadModule instead of changing window.location to prevent page reload
+                if (typeof loadModule === 'function') {
+                    loadModule('learning-path');
+                } else {
+                    // Fallback if loadModule is not available
+                    window.location.href = '?module=learning-path';
+                }
             });
         }
     }
@@ -233,34 +239,34 @@ class AssessmentManager {
     startAssessment() {
         // Make sure DOM elements are initialized
         this.initDomReferences();
-        
+
         // Check if required elements exist
         if (!this.assessmentIntro || !this.quizContainer) {
             console.error('Required DOM elements not found for starting assessment');
             alert('There was a problem starting the assessment. Please try refreshing the page.');
             return;
         }
-        
+
         // Load questions for current level
         this.loadQuestions();
-        
+
         // Set up initial UI
         this.assessmentIntro.style.display = 'none';
         this.quizContainer.style.display = 'block';
-        
+
         // Set up timer
         this.timeRemaining = this.levelData[this.currentLevel].timeLimit * 60;
         this.startTimer();
-        
+
         // Render first question
         this.renderQuestion(0);
-        
+
         // Set up navigation buttons
         this.setupNavigationButtons();
-        
+
         // Update progress bar
         this.updateProgressBar();
-        
+
         // Add animation
         this.quizContainer.classList.add('fade-in-animation');
     }
@@ -272,7 +278,7 @@ class AssessmentManager {
         // In a real application, these would likely be loaded from an API or database
         // For now, we'll use the getQuestionsForLevel method to get level-specific questions
         this.questions = this.getQuestionsForLevel(this.currentLevel);
-        
+
         // Initialize user answers array with nulls
         this.userAnswers = Array(this.questions.length).fill(null);
     }
@@ -284,7 +290,7 @@ class AssessmentManager {
         const prevBtn = document.getElementById('prev-question-btn');
         const nextBtn = document.getElementById('next-question-btn');
         const submitBtn = document.getElementById('submit-quiz-btn');
-        
+
         // Previous button
         if (prevBtn) {
             prevBtn.replaceWith(prevBtn.cloneNode(true));
@@ -292,7 +298,7 @@ class AssessmentManager {
                 this.navigateToQuestion(this.currentQuestionIndex - 1);
             });
         }
-        
+
         // Next button
         if (nextBtn) {
             nextBtn.replaceWith(nextBtn.cloneNode(true));
@@ -300,7 +306,7 @@ class AssessmentManager {
                 this.navigateToQuestion(this.currentQuestionIndex + 1);
             });
         }
-        
+
         // Submit button
         if (submitBtn) {
             submitBtn.replaceWith(submitBtn.cloneNode(true));
@@ -310,7 +316,7 @@ class AssessmentManager {
                 }
             });
         }
-        
+
         // Update button states
         this.updateNavigationButtons();
     }
@@ -321,7 +327,7 @@ class AssessmentManager {
      */
     navigateToQuestion(index) {
         if (index < 0 || index >= this.questions.length) return;
-        
+
         this.currentQuestionIndex = index;
         this.renderQuestion(index);
         this.updateNavigationButtons();
@@ -335,15 +341,15 @@ class AssessmentManager {
         const prevBtn = document.getElementById('prev-question-btn');
         const nextBtn = document.getElementById('next-question-btn');
         const submitBtn = document.getElementById('submit-quiz-btn');
-        
+
         if (prevBtn) {
             prevBtn.disabled = this.currentQuestionIndex === 0;
         }
-        
+
         if (nextBtn) {
             nextBtn.disabled = this.currentQuestionIndex === this.questions.length - 1;
         }
-        
+
         if (submitBtn) {
             submitBtn.style.display = this.currentQuestionIndex === this.questions.length - 1 ? 'inline-block' : 'none';
         }
@@ -359,18 +365,18 @@ class AssessmentManager {
             progressBar.style.width = `${progress}%`;
             progressBar.setAttribute('aria-valuenow', progress);
         }
-        
+
         const progressText = document.getElementById('quiz-progress-text');
         if (progressText) {
             progressText.textContent = `Question ${this.currentQuestionIndex + 1} of ${this.questions.length}`;
         }
-        
+
         const questionStatus = document.getElementById('question-status');
         if (questionStatus) {
             questionStatus.textContent = `Question ${this.currentQuestionIndex + 1} of ${this.questions.length}`;
         }
     }
-    
+
     /**
      * Update the question UI with the current answer state
      */
@@ -389,7 +395,7 @@ class AssessmentManager {
         // Sample questions for different levels
         const questions = {
             beginner: [
-                { 
+                {
                     text: "Which feature sorts spreadsheet data by column?",
                     type: "multipleChoice",
                     options: ["Filter", "PivotTable", "Sort", "Highlight Cells"],
@@ -450,7 +456,7 @@ class AssessmentManager {
                     correctIndex: 3
                 }
             ],
-            
+
             intermediate: [
                 {
                     text: "Which function would you use to find a value in a table based on a column and row position?",
@@ -513,7 +519,7 @@ class AssessmentManager {
                     correctIndex: 1
                 }
             ],
-            
+
             analyst: [
                 {
                     text: "In a correlation analysis, what does a value of -0.9 indicate?",
@@ -576,7 +582,7 @@ class AssessmentManager {
                     correctIndex: 0
                 }
             ],
-            
+
             visualizer: [
                 {
                     text: "Which chart type is best for showing the relationship between two numerical variables?",
@@ -639,7 +645,7 @@ class AssessmentManager {
                     correctIndex: 3
                 }
             ],
-            
+
             advanced: [
                 {
                     text: "Which function would you use to extract the middle portion of a text string?",
@@ -703,7 +709,7 @@ class AssessmentManager {
                 }
             ]
         };
-        
+
         // Return questions for the requested level or default to beginner
         return questions[level] || questions.beginner;
     }
@@ -714,14 +720,14 @@ class AssessmentManager {
     startTimer() {
         const timerDisplay = document.getElementById('time-remaining');
         if (!timerDisplay) return;
-        
+
         // Update timer display initially
         this.updateTimerDisplay();
-        
+
         // Set up interval to update every second
         this.timerInterval = setInterval(() => {
             this.timeRemaining--;
-            
+
             if (this.timeRemaining <= 0) {
                 // Time's up!
                 clearInterval(this.timerInterval);
@@ -729,7 +735,7 @@ class AssessmentManager {
                 alert("Time's up! Your assessment will be submitted now.");
                 this.submitAssessment();
             }
-            
+
             this.updateTimerDisplay();
         }, 1000);
     }
@@ -740,12 +746,12 @@ class AssessmentManager {
     updateTimerDisplay() {
         const timerDisplay = document.getElementById('time-remaining');
         if (!timerDisplay) return;
-        
+
         const minutes = Math.floor(this.timeRemaining / 60);
         const seconds = this.timeRemaining % 60;
-        
+
         timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-        
+
         // Add warning class when time is running low
         if (this.timeRemaining <= 60) {
             timerDisplay.classList.add('timer-warning');
@@ -759,12 +765,12 @@ class AssessmentManager {
     renderQuestion(index) {
         const questionData = this.questions[index];
         if (!questionData) return;
-        
+
         const container = document.getElementById('question-container');
         if (!container) return;
-        
+
         container.innerHTML = '';
-        
+
         const questionEl = document.createElement('div');
         questionEl.className = 'question';
         questionEl.innerHTML = `<h4 class="question-text">${questionData.text}</h4>`;
@@ -774,29 +780,29 @@ class AssessmentManager {
         questionData.options.forEach((opt, idx) => {
             const optionItem = document.createElement('div');
             optionItem.className = 'option-item';
-            
+
             // Add selected class if this option is the user's answer
             if (this.userAnswers[index] === idx) {
                 optionItem.classList.add('selected');
             }
-            
+
             optionItem.textContent = opt;
             optionItem.addEventListener('click', () => {
                 // Remove selected class from all options
                 optionsList.querySelectorAll('.option-item').forEach(item => {
                     item.classList.remove('selected');
                 });
-                
+
                 // Add selected class to this option
                 optionItem.classList.add('selected');
-                
+
                 // Save the answer
                 this.userAnswers[index] = idx;
             });
-            
+
             optionsList.appendChild(optionItem);
         });
-        
+
         questionEl.appendChild(optionsList);
         container.appendChild(questionEl);
     }
@@ -823,35 +829,35 @@ class AssessmentManager {
         if (this.timerInterval) {
             clearInterval(this.timerInterval);
         }
-        
+
         // Calculate score
         const correct = this.userAnswers.reduce((acc, ans, i) => {
             if (ans === this.questions[i].correctIndex) acc++;
             return acc;
         }, 0);
-        
+
         const score = Math.round((correct / this.questions.length) * 100);
         const passing = score >= this.levelData[this.currentLevel].passingScore;
 
         // Make sure DOM elements are available
         this.initDomReferences();
-        
+
         // Check for required elements
         if (!this.quizContainer || !this.resultsContainer) {
             console.error("Required DOM elements missing for assessment results");
             alert("There was a problem displaying your results. Please try again.");
             return;
         }
-        
+
         // Update UI
         this.quizContainer.style.display = 'none';
         this.resultsContainer.style.display = 'block';
-        
+
         // Update result display
         const correctAnswers = document.getElementById('correct-answers');
         const totalQuestions = document.getElementById('total-questions');
         const scorePercentage = document.getElementById('score-percentage');
-        
+
         if (correctAnswers) correctAnswers.textContent = correct;
         if (totalQuestions) totalQuestions.textContent = this.questions.length;
         if (scorePercentage) {
@@ -862,8 +868,16 @@ class AssessmentManager {
         // Save result if progressTracker is present
         if (window.progressTracker) {
             progressTracker.saveAssessmentResult(this.currentLevel, score);
+
+            // Update lastVisited to learning-path to prevent the "continue where you left off" popup
+            // when returning to the learning path
+            progressTracker.progress.lastVisited = {
+                module: 'learning-path',
+                topic: null
+            };
+            progressTracker.saveProgress();
         }
-        
+
         // Pass/fail message
         const passFail = document.getElementById('pass-fail-message');
         if (passFail) {
@@ -871,30 +885,30 @@ class AssessmentManager {
                 ? `<div class="pass-message">Congratulations! You've passed the ${this.levelData[this.currentLevel].title}!</div>`
                 : `<div class="fail-message">You did not pass. Keep practicing and try again!</div>`;
         }
-        
+
         // Prepare review content
         this.prepareReviewContent(correct, score);
-        
+
         // Add animation
         this.resultsContainer.classList.add('fade-in-animation');
     }
-    
+
     /**
      * Prepare the review content showing correct/incorrect answers
      */
     prepareReviewContent(correct, score) {
         const reviewQuestionsContainer = document.getElementById('review-questions');
         if (!reviewQuestionsContainer) return;
-        
+
         reviewQuestionsContainer.innerHTML = '';
-        
+
         this.questions.forEach((question, index) => {
             const userAnswer = this.userAnswers[index];
             const isCorrect = userAnswer === question.correctIndex;
-            
+
             const reviewItem = document.createElement('div');
             reviewItem.className = `review-question ${isCorrect ? 'correct' : 'incorrect'}`;
-            
+
             reviewItem.innerHTML = `
                 <h5>Question ${index + 1}: ${question.text}</h5>
                 <div class="review-answers">
@@ -906,7 +920,7 @@ class AssessmentManager {
                     </div>` : ''}
                 </div>
             `;
-            
+
             reviewQuestionsContainer.appendChild(reviewItem);
         });
     }

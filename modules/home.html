@@ -33,43 +33,43 @@
 <div class="learning-paths-section">
     <h2>Choose Your Learning Path</h2>
     <p class="section-intro">Focus on the Excel skills that matter most to you with our specialized learning paths</p>
-    
+
     <div class="path-cards">
         <div class="path-card">
             <div class="path-icon">
                 <i class="fa-solid fa-seedling"></i>
             </div>
             <div class="path-info">
-                <h3>Excel Fundamentals</h3>
+                <h3>Excel Basics</h3>
                 <p>Perfect for beginners: master the basics of Excel and build a solid foundation</p>
-                <button class="path-link-btn" data-module="learning-path">Start Fundamentals</button>
+                <button class="path-link-btn" data-module="learning-path" data-path="beginner">Start Fundamentals</button>
             </div>
         </div>
-        
+
         <div class="path-card">
             <i class="fa-solid fa-magnifying-glass-chart"></i>
             <div class="path-info">
                 <h3>Data Analysis</h3>
                 <p>Learn to clean, transform, and analyze data using Excel's powerful tools</p>
-                <button class="path-link-btn" data-module="learning-path">Explore Data Analysis</button>
+                <button class="path-link-btn" data-module="learning-path" data-path="data-analysis">Explore Data Analysis</button>
             </div>
         </div>
-        
+
         <div class="path-card">
             <i class="fa-solid fa-chart-pie"></i>
             <div class="path-info">
                 <h3>Data Visualization</h3>
                 <p>Create compelling charts and dashboards that bring your data to life</p>
-                <button class="path-link-btn" data-module="learning-path">Discover Visualization</button>
+                <button class="path-link-btn" data-module="learning-path" data-path="data-visualization">Discover Visualization</button>
             </div>
         </div>
-        
+
         <div class="path-card">
             <i class="fa-solid fa-trophy"></i>
             <div class="path-info">
                 <h3>Advanced Excel</h3>
                 <p>Master advanced features for experienced users looking to become Excel experts</p>
-                <button class="path-link-btn" data-module="learning-path">Go Advanced</button>
+                <button class="path-link-btn" data-module="learning-path" data-path="advanced">Go Advanced</button>
             </div>
         </div>
     </div>
@@ -107,7 +107,7 @@
 
 <style>
 /* Additional styling for the home page */
-.learning-paths-section, 
+.learning-paths-section,
 .quick-links-section {
     margin: 3rem 0;
     text-align: center;
@@ -225,7 +225,7 @@
     .path-cards {
         grid-template-columns: 1fr;
     }
-    
+
     .quick-links {
         flex-direction: column;
         align-items: stretch;

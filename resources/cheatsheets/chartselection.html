@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Chart Selection Guide</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #1f497d;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #1f497d;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #2e75b5;
+            margin-top: 30px;
+            border-bottom: 1px solid #bdd6ee;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            color: #5b9bd5;
+            margin-top: 20px;
+        }
+        
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .chart-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .chart-card h3 {
+            margin-top: 0;
+            color: #2e75b5;
+            border-bottom: 1px solid #bdd6ee;
+            padding-bottom: 5px;
+        }
+        
+        .chart-image {
+            width: 100%;
+            height: 150px;
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+        }
+        
+        .chart-image img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .best-for {
+            margin-top: 10px;
+        }
+        
+        .best-for h4 {
+            margin-bottom: 5px;
+            color: #5b9bd5;
+        }
+        
+        .best-for ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+        
+        .avoid-for {
+            margin-top: 10px;
+            color: #c00000;
+        }
+        
+        .avoid-for h4 {
+            margin-bottom: 5px;
+            color: #c00000;
+        }
+        
+        .avoid-for ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+        
+        .tips {
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        .decision-tree {
+            width: 100%;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f0f7ff;
+            border-radius: 8px;
+            border: 1px solid #bdd6ee;
+        }
+        
+        .decision-tree h2 {
+            text-align: center;
+            border-bottom: none;
+        }
+        
+        .decision-tree-content {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .print-header, .print-footer {
+            display: none;
+        }
+        
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+            }
+            
+            .print-header, .print-footer {
+                display: block;
+                text-align: center;
+                margin: 20px 0;
+            }
+            
+            .chart-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .chart-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            a {
+                text-decoration: none;
+                color: #000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header">
+        Excel Chart Selection Guide - Printed from Excel Mastery Training Platform
+    </div>
+
+    <h1>Excel Chart Selection Guide</h1>
+    
+    <p>Choosing the right chart type is crucial for effectively communicating your data. This guide will help you select the most appropriate chart type based on what you want to show.</p>
+    
+    <div class="decision-tree">
+        <h2>Chart Selection Decision Tree</h2>
+        <p>Start by asking yourself what you want to show with your data:</p>
+        <ul>
+            <li><strong>Comparison</strong> between items? → Bar/Column Chart, Radar Chart</li>
+            <li><strong>Composition</strong> (parts of a whole)? → Pie Chart, Stacked Bar/Column, Area Chart</li>
+            <li><strong>Distribution</strong> of data? → Histogram, Box Plot, Scatter Plot</li>
+            <li><strong>Relationship</strong> between variables? → Scatter Plot, Bubble Chart, Line Chart</li>
+            <li><strong>Trend</strong> over time? → Line Chart, Area Chart, Column Chart with trendline</li>
+            <li><strong>Geographical</strong> data? → Map Chart</li>
+        </ul>
+    </div>
+    
+    <h2>Comparison Charts</h2>
+    <p>Use these charts when you want to compare values across different categories.</p>
+    
+    <div class="chart-grid">
+        <div class="chart-card">
+            <h3>Column Chart</h3>
+            <div class="chart-image">
+                <!-- Placeholder for column chart image -->
+                [Column Chart Image]
+            </div>
+            <div class="best-for">
+                <h4>Best for:</h4>
+                <ul>
+                    <li>Comparing values across categories</li>
+                    <li>Showing changes over time (limited periods)</li>
+                    <li>Displaying negative values</li>
+                    <li>Comparing up to ~15 categories</li>
+                </ul>
+            </div>
+            <div class="avoid-for">
+                <h4>Avoid for:</h4>
+                <ul>
+                    <li>Too many categories (becomes cluttered)</li>
+                    <li>Showing precise values over time (use line chart)</li>
+                </ul>
+            </div>
+            <div class="tips">
+                <strong>Tip:</strong> Sort columns by value (not alphabetically) to make patterns more visible.
+            </div>
+        </div>
+        
+        <div class="chart-card">
+            <h3>Bar Chart</h3>
+            <div class="chart-image">
+                <!-- Placeholder for bar chart image -->
+                [Bar Chart Image]
+            </div>
+            <div class="best-for">
+                <h4>Best for:</h4>
+                <ul>
+                    <li>Comparing values across categories</li>
+                    <li>Categories with long names</li>
+                    <li>Displaying negative values</li>
+                    <li>Comparing many categories (more than columns)</li>
+                </ul>
+            </div>
+            <div class="avoid-for">
+                <h4>Avoid for:</h4>
+                <ul>
+                    <li>Time series data (dates don't read well horizontally)</li>
+                    <li>When vertical space is limited</li>
+                </ul>
+            </div>
+            <div class="tips">
+                <strong>Tip:</strong> Sort bars in ascending/descending order for better readability.
+            </div>
+        </div>
+        
+        <div class="chart-card">
+            <h3>Radar Chart</h3>
+            <div class="chart-image">
+                <!-- Placeholder for radar chart image -->
+                [Radar Chart Image]
+            </div>
+            <div class="best-for">
+                <h4>Best for:</h4>
+                <ul>
+                    <li>Comparing multiple variables for multiple items</li>
+                    <li>Performance evaluations across dimensions</li>
+                    <li>Showing strengths/weaknesses patterns</li>
+                </ul>
+            </div>
+            <div class="avoid-for">
+                <h4>Avoid for:</h4>
+                <ul>
+                    <li>More than 2-3 items (becomes cluttered)</li>
+                    <li>When precise comparisons are needed</li>
+                    <li>When variables have different scales</li>
+                </ul>
+            </div>
+            <div class="tips">
+                <strong>Tip:</strong> Limit to 5-10 dimensions and normalize data to same scale.
+            </div>
+        </div>
+    </div>
+    
+    <h2>Composition Charts</h2>
+    <p>Use these charts when you want to show how parts make up a whole.</p>
+    
+    <div class="chart-grid">
+        <div class="chart-card">
+            <h3>Pie Chart</h3>
+            <div class="chart-image">
+                <!-- Placeholder for pie chart image -->
+                [Pie Chart Image]
+            </div>
+            <div class="best-for">
+                <h4>Best for:</h4>
+                <ul>
+                    <li>Showing parts of a whole (percentages)</li>
+                    <li>When you have few categories (2-6)</li>
+                    <li>When one category is significantly different</li>
+                </ul>
+            </div>
+            <div class="avoid-for">
+                <h4>Avoid for:</h4>
+                <ul>
+                    <li>More than 6 categories</li>
+                    <li>When categories have similar values</li>
+                    <li>Comparing precise values</li>
+                </ul>
+            </div>
+            <div class="tips">
+                <strong>Tip:</strong> Add data labels with percentages and consider a donut chart for better labeling.
+            </div>
+        </div>
+        
+        <div class="chart-card">
+            <h3>Stacked Column/Bar Chart</h3>
+            <div class="chart-image">
+                <!-- Placeholder for stacked chart image -->
+                [Stacked Chart Image]
+            </div>
+            <div class="best-for">
+                <h4>Best for:</h4>
+                <ul>
+                    <li>Showing parts of a whole across categories</li>
+                    <li>Comparing total values across categories</li>
+                    <li>Showing changes in composition over time</li>
+                </ul>
+            </div>
+            <div class="avoid-for">
+                <h4>Avoid for:</h4>
+                <ul>
+                    <li>Too many stack segments (>5-7)</li>
+                    <li>When comparing individual segments is important</li>
+                </ul>
+            </div>
+            <div class="tips">
+                <strong>Tip:</strong> Use 100% stacked charts to focus on percentage composition rather than absolute values.
+            </div>
+        </div>
+        
+        <div class="chart-card">
+            <h3>Area Chart</h3>
+            <div class="chart-image">
+                <!-- Placeholder for area chart image -->
+                [Area Chart Image]
+            </div>
+            <div class="best-for">
+                <h4>Best for:</h4>
+                <ul>
+                    <li>Showing composition changes over time</li>
+                    <li>Emphasizing the total volume</li>
+                    <li>Showing part-to-whole relationships over time</li>
+                </ul>
+            </div>
+            <div class="avoid-for">
+                <h4>Avoid for:</h4>
+                <ul>
+                    <li>More than 3-5 categories (becomes cluttered)</li>
+                    <li>When precise individual values are important</li>
+                    <li>When smaller categories are hidden behind larger ones</li>
+                </ul>
+            </div>
+            <div class="tips">
+                <strong>Tip:</strong> Consider using 100% stacked area charts to focus on proportional changes.
+            </div>
+        </div>
+    </div>
+    
+    <h2>Distribution Charts</h2>
+    <p>Use these charts when you want to show how data is distributed across a range.</p>
+    
+    <div class="chart-grid">
+        <div class="chart-card">
+            <h3>Histogram</h3>
+            <div class="chart-image">
+                <!-- Placeholder for histogram image -->
+                [Histogram Image]
+            </div>
+            <div class="best-for">
+                <h4>Best for:</h4>
+                <ul>
+                    <li>Showing distribution of continuous data</li>
+                    <li>Identifying patterns, skewness, and outliers</li>
+                    <li>Analyzing frequency distributions</li>
+                </ul>
+            </div>
+            <div class="avoid-for">
+                <h4>Avoid for:</h4>
+                <ul>
+                    <li>Categorical data</li>
+                    <li>Small data sets</li>
+                    <li>When exact values are important</li>
+                </ul>
+            </div>
+            <div class="tips">
+                <strong>Tip:</strong> Choose bin sizes carefully to reveal the true shape of your data distribution.
+            </div>
+        </div>
+        
+        <div class="chart-card">
+            <h3>Box and Whisker Plot</h3>
+            <div class="chart-image">
+                <!-- Placeholder for box plot image -->
+                [Box Plot Image]
+            </div>
+            <div class="best-for">
+                <h4>Best for:</h4>
+                <ul>
+                    <li>Showing data distribution summary</li>
+                    <li>Comparing distributions across categories</li>
+                    <li>Identifying outliers and data spread</li>
+                </ul>
+            </div>
+            <div class="avoid-for">
+                <h4>Avoid for:</h4>
+                <ul>
+                    <li>Small data sets</li>
+                    <li>When audience is unfamiliar with box plots</li>
+                    <li>When detailed distribution shape is important</li>
+                </ul>
+            </div>
+            <div class="tips">
+                <strong>Tip:</strong> Include a brief explanation of how to read a box plot for audiences unfamiliar with them.
+            </div>
+        </div>
+    </div>
+    
+    <h2>Relationship Charts</h2>
+    <p>Use these charts when you want to show how variables relate to each other.</p>
+    
+    <div class="chart-grid">
+        <div class="chart-card">
+            <h3>Scatter Plot</h3>
+            <div class="chart-image">
+                <!-- Placeholder for scatter plot image -->
+                [Scatter Plot Image]
+            </div>
+            <div class="best-for">
+                <h4>Best for:</h4>
+                <ul>
+                    <li>Showing relationship between two variables</li>
+                    <li>Identifying correlations and patterns</li>
+                    <li>Spotting outliers and clusters</li>
+                </ul>
+            </div>
+            <div class="avoid-for">
+                <h4>Avoid for:</h4>
+                <ul>
+                    <li>Time series data (use line charts)</li>
+                    <li>Categorical data</li>
+                    <li>When you have very few data points</li>
+                </ul>
+            </div>
+            <div class="tips">
+                <strong>Tip:</strong> Add a trendline to highlight the relationship direction and strength.
+            </div>
+        </div>
+        
+        <div class="chart-card">
+            <h3>Bubble Chart</h3>
+            <div class="chart-image">
+                <!-- Placeholder for bubble chart image -->
+                [Bubble Chart Image]
+            </div>
+            <div class="best-for">
+                <h4>Best for:</h4>
+                <ul>
+                    <li>Showing relationships between three variables</li>
+                    <li>When size represents an important third dimension</li>
+                    <li>Comparing items across multiple dimensions</li>
+                </ul>
+            </div>
+            <div class="avoid-for">
+                <h4>Avoid for:</h4>
+                <ul>
+                    <li>When precise size comparison is important</li>
+                    <li>Too many data points (becomes cluttered)</li>
+                    <li>When the third variable doesn't add meaningful context</li>
+                </ul>
+            </div>
+            <div class="tips">
+                <strong>Tip:</strong> Add data labels to important bubbles and include a size legend.
+            </div>
+        </div>
+    </div>
+    
+    <h2>Trend Charts</h2>
+    <p>Use these charts when you want to show how data changes over time.</p>
+    
+    <div class="chart-grid">
+        <div class="chart-card">
+            <h3>Line Chart</h3>
+            <div class="chart-image">
+                <!-- Placeholder for line chart image -->
+                [Line Chart Image]
+            </div>
+            <div class="best-for">
+                <h4>Best for:</h4>
+                <ul>
+                    <li>Showing trends over time</li>
+                    <li>Comparing trends across multiple series</li>
+                    <li>Continuous data with many data points</li>
+                </ul>
+            </div>
+            <div class="avoid-for">
+                <h4>Avoid for:</h4>
+                <ul>
+                    <li>Categorical comparisons (use column/bar)</li>
+                    <li>Too many lines (>5-7 becomes cluttered)</li>
+                    <li>Sparse data points</li>
+                </ul>
+            </div>
+            <div class="tips">
+                <strong>Tip:</strong> Use markers to highlight specific data points and consider using different line styles.
+            </div>
+        </div>
+        
+        <div class="chart-card">
+            <h3>Sparklines</h3>
+            <div class="chart-image">
+                <!-- Placeholder for sparklines image -->
+                [Sparklines Image]
+            </div>
+            <div class="best-for">
+                <h4>Best for:</h4>
+                <ul>
+                    <li>Showing trends in a small space</li>
+                    <li>Embedding trends within tables</li>
+                    <li>Providing quick visual context</li>
+                </ul>
+            </div>
+            <div class="avoid-for">
+                <h4>Avoid for:</h4>
+                <ul>
+                    <li>When detailed analysis is needed</li>
+                    <li>When exact values are important</li>
+                    <li>When comparing multiple series directly</li>
+                </ul>
+            </div>
+            <div class="tips">
+                <strong>Tip:</strong> Highlight min/max points and use consistent scales when comparing multiple sparklines.
+            </div>
+        </div>
+    </div>
+    
+    <h2>Specialized Charts</h2>
+    <p>Use these charts for specific data visualization needs.</p>
+    
+    <div class="chart-grid">
+        <div class="chart-card">
+            <h3>Map Chart</h3>
+            <div class="chart-image">
+                <!-- Placeholder for map chart image -->
+                [Map Chart Image]
+            </div>
+            <div class="best-for">
+                <h4>Best for:</h4>
+                <ul>
+                    <li>Geographical data visualization</li>
+                    <li>Regional comparisons</li>
+                    <li>Showing spatial patterns</li>
+                </ul>
+            </div>
+            <div class="avoid-for">
+                <h4>Avoid for:</h4>
+                <ul>
+                    <li>Non-geographical data</li>
+                    <li>When precise values are important</li>
+                    <li>Small regions that are hard to see</li>
+                </ul>
+            </div>
+            <div class="tips">
+                <strong>Tip:</strong> Use color gradients effectively and consider adding data labels for important regions.
+            </div>
+        </div>
+        
+        <div class="chart-card">
+            <h3>Waterfall Chart</h3>
+            <div class="chart-image">
+                <!-- Placeholder for waterfall chart image -->
+                [Waterfall Chart Image]
+            </div>
+            <div class="best-for">
+                <h4>Best for:</h4>
+                <ul>
+                    <li>Showing sequential additions and subtractions</li>
+                    <li>Financial statements (P&L, cash flow)</li>
+                    <li>Inventory changes</li>
+                </ul>
+            </div>
+            <div class="avoid-for">
+                <h4>Avoid for:</h4>
+                <ul>
+                    <li>Non-sequential data</li>
+                    <li>When individual values are more important than cumulative effect</li>
+                    <li>Too many steps (becomes hard to follow)</li>
+                </ul>
+            </div>
+            <div class="tips">
+                <strong>Tip:</strong> Use different colors for increases and decreases, and add a total column.
+            </div>
+        </div>
+        
+        <div class="chart-card">
+            <h3>Combo Chart</h3>
+            <div class="chart-image">
+                <!-- Placeholder for combo chart image -->
+                [Combo Chart Image]
+            </div>
+            <div class="best-for">
+                <h4>Best for:</h4>
+                <ul>
+                    <li>Comparing different types of related data</li>
+                    <li>Showing data with different scales</li>
+                    <li>Highlighting relationships between different metrics</li>
+                </ul>
+            </div>
+            <div class="avoid-for">
+                <h4>Avoid for:</h4>
+                <ul>
+                    <li>Unrelated data series</li>
+                    <li>More than 2-3 different chart types (becomes confusing)</li>
+                    <li>When simplicity is important</li>
+                </ul>
+            </div>
+            <div class="tips">
+                <strong>Tip:</strong> Use a secondary axis when values have different scales and clearly label both axes.
+            </div>
+        </div>
+    </div>
+    
+    <h2>Chart Selection Quick Reference Table</h2>
+    
+    <table>
+        <tr>
+            <th>What You Want to Show</th>
+            <th>Recommended Chart Types</th>
+            <th>Key Considerations</th>
+        </tr>
+        <tr>
+            <td>Comparison between items</td>
+            <td>Column, Bar, Radar</td>
+            <td>Number of categories, importance of precise comparison</td>
+        </tr>
+        <tr>
+            <td>Composition (parts of a whole)</td>
+            <td>Pie, Stacked Column/Bar, Area</td>
+            <td>Number of categories, time dimension, importance of individual parts</td>
+        </tr>
+        <tr>
+            <td>Distribution of data</td>
+            <td>Histogram, Box Plot, Scatter</td>
+            <td>Data type, audience familiarity, importance of outliers</td>
+        </tr>
+        <tr>
+            <td>Relationship between variables</td>
+            <td>Scatter, Bubble, Line</td>
+            <td>Number of variables, data density, type of relationship</td>
+        </tr>
+        <tr>
+            <td>Trend over time</td>
+            <td>Line, Area, Column with trendline</td>
+            <td>Time period length, number of data points, number of series</td>
+        </tr>
+        <tr>
+            <td>Geographical data</td>
+            <td>Map, Filled Map</td>
+            <td>Geographic level, data type, color scheme</td>
+        </tr>
+    </table>
+    
+    <h2>Best Practices for Chart Design</h2>
+    
+    <ul>
+        <li><strong>Simplicity:</strong> Keep charts simple and focused on the main message</li>
+        <li><strong>Consistency:</strong> Use consistent colors, styles, and scales across related charts</li>
+        <li><strong>Labeling:</strong> Include clear titles, axis labels, and data labels where appropriate</li>
+        <li><strong>Color:</strong> Use color purposefully to highlight important information</li>
+        <li><strong>Scale:</strong> Use appropriate scales and consider starting y-axis at zero for bar/column charts</li>
+        <li><strong>Sorting:</strong> Sort data in a meaningful way (not just alphabetically)</li>
+        <li><strong>Clutter:</strong> Remove unnecessary gridlines, borders, and decorative elements</li>
+        <li><strong>Context:</strong> Provide context with benchmarks, targets, or historical averages</li>
+    </ul>
+    
+    <div class="print-footer">
+        <p>© Excel Mastery Training Platform | For more resources visit our training portal</p>
+    </div>
+</body>
+</html>

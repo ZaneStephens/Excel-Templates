@@ -1,0 +1,64 @@
+Order ID,Order Date,Ship Date,Customer ID,Customer Name,Segment,Region,Country,State,City,Postal Code,Product ID,Category,Sub-Category,Product Name,Sales,Quantity,Discount,Profit
+CA-2020-152156,1/3/2020,1/5/2020,CG-12520,Claire Gute,Consumer,West,United States,California,Los Angeles,90032,FUR-BO-10001798,Furniture,Bookcases,Bush Somerset Collection Bookcase,261.96,2,0,41.9136
+CA-2020-152156,1/3/2020,1/5/2020,CG-12520,Claire Gute,Consumer,West,United States,California,Los Angeles,90032,FUR-CH-10000454,Furniture,Chairs,Hon Deluxe Fabric Upholstered Stacking Chairs,731.94,3,0,219.582
+CA-2020-138688,1/5/2020,1/9/2020,DV-13045,Darrin Van Huff,Corporate,West,United States,California,Los Angeles,90032,OFF-LA-10000240,Office Supplies,Labels,Self-Adhesive Address Labels for Typewriters by Universal,14.62,2,0,6.8714
+US-2019-108966,1/6/2020,1/10/2020,SO-20335,Sean O'Donnell,Consumer,East,United States,Florida,Fort Lauderdale,33311,FUR-TA-10000577,Furniture,Tables,Bretford CR4500 Series Slim Rectangular Table,957.5775,5,0.45,-383.031
+US-2019-108966,1/6/2020,1/10/2020,SO-20335,Sean O'Donnell,Consumer,East,United States,Florida,Fort Lauderdale,33311,OFF-ST-10000760,Office Supplies,Storage,Eldon Fold 'N Roll Cart System,22.368,2,0.2,2.5164
+CA-2019-115812,1/9/2020,1/11/2020,BH-11710,Brosina Hoffman,Consumer,South,United States,Texas,Houston,77095,FUR-FU-10001487,Furniture,Furnishings,"Eldon Expressions Wood and Plastic Desk Accessories, Cherry Wood",48.86,7,0,14.1694
+CA-2019-115812,1/9/2020,1/11/2020,BH-11710,Brosina Hoffman,Consumer,South,United States,Texas,Houston,77095,OFF-AR-10002833,Office Supplies,Art,Newell 322,7.28,4,0,1.9656
+CA-2019-115812,1/9/2020,1/11/2020,BH-11710,Brosina Hoffman,Consumer,South,United States,Texas,Houston,77095,TEC-PH-10002275,Technology,Phones,Mitel 5320 IP Phone VoIP phone,907.152,6,0.2,90.7152
+CA-2019-115812,1/9/2020,1/11/2020,BH-11710,Brosina Hoffman,Consumer,South,United States,Texas,Houston,77095,OFF-BI-10003910,Office Supplies,Binders,DXL Angle-View Binders with Locking Rings by Samsill,18.504,3,0.2,5.7825
+CA-2019-115812,1/9/2020,1/11/2020,BH-11710,Brosina Hoffman,Consumer,South,United States,Texas,Houston,77095,OFF-AP-10002892,Office Supplies,Appliances,Belkin F5C206VTEL 6 Outlet Surge,114.9,5,0,34.47
+CA-2019-115812,1/9/2020,1/11/2020,BH-11710,Brosina Hoffman,Consumer,South,United States,Texas,Houston,77095,FUR-TA-10001539,Furniture,Tables,Chromcraft Rectangular Conference Tables,1706.184,9,0.2,85.3092
+CA-2019-143336,1/9/2020,1/13/2020,PF-19165,Pete Kriz,Consumer,West,United States,Washington,Olympia,98502,OFF-ST-10004186,Office Supplies,Storage,Stur-D-Stor Shelving Classic Kit,665.88,6,0,159.8112
+CA-2019-143336,1/9/2020,1/13/2020,PF-19165,Pete Kriz,Consumer,West,United States,Washington,Olympia,98502,TEC-PH-10002033,Technology,Phones,Konftel 250 Conference phone - Charcoal black,911.424,4,0.2,68.3568
+CA-2019-143336,1/9/2020,1/13/2020,PF-19165,Pete Kriz,Consumer,West,United States,Washington,Olympia,98502,OFF-PA-10002365,Office Supplies,Paper,Xerox 1967,15.552,3,0.2,5.4432
+US-2019-156909,1/10/2020,1/14/2020,EB-13870,Erica Bern,Corporate,West,United States,California,San Francisco,94107,OFF-BI-10003656,Office Supplies,Binders,Wilson Jones Legal Size Ring Binders,52.776,3,0.2,15.8328
+US-2019-156909,1/10/2020,1/14/2020,EB-13870,Erica Bern,Corporate,West,United States,California,San Francisco,94107,TEC-AC-10003027,Technology,Accessories,Imation 8GB Mini USB 2.0 Flash Drive,29.06,1,0,13.077
+US-2019-156909,1/10/2020,1/14/2020,EB-13870,Erica Bern,Corporate,West,United States,California,San Francisco,94107,OFF-PA-10000249,Office Supplies,Paper,Hammermill Color Copier Paper (28Lb. and 96 Brightness),33.744,3,0.2,11.8104
+CA-2019-106320,1/12/2020,1/16/2020,AB-10105,Adrian Barton,Consumer,West,United States,California,Los Angeles,90032,OFF-BI-10000756,Office Supplies,Binders,Avery Binding System Hidden Tab Executive Style Index Sets,9.72,2,0.2,3.402
+CA-2019-106320,1/12/2020,1/16/2020,AB-10105,Adrian Barton,Consumer,West,United States,California,Los Angeles,90032,OFF-AR-10003056,Office Supplies,Art,Newell 341,8.56,2,0,2.568
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,TEC-PH-10001412,Technology,Phones,Nokia Smart Phone,3.99,1,0,1.5561
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-PA-10001207,Office Supplies,Paper,Telephone Message Books with Fax/Mobile Section,29.76,4,0,13.392
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10002215,Office Supplies,Binders,Wilson Jones Active Use Binders,30.72,4,0.2,10.752
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-ST-10004327,Office Supplies,Storage,Tennsco Lockers,1492.56,4,0,298.512
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-AR-10001683,Office Supplies,Art,Sanford Liquid Accent Highlighters,15.42,3,0,6.9387
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-ST-10000107,Office Supplies,Storage,Fellowes Super Stor/Drawer,55.5,3,0,16.65
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-AR-10000246,Office Supplies,Art,Lumber Crayons,15.48,3,0,7.431
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-ST-10004795,Office Supplies,Storage,Fellowes Stor/Drawer Steel Plus Storage Drawers,415.68,4,0.2,103.92
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-AP-10001492,Office Supplies,Appliances,Holmes Replacement Filter for HEPA Air Cleaner,68.81,7,0,24.0835
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10004182,Office Supplies,Binders,Avery Durable Slant Ring Binders,16.32,2,0.2,5.712
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-FA-10001057,Office Supplies,Fasteners,Advantus Push Pins,7.7,1,0,3.003
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-AR-10003328,Office Supplies,Art,Hunt BOSTON Model 1606 Electric Pencil Sharpener,34.99,1,0,10.497
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-PA-10004041,Office Supplies,Paper,Xerox 1894,5.28,1,0,2.2176
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10001634,Office Supplies,Binders,Wilson Jones Hanging View Binder,21.6,3,0.2,7.56
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-ST-10000604,Office Supplies,Storage,Eldon Regeneration Recycled Desk Accessories,4.24,1,0,1.7808
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-LA-10001339,Office Supplies,Labels,Avery 494,2.88,1,0,1.3824
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10003527,Office Supplies,Binders,Avery Durable Poly Binders,7.7,1,0,3.542
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10001089,Office Supplies,Binders,GBC Recycled VeloBinder Covers,24.92,4,0,11.214
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-AR-10003636,Office Supplies,Art,Newell 310,8.92,2,0,2.676
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10002309,Office Supplies,Binders,Acco Pressboard Covers with Storage Hooks,15.16,4,0,7.276
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10000474,Office Supplies,Binders,Wilson Jones Easy Flow II Sheet Lifters,4.23,1,0,1.9035
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10003527,Office Supplies,Binders,Avery Durable Poly Binders,7.7,1,0,3.542
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10000180,Office Supplies,Binders,Avery Recycled Flexi-View Covers for Binding Systems,17.66,2,0,8.124
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10003910,Office Supplies,Binders,DXL Angle-View Binders with Locking Rings by Samsill,18.504,3,0.2,5.7825
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10001089,Office Supplies,Binders,GBC Recycled VeloBinder Covers,24.92,4,0,11.214
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10003656,Office Supplies,Binders,Wilson Jones Legal Size Ring Binders,52.776,3,0.2,15.8328
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10003910,Office Supplies,Binders,DXL Angle-View Binders with Locking Rings by Samsill,18.504,3,0.2,5.7825
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10000756,Office Supplies,Binders,Avery Binding System Hidden Tab Executive Style Index Sets,9.72,2,0.2,3.402
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10003527,Office Supplies,Binders,Avery Durable Poly Binders,7.7,1,0,3.542
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10000180,Office Supplies,Binders,Avery Recycled Flexi-View Covers for Binding Systems,17.66,2,0,8.124
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10003910,Office Supplies,Binders,DXL Angle-View Binders with Locking Rings by Samsill,18.504,3,0.2,5.7825
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10001089,Office Supplies,Binders,GBC Recycled VeloBinder Covers,24.92,4,0,11.214
+CA-2019-115328,1/13/2020,1/17/2020,HG-14965,Henry Goldwyn,Corporate,East,United States,New York,New York City,10024,OFF-BI-10003656,Office Supplies,Binders,Wilson Jones Legal Size Ring Binders,52.776,3,0.2,15.8328
+
+NOTES:
+This CSV file represents a simplified version of the sales data analysis template.
+In a real Excel file you would have multiple sheets with PivotTables charts and analysis tools.
+To use this data effectively:
+1. Import this CSV into Excel as a table
+2. Create PivotTables to analyze sales by region category and customer
+3. Add charts to visualize sales trends over time
+4. Use slicers for interactive filtering
+5. Create calculated fields for metrics like profit margin
+6. Build a dashboard with key performance indicators

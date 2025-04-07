@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Functions by Category</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #1f497d;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #1f497d;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #2e75b5;
+            margin-top: 30px;
+            border-bottom: 1px solid #bdd6ee;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #5b9bd5;
+            margin-top: 20px;
+        }
+
+        .function-category {
+            margin-bottom: 40px;
+        }
+
+        .function-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .function-table th, .function-table td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        .function-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .function-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .function-name {
+            font-family: Consolas, Monaco, 'Courier New', monospace;
+            font-weight: bold;
+            color: #2e75b5;
+        }
+
+        .function-syntax {
+            font-family: Consolas, Monaco, 'Courier New', monospace;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .example {
+            background-color: #f0f7ff;
+            border-left: 4px solid #5b9bd5;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+
+        .example-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .example-formula {
+            font-family: Consolas, Monaco, 'Courier New', monospace;
+            background-color: #f5f5f5;
+            padding: 5px;
+            border: 1px solid #ddd;
+            margin: 5px 0;
+        }
+
+        .example-result {
+            font-style: italic;
+            color: #666;
+        }
+
+        .tips {
+            background-color: #fff8e6;
+            border-left: 4px solid #f0ad4e;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+
+        .tips-title {
+            font-weight: bold;
+            color: #8a6d3b;
+            margin-bottom: 5px;
+        }
+
+        .print-header, .print-footer {
+            display: none;
+        }
+
+        .toc {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .toc ul {
+            list-style-type: none;
+            padding-left: 15px;
+        }
+
+        .toc li {
+            margin-bottom: 5px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: #2e75b5;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        @media print {
+            body {
+                font-size: 11pt;
+                color: #000;
+            }
+
+            .print-header, .print-footer {
+                display: block;
+                text-align: center;
+                margin: 20px 0;
+            }
+
+            .function-category {
+                page-break-inside: avoid;
+            }
+
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+
+            .function-table {
+                page-break-inside: auto;
+            }
+
+            .function-table tr {
+                page-break-inside: avoid;
+                page-break-after: auto;
+            }
+
+            a {
+                text-decoration: none;
+                color: #000;
+            }
+
+            .toc {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header">
+        Excel Functions by Category - Printed from Excel Mastery Training Platform
+    </div>
+
+    <h1>Excel Functions by Category</h1>
+
+    <p>This comprehensive guide organizes Excel functions by category to help you quickly find the right function for your needs. Each section includes function descriptions, syntax, and examples.</p>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#math">Mathematical Functions</a></li>
+            <li><a href="#statistical">Statistical Functions</a></li>
+            <li><a href="#logical">Logical Functions</a></li>
+            <li><a href="#text">Text Functions</a></li>
+            <li><a href="#date">Date and Time Functions</a></li>
+            <li><a href="#lookup">Lookup and Reference Functions</a></li>
+            <li><a href="#financial">Financial Functions</a></li>
+            <li><a href="#database">Database Functions</a></li>
+            <li><a href="#information">Information Functions</a></li>
+            <li><a href="#engineering">Engineering Functions</a></li>
+        </ul>
+    </div>
+
+    <div id="math" class="function-category">
+        <h2>Mathematical Functions</h2>
+        <p>These functions perform basic and advanced mathematical calculations.</p>
+
+        <table class="function-table">
+            <tr>
+                <th>Function</th>
+                <th>Description</th>
+                <th>Syntax</th>
+            </tr>
+            <tr>
+                <td class="function-name">SUM</td>
+                <td>Adds all the numbers in a range of cells</td>
+                <td class="function-syntax">SUM(number1, [number2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">SUMIF</td>
+                <td>Adds the cells specified by a given criteria</td>
+                <td class="function-syntax">SUMIF(range, criteria, [sum_range])</td>
+            </tr>
+            <tr>
+                <td class="function-name">SUMIFS</td>
+                <td>Adds the cells specified by multiple criteria</td>
+                <td class="function-syntax">SUMIFS(sum_range, criteria_range1, criteria1, [criteria_range2, criteria2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">PRODUCT</td>
+                <td>Multiplies all the numbers given as arguments</td>
+                <td class="function-syntax">PRODUCT(number1, [number2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">POWER</td>
+                <td>Returns the result of a number raised to a power</td>
+                <td class="function-syntax">POWER(number, power)</td>
+            </tr>
+            <tr>
+                <td class="function-name">SQRT</td>
+                <td>Returns the square root of a number</td>
+                <td class="function-syntax">SQRT(number)</td>
+            </tr>
+            <tr>
+                <td class="function-name">ABS</td>
+                <td>Returns the absolute value of a number</td>
+                <td class="function-syntax">ABS(number)</td>
+            </tr>
+            <tr>
+                <td class="function-name">ROUND</td>
+                <td>Rounds a number to a specified number of digits</td>
+                <td class="function-syntax">ROUND(number, num_digits)</td>
+            </tr>
+            <tr>
+                <td class="function-name">ROUNDUP</td>
+                <td>Rounds a number up, away from zero</td>
+                <td class="function-syntax">ROUNDUP(number, num_digits)</td>
+            </tr>
+            <tr>
+                <td class="function-name">ROUNDDOWN</td>
+                <td>Rounds a number down, toward zero</td>
+                <td class="function-syntax">ROUNDDOWN(number, num_digits)</td>
+            </tr>
+            <tr>
+                <td class="function-name">INT</td>
+                <td>Rounds a number down to the nearest integer</td>
+                <td class="function-syntax">INT(number)</td>
+            </tr>
+            <tr>
+                <td class="function-name">MOD</td>
+                <td>Returns the remainder after a number is divided by a divisor</td>
+                <td class="function-syntax">MOD(number, divisor)</td>
+            </tr>
+            <tr>
+                <td class="function-name">RAND</td>
+                <td>Returns a random number between 0 and 1</td>
+                <td class="function-syntax">RAND()</td>
+            </tr>
+            <tr>
+                <td class="function-name">RANDBETWEEN</td>
+                <td>Returns a random integer between two specified numbers</td>
+                <td class="function-syntax">RANDBETWEEN(bottom, top)</td>
+            </tr>
+        </table>
+
+        <div class="example">
+            <div class="example-title">Example: Using SUMIF to calculate sales by region</div>
+            <div class="example-formula">=SUMIF(B2:B20, "North", C2:C20)</div>
+            <div class="example-result">Adds all values in range C2:C20 where the corresponding cell in B2:B20 contains "North"</div>
+        </div>
+
+        <div class="tips">
+            <div class="tips-title">Tips for Mathematical Functions</div>
+            <ul>
+                <li>Use SUMIFS when you need to apply multiple criteria</li>
+                <li>ROUNDUP and ROUNDDOWN are useful for specific business rules (e.g., always rounding up for pricing)</li>
+                <li>Combine RAND with other functions to create random samples or simulations</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="statistical" class="function-category">
+        <h2>Statistical Functions</h2>
+        <p>These functions analyze data based on statistical methods.</p>
+
+        <table class="function-table">
+            <tr>
+                <th>Function</th>
+                <th>Description</th>
+                <th>Syntax</th>
+            </tr>
+            <tr>
+                <td class="function-name">AVERAGE</td>
+                <td>Returns the average (arithmetic mean) of its arguments</td>
+                <td class="function-syntax">AVERAGE(number1, [number2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">AVERAGEIF</td>
+                <td>Returns the average of cells specified by a given criteria</td>
+                <td class="function-syntax">AVERAGEIF(range, criteria, [average_range])</td>
+            </tr>
+            <tr>
+                <td class="function-name">AVERAGEIFS</td>
+                <td>Returns the average of cells specified by multiple criteria</td>
+                <td class="function-syntax">AVERAGEIFS(average_range, criteria_range1, criteria1, [criteria_range2, criteria2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">COUNT</td>
+                <td>Counts the number of cells that contain numbers</td>
+                <td class="function-syntax">COUNT(value1, [value2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">COUNTA</td>
+                <td>Counts the number of cells that are not empty</td>
+                <td class="function-syntax">COUNTA(value1, [value2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">COUNTIF</td>
+                <td>Counts the number of cells specified by a given criteria</td>
+                <td class="function-syntax">COUNTIF(range, criteria)</td>
+            </tr>
+            <tr>
+                <td class="function-name">COUNTIFS</td>
+                <td>Counts the number of cells specified by multiple criteria</td>
+                <td class="function-syntax">COUNTIFS(criteria_range1, criteria1, [criteria_range2, criteria2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">MAX</td>
+                <td>Returns the maximum value in a list of arguments</td>
+                <td class="function-syntax">MAX(number1, [number2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">MIN</td>
+                <td>Returns the minimum value in a list of arguments</td>
+                <td class="function-syntax">MIN(number1, [number2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">MEDIAN</td>
+                <td>Returns the median of the given numbers</td>
+                <td class="function-syntax">MEDIAN(number1, [number2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">MODE.SNGL</td>
+                <td>Returns the most common value in a data set</td>
+                <td class="function-syntax">MODE.SNGL(number1, [number2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">STDEV.P</td>
+                <td>Calculates standard deviation based on the entire population</td>
+                <td class="function-syntax">STDEV.P(number1, [number2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">STDEV.S</td>
+                <td>Calculates standard deviation based on a sample</td>
+                <td class="function-syntax">STDEV.S(number1, [number2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">VAR.P</td>
+                <td>Calculates variance based on the entire population</td>
+                <td class="function-syntax">VAR.P(number1, [number2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">RANK.EQ</td>
+                <td>Returns the rank of a number in a list of numbers</td>
+                <td class="function-syntax">RANK.EQ(number, ref, [order])</td>
+            </tr>
+        </table>
+
+        <div class="example">
+            <div class="example-title">Example: Using COUNTIFS for multiple criteria</div>
+            <div class="example-formula">=COUNTIFS(B2:B100, "Completed", C2:C100, "High", D2:D100, ">1/1/2023")</div>
+            <div class="example-result">Counts cells where status is "Completed", priority is "High", and date is after January 1, 2023</div>
+        </div>
+
+        <div class="tips">
+            <div class="tips-title">Tips for Statistical Functions</div>
+            <ul>
+                <li>Use MEDIAN instead of AVERAGE when your data contains outliers</li>
+                <li>Remember that COUNT only counts cells with numbers, while COUNTA counts non-empty cells</li>
+                <li>For population statistics, use STDEV.P and VAR.P; for sample statistics, use STDEV.S and VAR.S</li>
+            </ul>
+        </div>
+    </div>
+    <div id="logical" class="function-category">
+        <h2>Logical Functions</h2>
+        <p>These functions perform logical operations and conditional tests.</p>
+
+        <table class="function-table">
+            <tr>
+                <th>Function</th>
+                <th>Description</th>
+                <th>Syntax</th>
+            </tr>
+            <tr>
+                <td class="function-name">IF</td>
+                <td>Performs a logical test and returns one value for TRUE, another for FALSE</td>
+                <td class="function-syntax">IF(logical_test, value_if_true, value_if_false)</td>
+            </tr>
+            <tr>
+                <td class="function-name">IFS</td>
+                <td>Checks multiple conditions and returns a value corresponding to the first TRUE condition</td>
+                <td class="function-syntax">IFS(logical_test1, value_if_true1, [logical_test2, value_if_true2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">AND</td>
+                <td>Returns TRUE if all arguments are TRUE</td>
+                <td class="function-syntax">AND(logical1, [logical2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">OR</td>
+                <td>Returns TRUE if any argument is TRUE</td>
+                <td class="function-syntax">OR(logical1, [logical2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">NOT</td>
+                <td>Reverses the logical value of its argument</td>
+                <td class="function-syntax">NOT(logical)</td>
+            </tr>
+            <tr>
+                <td class="function-name">XOR</td>
+                <td>Returns TRUE if an odd number of arguments are TRUE</td>
+                <td class="function-syntax">XOR(logical1, [logical2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">SWITCH</td>
+                <td>Evaluates an expression against a list of values and returns the result corresponding to the first matching value</td>
+                <td class="function-syntax">SWITCH(expression, value1, result1, [value2, result2], ..., [default])</td>
+            </tr>
+            <tr>
+                <td class="function-name">TRUE</td>
+                <td>Returns the logical value TRUE</td>
+                <td class="function-syntax">TRUE()</td>
+            </tr>
+            <tr>
+                <td class="function-name">FALSE</td>
+                <td>Returns the logical value FALSE</td>
+                <td class="function-syntax">FALSE()</td>
+            </tr>
+            <tr>
+                <td class="function-name">ISBLANK</td>
+                <td>Returns TRUE if the reference is to an empty cell</td>
+                <td class="function-syntax">ISBLANK(value)</td>
+            </tr>
+            <tr>
+                <td class="function-name">ISERROR</td>
+                <td>Returns TRUE if the value is any error value</td>
+                <td class="function-syntax">ISERROR(value)</td>
+            </tr>
+            <tr>
+                <td class="function-name">IFERROR</td>
+                <td>Returns a specified value if a formula evaluates to an error; otherwise returns the result of the formula</td>
+                <td class="function-syntax">IFERROR(value, value_if_error)</td>
+            </tr>
+        </table>
+
+        <div class="example">
+            <div class="example-title">Example: Nested IF statements</div>
+            <div class="example-formula">=IF(B2>90, "A", IF(B2>80, "B", IF(B2>70, "C", IF(B2>60, "D", "F"))))</div>
+            <div class="example-result">Assigns a letter grade based on a numeric score</div>
+        </div>
+
+        <div class="example">
+            <div class="example-title">Example: Using IFS (simpler alternative to nested IFs)</div>
+            <div class="example-formula">=IFS(B2>90, "A", B2>80, "B", B2>70, "C", B2>60, "D", TRUE, "F")</div>
+            <div class="example-result">Achieves the same result as the nested IF example above, but with cleaner syntax</div>
+        </div>
+
+        <div class="tips">
+            <div class="tips-title">Tips for Logical Functions</div>
+            <ul>
+                <li>Use IFS instead of nested IF statements for better readability</li>
+                <li>IFERROR is useful for handling potential errors in formulas</li>
+                <li>Combine AND/OR with IF for complex conditions</li>
+                <li>SWITCH is more efficient than multiple IF statements when comparing a single expression to many possible values</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="text" class="function-category">
+        <h2>Text Functions</h2>
+        <p>These functions manipulate and analyze text strings.</p>
+
+        <table class="function-table">
+            <tr>
+                <th>Function</th>
+                <th>Description</th>
+                <th>Syntax</th>
+            </tr>
+            <tr>
+                <td class="function-name">CONCAT</td>
+                <td>Combines text from multiple ranges and/or strings</td>
+                <td class="function-syntax">CONCAT(text1, [text2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">CONCATENATE</td>
+                <td>Joins several text items into one text item (legacy function)</td>
+                <td class="function-syntax">CONCATENATE(text1, [text2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">TEXTJOIN</td>
+                <td>Combines text from multiple ranges with a delimiter</td>
+                <td class="function-syntax">TEXTJOIN(delimiter, ignore_empty, text1, [text2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">LEFT</td>
+                <td>Returns the specified number of characters from the start of a text string</td>
+                <td class="function-syntax">LEFT(text, [num_chars])</td>
+            </tr>
+            <tr>
+                <td class="function-name">RIGHT</td>
+                <td>Returns the specified number of characters from the end of a text string</td>
+                <td class="function-syntax">RIGHT(text, [num_chars])</td>
+            </tr>
+            <tr>
+                <td class="function-name">MID</td>
+                <td>Returns a specific number of characters from a text string starting at a specified position</td>
+                <td class="function-syntax">MID(text, start_num, num_chars)</td>
+            </tr>
+            <tr>
+                <td class="function-name">LEN</td>
+                <td>Returns the number of characters in a text string</td>
+                <td class="function-syntax">LEN(text)</td>
+            </tr>
+            <tr>
+                <td class="function-name">FIND</td>
+                <td>Finds one text string within another (case-sensitive)</td>
+                <td class="function-syntax">FIND(find_text, within_text, [start_num])</td>
+            </tr>
+            <tr>
+                <td class="function-name">SEARCH</td>
+                <td>Finds one text string within another (not case-sensitive)</td>
+                <td class="function-syntax">SEARCH(find_text, within_text, [start_num])</td>
+            </tr>
+            <tr>
+                <td class="function-name">REPLACE</td>
+                <td>Replaces characters within text</td>
+                <td class="function-syntax">REPLACE(old_text, start_num, num_chars, new_text)</td>
+            </tr>
+            <tr>
+                <td class="function-name">SUBSTITUTE</td>
+                <td>Substitutes new text for old text in a text string</td>
+                <td class="function-syntax">SUBSTITUTE(text, old_text, new_text, [instance_num])</td>
+            </tr>
+            <tr>
+                <td class="function-name">UPPER</td>
+                <td>Converts text to uppercase</td>
+                <td class="function-syntax">UPPER(text)</td>
+            </tr>
+            <tr>
+                <td class="function-name">LOWER</td>
+                <td>Converts text to lowercase</td>
+                <td class="function-syntax">LOWER(text)</td>
+            </tr>
+            <tr>
+                <td class="function-name">PROPER</td>
+                <td>Capitalizes the first letter in each word</td>
+                <td class="function-syntax">PROPER(text)</td>
+            </tr>
+            <tr>
+                <td class="function-name">TRIM</td>
+                <td>Removes extra spaces from text</td>
+                <td class="function-syntax">TRIM(text)</td>
+            </tr>
+            <tr>
+                <td class="function-name">TEXT</td>
+                <td>Formats a number and converts it to text</td>
+                <td class="function-syntax">TEXT(value, format_text)</td>
+            </tr>
+            <tr>
+                <td class="function-name">VALUE</td>
+                <td>Converts a text argument to a number</td>
+                <td class="function-syntax">VALUE(text)</td>
+            </tr>
+        </table>
+
+        <div class="example">
+            <div class="example-title">Example: Creating a full name with CONCAT</div>
+            <div class="example-formula">=CONCAT(B2, " ", C2)</div>
+            <div class="example-result">Combines first name in B2, a space, and last name in C2</div>
+        </div>
+
+        <div class="example">
+            <div class="example-title">Example: Extracting domain from email address</div>
+            <div class="example-formula">=MID(A2, FIND("@", A2) + 1, LEN(A2) - FIND("@", A2))</div>
+            <div class="example-result">Extracts the domain portion of an email address (everything after the @ symbol)</div>
+        </div>
+
+        <div class="tips">
+            <div class="tips-title">Tips for Text Functions</div>
+            <ul>
+                <li>Use TEXTJOIN instead of CONCAT when you need to add delimiters between items</li>
+                <li>Combine FIND/SEARCH with LEFT, RIGHT, or MID to extract specific portions of text</li>
+                <li>Always use TRIM to clean up text data imported from external sources</li>
+                <li>Use TEXT function to format numbers as text with specific formatting (e.g., currency, dates)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="date" class="function-category">
+        <h2>Date and Time Functions</h2>
+        <p>These functions work with date and time values in Excel.</p>
+
+        <table class="function-table">
+            <tr>
+                <th>Function</th>
+                <th>Description</th>
+                <th>Syntax</th>
+            </tr>
+            <tr>
+                <td class="function-name">TODAY</td>
+                <td>Returns the current date</td>
+                <td class="function-syntax">TODAY()</td>
+            </tr>
+            <tr>
+                <td class="function-name">NOW</td>
+                <td>Returns the current date and time</td>
+                <td class="function-syntax">NOW()</td>
+            </tr>
+            <tr>
+                <td class="function-name">DATE</td>
+                <td>Returns the serial number of a particular date</td>
+                <td class="function-syntax">DATE(year, month, day)</td>
+            </tr>
+            <tr>
+                <td class="function-name">TIME</td>
+                <td>Returns the serial number of a particular time</td>
+                <td class="function-syntax">TIME(hour, minute, second)</td>
+            </tr>
+            <tr>
+                <td class="function-name">YEAR</td>
+                <td>Extracts the year from a date value</td>
+                <td class="function-syntax">YEAR(serial_number)</td>
+            </tr>
+            <tr>
+                <td class="function-name">MONTH</td>
+                <td>Extracts the month from a date value</td>
+                <td class="function-syntax">MONTH(serial_number)</td>
+            </tr>
+            <tr>
+                <td class="function-name">DAY</td>
+                <td>Extracts the day from a date value</td>
+                <td class="function-syntax">DAY(serial_number)</td>
+            </tr>
+            <tr>
+                <td class="function-name">HOUR</td>
+                <td>Extracts the hour from a time value</td>
+                <td class="function-syntax">HOUR(serial_number)</td>
+            </tr>
+            <tr>
+                <td class="function-name">MINUTE</td>
+                <td>Extracts the minute from a time value</td>
+                <td class="function-syntax">MINUTE(serial_number)</td>
+            </tr>
+            <tr>
+                <td class="function-name">SECOND</td>
+                <td>Extracts the second from a time value</td>
+                <td class="function-syntax">SECOND(serial_number)</td>
+            </tr>
+            <tr>
+                <td class="function-name">WEEKDAY</td>
+                <td>Returns the day of the week from a date value</td>
+                <td class="function-syntax">WEEKDAY(serial_number, [return_type])</td>
+            </tr>
+            <tr>
+                <td class="function-name">WORKDAY</td>
+                <td>Returns the date that is the indicated number of working days before or after a date</td>
+                <td class="function-syntax">WORKDAY(start_date, days, [holidays])</td>
+            </tr>
+            <tr>
+                <td class="function-name">NETWORKDAYS</td>
+                <td>Returns the number of whole workdays between two dates</td>
+                <td class="function-syntax">NETWORKDAYS(start_date, end_date, [holidays])</td>
+            </tr>
+            <tr>
+                <td class="function-name">EDATE</td>
+                <td>Returns the date that is the indicated number of months before or after a date</td>
+                <td class="function-syntax">EDATE(start_date, months)</td>
+            </tr>
+            <tr>
+                <td class="function-name">EOMONTH</td>
+                <td>Returns the last day of the month that is the indicated number of months before or after a date</td>
+                <td class="function-syntax">EOMONTH(start_date, months)</td>
+            </tr>
+            <tr>
+                <td class="function-name">DATEDIF</td>
+                <td>Calculates the difference between two dates in various units</td>
+                <td class="function-syntax">DATEDIF(start_date, end_date, unit)</td>
+            </tr>
+        </table>
+
+        <div class="example">
+            <div class="example-title">Example: Calculating age in years</div>
+            <div class="example-formula">=DATEDIF(B2, TODAY(), "Y")</div>
+            <div class="example-result">Calculates the number of complete years between birth date in B2 and today</div>
+        </div>
+
+        <div class="example">
+            <div class="example-title">Example: Finding the last day of the current month</div>
+            <div class="example-formula">=EOMONTH(TODAY(), 0)</div>
+            <div class="example-result">Returns the last day of the current month</div>
+        </div>
+
+        <div class="tips">
+            <div class="tips-title">Tips for Date and Time Functions</div>
+            <ul>
+                <li>Excel stores dates as sequential serial numbers, with January 1, 1900 as serial number 1</li>
+                <li>Use the TEXT function to format dates in a specific way (e.g., =TEXT(TODAY(), "mmmm d, yyyy"))</li>
+                <li>WORKDAY and NETWORKDAYS are useful for project planning and scheduling</li>
+                <li>DATEDIF is a "hidden" function not listed in the function wizard but very useful for age calculations</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="lookup" class="function-category">
+        <h2>Lookup and Reference Functions</h2>
+        <p>These functions look up and retrieve data from tables and ranges.</p>
+
+        <table class="function-table">
+            <tr>
+                <th>Function</th>
+                <th>Description</th>
+                <th>Syntax</th>
+            </tr>
+            <tr>
+                <td class="function-name">VLOOKUP</td>
+                <td>Looks for a value in the leftmost column of a table and returns a value in the same row from a column you specify</td>
+                <td class="function-syntax">VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])</td>
+            </tr>
+            <tr>
+                <td class="function-name">HLOOKUP</td>
+                <td>Looks for a value in the top row of a table and returns a value in the same column from a row you specify</td>
+                <td class="function-syntax">HLOOKUP(lookup_value, table_array, row_index_num, [range_lookup])</td>
+            </tr>
+            <tr>
+                <td class="function-name">XLOOKUP</td>
+                <td>Searches a range or array and returns an item corresponding to the first match found</td>
+                <td class="function-syntax">XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode])</td>
+            </tr>
+            <tr>
+                <td class="function-name">INDEX</td>
+                <td>Returns a value or reference of the cell at the intersection of a particular row and column</td>
+                <td class="function-syntax">INDEX(array, row_num, [column_num])</td>
+            </tr>
+            <tr>
+                <td class="function-name">MATCH</td>
+                <td>Searches for a specified item in a range of cells and returns the relative position</td>
+                <td class="function-syntax">MATCH(lookup_value, lookup_array, [match_type])</td>
+            </tr>
+            <tr>
+                <td class="function-name">INDIRECT</td>
+                <td>Returns the reference specified by a text string</td>
+                <td class="function-syntax">INDIRECT(ref_text, [a1])</td>
+            </tr>
+            <tr>
+                <td class="function-name">OFFSET</td>
+                <td>Returns a reference offset from a given reference</td>
+                <td class="function-syntax">OFFSET(reference, rows, cols, [height], [width])</td>
+            </tr>
+            <tr>
+                <td class="function-name">CHOOSE</td>
+                <td>Chooses a value from a list of values based on an index number</td>
+                <td class="function-syntax">CHOOSE(index_num, value1, [value2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">ROW</td>
+                <td>Returns the row number of a reference</td>
+                <td class="function-syntax">ROW([reference])</td>
+            </tr>
+            <tr>
+                <td class="function-name">COLUMN</td>
+                <td>Returns the column number of a reference</td>
+                <td class="function-syntax">COLUMN([reference])</td>
+            </tr>
+            <tr>
+                <td class="function-name">ADDRESS</td>
+                <td>Creates a cell address as text, given row and column numbers</td>
+                <td class="function-syntax">ADDRESS(row_num, column_num, [abs_num], [a1], [sheet_text])</td>
+            </tr>
+        </table>
+
+        <div class="example">
+            <div class="example-title">Example: INDEX-MATCH combination for flexible lookups</div>
+            <div class="example-formula">=INDEX(C2:C100, MATCH("Smith", B2:B100, 0))</div>
+            <div class="example-result">Finds "Smith" in column B and returns the corresponding value from column C</div>
+        </div>
+
+        <div class="example">
+            <div class="example-title">Example: XLOOKUP for modern lookups</div>
+            <div class="example-formula">=XLOOKUP(E2, B2:B100, C2:C100, "Not Found", 0)</div>
+            <div class="example-result">Looks for the value in E2 within range B2:B100 and returns the corresponding value from C2:C100</div>
+        </div>
+
+        <div class="tips">
+            <div class="tips-title">Tips for Lookup and Reference Functions</div>
+            <ul>
+                <li>Use XLOOKUP instead of VLOOKUP when available (Excel 365 and later) for more flexibility</li>
+                <li>INDEX-MATCH combination is more versatile than VLOOKUP for complex lookups</li>
+                <li>Set the last parameter of VLOOKUP to FALSE for exact matches</li>
+                <li>INDIRECT is powerful but can slow down large spreadsheets as it's volatile</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="financial" class="function-category">
+        <h2>Financial Functions</h2>
+        <p>These functions perform financial calculations for business and investment analysis.</p>
+
+        <table class="function-table">
+            <tr>
+                <th>Function</th>
+                <th>Description</th>
+                <th>Syntax</th>
+            </tr>
+            <tr>
+                <td class="function-name">PMT</td>
+                <td>Calculates the payment for a loan based on constant payments and a constant interest rate</td>
+                <td class="function-syntax">PMT(rate, nper, pv, [fv], [type])</td>
+            </tr>
+            <tr>
+                <td class="function-name">RATE</td>
+                <td>Returns the interest rate per period of a loan or investment</td>
+                <td class="function-syntax">RATE(nper, pmt, pv, [fv], [type], [guess])</td>
+            </tr>
+            <tr>
+                <td class="function-name">NPER</td>
+                <td>Returns the number of periods for a loan or investment</td>
+                <td class="function-syntax">NPER(rate, pmt, pv, [fv], [type])</td>
+            </tr>
+            <tr>
+                <td class="function-name">PV</td>
+                <td>Returns the present value of an investment</td>
+                <td class="function-syntax">PV(rate, nper, pmt, [fv], [type])</td>
+            </tr>
+            <tr>
+                <td class="function-name">FV</td>
+                <td>Returns the future value of an investment</td>
+                <td class="function-syntax">FV(rate, nper, pmt, [pv], [type])</td>
+            </tr>
+            <tr>
+                <td class="function-name">IPMT</td>
+                <td>Returns the interest payment for a given period of an investment</td>
+                <td class="function-syntax">IPMT(rate, per, nper, pv, [fv], [type])</td>
+            </tr>
+            <tr>
+                <td class="function-name">PPMT</td>
+                <td>Returns the principal payment for a given period of an investment</td>
+                <td class="function-syntax">PPMT(rate, per, nper, pv, [fv], [type])</td>
+            </tr>
+            <tr>
+                <td class="function-name">NPV</td>
+                <td>Returns the net present value of an investment based on a series of cash flows</td>
+                <td class="function-syntax">NPV(rate, value1, [value2], ...)</td>
+            </tr>
+            <tr>
+                <td class="function-name">IRR</td>
+                <td>Returns the internal rate of return for a series of cash flows</td>
+                <td class="function-syntax">IRR(values, [guess])</td>
+            </tr>
+            <tr>
+                <td class="function-name">XIRR</td>
+                <td>Returns the internal rate of return for a schedule of cash flows that is not necessarily periodic</td>
+                <td class="function-syntax">XIRR(values, dates, [guess])</td>
+            </tr>
+            <tr>
+                <td class="function-name">SLN</td>
+                <td>Returns the straight-line depreciation of an asset for one period</td>
+                <td class="function-syntax">SLN(cost, salvage, life)</td>
+            </tr>
+            <tr>
+                <td class="function-name">DB</td>
+                <td>Returns the depreciation of an asset for a specified period using the fixed-declining balance method</td>
+                <td class="function-syntax">DB(cost, salvage, life, period, [month])</td>
+            </tr>
+        </table>
+
+        <div class="example">
+            <div class="example-title">Example: Calculating loan payment</div>
+            <div class="example-formula">=PMT(5%/12, 30*12, 250000)</div>
+            <div class="example-result">Calculates the monthly payment for a $250,000 loan at 5% annual interest over 30 years</div>
+        </div>
+
+        <div class="example">
+            <div class="example-title">Example: Calculating investment future value</div>
+            <div class="example-formula">=FV(7%/12, 5*12, -500, 0)</div>
+            <div class="example-result">Calculates the future value of $500 monthly investments at 7% annual interest over 5 years</div>
+        </div>
+
+        <div class="tips">
+            <div class="tips-title">Tips for Financial Functions</div>
+            <ul>
+                <li>Remember that cash outflows (payments) are represented by negative numbers</li>
+                <li>For monthly calculations with annual rates, divide the rate by 12</li>
+                <li>Use XIRR instead of IRR when cash flows occur at irregular intervals</li>
+                <li>The type parameter (0 or 1) indicates whether payments occur at the end (0) or beginning (1) of periods</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="print-footer">
+        <p>© Excel Mastery Training Platform | For more resources visit our training portal</p>
+    </div>
+</body>
+</html>

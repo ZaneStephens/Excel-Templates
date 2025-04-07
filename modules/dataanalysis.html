@@ -8,7 +8,7 @@
         font-family: "Consolas", monospace;
         font-size: 0.9em;
     }
-    
+
     pre {
         background-color: #f5f5f5;
         padding: 10px;
@@ -18,30 +18,30 @@
         font-family: "Consolas", monospace;
         font-size: 0.9em;
     }
-    
+
     .formula-example {
         border-collapse: collapse;
         width: 100%;
     }
-    
+
     .formula-example th,
     .formula-example td {
         border: 1px solid #ddd;
         padding: 8px;
         text-align: left;
     }
-    
+
     .formula-example th {
         background-color: #f2f2f2;
     }
-    
+
     .info-box {
         background-color: #f0f8ff;
         padding: 10px;
         border-left: 4px solid #4682b4;
         margin-top: 10px;
     }
-    
+
     .tip-box {
         background-color: #f3f9f3;
         padding: 10px;
@@ -56,6 +56,133 @@
 </div>
 
 <div class="topic-container">
+    <!-- Data Sorting and Filtering Section -->
+    <div class="topic-card" id="sorting-filtering">
+        <h3>Data Sorting and Filtering</h3>
+        <div class="topic-content">
+            <div class="topic-text">
+                <p>Organize and find data quickly with Excel's powerful sorting and filtering tools, essential skills for effective data analysis.</p>
+
+                <h4>Basic Sorting Techniques</h4>
+                <ul>
+                    <li><strong>Single-column sorting</strong>: Click column header and use Sort A to Z or Sort Z to A</li>
+                    <li><strong>Multi-column sorting</strong>: Use Data tab > Sort to define primary and secondary sort criteria</li>
+                    <li><strong>Custom sorting</strong>: Create custom lists for days of week, months, or business-specific sequences</li>
+                    <li><strong>Sort by color</strong>: Organize data based on cell color, font color, or conditional formatting</li>
+                </ul>
+
+                <h4>Advanced Filtering Options</h4>
+                <ul>
+                    <li><strong>AutoFilter</strong>: Quick filtering using dropdown arrows in column headers</li>
+                    <li><strong>Text filters</strong>: Contains, Begins with, Ends with, etc.</li>
+                    <li><strong>Number filters</strong>: Greater than, Less than, Between, Top 10, etc.</li>
+                    <li><strong>Date filters</strong>: This week, Next month, Year to date, etc.</li>
+                    <li><strong>Advanced Filter</strong>: Create complex criteria using separate criteria ranges</li>
+                </ul>
+
+                <h4>Working with Tables</h4>
+                <ul>
+                    <li>Convert ranges to Tables (Ctrl+T) for enhanced sorting and filtering</li>
+                    <li>Use structured references in formulas (e.g., <code>[@Column1]</code>, <code>Table1[Column1]</code>)</li>
+                    <li>Add calculated columns with automatic fill-down</li>
+                    <li>Apply table styles for better visualization</li>
+                </ul>
+
+                <h4>Business Applications</h4>
+                <ul>
+                    <li>Identifying top/bottom performing products, regions, or employees</li>
+                    <li>Finding outliers or exceptions in large datasets</li>
+                    <li>Creating focused reports by filtering to specific criteria</li>
+                    <li>Preparing data for PivotTables and charts</li>
+                </ul>
+
+                <div class="tip-box">
+                    <h4>Pro Tip:</h4>
+                    <p>Use <code>Alt+Down Arrow</code> to open filter dropdown menus quickly. When working with large datasets, filtering before sorting can improve performance dramatically.</p>
+                </div>
+            </div>
+
+            <div class="topic-example">
+                <h4>Example: Sales Performance Analysis</h4>
+                <p>A sales manager needs to analyze regional performance data to identify top-performing products and underperforming regions.</p>
+
+                <table class="formula-example">
+                    <tr>
+                        <th>Region</th>
+                        <th>Product</th>
+                        <th>Sales Rep</th>
+                        <th>Units Sold</th>
+                        <th>Revenue</th>
+                        <th>Target</th>
+                    </tr>
+                    <tr>
+                        <td>North</td>
+                        <td>Laptop Pro</td>
+                        <td>Smith</td>
+                        <td>45</td>
+                        <td>$67,500</td>
+                        <td>$60,000</td>
+                    </tr>
+                    <tr>
+                        <td>South</td>
+                        <td>Tablet Mini</td>
+                        <td>Johnson</td>
+                        <td>68</td>
+                        <td>$40,800</td>
+                        <td>$45,000</td>
+                    </tr>
+                    <tr>
+                        <td>East</td>
+                        <td>Laptop Pro</td>
+                        <td>Williams</td>
+                        <td>52</td>
+                        <td>$78,000</td>
+                        <td>$70,000</td>
+                    </tr>
+                    <tr>
+                        <td>West</td>
+                        <td>Smartphone X</td>
+                        <td>Davis</td>
+                        <td>93</td>
+                        <td>$55,800</td>
+                        <td>$50,000</td>
+                    </tr>
+                    <tr>
+                        <td>North</td>
+                        <td>Smartphone X</td>
+                        <td>Miller</td>
+                        <td>37</td>
+                        <td>$22,200</td>
+                        <td>$30,000</td>
+                    </tr>
+                    <tr>
+                        <td>South</td>
+                        <td>Laptop Pro</td>
+                        <td>Wilson</td>
+                        <td>29</td>
+                        <td>$43,500</td>
+                        <td>$45,000</td>
+                    </tr>
+                </table>
+
+                <h4>Analysis Steps:</h4>
+                <ol>
+                    <li>Convert the data range to a Table (Ctrl+T)</li>
+                    <li>Add a calculated column for Performance: <code>=[@Revenue]/[@Target]</code></li>
+                    <li>Apply conditional formatting to highlight values below 90% and above 110%</li>
+                    <li>Sort by Revenue (largest to smallest) to identify top revenue generators</li>
+                    <li>Filter to show only regions not meeting targets (Performance < 1)</li>
+                    <li>Create a multi-level sort by Region, then by Performance (descending)</li>
+                </ol>
+
+                <div class="info-box">
+                    <h4>Analysis Insight:</h4>
+                    <p>After sorting and filtering, the manager discovers that while the East region is performing well overall, the North region shows mixed results with strong Laptop Pro sales but underperforming Smartphone X sales. This suggests a need for product-specific training in the North region rather than a general performance issue.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Correlation Analysis Section -->
     <div class="topic-card" id="correlation">
         <h3>Correlation Analysis</h3>
@@ -88,7 +215,7 @@
             <div class="topic-example">
                 <h4>Example: Marketing Channel Effectiveness</h4>
                 <p>A marketing team wants to determine which advertising channels have the strongest relationship with sales performance.</p>
-                
+
                 <table class="formula-example">
                     <tr>
                         <th>Month</th>
@@ -133,7 +260,7 @@
                         <td>160,000</td>
                     </tr>
                 </table>
-                
+
                 <div class="tip-box">
                     <h4>Correlation Results</h4>
                     <table class="formula-example">
@@ -159,7 +286,7 @@
                         </tr>
                     </table>
                 </div>
-                
+
                 <p><strong>Analysis Insight:</strong> The data reveals a strong positive correlation between Social Media spending and sales (0.97), suggesting this channel may be most effective. Meanwhile, TV Ad spending shows a negative correlation (-0.92), indicating that as the company reduced TV spend and increased Social Media investment, sales actually improved.</p>
             </div>
         </div>
@@ -201,12 +328,12 @@
             <div class="topic-example">
                 <h4>Example: Sales Prediction Model</h4>
                 <p>Building on our correlation analysis, let's create a regression model to predict sales based on marketing spend.</p>
-                
+
                 <div class="info-box">
                     <h4>Business Scenario:</h4>
                     <p>The marketing team wants to develop a predictive model to estimate sales based on planned advertising budgets for future months.</p>
                 </div>
-                
+
                 <div class="tip-box">
                     <h4>Key Regression Statistics</h4>
                     <ul>
@@ -222,15 +349,15 @@
                         <li><strong>P-values:</strong> Social Media is statistically significant (p < 0.05)</li>
                     </ul>
                 </div>
-                
+
                 <p><strong>Prediction Formula:</strong> <code>Sales = 75,235 - 1.56*[TV] + 4.83*[Social] + 3.24*[Email]</code></p>
-                
+
                 <div class="example-case">
                     <h4>Model Application:</h4>
                     <p>For a planned budget of $5,000 TV, $20,000 Social Media, and $6,000 Email:</p>
                     <p><code>Sales = 75,235 - 1.56*5,000 + 4.83*20,000 + 3.24*6,000 = $182,755</code></p>
                 </div>
-                
+
                 <p><strong>Business Application:</strong> This regression model becomes a powerful planning tool for marketing budget allocation. The team can now estimate ROI for different spending scenarios and optimize their channel mix before committing real dollars.</p>
             </div>
         </div>
@@ -273,7 +400,7 @@
             <div class="topic-example">
                 <h4>Example: Profit Analysis by Region</h4>
                 <p>In this example, we'll create a PivotTable with calculated fields to analyze profitability metrics across regions.</p>
-                
+
                 <table class="formula-example">
                     <tr>
                         <th>Region</th>
@@ -311,7 +438,7 @@
                         <td>30.0%</td>
                     </tr>
                 </table>
-                
+
                 <div class="steps-container">
                     <h4>Steps to Create This Example:</h4>
                     <ol>
@@ -323,7 +450,7 @@
                         <li>Format the Profit Margin field as Percentage</li>
                     </ol>
                 </div>
-                
+
                 <div class="info-box">
                     <p><strong>Analysis insight:</strong> The East region has the highest profit margin (36%), suggesting better operational efficiency or higher-value product mix compared to other regions. This insight would drive further investigation into the East region's sales strategies and product mix.</p>
                 </div>
@@ -366,13 +493,13 @@
             <div class="topic-example">
                 <h4>Example: Monthly Sales Trends by Category</h4>
                 <p>Create an interactive PivotChart to visualize monthly sales trends across product categories with slicer filtering.</p>
-                
+
                 <div class="info-box">
                     <h4>Business Scenario:</h4>
                     <p>A retail company needs to analyze monthly sales patterns across different product categories. The management team wants to be able to filter by region to identify location-specific trends.</p>
                     <p><strong>Data Structure:</strong> A sales table with columns for Date, Region, Product Category, and Sales Amount.</p>
                 </div>
-                
+
                 <table class="formula-example">
                     <tr>
                         <th>Month</th>
@@ -402,7 +529,7 @@
                         <td colspan="4"><em>(When West region is selected in slicer)</em></td>
                     </tr>
                 </table>
-                
+
                 <div class="steps-container">
                     <h4>Implementation Steps:</h4>
                     <ol>
@@ -422,7 +549,7 @@
                         </li>
                     </ol>
                 </div>
-                
+
                 <div class="tip-box">
                     <h4>Analysis Finding:</h4>
                     <p>When filtering by the Western region, the Electronics category shows a 40% higher sales spike during November-December compared to other seasons, while the Clothing category maintains more consistent sales throughout the year.</p>
@@ -468,7 +595,7 @@
             </div>
             <div class="topic-example">
                 <h4>Example: Automated Sales Data Transformation</h4>
-                
+
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                     <div>
                         <h5>Before Power Query</h5>
@@ -538,7 +665,7 @@
                         <p><strong>Fixed:</strong> Standardized dates, proper case products, blank instead of N/A, removed empty rows, removed notes column</p>
                     </div>
                 </div>
-                
+
                 <div class="steps-container">
                     <h4>Power Query Transformation Steps:</h4>
                     <ol>
@@ -556,7 +683,7 @@
                         <li>Click Close & Load to send clean data to Excel</li>
                     </ol>
                 </div>
-                
+
                 <div class="tip-box">
                     <h4>Power Query Advantage</h4>
                     <p>Once configured, this transformation process can be repeated with a single click whenever new data arrives. Just right-click the query in the Queries pane and select "Refresh" - all the cleaning steps will run automatically.</p>
@@ -603,12 +730,12 @@
             </div>
             <div class="topic-example">
                 <h4>Example: Customer Data Standardization</h4>
-                
+
                 <div class="info-box">
                     <h4>Business Scenario:</h4>
                     <p>A company's customer database has accumulated inconsistencies due to manual data entry from different sales representatives. Before analysis, the data needs cleaning to standardize formats, fix capitalization, and remove errors.</p>
                 </div>
-                
+
                 <table class="formula-example">
                     <tr>
                         <th>Data Cleaning Function</th>
@@ -647,12 +774,12 @@
                         <td>"Acme Corp"</td>
                     </tr>
                 </table>
-                
+
                 <div class="tip-box">
                     <h4>Flash Fill Alternative</h4>
                     <p>For simple data cleaning, try Excel's Flash Fill feature. Enter a few examples of the desired format in a column next to your data, then press Ctrl+E. Excel will recognize the pattern and apply it to the rest of the column.</p>
                 </div>
-                
+
                 <p><strong>Data Quality Impact:</strong> After cleaning, the company discovered they had 12% fewer unique customers than previously thought due to duplicate entries with slight variations in names and contact information. This corrected their customer lifetime value calculations significantly.</p>
             </div>
         </div>
@@ -698,7 +825,7 @@
             <div class="topic-example">
                 <h4>Example: Break-Even Analysis with Goal Seek</h4>
                 <p>Using Goal Seek to determine exactly how many units must be sold to break even, given fixed and variable costs.</p>
-                
+
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                     <div>
                         <h5>Initial Model</h5>
@@ -767,7 +894,7 @@
                         </table>
                     </div>
                 </div>
-                
+
                 <div class="steps-container">
                     <h4>Step-by-Step Implementation:</h4>
                     <ol>
@@ -794,7 +921,7 @@
                         </li>
                     </ol>
                 </div>
-                
+
                 <div class="tip-box">
                     <h4>Result Analysis:</h4>
                     <p>The company needs to sell exactly 100 units to break even, where total revenue equals total costs ($7,500). At the current sales level of 80 units, the company is losing $600.</p>
@@ -843,7 +970,7 @@
             <div class="topic-example">
                 <h4>Example: Marketing Budget Scenarios</h4>
                 <p>A two-variable data table analyzing how different growth rates and price increases affect projected annual sales revenue for a business currently generating $100,000 in annual sales.</p>
-                
+
                 <table class="formula-example">
                     <tr>
                         <th>Sales Forecast</th>
@@ -874,12 +1001,12 @@
                         <td>$124,200</td>
                     </tr>
                 </table>
-                
+
                 <div class="info-box">
                     <h4>Business Context:</h4>
                     <p>A company with current annual sales of $100,000 needs to forecast next year's revenue under different scenarios for its annual planning process. Management wants to see the combined effect of two factors: volume growth (driven by marketing) and price increases (to counter inflation).</p>
                 </div>
-                
+
                 <div class="steps-container">
                     <h4>Implementation Steps:</h4>
                     <ol>
@@ -898,7 +1025,7 @@
                         <li>Set "Column input cell" to B1 (Volume Growth)</li>
                     </ol>
                 </div>
-                
+
                 <div class="tip-box">
                     <h4>Key Finding:</h4>
                     <p>The difference between the best scenario (15% growth, 8% price increase) and worst scenario (5% growth, 2% price increase) is $17,100 in annual revenue, representing a 17.1% swing in projected outcomes.</p>
@@ -942,7 +1069,7 @@
             <div class="topic-example">
                 <h4>Example: Marketing Budget Planning Scenarios</h4>
                 <p>A detailed analysis using Scenario Manager to model different financial outcomes for a marketing department's annual plan.</p>
-                
+
                 <table class="formula-example">
                     <tr>
                         <th>Scenario Summary</th>
@@ -987,19 +1114,19 @@
                         <td>321%</td>
                     </tr>
                 </table>
-                
+
                 <div class="info-box">
                     <h4>Business Context:</h4>
                     <p>A marketing director needs to present different budgeting scenarios to the executive team, showing how various investment levels might affect customer acquisition and ROI. The objective is to make a case for increasing the marketing budget based on projected performance.</p>
                 </div>
-                
+
                 <div class="steps-container">
                     <h4>Implementation Steps:</h4>
                     <ol>
                         <li>Create a model with these variables:
                             <ul>
                                 <li>A1: Revenue</li>
-                                <li>A2: Marketing Budget</li> 
+                                <li>A2: Marketing Budget</li>
                                 <li>A3: Conversion Rate</li>
                             </ul>
                         </li>
@@ -1019,7 +1146,7 @@
                         </li>
                     </ol>
                 </div>
-                
+
                 <div class="tip-box">
                     <h4>Analysis Insight:</h4>
                     <p>The Aggressive scenario shows the best marketing ROI (321%) despite having the highest budget ($95,000). This is due to the significantly higher conversion rate (4.0%) reducing the cost per acquisition to $250, which is 20% lower than the conservative approach.</p>

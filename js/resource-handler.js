@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 function initializeResourceButtons() {
     const resourceButtons = document.querySelectorAll('.resource-btn');
-    
+
     resourceButtons.forEach(button => {
         button.addEventListener('click', handleResourceDownload);
     });
@@ -23,30 +23,40 @@ function initializeResourceButtons() {
  * @param {Event} event - The click event
  */
 function handleResourceDownload(event) {
+    console.log('handleResourceDownload called');
+
     // Ensure we're working with the button element itself, not any child elements
     let target = event.target;
     while (target && !target.classList.contains('resource-btn')) {
         target = target.parentElement;
     }
-    
-    if (!target) return;
-    
+
+    if (!target) {
+        console.error('No target button found');
+        return;
+    }
+
     const resourceId = target.getAttribute('data-resource');
+    console.log('Resource ID:', resourceId);
+
     const resourceType = getResourceType(resourceId);
-    
+    console.log('Resource Type:', resourceType);
+
     // Show loading state
     const button = target;
     const originalText = button.textContent;
     button.disabled = true;
     button.textContent = 'Downloading...';
-    
+
     // Check if resource is HTML page and handle it differently
     if (resourceType === 'html') {
         const resourceMap = {
-            'formulas-html': '/resources/cheatsheets/formulareference.html',
-            'shortcuts-html': '/resources/cheatsheets/keyboardshortcuts.html'
+            'formulas-html': 'resources/cheatsheets/formulareference.html',
+            'shortcuts-html': 'resources/cheatsheets/keyboardshortcuts.html',
+            'chart-guide-html': 'resources/cheatsheets/chartselection.html',
+            'functions-html': 'resources/cheatsheets/functionsbycategory.html'
         };
-        
+
         const url = resourceMap[resourceId];
         if (url) {
             // Open HTML page in a new tab
@@ -66,7 +76,7 @@ function handleResourceDownload(event) {
         }
         return;
     }
-    
+
     // Simulate download delay (remove in production and replace with actual fetch)
     setTimeout(() => {
         downloadResource(resourceId, resourceType)
@@ -99,15 +109,19 @@ function handleResourceDownload(event) {
  * @returns {string} The resource type
  */
 function getResourceType(resourceId) {
+    console.log('getResourceType called with:', resourceId);
+    let type = 'other';
+
     if(resourceId.includes('template')) {
-        return 'excel';
+        type = 'excel';
     } else if(resourceId.includes('pdf')) {
-        return 'pdf';
+        type = 'pdf';
     } else if(resourceId.includes('html')) {
-        return 'html';
-    } else {
-        return 'other';
+        type = 'html';
     }
+
+    console.log('Resource type determined:', type);
+    return type;
 }
 
 /**
@@ -117,47 +131,62 @@ function getResourceType(resourceId) {
  * @returns {Promise} A promise that resolves when the download is complete
  */
 function downloadResource(resourceId, resourceType) {
+    console.log('downloadResource called with:', resourceId, resourceType);
     return new Promise((resolve, reject) => {
         // Map resource IDs to file paths
         const resourceMap = {
-            // Excel templates
-            'budget-template': '/resources/templates/monthly_budget_template.xlsx',
-            'commission-template': '/resources/templates/sales_commission_calculator.xlsx',
-            'sales-analysis-template': '/resources/templates/sales_data_analysis.xlsx',
-            'dashboard-template': '/resources/templates/dashboard_project.xlsx',
-            
-            // PDF cheat sheets
-            'shortcuts-pdf': '/resources/cheatsheets/keyboardshortcuts.html',
-            'formulas-pdf': '/resources/cheatsheets/formulareference.html',
-            'chart-guide-pdf': '/resources/cheatsheets/chart_selection_guide.pdf',
-            'functions-pdf': '/resources/cheatsheets/excel_functions_by_category.pdf'
+            // Excel templates (CSV versions for easier implementation)
+            'budget-template': 'resources/templates/monthly_budget_template.csv',
+            'commission-template': 'resources/templates/sales_commission_calculator.csv',
+            'sales-analysis-template': 'resources/templates/sales_data_analysis.csv',
+            'dashboard-template': 'resources/templates/dashboard_project.csv',
+
+            // HTML cheat sheets
+            'shortcuts-pdf': 'resources/cheatsheets/keyboardshortcuts.html',
+            'formulas-pdf': 'resources/cheatsheets/formulareference.html',
+            'chart-guide-pdf': 'resources/cheatsheets/chartselection.html',
+            'functions-pdf': 'resources/cheatsheets/functionsbycategory.html'
         };
-        
+
         const filePath = resourceMap[resourceId];
-        
+        console.log('File path from resourceMap:', filePath);
+
         if (!filePath) {
+            console.error('No file path found for resource ID:', resourceId);
             reject(new Error('Resource coming soon'));
             return;
         }
-        
+
         try {
             // Check if the resource exists or is available
             const availableResources = [
                 'formulas-pdf',
                 'formulas-html',
-                'shortcuts-pdf', 
-                'shortcuts-html'
+                'shortcuts-pdf',
+                'shortcuts-html',
+                'chart-guide-html',
+                'functions-html',
+                'budget-template',
+                'commission-template',
+                'sales-analysis-template',
+                'dashboard-template'
             ];
-            
+
+            console.log('Checking if resource is available:', resourceId);
+            console.log('Available resources:', availableResources);
+
             if (!availableResources.includes(resourceId)) {
+                console.error('Resource not in available list:', resourceId);
                 reject(new Error('Resource coming soon'));
                 return;
             }
-            
+
+            console.log('Resource is available:', resourceId);
+
             // Special handling for PDF downloads from HTML files
-            if (resourceId === 'formulas-pdf' || resourceId === 'shortcuts-pdf') {
+            if (resourceId === 'formulas-pdf' || resourceId === 'shortcuts-pdf' || resourceId === 'chart-guide-pdf' || resourceId === 'functions-pdf') {
                 const htmlPath = resourceMap[resourceId];
-                
+
                 // Open the HTML file in a new window and trigger print dialog
                 const printWindow = window.open(htmlPath, '_blank');
                 if (!printWindow) {
@@ -165,19 +194,23 @@ function downloadResource(resourceId, resourceType) {
                     reject(new Error('Popup blocked'));
                     return;
                 }
-                
+
                 showNotification('Save as PDF when the print dialog appears');
-                
+
                 // Wait for the page to load then trigger print
                 printWindow.onload = function() {
                     setTimeout(() => {
                         // Try to set a good filename
                         if (resourceId === 'formulas-pdf') {
                             printWindow.document.title = 'Excel_Formula_Reference';
-                        } else {
+                        } else if (resourceId === 'shortcuts-pdf') {
                             printWindow.document.title = 'Excel_Keyboard_Shortcuts';
+                        } else if (resourceId === 'chart-guide-pdf') {
+                            printWindow.document.title = 'Excel_Chart_Selection_Guide';
+                        } else if (resourceId === 'functions-pdf') {
+                            printWindow.document.title = 'Excel_Functions_By_Category';
                         }
-                        
+
                         // Trigger print dialog
                         printWindow.print();
                         resolve();
@@ -185,11 +218,13 @@ function downloadResource(resourceId, resourceType) {
                 };
                 return;
             }
-            
+
             // For normal file downloads
+            console.log('Initiating normal file download for:', filePath);
             window.location.href = filePath;
+            console.log('Download initiated');
             resolve();
-            
+
         } catch (error) {
             console.error('Download error:', error);
             reject(error);
@@ -210,10 +245,10 @@ function generatePDFFromHTML(htmlPath, resourceId) {
             const iframe = document.createElement('iframe');
             iframe.style.display = 'none';
             document.body.appendChild(iframe);
-            
+
             // Set the source of the iframe
             iframe.src = htmlPath;
-            
+
             // Wait for the iframe to load
             iframe.onload = function() {
                 try {
@@ -226,7 +261,7 @@ function generatePDFFromHTML(htmlPath, resourceId) {
                     } else {
                         title = 'Excel_Cheatsheet';
                     }
-                    
+
                     // Use the print functionality to generate PDF
                     const printWindow = window.open(htmlPath, '_blank');
                     printWindow.onload = function() {
@@ -234,7 +269,7 @@ function generatePDFFromHTML(htmlPath, resourceId) {
                         setTimeout(() => {
                             // Set the document title for the PDF filename
                             printWindow.document.title = title;
-                            
+
                             // Add a script to the print window to trigger print dialog
                             const script = printWindow.document.createElement('script');
                             script.textContent = `
@@ -242,7 +277,7 @@ function generatePDFFromHTML(htmlPath, resourceId) {
                                 const style = document.createElement('style');
                                 style.textContent = '@media print { body { -webkit-print-color-adjust: exact; } }';
                                 document.head.appendChild(style);
-                                
+
                                 // Show print dialog after a short delay
                                 setTimeout(() => {
                                     window.print();
@@ -254,10 +289,10 @@ function generatePDFFromHTML(htmlPath, resourceId) {
                                 }, 500);
                             `;
                             printWindow.document.body.appendChild(script);
-                            
+
                             // Show notification to the user
                             showNotification('Save as PDF when the print dialog appears');
-                            
+
                             // Resolve the promise after a delay
                             setTimeout(resolve, 1000);
                         }, 1000);
@@ -271,13 +306,13 @@ function generatePDFFromHTML(htmlPath, resourceId) {
                     }, 2000);
                 }
             };
-            
+
             // Handle iframe load errors
             iframe.onerror = function() {
                 document.body.removeChild(iframe);
                 reject(new Error('Failed to load content'));
             };
-            
+
         } catch (error) {
             reject(error);
         }
@@ -304,7 +339,7 @@ function showNotification(message) {
     existingNotifications.forEach(notification => {
         document.body.removeChild(notification);
     });
-    
+
     // Create a new notification
     const notification = document.createElement('div');
     notification.className = 'download-notification';
@@ -317,7 +352,7 @@ function showNotification(message) {
         </div>
         <button class="notification-close">×</button>
     `;
-    
+
     // Add close button functionality
     const closeButton = notification.querySelector('.notification-close');
     if (closeButton) {
@@ -330,13 +365,13 @@ function showNotification(message) {
             }, 300);
         });
     }
-    
+
     document.body.appendChild(notification);
-    
+
     // Show notification with animation
     setTimeout(() => {
         notification.classList.add('show');
-        
+
         // Auto-hide after 5 seconds
         setTimeout(() => {
             if (notification.classList.contains('show')) {

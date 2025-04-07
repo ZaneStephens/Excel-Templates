@@ -1,0 +1,84 @@
+Date,Region,Product Category,Product,Sales Rep,Customer,Sales Amount,Units Sold,Profit,Target,Previous Year Sales
+1/1/2023,North,Electronics,Laptop,John Smith,ABC Corp,12500,5,3750,10000,9500
+1/2/2023,South,Office Supplies,Desk Chair,Sarah Johnson,XYZ Inc,4200,6,1260,5000,4800
+1/3/2023,East,Furniture,Desk,Michael Brown,123 Industries,8500,5,2550,7500,7200
+1/4/2023,West,Electronics,Smartphone,Emily Davis,Tech Solutions,9800,14,2940,8000,8500
+1/5/2023,North,Office Supplies,Paper,David Wilson,Office Plus,1200,40,360,1500,1100
+1/6/2023,South,Furniture,Bookcase,Jennifer Lee,Home Store,3600,4,1080,4000,3200
+1/7/2023,East,Electronics,Monitor,Robert Taylor,Data Corp,7500,10,2250,7000,6800
+1/8/2023,West,Office Supplies,Pens,Mary Anderson,School District,850,100,255,1000,920
+1/9/2023,North,Furniture,Filing Cabinet,James Thomas,Government Agency,5200,8,1560,5000,4800
+1/10/2023,South,Electronics,Printer,Patricia Jackson,Small Business,4500,6,1350,5000,4200
+1/11/2023,East,Office Supplies,Notebooks,Charles White,University,1800,60,540,2000,1600
+1/12/2023,West,Furniture,Conference Table,Elizabeth Harris,Corporate Office,12000,3,3600,10000,11000
+1/13/2023,North,Electronics,Tablet,Richard Clark,Retail Store,6500,13,1950,6000,5800
+1/14/2023,South,Office Supplies,Stapler,Susan Lewis,Law Firm,750,25,225,1000,800
+1/15/2023,East,Furniture,Office Chair,Joseph Walker,Medical Center,4800,12,1440,5000,4500
+1/16/2023,West,Electronics,Headphones,Nancy Allen,Music Studio,3200,16,960,3000,2800
+1/17/2023,North,Office Supplies,Binders,Thomas Young,School,1500,50,450,2000,1400
+1/18/2023,South,Furniture,Sofa,Margaret King,Hotel,7500,5,2250,7000,7000
+1/19/2023,East,Electronics,Camera,Daniel Wright,Photography Studio,5600,8,1680,5000,5200
+1/20/2023,West,Office Supplies,Desk Organizer,Lisa Scott,Startup,950,19,285,1200,900
+1/21/2023,North,Furniture,Lamp,Paul Green,Interior Design,1800,12,540,2000,1700
+1/22/2023,South,Electronics,Speaker,Betty Adams,Event Company,2400,8,720,2500,2200
+1/23/2023,East,Office Supplies,Calendar,Mark Baker,Accounting Firm,600,30,180,800,650
+1/24/2023,West,Furniture,Whiteboard,Dorothy Nelson,Training Center,3200,8,960,3000,2900
+1/25/2023,North,Electronics,Keyboard,George Hill,IT Company,1500,15,450,2000,1400
+1/26/2023,South,Office Supplies,Scissors,Ruth Phillips,Craft Store,400,40,120,500,450
+1/27/2023,East,Furniture,Storage Cabinet,Kenneth Campbell,Library,6200,6,1860,6000,5800
+1/28/2023,West,Electronics,Mouse,Deborah Mitchell,Gaming Center,900,30,270,1000,850
+1/29/2023,North,Office Supplies,Sticky Notes,Steven Roberts,Insurance Agency,350,70,105,500,400
+1/30/2023,South,Furniture,Standing Desk,Maria Turner,Health Clinic,8500,5,2550,8000,7800
+1/31/2023,East,Electronics,External Drive,Charles Carter,Data Center,4200,14,1260,4000,3900
+2/1/2023,West,Office Supplies,Folders,Helen Phillips,Legal Office,750,50,225,1000,800
+2/2/2023,North,Furniture,Meeting Table,Edward Evans,Conference Center,9500,5,2850,9000,8800
+2/3/2023,South,Electronics,Projector,Donna Collins,Education Department,7200,6,2160,7000,6800
+2/4/2023,East,Office Supplies,Tape Dispenser,Frank Morris,Shipping Company,450,30,135,600,500
+2/5/2023,West,Furniture,Reception Desk,Carol Murphy,Dental Office,11000,2,3300,10000,10500
+2/6/2023,North,Electronics,Scanner,Harry Rivera,Document Services,3800,5,1140,4000,3600
+2/7/2023,South,Office Supplies,Paper Clips,Michelle Cook,Administrative Office,200,100,60,300,250
+2/8/2023,East,Furniture,Cubicle,Anthony Rogers,Call Center,15000,10,4500,14000,14500
+2/9/2023,West,Electronics,Docking Station,Stephanie Reed,Tech Company,4500,9,1350,4000,4200
+2/10/2023,North,Office Supplies,Envelopes,Kevin Bailey,Mail Service,600,60,180,800,650
+2/11/2023,South,Furniture,Ergonomic Chair,Laura Bell,Medical Office,7500,15,2250,7000,7200
+2/12/2023,East,Electronics,Wireless Router,Brian Cooper,Internet Provider,2800,7,840,3000,2600
+2/13/2023,West,Office Supplies,Correction Fluid,Sharon Richardson,Print Shop,350,35,105,500,400
+2/14/2023,North,Furniture,Coat Rack,Donald Cox,Hotel Lobby,1200,6,360,1500,1100
+2/15/2023,South,Electronics,Security Camera,Kathleen Howard,Security Firm,5600,8,1680,5000,5200
+2/16/2023,East,Office Supplies,Rubber Bands,Ronald Ward,Post Office,150,50,45,200,180
+2/17/2023,West,Furniture,Coffee Table,Debra Torres,Waiting Room,2400,4,720,2500,2200
+2/18/2023,North,Electronics,Calculator,Jeffrey Peterson,Financial Services,1800,12,540,2000,1700
+2/19/2023,South,Office Supplies,Clipboard,Cynthia Gray,Inspection Service,550,22,165,700,600
+2/20/2023,East,Furniture,Bookshelf,Gary Ramirez,Bookstore,4200,7,1260,4000,3900
+2/21/2023,West,Electronics,Shredder,Teresa James,Legal Firm,3600,6,1080,3500,3400
+2/22/2023,North,Office Supplies,Highlighters,Raymond Watson,Research Lab,400,40,120,500,450
+2/23/2023,South,Furniture,Side Table,Julie Brooks,Hotel Room,1500,10,450,2000,1400
+2/24/2023,East,Electronics,Webcam,Samuel Kelly,Video Production,2200,11,660,2000,2000
+2/25/2023,West,Office Supplies,Markers,Judith Sanders,Art Studio,600,40,180,800,650
+2/26/2023,North,Furniture,TV Stand,Walter Price,Entertainment Center,3800,5,1140,3500,3600
+2/27/2023,South,Electronics,Bluetooth Speaker,Tina Bennett,Music Store,1800,9,540,2000,1700
+2/28/2023,East,Office Supplies,Desk Pad,Harold Wood,Executive Office,950,19,285,1000,900
+
+KPI Targets,,,,,,,,,
+Region,Q1 Sales Target,Q2 Sales Target,Q3 Sales Target,Q4 Sales Target,,,,
+North,150000,160000,155000,180000,,,,
+South,140000,145000,135000,165000,,,,
+East,155000,165000,160000,185000,,,,
+West,145000,150000,140000,170000,,,,
+
+Product Categories,,,,,,,,,
+Category,Profit Margin,Growth Target,,,,,,,
+Electronics,30%,15%,,,,,,,
+Office Supplies,30%,10%,,,,,,,
+Furniture,30%,12%,,,,,,,
+
+NOTES:
+This CSV file represents a simplified version of the dashboard project template.
+In a real Excel file, you would have multiple sheets with interactive dashboard elements.
+To use this data effectively:
+1. Import this CSV into Excel
+2. Create a dashboard with KPI cards charts and filters
+3. Add slicers for interactive filtering by region product category and date
+4. Create charts for sales trends product performance and regional comparison
+5. Add conditional formatting to highlight performance against targets
+6. Create calculated fields for metrics like growth rate and performance vs target

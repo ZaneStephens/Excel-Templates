@@ -1,0 +1,65 @@
+Month,Category,Subcategory,Budgeted Amount,Actual Amount,Difference
+January,Income,Salary,5000,5000,0
+January,Income,Side Income,500,600,100
+January,Income,Other,0,50,50
+January,Housing,Rent/Mortgage,1500,1500,0
+January,Housing,Utilities,200,220,-20
+January,Housing,Maintenance,100,0,100
+January,Transportation,Car Payment,300,300,0
+January,Transportation,Gas,150,140,10
+January,Transportation,Public Transit,50,45,5
+January,Transportation,Maintenance,75,0,75
+January,Food,Groceries,400,425,-25
+January,Food,Dining Out,200,250,-50
+January,Personal,Clothing,100,150,-50
+January,Personal,Entertainment,150,175,-25
+January,Personal,Subscriptions,50,50,0
+January,Health,Insurance,200,200,0
+January,Health,Medications,50,30,20
+January,Health,Gym,50,50,0
+January,Debt,Credit Cards,200,200,0
+January,Debt,Student Loans,300,300,0
+January,Debt,Other Loans,0,0,0
+January,Savings,Emergency Fund,300,300,0
+January,Savings,Retirement,400,400,0
+January,Savings,Other Goals,200,200,0
+January,Miscellaneous,Gifts,50,75,-25
+January,Miscellaneous,Donations,50,50,0
+January,Miscellaneous,Other,50,25,25
+February,Income,Salary,5000,5000,0
+February,Income,Side Income,500,700,200
+February,Income,Other,0,0,0
+February,Housing,Rent/Mortgage,1500,1500,0
+February,Housing,Utilities,200,210,-10
+February,Housing,Maintenance,100,150,-50
+February,Transportation,Car Payment,300,300,0
+February,Transportation,Gas,150,130,20
+February,Transportation,Public Transit,50,50,0
+February,Transportation,Maintenance,75,0,75
+February,Food,Groceries,400,390,10
+February,Food,Dining Out,200,225,-25
+February,Personal,Clothing,100,0,100
+February,Personal,Entertainment,150,180,-30
+February,Personal,Subscriptions,50,50,0
+February,Health,Insurance,200,200,0
+February,Health,Medications,50,50,0
+February,Health,Gym,50,50,0
+February,Debt,Credit Cards,200,200,0
+February,Debt,Student Loans,300,300,0
+February,Debt,Other Loans,0,0,0
+February,Savings,Emergency Fund,300,300,0
+February,Savings,Retirement,400,400,0
+February,Savings,Other Goals,200,200,0
+February,Miscellaneous,Gifts,50,100,-50
+February,Miscellaneous,Donations,50,50,0
+February,Miscellaneous,Other,50,40,10
+
+NOTES:
+This CSV file represents a simplified version of the monthly budget template.
+In a real Excel file you would have multiple sheets with formulas charts and formatting.
+To use this data effectively:
+1. Import this CSV into Excel
+2. Create a PivotTable to analyze spending by category
+3. Add charts to visualize budget vs. actual spending
+4. Use conditional formatting to highlight areas over budget
+5. Add formulas to calculate totals and percentages
